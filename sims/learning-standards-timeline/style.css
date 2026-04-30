@@ -1,0 +1,265 @@
+/* Learning Standards Timeline — vis-timeline styling */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: aliceblue;
+    color: #1a1a1a;
+}
+
+#container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 16px;
+}
+
+header h1 {
+    font-size: 20px;
+    color: #1a3a6c;
+    margin: 0 0 4px 0;
+}
+
+header .subtitle {
+    font-size: 13px;
+    color: #5a6f87;
+    margin: 0 0 10px 0;
+}
+
+/* Family filter buttons */
+#filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 10px 0;
+    align-items: center;
+}
+
+#filter-bar .label {
+    font-size: 12px;
+    color: #5a6f87;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.filter-btn {
+    border: 2px solid transparent;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    background: white;
+    color: #333;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+.filter-btn.active {
+    color: white;
+}
+
+.filter-btn[data-family="all"]      { border-color: #555; }
+.filter-btn[data-family="all"].active      { background: #555; }
+.filter-btn[data-family="ADL"]      { border-color: #4b3f9c; }
+.filter-btn[data-family="ADL"].active      { background: #4b3f9c; }
+.filter-btn[data-family="AICC"]     { border-color: #6a737d; }
+.filter-btn[data-family="AICC"].active     { background: #6a737d; }
+.filter-btn[data-family="IMS"]      { border-color: #1f8a8a; }
+.filter-btn[data-family="IMS"].active      { background: #1f8a8a; }
+.filter-btn[data-family="I2IDL"]    { border-color: #7a3fa3; }
+.filter-btn[data-family="I2IDL"].active    { background: #7a3fa3; }
+
+/* Navigation buttons */
+#nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.nav-btn {
+    background: white;
+    border: 1px solid #c8d0d8;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #333;
+}
+
+.nav-btn:hover {
+    background: #eef2f7;
+}
+
+/* Timeline container — padding gives edge events room */
+#timeline {
+    padding-left: 60px;
+    padding-right: 60px;
+    background: white;
+    border: 1px solid #d6dee6;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Override vis-timeline default clipping so edge events stay visible */
+.vis-timeline { overflow: visible !important; }
+.vis-panel.vis-center { overflow: visible !important; }
+.vis-item .vis-item-overflow { overflow: visible !important; }
+
+/* Ensure all item boxes fit their text */
+.vis-item .vis-item-content {
+    white-space: nowrap !important;
+    padding: 4px 8px !important;
+}
+.vis-item.vis-range { min-width: fit-content !important; }
+.vis-item.vis-box   { min-width: fit-content !important; }
+
+/* Family-colored timeline bubbles */
+.vis-item.family-ADL    { background: #4b3f9c; border-color: #322a73; color: white; }
+.vis-item.family-AICC   { background: #6a737d; border-color: #4a5258; color: white; }
+.vis-item.family-IMS    { background: #1f8a8a; border-color: #135e5e; color: white; }
+.vis-item.family-I2IDL  { background: #7a3fa3; border-color: #552c73; color: white; }
+
+.vis-item.family-ADL.vis-selected,
+.vis-item.family-AICC.vis-selected,
+.vis-item.family-IMS.vis-selected,
+.vis-item.family-I2IDL.vis-selected {
+    box-shadow: 0 0 0 3px #ffd54a;
+    z-index: 10;
+}
+
+/* Tooltips */
+.vis-tooltip {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 10px 14px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    max-width: 320px !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+    border: none !important;
+}
+
+.vis-tooltip div {
+    max-width: 300px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+/* Hint text */
+.hint {
+    font-size: 12px;
+    color: #6a737d;
+    margin: 6px 0 0 0;
+    font-style: italic;
+}
+
+/* Infobox panel */
+#infobox {
+    margin-top: 10px;
+    background: white;
+    border: 1px solid #d6dee6;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 60px;
+    position: relative;
+}
+
+#infobox.empty {
+    color: #6a737d;
+    font-style: italic;
+}
+
+#infobox h2 {
+    font-size: 16px;
+    color: #1a3a6c;
+    margin: 0 0 4px 0;
+    padding-right: 28px;
+}
+
+#infobox .meta-row {
+    font-size: 12px;
+    color: #5a6f87;
+    margin-bottom: 8px;
+}
+
+#infobox .meta-row .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    font-size: 11px;
+    margin-right: 6px;
+}
+
+#infobox .pill.family-ADL    { background: #4b3f9c; }
+#infobox .pill.family-AICC   { background: #6a737d; }
+#infobox .pill.family-IMS    { background: #1f8a8a; }
+#infobox .pill.family-I2IDL  { background: #7a3fa3; }
+
+#infobox .succession {
+    background: #f4f7fb;
+    border-left: 3px solid #4b3f9c;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 12px;
+}
+
+#infobox .succession span { font-weight: 600; color: #4b3f9c; }
+
+#infobox .description {
+    margin: 8px 0;
+    color: #1a1a1a;
+}
+
+#infobox a.spec-link {
+    color: #1f6feb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#infobox a.spec-link:hover { text-decoration: underline; }
+
+#infobox .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    border: 1px solid #d6dee6;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #5a6f87;
+    font-size: 16px;
+    padding: 0;
+}
+
+#infobox .close-btn:hover {
+    background: #f4f7fb;
+    color: #1a3a6c;
+}
+
+@media (max-width: 700px) {
+    header h1 { font-size: 16px; }
+    .filter-btn { padding: 4px 9px; font-size: 11px; }
+    #timeline { padding-left: 24px; padding-right: 24px; }
+}

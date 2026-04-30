@@ -18,11 +18,8 @@
         <link rel="next" href="../05-activities-agents-identity/">
       
       
-        
-      
-      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
@@ -30,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -62,20 +59,34 @@
 
     
     
-  
-<meta property="og:type" content="website">
-<meta property="og:title" content="Verb Vocabulary Design and the ADL Verb Registry - xAPI for Intelligent Textbooks">
-<meta property="og:description" content="A working tour of xAPI verb IRIs — what makes a verb canonical, how the ADL and tincan registries work, when to design a custom verb profile, and how to use the canonical interactive-textbook verbs without painting yourself into an analytics corner.">
-<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/04-verb-vocabulary-design/index.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/04-verb-vocabulary-design/">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Verb Vocabulary Design and the ADL Verb Registry - xAPI for Intelligent Textbooks">
-<meta property="twitter:description" content="A working tour of xAPI verb IRIs — what makes a verb canonical, how the ADL and tincan registries work, when to design a custom verb profile, and how to use the canonical interactive-textbook verbs without painting yourself into an analytics corner.">
-<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/04-verb-vocabulary-design/index.png">
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Verb Vocabulary Design and the ADL Verb Registry - xAPI for Intelligent Textbooks">
+      
+        <meta property="og:description" content="A working tour of xAPI verb IRIs — what makes a verb canonical, how the ADL and tincan registries work, when to design a custom verb profile, and how to use the canonical interactive-textbook verbs without painting yourself into an analytics corner.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/04-verb-vocabulary-design/index.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/04-verb-vocabulary-design/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Verb Vocabulary Design and the ADL Verb Registry - xAPI for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="A working tour of xAPI verb IRIs — what makes a verb canonical, how the ADL and tincan registries work, when to design a custom verb profile, and how to use the canonical interactive-textbook verbs without painting yourself into an analytics corner.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/04-verb-vocabulary-design/index.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -201,7 +212,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -246,7 +257,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -268,14 +279,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Home
-  
-
     
   </span>
-  
   
 
       </a>
@@ -295,14 +301,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     About
-  
-
     
   </span>
-  
   
 
       </a>
@@ -322,14 +323,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Course Description
-  
-
     
   </span>
-  
   
 
       </a>
@@ -399,14 +395,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Chapters
-  
-
     
   </span>
-  
   
 
             </a>
@@ -421,11 +412,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Chapters
-  
-
+            Chapters
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -443,14 +430,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     1. Foundations and Standards
-  
-
     
   </span>
-  
   
 
       </a>
@@ -471,14 +453,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     2. Statement Model
-  
-
     
   </span>
-  
   
 
       </a>
@@ -499,14 +476,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     3. Advanced Statement Structure
-  
-
     
   </span>
-  
   
 
       </a>
@@ -536,14 +508,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     4. Verb Vocabulary Design
-  
-
     
   </span>
-  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -554,14 +521,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     4. Verb Vocabulary Design
-  
-
     
   </span>
-  
   
 
       </a>
@@ -584,9 +546,7 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Summary
-      
+      Summary
     </span>
   </a>
   
@@ -595,9 +555,7 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Concepts Covered
-      
+      Concepts Covered
     </span>
   </a>
   
@@ -606,9 +564,7 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Prerequisites
-      
+      Prerequisites
     </span>
   </a>
   
@@ -617,9 +573,7 @@
         <li class="md-nav__item">
   <a href="#your-new-superpower" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Your New Superpower
-      
+      Your New Superpower
     </span>
   </a>
   
@@ -628,9 +582,7 @@
         <li class="md-nav__item">
   <a href="#a-verb-is-an-iri" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        A Verb Is an IRI
-      
+      A Verb Is an IRI
     </span>
   </a>
   
@@ -640,9 +592,7 @@
           <li class="md-nav__item">
   <a href="#diagram-verb-iri-anatomy" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Verb IRI Anatomy
-      
+      Diagram: Verb IRI Anatomy
     </span>
   </a>
   
@@ -656,9 +606,7 @@
         <li class="md-nav__item">
   <a href="#the-adl-verb-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The ADL Verb Registry
-      
+      The ADL Verb Registry
     </span>
   </a>
   
@@ -667,9 +615,7 @@
         <li class="md-nav__item">
   <a href="#the-tincan-verb-vocabulary" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The Tincan Verb Vocabulary
-      
+      The Tincan Verb Vocabulary
     </span>
   </a>
   
@@ -678,9 +624,7 @@
         <li class="md-nav__item">
   <a href="#a-tour-of-the-twelve" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        A Tour of the Twelve
-      
+      A Tour of the Twelve
     </span>
   </a>
   
@@ -690,9 +634,7 @@
           <li class="md-nav__item">
   <a href="#diagram-canonical-verb-explorer" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Canonical Verb Explorer
-      
+      Diagram: Canonical Verb Explorer
     </span>
   </a>
   
@@ -706,9 +648,7 @@
         <li class="md-nav__item">
   <a href="#when-to-design-a-custom-verb" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        When to Design a Custom Verb
-      
+      When to Design a Custom Verb
     </span>
   </a>
   
@@ -717,9 +657,7 @@
         <li class="md-nav__item">
   <a href="#custom-verb-profiles-doing-it-right" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Custom Verb Profiles — Doing It Right
-      
+      Custom Verb Profiles — Doing It Right
     </span>
   </a>
   
@@ -728,9 +666,7 @@
         <li class="md-nav__item">
   <a href="#verb-vocabulary-design-putting-it-together" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Verb Vocabulary Design — Putting It Together
-      
+      Verb Vocabulary Design — Putting It Together
     </span>
   </a>
   
@@ -740,9 +676,7 @@
           <li class="md-nav__item">
   <a href="#diagram-verb-selection-decision-tree" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Verb Selection Decision Tree
-      
+      Diagram: Verb Selection Decision Tree
     </span>
   </a>
   
@@ -756,9 +690,7 @@
         <li class="md-nav__item">
   <a href="#interactive-component-instrumentation" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Interactive Component Instrumentation
-      
+      Interactive Component Instrumentation
     </span>
   </a>
   
@@ -768,9 +700,7 @@
           <li class="md-nav__item">
   <a href="#diagram-component-instrumentation-microsim" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Component Instrumentation MicroSim
-      
+      Diagram: Component Instrumentation MicroSim
     </span>
   </a>
   
@@ -784,9 +714,7 @@
         <li class="md-nav__item">
   <a href="#what-you-just-leveled-up" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        What You Just Leveled Up
-      
+      What You Just Leveled Up
     </span>
   </a>
   
@@ -813,14 +741,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     5. Activities, Agents, Identity
-  
-
     
   </span>
-  
   
 
       </a>
@@ -841,14 +764,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     6. LRS Architecture
-  
-
     
   </span>
-  
   
 
       </a>
@@ -869,14 +787,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     7. LRS Platforms and Auth
-  
-
     
   </span>
-  
   
 
       </a>
@@ -897,14 +810,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     8. Implementing in Textbooks
-  
-
     
   </span>
-  
   
 
       </a>
@@ -925,14 +833,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     9. Bandwidth and Offline
-  
-
     
   </span>
-  
   
 
       </a>
@@ -953,14 +856,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     10. Monitoring and Observability
-  
-
     
   </span>
-  
   
 
       </a>
@@ -981,14 +879,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     11. Synthetic Data and AI Testing
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1009,14 +902,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     12. Conformance and Comparison
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1037,14 +925,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     13. Pipeline and Production
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1065,14 +948,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     14. Privacy and Compliance
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1133,14 +1011,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Learning Graph
-  
-
     
   </span>
-  
   
 
       
@@ -1283,14 +1156,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     MicroSims
-  
-
     
   </span>
-  
   
 
       
@@ -1316,14 +1184,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Glossary
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1343,14 +1206,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     References
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1370,14 +1228,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     License
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1397,14 +1250,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Contact
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1441,9 +1289,7 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Summary
-      
+      Summary
     </span>
   </a>
   
@@ -1452,9 +1298,7 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Concepts Covered
-      
+      Concepts Covered
     </span>
   </a>
   
@@ -1463,9 +1307,7 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Prerequisites
-      
+      Prerequisites
     </span>
   </a>
   
@@ -1474,9 +1316,7 @@
         <li class="md-nav__item">
   <a href="#your-new-superpower" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Your New Superpower
-      
+      Your New Superpower
     </span>
   </a>
   
@@ -1485,9 +1325,7 @@
         <li class="md-nav__item">
   <a href="#a-verb-is-an-iri" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        A Verb Is an IRI
-      
+      A Verb Is an IRI
     </span>
   </a>
   
@@ -1497,9 +1335,7 @@
           <li class="md-nav__item">
   <a href="#diagram-verb-iri-anatomy" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Verb IRI Anatomy
-      
+      Diagram: Verb IRI Anatomy
     </span>
   </a>
   
@@ -1513,9 +1349,7 @@
         <li class="md-nav__item">
   <a href="#the-adl-verb-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The ADL Verb Registry
-      
+      The ADL Verb Registry
     </span>
   </a>
   
@@ -1524,9 +1358,7 @@
         <li class="md-nav__item">
   <a href="#the-tincan-verb-vocabulary" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The Tincan Verb Vocabulary
-      
+      The Tincan Verb Vocabulary
     </span>
   </a>
   
@@ -1535,9 +1367,7 @@
         <li class="md-nav__item">
   <a href="#a-tour-of-the-twelve" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        A Tour of the Twelve
-      
+      A Tour of the Twelve
     </span>
   </a>
   
@@ -1547,9 +1377,7 @@
           <li class="md-nav__item">
   <a href="#diagram-canonical-verb-explorer" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Canonical Verb Explorer
-      
+      Diagram: Canonical Verb Explorer
     </span>
   </a>
   
@@ -1563,9 +1391,7 @@
         <li class="md-nav__item">
   <a href="#when-to-design-a-custom-verb" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        When to Design a Custom Verb
-      
+      When to Design a Custom Verb
     </span>
   </a>
   
@@ -1574,9 +1400,7 @@
         <li class="md-nav__item">
   <a href="#custom-verb-profiles-doing-it-right" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Custom Verb Profiles — Doing It Right
-      
+      Custom Verb Profiles — Doing It Right
     </span>
   </a>
   
@@ -1585,9 +1409,7 @@
         <li class="md-nav__item">
   <a href="#verb-vocabulary-design-putting-it-together" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Verb Vocabulary Design — Putting It Together
-      
+      Verb Vocabulary Design — Putting It Together
     </span>
   </a>
   
@@ -1597,9 +1419,7 @@
           <li class="md-nav__item">
   <a href="#diagram-verb-selection-decision-tree" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Verb Selection Decision Tree
-      
+      Diagram: Verb Selection Decision Tree
     </span>
   </a>
   
@@ -1613,9 +1433,7 @@
         <li class="md-nav__item">
   <a href="#interactive-component-instrumentation" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Interactive Component Instrumentation
-      
+      Interactive Component Instrumentation
     </span>
   </a>
   
@@ -1625,9 +1443,7 @@
           <li class="md-nav__item">
   <a href="#diagram-component-instrumentation-microsim" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Diagram: Component Instrumentation MicroSim
-      
+      Diagram: Component Instrumentation MicroSim
     </span>
   </a>
   
@@ -1641,9 +1457,7 @@
         <li class="md-nav__item">
   <a href="#what-you-just-leveled-up" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        What You Just Leveled Up
-      
+      What You Just Leveled Up
     </span>
   </a>
   
@@ -1659,62 +1473,13 @@
           
           
             <div class="md-content" data-md-component="content">
-              
-                
-
-
-
-  
-
-
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="../.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    Home
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Chapters
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
-              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/04-verb-vocabulary-design/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/04-verb-vocabulary-design/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -2215,11 +1980,10 @@ Verbs are how learning shows up in your data. The team that picks them carefully
     
     
       
-      
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
