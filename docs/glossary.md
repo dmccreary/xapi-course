@@ -546,6 +546,18 @@ A structured estimate of the total effort required to instrument learning conten
 
 **Example:** An implementation cost analysis might estimate 2 hours for vocabulary design, 8 hours per MicroSim for instrumentation, 4 hours for LRS configuration, and 2 hours/month for ongoing monitoring—enabling an informed build-vs-buy decision.
 
+#### I2IDL
+
+The Institute for Infrastructure and Interoperable Data in Learning, an independent, non-governmental, non-profit organization founded in December 2025 (Savage, Maryland) to maintain the open-source code, conformance test suites, profile server, and Total Learning Architecture reference implementations underlying xAPI and related learning-data standards after stewardship of these assets transitioned away from the U.S. Department of Defense's ADL Initiative.
+
+I2IDL is explicitly *not* a standards body; the IEEE Learning Technology Standards Committee continues to own the ratified standards. I2IDL announced its inaugural Technical Steering Committee on January 30, 2026, with 25+ representatives from ADL, Rustici Software, the CERT Division at the Software Engineering Institute, the University of Florida, and other industry, academic, and government voices. Implementers should expect repository URLs and conformance-suite hosting for xAPI-related open-source assets to migrate from `adlnet.gov` and `github.com/adlnet/` toward I2IDL infrastructure over time.
+
+#### IEEE LTSC
+
+The IEEE Learning Technology Standards Committee, the working group within the IEEE Computer Society that develops and ratifies global learning-technology data standards, including IEEE Std 9274.1.1-2023 (the formally ratified version of xAPI).
+
+IEEE LTSC has been developing standards supporting the Total Learning Architecture vision since 2017, in coordination with ADL and now I2IDL. The committee owns the published specifications themselves; companion organizations such as I2IDL maintain the open-source reference implementations, conformance suites, and profile registries that turn those specifications into runnable infrastructure. When citing xAPI in procurement frameworks or curriculum standards that require an IEEE reference, cite IEEE Std 9274.1.1-2023 rather than the older ADL-published 1.0.3 specification.
+
 #### IMS Caliper
 
 An IMS Global learning analytics specification (v1.0 2015, v1.2 2022) that defines a sensor API and metric profiles for emitting structured learning events from edtech tools to an event store, competing with xAPI in the higher education analytics market.
@@ -1393,6 +1405,14 @@ These community-contributed verbs fill gaps left by the core ADL registry; devel
 An authentication mechanism for xAPI LRS access in which the Activity Provider presents a bearer token or JWT in the Authorization header, issued by an identity provider, rather than static username/password credentials.
 
 Token-based auth enables short-lived credentials with automatic expiry, reducing the risk of credential theft; tokens can encode the AP's allowed scopes (read/write), enabling fine-grained access control without LRS-side credential management.
+
+#### Total Learning Architecture (TLA)
+
+A U.S. federal reference architecture for cross-system, lifelong learner data developed by the Advanced Distributed Learning Initiative, in which xAPI is the wire format for learning experience records, an LRS is the storage layer, and companion specifications cover learner profiles, competencies, and credentialing—designed so that data about a learner's training, education, and on-the-job experience can flow across organizational boundaries throughout a career.
+
+TLA defines an ecosystem rather than a single standard: xAPI for experience tracking, the xAPI Profile Server for vocabulary governance, Shareable Competency Definitions for skills, Enterprise Learner Records for credential portability, and Learning Metadata for content description. Open-source stewardship of TLA reference implementations transitioned from ADL to I2IDL in December 2025, while the underlying standards remain with the IEEE LTSC.
+
+**Example:** A service member completes a corpsman course (xAPI statements to an LRS), earns a competency badge (Shareable Competency Definition), transfers to a civilian EMT program where prior competencies are recognized (Enterprise Learner Record), and the entire career history follows the learner across systems—all under the TLA umbrella.
 
 #### TRAX LRS
 
