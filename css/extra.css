@@ -1,16 +1,55 @@
-/* Project custom CSS — override Material theme defaults here. */
-
-/* Cover image on the home page */
-.cover-image {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    margin: 1rem auto 2rem;
-    display: block;
+.md-header__button.md-logo {
+    margin: 0;
+    padding: 0;
+}
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    height: 55px;
+    width: 55px;
+     /* background-color: #ffffff; */
+    background-color: #aaaaaa;
+    border-radius: 50%;
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-/* Iframe embeds for MicroSims should not show a border by default */
-iframe {
-    border: 0;
+/* Container to control the iframe size and scaling */
+.iframe-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Iframe styles */
+  iframe {
+    width: 100%;
+    border: solid 2px blue;
+  }
+
+  /* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
+  /* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
+  .upper-alpha ol {
+    list-style-type: upper-alpha;
+  }
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+  position: relative;
+}
+
+.admonition.prompt .copy-button {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: #0056d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.admonition.prompt .copy-button:hover {
+  background-color: #0041a4; /* Darker blue on hover */
 }
