@@ -1,0 +1,1764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduces xAPI's history, the SCORM/AICC/CMI5/IMS family of standards, and how xAPI fits into the broader learning ecosystem.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/xapi-course/chapters/01-foundations-and-standards/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-statement-model/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Foundations of xAPI and the Learning Standards Landscape - xAPI for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#foundations-of-xapi-and-the-learning-standards-landscape" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="xAPI for Intelligent Textbooks" class="md-header__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xAPI for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Foundations of xAPI and the Learning Standards Landscape
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="xAPI for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    xAPI for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Foundations and Standards
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations and Standards
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your New Superpower
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-xapi-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      What xAPI Actually Is
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What xAPI Actually Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-xapi-statement-triple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The xAPI Statement Triple
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-tour-of-the-tin-can-backstory" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Quick Tour of the Tin Can Backstory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Quick Tour of the Tin Can Backstory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-a-timeline-of-learning-interoperability-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: A Timeline of Learning Interoperability Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-scorm-family-how-we-got-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SCORM Family: How We Got Here
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The SCORM Family: How We Got Here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aicc-the-quiet-granddaddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      AICC: The Quiet Granddaddy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-12-the-one-everyone-actually-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM 1.2: The One Everyone Actually Used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-2004-powerful-and-unloved" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM 2004: Powerful and Unloved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmi5-a-bridge-between-old-and-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMI5: A Bridge Between Old and New
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ims-family-caliper-lti-and-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IMS Family: Caliper, LTI, and QTI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The IMS Family: Caliper, LTI, and QTI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ims-caliper-the-other-analytics-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS Caliper: The Other Analytics Standard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ims-lti-the-launch-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS LTI: The Launch Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ims-qti-the-assessment-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS QTI: The Assessment Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IMS QTI: The Assessment Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-learning-standards-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Learning Standards Ecosystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-learning-standards-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Learning Standards Ecosystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-just-became-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Just Became Possible
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-statement-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Statement Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-advanced-statement-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Advanced Statement Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-verb-vocabulary-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Verb Vocabulary Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-activities-agents-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Activities, Agents, Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-lrs-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. LRS Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. LRS Platforms and Auth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-implementing-in-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Implementing in Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-bandwidth-and-offline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Bandwidth and Offline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-monitoring-and-observability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Monitoring and Observability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Synthetic Data and AI Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-conformance-and-comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Conformance and Comparison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-pipeline-and-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Pipeline and Production
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-privacy-and-compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Privacy and Compliance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your New Superpower
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-xapi-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      What xAPI Actually Is
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What xAPI Actually Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-xapi-statement-triple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The xAPI Statement Triple
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-tour-of-the-tin-can-backstory" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Quick Tour of the Tin Can Backstory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Quick Tour of the Tin Can Backstory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-a-timeline-of-learning-interoperability-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: A Timeline of Learning Interoperability Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-scorm-family-how-we-got-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SCORM Family: How We Got Here
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The SCORM Family: How We Got Here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aicc-the-quiet-granddaddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      AICC: The Quiet Granddaddy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-12-the-one-everyone-actually-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM 1.2: The One Everyone Actually Used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-2004-powerful-and-unloved" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM 2004: Powerful and Unloved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmi5-a-bridge-between-old-and-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMI5: A Bridge Between Old and New
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ims-family-caliper-lti-and-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IMS Family: Caliper, LTI, and QTI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The IMS Family: Caliper, LTI, and QTI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ims-caliper-the-other-analytics-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS Caliper: The Other Analytics Standard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ims-lti-the-launch-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS LTI: The Launch Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ims-qti-the-assessment-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMS QTI: The Assessment Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IMS QTI: The Assessment Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-learning-standards-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Learning Standards Ecosystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-learning-standards-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Learning Standards Ecosystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-just-became-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Just Became Possible
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/01-foundations-and-standards/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="foundations-of-xapi-and-the-learning-standards-landscape">Foundations of xAPI and the Learning Standards Landscape<a class="headerlink" href="#foundations-of-xapi-and-the-learning-standards-landscape" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Introduces xAPI's history, the SCORM/AICC/CMI5/IMS family of standards, and how xAPI fits into the broader learning ecosystem. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<p>This chapter covers the following 10 concepts from the learning graph:</p>
+<ol>
+<li>xAPI Standard Overview</li>
+<li>Tin Can API History</li>
+<li>SCORM 1.2</li>
+<li>SCORM 2004</li>
+<li>AICC Standard</li>
+<li>CMI5 Profile</li>
+<li>IMS Caliper</li>
+<li>IMS LTI</li>
+<li>IMS QTI</li>
+<li>Learning Standards Ecosystem</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Hi! I'm Xavi.</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus waving hello">
+Welcome to <em>xAPI for Intelligent Textbooks</em>! I'm <strong>Xavi</strong>, a curious octopus with eight tentacles, a small pair of round glasses, and an unshakable belief that <strong>every interaction tells a story</strong>. I'll be popping into the margins all the way through this book, but I do not show up randomly. I have exactly <strong>six jobs</strong>, and you'll learn to recognize me by which one I'm doing:</p>
+<ol>
+<li><strong>Welcome you</strong> at the start of every chapter — that's what I'm doing right now.</li>
+<li><strong>Help you think things through</strong> when an idea is the kind that rewards a moment of pause.</li>
+<li><strong>Give you tips</strong> — the moves a working xAPI engineer would make that nobody writes down.</li>
+<li><strong>Warn you gently</strong> about the places where smart students and smart projects get into trouble.</li>
+<li><strong>Encourage you</strong> when a concept looks scary on first contact.</li>
+<li><strong>Celebrate with you</strong> at the end of each chapter when you've earned it.</li>
+</ol>
+<p>That's it. If I'm not doing one of those six things, I'm not in the chapter. Let's send our first statement together!</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>Most software watches what users <em>click</em>. xAPI watches what they <strong>learn</strong>. By the end of this book, you'll be able to instrument any digital experience — a quiz, a simulation, an interactive infographic, an embedded video, an AI tutor session — so that every meaningful interaction becomes a structured, queryable record. That capability is the difference between a textbook that <em>displays</em> content and a textbook that <em>understands</em> its readers.</p>
+<p>This first chapter is about orientation. Before we write a single line of statement-building code, we need a map of the territory: where xAPI came from, what it competes with, what it cooperates with, and why a <em>Level 3 interactive intelligent textbook</em> — the kind that adapts, simulates, and tutors — is the ideal home for it. By the time you finish this chapter, when someone says "we use SCORM 2004 with a CMI5 profile that emits xAPI statements to a hosted LRS, and our LMS launches it via LTI," you'll know exactly what they mean. (And, more importantly, whether they're using all those acronyms correctly.)</p>
+<h2 id="what-xapi-actually-is">What xAPI Actually Is<a class="headerlink" href="#what-xapi-actually-is" title="Permanent link">&para;</a></h2>
+<p>The <strong>Experience API</strong>, or <strong>xAPI</strong>, is an open specification — published originally by the U.S. Advanced Distributed Learning (ADL) Initiative — for recording and exchanging records of learning experiences across systems. At its center is one beautifully small idea: any learning experience can be expressed as a sentence with three parts.</p>
+<p>Before we look at the diagram below, let's name those three parts so they don't appear out of nowhere:</p>
+<ul>
+<li><strong>Actor</strong> — <em>who</em> did the thing. A learner, a group, an automated agent. Identified by an email, an account in some system, or another stable identifier.</li>
+<li><strong>Verb</strong> — <em>what</em> they did. A standardized action like <code>experienced</code>, <code>attempted</code>, <code>passed</code>, or <code>completed</code>. Verbs come from shared vocabularies so that two systems can agree on what <code>passed</code> means.</li>
+<li><strong>Object</strong> — <em>what</em> they did it to. An activity, another person, a piece of content, anything that can be named with a unique identifier (an IRI, which is just a URL-shaped string).</li>
+</ul>
+<p>A single record built from these three parts is called a <strong>statement</strong>. A statement can also carry optional pieces — a <code>result</code> (score, success, completion), a <code>context</code> (which course, which group, which platform), a <code>timestamp</code>, an <code>authority</code> (who vouches for the record), and so on — but the Actor-Verb-Object triple is the irreducible core. Everything else is decoration.</p>
+<h4 id="diagram-the-xapi-statement-triple">Diagram: The xAPI Statement Triple<a class="headerlink" href="#diagram-the-xapi-statement-triple" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/xapi-statement-triple/main.html" width="100%" height="512px" scrolling="no"></iframe>
+<p><a href="../../sims/xapi-statement-triple/main.html">Run The xAPI Statement Triple Fullscreen</a></p>
+<details>
+<summary>The Actor / Verb / Object structure of an xAPI statement</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> xapi-statement-triple<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>A horizontally-oriented Mermaid flowchart that shows the three required parts of an xAPI statement as labeled boxes connected by arrows, with optional fields shown as a secondary cluster underneath.</p>
+<p>Layout: three primary nodes laid out left-to-right — <code>Actor</code> (indigo fill, white text), <code>Verb</code> (teal fill, white text), <code>Object</code> (orange fill, white text). A subtitle under each node shows the question it answers: "Who?", "Did what?", "To what?". A second row of lighter-fill nodes labeled <code>Result</code>, <code>Context</code>, <code>Timestamp</code>, <code>Authority</code> connects upward into the main row with dashed lines, captioned "Optional but powerful."</p>
+<p>Sample statement rendered in a panel on the right:
+- Actor: <code>mailto:lin@example.edu</code>
+- Verb: <code>http://adlnet.gov/expapi/verbs/passed</code>
+- Object: <code>http://textbook.example.org/chapters/quadratics</code>
+- Result: <code>{ "success": true, "score": { "scaled": 0.92 } }</code></p>
+<p>Learning objective (Bloom — Understand): Given an English description of a learning event, the reader can identify which English noun corresponds to the Actor, which verb corresponds to the Verb, and which target corresponds to the Object.</p>
+<p>Required interactivity:
+- Every node MUST have a Mermaid <code>click</code> directive: <code>click &lt;nodeId&gt; call showStatementPart("&lt;part-name&gt;")</code>. This includes the three required nodes (<code>Actor</code>, <code>Verb</code>, <code>Object</code>) and every optional-field node (<code>Result</code>, <code>Context</code>, <code>Timestamp</code>, <code>Authority</code>).
+- Clicking a node MUST open a side-panel infobox containing: part name, whether it is required or optional, the question it answers in plain English, the data type, an example value pulled from the sample statement, and a one-paragraph definition aligned with the chapter glossary.
+- Hovering a node MUST show a one-line tooltip with the part's plain-English role ("Actor — who did the thing").
+- Clicking the connecting arrows MUST reveal an infobox describing the relationship ("the Actor performed the Verb on the Object").
+- Opening any infobox MUST emit an xAPI <code>interacted</code> statement to the chapter's LRS, so the textbook itself demonstrates the standard it is teaching.</p>
+<p>Sample infobox content (for <code>Verb</code>):
+"<strong>Verb</strong> — Required. Identifies the action the actor performed. Always carries an IRI (a URL-shaped identifier) so two systems can agree on what the verb means. Optional <code>display</code> map provides human-readable labels in one or more languages. Example: <code>http://adlnet.gov/expapi/verbs/passed</code>."</p>
+<p>Implementation: Mermaid <code>flowchart LR</code> with classDefs for the three primary node colors plus a dashed sub-cluster for optional fields. <code>click</code> directives wired to a JavaScript <code>showStatementPart(name)</code> function that reads from a JSON dictionary of part definitions and renders the infobox. Responsive width via <code>&lt;div style="width:100%"&gt;</code> wrapper. Mascot color palette consistent with project CSS variables.</p>
+</details>
+<p>That triple — Actor, Verb, Object — is the entire conceptual foundation of xAPI. Every other capability in the specification (statement queries, agent profiles, document state, voiding, signed statements) is plumbing built around shipping these triples to a server that knows how to store and search them. That server is called a <strong>Learning Record Store (LRS)</strong>, and we'll meet it formally in Chapter 6. For now, picture it as a database with opinions.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why this model is so quietly powerful</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi thinking">
+A statement is a <em>sentence</em>, not a row. That single design choice is what lets xAPI describe formal courseware, informal mentoring, simulations, AI-tutor turns, and physical-world activities (yes, even "Lin completed a CPR drill") in the same ledger. When the data model matches the way humans actually talk about learning, the analytics that follow get a lot more honest.</p>
+</div>
+<h2 id="a-quick-tour-of-the-tin-can-backstory">A Quick Tour of the Tin Can Backstory<a class="headerlink" href="#a-quick-tour-of-the-tin-can-backstory" title="Permanent link">&para;</a></h2>
+<p>The phrase you'll hear from older practitioners is <strong>Tin Can API</strong>. That's the same thing as xAPI. Here's the short version of how the name happened.</p>
+<p>In 2010, ADL — the same group inside the U.S. Department of Defense that originally shepherded SCORM — funded a research project at Rustici Software to ask, essentially, "What would the <em>successor</em> to SCORM look like?" The team interviewed dozens of practitioners and ran a public design process under the working name <strong>Project Tin Can</strong>, an affectionate nod to the children's "tin can telephone" metaphor: two tin cans connected by a string, sending messages back and forth. The point was that learning data ought to flow as easily between systems as a kid's voice flows down a string.</p>
+<p>The first stable release shipped in April 2013 as <strong>xAPI 1.0</strong>, and the project was renamed to the <strong>Experience API</strong> for the formal specification. The "Tin Can API" name stuck around as the friendly, community-facing label — for years the tincanapi.com site was the most popular reference — so when a vendor's marketing copy says "Tin Can compatible," they mean xAPI compatible. The ADL has since shepherded the specification toward IEEE standardization (IEEE Std 9274.1.1), but the day-to-day name in textbooks, conferences, and product documentation is still xAPI.</p>
+<h4 id="diagram-a-timeline-of-learning-interoperability-standards">Diagram: A Timeline of Learning Interoperability Standards<a class="headerlink" href="#diagram-a-timeline-of-learning-interoperability-standards" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/learning-standards-timeline/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/learning-standards-timeline/main.html">Run A Timeline of Learning Interoperability Standards Fullscreen</a></p>
+<details>
+<summary>The major learning standards from 1988 to 2024, on a single horizontal timeline</summary>
+<p>Type: timeline
+<strong>sim-id:</strong> learning-standards-timeline<br/>
+<strong>Library:</strong> vis-timeline<br/>
+<strong>Status:</strong> Specified</p>
+<p>A horizontally scrollable vis-timeline showing the major milestones in computer-based-training and learning-data interoperability. Each event is a labeled bubble with a hover tooltip (consistent with the glossary, when available) and a link to the official spec.</p>
+<p>Events (year, label, short description used in tooltip):</p>
+<ul>
+<li>1988 — <strong>AICC founded</strong> — Aviation Industry CBT Committee forms; first cross-vendor CBT interoperability work.</li>
+<li>1998 — <strong>AICC HACP</strong> — HTTP-AICC Communication Protocol; the first widely deployed "course-to-LMS" wire protocol.</li>
+<li>2000 — <strong>SCORM 1.0</strong> — ADL releases the first version of the Sharable Content Object Reference Model.</li>
+<li>2001 — <strong>SCORM 1.2</strong> — The release that actually saw mass adoption.</li>
+<li>2004 — <strong>SCORM 2004</strong> — Adds sequencing/navigation; the most capable SCORM version.</li>
+<li>2010 — <strong>IMS LTI 1.0</strong> — Learning Tools Interoperability launches; LMS-to-tool launch + roster.</li>
+<li>2012 — <strong>Project Tin Can</strong> — Rustici/ADL design phase for the SCORM successor.</li>
+<li>2013 — <strong>xAPI 1.0</strong> — Experience API published.</li>
+<li>2014 — <strong>IMS Caliper 1.0</strong> — IMS Global publishes a competing learning-analytics standard.</li>
+<li>2016 — <strong>CMI5 1.0</strong> — A profile that uses xAPI as the wire format inside an LMS launch flow.</li>
+<li>2019 — <strong>LTI Advantage</strong> — IMS LTI 1.3 + extensions (Names &amp; Roles, Assignments &amp; Grades, Deep Linking).</li>
+<li>2024 — <strong>IEEE 9274.1.1</strong> — xAPI ratified as an IEEE standard.</li>
+</ul>
+<p>Visual: groups colored by family — ADL (indigo), AICC (gray), IMS (teal). Optional toggle to filter by family.</p>
+<p>Learning objective (Bloom — Remember + Understand): The reader can place the major learning standards on a timeline and recognize which family each belongs to.</p>
+<p>Required interactivity:
+- Every event bubble MUST be clickable. Clicking opens an infobox panel below the timeline containing: full standard name, year, sponsoring organization, the problem it solved, the standard it succeeded (if any), the standard that succeeded it (if any), a one-paragraph plain-English description aligned with the chapter glossary, and a deep-link to the official spec.
+- Hovering an event bubble MUST show a tooltip with the standard's full name and short description.
+- The family-filter toggle is mandatory (not optional): the reader must be able to filter the visible bubbles by ADL / AICC / IMS family, and the toggle MUST be visible on first render.
+- Clicking the timeline background between bubbles MUST do nothing (no accidental dismiss); only the explicit "close" affordance on the infobox closes it.
+- Selecting any event MUST emit an xAPI <code>interacted</code> statement to the chapter's LRS, recording which standard the reader explored.
+- The timeline MUST support keyboard navigation (left/right arrows step between events) for accessibility.</p>
+<p>Sample infobox content (for <code>xAPI 1.0</code>):
+"<strong>xAPI 1.0</strong> (2013) — Published by ADL. Generalized the SCORM completion/score paradigm into an Actor/Verb/Object statement model that can describe any learning experience, online or offline. Successor to: SCORM 2004. Succeeded by: xAPI 1.0.3 (the version this book targets) and ultimately IEEE 9274.1.1. Spec: https://github.com/adlnet/xAPI-Spec"</p>
+<p>Implementation: vis-timeline with <code>groups</code> for ADL/AICC/IMS, hover popups via <code>title</code>, click handler bound to <code>select</code> event that renders the infobox panel from a local JSON dictionary. Responsive width; collapses to a vertical timeline below 600px viewport width.</p>
+</details>
+<h2 id="the-scorm-family-how-we-got-here">The SCORM Family: How We Got Here<a class="headerlink" href="#the-scorm-family-how-we-got-here" title="Permanent link">&para;</a></h2>
+<p>xAPI did not appear on a blank canvas. It was designed against the limitations of the standards that came before it, and you cannot fully appreciate xAPI without understanding what it was designed to <em>replace</em>. Three of those predecessors deserve your attention: AICC, SCORM 1.2, and SCORM 2004.</p>
+<h3 id="aicc-the-quiet-granddaddy">AICC: The Quiet Granddaddy<a class="headerlink" href="#aicc-the-quiet-granddaddy" title="Permanent link">&para;</a></h3>
+<p>The <strong>Aviation Industry CBT Committee (AICC)</strong> is the standard most working developers have never heard of, even though almost every later standard built on its ideas. AICC formed in 1988 to solve a brutally practical problem: airline pilots had to take the same recurrent training across multiple systems run by Boeing, Airbus, simulator vendors, and individual airlines, and none of those systems could share completion data with each other. AICC's working groups produced a series of guidelines (the "AGRs," or AICC Guidelines and Recommendations) that defined how a course could communicate with a host system over HTTP using a simple form-encoded protocol called <strong>HACP (HTTP-AICC Communication Protocol)</strong>.</p>
+<p>AICC was the first standard to formalize the basic vocabulary that SCORM later inherited: a course launches inside a host LMS, the host gives the course a session, and the course reports back things like "lesson location," "lesson status," and "score." HACP is gone from new deployments, but if you ever maintain a long-lived corporate LMS — especially in regulated industries — you'll still find AICC content in the back catalog, and you'll be quietly grateful that the people who designed xAPI knew this history cold.</p>
+<h3 id="scorm-12-the-one-everyone-actually-used">SCORM 1.2: The One Everyone Actually Used<a class="headerlink" href="#scorm-12-the-one-everyone-actually-used" title="Permanent link">&para;</a></h3>
+<p>The <strong>Sharable Content Object Reference Model (SCORM)</strong> was ADL's effort to take the best of AICC, IMS Content Packaging, and a few other concurrent efforts and bundle them into a single reference model. <strong>SCORM 1.2</strong>, released in 2001, became the version that actually achieved mass adoption — to the point that "SCORM" without a version number almost always means 1.2 in casual usage.</p>
+<p>The SCORM 1.2 wire model is browser-locked. A SCORM course is a ZIP file (called a Package Interchange File, or PIF) containing HTML, JavaScript, and a manifest. When the LMS launches the course, it loads the course inside an iframe and exposes a JavaScript API — the <strong>SCORM Runtime API</strong> — through which the course can call functions like <code>LMSInitialize()</code>, <code>LMSSetValue("cmi.core.lesson_status", "completed")</code>, and <code>LMSCommit()</code>. Everything the course wants to tell the LMS travels through that API.</p>
+<p>That model has three serious limits. First, it requires the learner to be inside an LMS, in a browser, with the parent window holding the API stub. No mobile apps, no offline mode, no cross-device flow. Second, the data model is shallow — there are perhaps two dozen "CMI" data elements, mostly oriented around lesson status, score, and a small "interactions" array. Third, the only "verb" is, implicitly, "completed." There is no way to say "the learner <em>attempted</em> a problem and got it wrong on the second try after 47 seconds of thinking" without abusing the interactions array beyond recognition.</p>
+<h3 id="scorm-2004-powerful-and-unloved">SCORM 2004: Powerful and Unloved<a class="headerlink" href="#scorm-2004-powerful-and-unloved" title="Permanent link">&para;</a></h3>
+<p><strong>SCORM 2004</strong> was ADL's attempt to fix the limits of SCORM 1.2. It added a far more sophisticated <strong>sequencing and navigation</strong> model (borrowed from IMS Simple Sequencing) that lets a course author describe rules like "the learner must pass module A before unlocking module B." It expanded the data model, added richer interaction types, and tightened conformance.</p>
+<p>It was, by every technical measure, the better standard. It was also far more complex to author, far more complex to test, and far more sensitive to LMS implementation differences. The result was that many vendors continued shipping SCORM 1.2 content for years afterward because it "just worked," and SCORM 2004 became the standard everyone respected and few wanted to debug at 11 p.m. before a launch. The lesson — that elegance can lose to "boring works" — is one xAPI's designers took to heart.</p>
+<p>The next two non-text elements compare these standards side by side. Before the table, here are the two evaluation axes that matter most for an intelligent-textbook context: <strong>granularity</strong> (how finely can the standard describe what happened?) and <strong>portability</strong> (does the data flow outside an LMS?).</p>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Year</th>
+<th>Wire Format</th>
+<th>Granularity</th>
+<th>Portability</th>
+<th>Typical Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AICC HACP</td>
+<td>1998</td>
+<td>HTTP form-POST</td>
+<td>Low</td>
+<td>LMS-only</td>
+<td>Aviation/regulated training</td>
+</tr>
+<tr>
+<td>SCORM 1.2</td>
+<td>2001</td>
+<td>JS API in iframe</td>
+<td>Low</td>
+<td>LMS-only, browser-only</td>
+<td>Corporate L&amp;D back catalog</td>
+</tr>
+<tr>
+<td>SCORM 2004</td>
+<td>2004</td>
+<td>JS API in iframe</td>
+<td>Medium</td>
+<td>LMS-only, browser-only</td>
+<td>Compliance / structured training</td>
+</tr>
+<tr>
+<td>xAPI 1.0.3</td>
+<td>2013</td>
+<td>REST/JSON statements</td>
+<td>Very high</td>
+<td>Anywhere with HTTP</td>
+<td>Modern interactive content</td>
+</tr>
+<tr>
+<td>CMI5 1.0</td>
+<td>2016</td>
+<td>xAPI inside an LMS launch</td>
+<td>High</td>
+<td>LMS-launchable, statements anywhere</td>
+<td>LMS-integrated modern courses</td>
+</tr>
+<tr>
+<td>IMS Caliper 1.2</td>
+<td>2020</td>
+<td>REST/JSON envelopes</td>
+<td>High</td>
+<td>Anywhere with HTTP</td>
+<td>Higher-ed LMS analytics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cmi5-a-bridge-between-old-and-new">CMI5: A Bridge Between Old and New<a class="headerlink" href="#cmi5-a-bridge-between-old-and-new" title="Permanent link">&para;</a></h2>
+<p>If xAPI is the open-ended successor and SCORM 2004 is the LMS-shaped predecessor, <strong>CMI5</strong> is the diplomat between them. CMI5 is a <strong>profile on top of xAPI</strong> — it doesn't invent a new wire protocol; it constrains how xAPI is used so that an LMS can launch a course, supply credentials, track a session lifecycle, and receive completion just like it always has, while the course gets to emit rich xAPI statements for analytics.</p>
+<p>The lifecycle CMI5 defines is small but rigid: an LMS launches the course with a session token; the course sends a <code>launched</code> statement, then <code>initialized</code>, then any number of in-session statements, then either <code>passed</code>/<code>failed</code> and <code>completed</code>, then <code>terminated</code> (or <code>abandoned</code> if the session ended uncleanly). That session shape is what lets a SCORM-shaped LMS understand "did the student finish?" while the course itself is free to emit thousands of fine-grained statements during the session for the analytics layer.</p>
+<p>For our purposes — Level 3 interactive intelligent textbooks — CMI5 is the standard you reach for when an LMS has to launch your textbook chapter as a course. We'll dig into the lifecycle details in Chapter 11 (Conformance and Comparison) and Chapter 8 (Implementing in Textbooks). For now it is enough to know what it is and that it exists to keep LMSs and modern xAPI content on speaking terms.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">When to reach for CMI5</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Xavi giving a tip">
+Use CMI5 when an enterprise LMS — Cornerstone, SuccessFactors, Saba, etc. — needs to launch your textbook chapter as a tracked course. Use plain xAPI when the textbook is delivered directly via the open web or an institutional portal that does not require LMS launch semantics. Mixing the two is fine, but be explicit about which path each chapter uses.</p>
+</div>
+<h2 id="the-ims-family-caliper-lti-and-qti">The IMS Family: Caliper, LTI, and QTI<a class="headerlink" href="#the-ims-family-caliper-lti-and-qti" title="Permanent link">&para;</a></h2>
+<p>xAPI's main standards-world peer is not SCORM — SCORM is a predecessor — but the family of standards published by <strong>1EdTech</strong>, the consortium formerly known as <strong>IMS Global</strong>. Three of those standards matter for intelligent textbooks: Caliper, LTI, and QTI. They are not interchangeable. Each solves a different problem, and a real-world textbook deployment usually touches at least two of them.</p>
+<h3 id="ims-caliper-the-other-analytics-standard">IMS Caliper: The Other Analytics Standard<a class="headerlink" href="#ims-caliper-the-other-analytics-standard" title="Permanent link">&para;</a></h3>
+<p><strong>IMS Caliper</strong> is IMS Global's answer to xAPI: an open standard for emitting structured learning-event records to an analytics endpoint. The conceptual model rhymes with xAPI's — a Caliper <em>event</em> has an <strong>actor</strong>, an <strong>action</strong>, and an <strong>object</strong>, plus a context envelope — but the differences in design philosophy are large.</p>
+<p>Caliper is more <strong>prescriptive</strong>: it ships with a small, fixed set of canonical event types (e.g., <code>AssessmentEvent</code>, <code>MediaEvent</code>, <code>NavigationEvent</code>, <code>ToolUseEvent</code>) and a tightly constrained vocabulary, on the theory that a constrained vocabulary produces more comparable analytics across institutions. xAPI, by contrast, is <strong>permissive</strong>: any IRI can name a verb or activity type, with shared vocabularies as conventions rather than constraints. Caliper has stronger native adoption inside higher-ed LMSs (Canvas and D2L Brightspace ship Caliper out of the box); xAPI has stronger adoption in corporate L&amp;D, K–12 adaptive content, and bespoke intelligent textbooks. We'll do a structured side-by-side comparison in Chapter 11.</p>
+<h3 id="ims-lti-the-launch-layer">IMS LTI: The Launch Layer<a class="headerlink" href="#ims-lti-the-launch-layer" title="Permanent link">&para;</a></h3>
+<p><strong>IMS LTI (Learning Tools Interoperability)</strong> solves a completely different problem — not analytics, but <strong>launch and identity</strong>. LTI is the standard that lets a learner click a link inside an LMS course (Canvas, Moodle, Blackboard, Brightspace) and have that click open an external tool — your textbook, a third-party simulator, a publisher-provided assignment — pre-authenticated, with the learner's identity, role, and (in newer versions) gradebook line item already wired up.</p>
+<p>LTI 1.1 used OAuth 1.0a-signed POSTs and was widely deployed but limited. <strong>LTI 1.3 / LTI Advantage</strong> modernized the stack onto OpenID Connect and OAuth 2.0, and added formal services for <strong>Names and Role Provisioning</strong> (the roster), <strong>Assignment and Grade Services</strong> (gradebook write-back), and <strong>Deep Linking</strong> (letting an instructor pick a specific tool resource from inside the LMS). For an intelligent-textbook architecture, LTI is how the LMS hands the learner <em>off</em> to your textbook; xAPI is how your textbook reports <em>back</em> what happened during the session. They are complementary, not competing.</p>
+<h3 id="ims-qti-the-assessment-format">IMS QTI: The Assessment Format<a class="headerlink" href="#ims-qti-the-assessment-format" title="Permanent link">&para;</a></h3>
+<p><strong>IMS QTI (Question and Test Interoperability)</strong> is the standard for representing <strong>assessment items and tests</strong> as portable, vendor-neutral XML. QTI defines item types (multiple-choice, multiple-response, fill-in, hotspot, drag-and-drop, ordering, essay, and many more), how rubrics and scoring are expressed, and how an item bank can be exchanged between authoring tools and delivery platforms. If your textbook needs to import quiz items from a publisher or export them to a school district's item-bank system, QTI is the wire format you'll meet. QTI does not say anything about <em>how</em> the item runs — that's the delivery engine's job — and it does not say anything about analytics. It is the <em>content</em> standard for assessments, where xAPI is the <em>behavior</em> standard.</p>
+<h4 id="diagram-the-learning-standards-ecosystem">Diagram: The Learning Standards Ecosystem<a class="headerlink" href="#diagram-the-learning-standards-ecosystem" title="Permanent link">&para;</a></h4>
+<iframe src="../../sims/learning-standards-ecosystem/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/learning-standards-ecosystem/main.html">Run The Learning Standards Ecosystem Fullscreen</a></p>
+<details>
+<summary>How AICC, SCORM, xAPI, CMI5, LTI, Caliper, and QTI fit together in a real deployment</summary>
+<p>Type: interactive infographic
+<strong>sim-id:</strong> learning-standards-ecosystem<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>An interactive vis-network graph that visualizes the full learning-standards ecosystem and shows which standards play together vs. which compete. Hover behavior shows a glossary-aligned definition for each node; clicking a node highlights its connected standards.</p>
+<p>Nodes (with grouping color):</p>
+<ul>
+<li><strong>Content / packaging family</strong> (gold): AICC, SCORM 1.2, SCORM 2004, QTI</li>
+<li><strong>Launch + identity family</strong> (teal): LTI 1.1, LTI 1.3 / LTI Advantage</li>
+<li><strong>Behavior / analytics family</strong> (indigo): xAPI, CMI5 (xAPI profile), IMS Caliper</li>
+<li><strong>Storage / infrastructure</strong> (gray): LRS, LMS, Analytics platform</li>
+</ul>
+<p>Edges (labeled):</p>
+<ul>
+<li>LMS — <em>launches</em> — SCORM 1.2 / SCORM 2004 / CMI5 / LTI tools</li>
+<li>LTI Tool — <em>can emit</em> — xAPI / Caliper</li>
+<li>CMI5 — <em>is a profile of</em> — xAPI</li>
+<li>SCORM 2004 — <em>successor to</em> — SCORM 1.2</li>
+<li>SCORM 1.2 — <em>evolved from</em> — AICC</li>
+<li>xAPI / Caliper — <em>delivered to</em> — LRS / Analytics platform</li>
+<li>QTI — <em>imported by</em> — LMS / authoring tools</li>
+<li>xAPI — <em>competes with</em> — Caliper (dashed edge)</li>
+</ul>
+<p>Layout: vis-network <code>physics</code> with <code>barnesHut</code> solver, default edges slightly arrowed. Initial node Y offset of 10px on horizontally-aligned edges to avoid the vis-network edge-label rendering bug. Responsive width that triggers <code>network.fit()</code> on <code>resize</code>.</p>
+<p>Learning objective (Bloom — Analyze): The reader can decompose a real intelligent-textbook deployment into the standards in play, identify which standards cooperate vs. compete, and predict which standard would be added to fill a missing capability.</p>
+<p>Required interactivity:
+- Every node MUST be clickable. Clicking a node dims unrelated nodes, highlights its direct neighbors, and opens a side-panel infobox containing: standard name, family, sponsoring organization, year of first release, the problem it solves, which standards it cooperates with, which standards it competes with, and a one-paragraph plain-English definition aligned with the chapter glossary.
+- Every edge MUST be clickable. Clicking an edge MUST open an infobox describing the relationship (e.g., "<em>is a profile of</em>: CMI5 reuses xAPI's wire format and statement schema, but constrains how statements are used inside an LMS launch flow").
+- Hovering a node MUST show a tooltip with the standard's full name and a one-line description.
+- A "Show only what I emit" filter MUST be present and functional, hiding all nodes except the behavior/analytics family on demand.
+- A family-filter legend MUST allow the reader to toggle each of the four families (content/packaging, launch/identity, behavior/analytics, storage/infrastructure) independently.
+- Selecting a node MUST emit an xAPI <code>interacted</code> statement to the chapter's LRS, recording which standard the reader explored.
+- Pan and zoom MUST be enabled (mouse wheel + drag), and a "Reset view" button MUST be present to return to the default layout.</p>
+<p>Sample infobox content (for <code>CMI5 (xAPI profile)</code>):
+"<strong>CMI5</strong> — Behavior/analytics family. Published by AICC (now part of 1EdTech) in 2016. A profile <em>on top of</em> xAPI that defines a strict session lifecycle (<code>launched</code> → <code>initialized</code> → <code>passed</code>/<code>failed</code> → <code>completed</code> → <code>terminated</code>), so an LMS can launch a course and know when it finished while the course itself emits rich xAPI statements. Cooperates with: xAPI, LMS launch protocols. Competes with: SCORM 2004 in modern deployments."</p>
+<p>Implementation: vis-network with <code>groups</code> for the four families, hover tooltip via <code>title</code> HTML, click handlers on both nodes and edges, infobox rendered into a side panel. Responsive container; physics disabled after stabilization for a calm initial layout.</p>
+</details>
+<h2 id="putting-it-all-together-the-learning-standards-ecosystem">Putting It All Together: The Learning Standards Ecosystem<a class="headerlink" href="#putting-it-all-together-the-learning-standards-ecosystem" title="Permanent link">&para;</a></h2>
+<p>The map above is the chapter's payoff. Each acronym you've met has a different job, and a serious intelligent-textbook architecture will use several of them at once without any of them stepping on each other:</p>
+<ul>
+<li><strong>LTI</strong> lets the LMS launch the textbook with the learner's identity already attached.</li>
+<li><strong>xAPI</strong> lets the textbook report fine-grained behavior — every interaction, every attempt, every read-and-think pause — to an LRS for analytics.</li>
+<li><strong>CMI5</strong> wraps xAPI in an LMS-friendly session lifecycle when the LMS needs to know the learner "completed" the chapter.</li>
+<li><strong>QTI</strong> is the import/export format for any quiz items the textbook borrows from a publisher's bank or a district's item store.</li>
+<li><strong>IMS Caliper</strong> is the alternative behavior standard you may need to support in higher-ed Canvas/Brightspace deployments.</li>
+<li><strong>SCORM</strong> is the legacy that earlier content was built in, and that newer content sometimes still has to coexist with for compliance or back-catalog reasons.</li>
+</ul>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If this feels like a lot of acronyms, you're paying attention</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Xavi encouraging">
+Nobody internalizes this map on the first read. The way it sticks is by <em>touching</em> each piece — installing an LRS, sending a real xAPI statement, configuring an LTI launch, reading a CMI5 session log. By Chapter 8 you'll have hands on most of these, and the diagram you just looked at will start feeling less like a forest and more like a map of your own neighborhood.</p>
+</div>
+<h2 id="what-just-became-possible">What Just Became Possible<a class="headerlink" href="#what-just-became-possible" title="Permanent link">&para;</a></h2>
+<p>You came into this chapter as someone who wanted to instrument a textbook. You're leaving it with an actual mental model of the field. You can now:</p>
+<ul>
+<li><strong>Read a job posting</strong> that says "experience with xAPI, Caliper, CMI5, and LTI" and know which of those terms describes analytics, which describes a launch protocol, and which describes an LMS-friendly profile of the first one.</li>
+<li><strong>Choose a stack</strong> for a new intelligent-textbook project and explain why xAPI + LTI is the modern default — and when CMI5 or Caliper enter the picture instead.</li>
+<li><strong>Translate between worlds</strong> — recognizing that a SCORM 2004 <code>cmi.completion_status = "completed"</code> is the legacy ancestor of an xAPI statement with <code>verb: "http://adlnet.gov/expapi/verbs/completed"</code> and a <code>result.completion: true</code>.</li>
+<li><strong>Spot the gaps</strong> in someone else's architecture — for example, a system emitting xAPI statements but with no LRS to receive them, or an LTI launch with no analytics layer at all.</li>
+</ul>
+<p>The next chapter dives into the <strong>statement model</strong> — the actual JSON shape of an xAPI statement, the rules for required and optional fields, and the first lines of code you'll write to construct one yourself.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You just leveled up!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating">
+You now have the <strong>standards literacy</strong> that distinguishes someone who can talk about xAPI from someone who can only talk <em>around</em> it. That literacy is the foundation everything else in this book sits on. In the next chapter we'll start writing real statements. Tentacles up!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Chapters">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-statement-model/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Statement Model">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Statement Model
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

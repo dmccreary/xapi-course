@@ -1,0 +1,1931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/xapi-course/learning-graph/taxonomy-distribution/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Taxonomy Distribution Report - xAPI for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#taxonomy-distribution-report" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="xAPI for Intelligent Textbooks" class="md-header__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xAPI for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Taxonomy Distribution Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="xAPI for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    xAPI for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribution-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Distribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balance-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Balance Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Balance Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-over-represented-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ No Over-Represented Categories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Category Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stmt-stmt" class="md-nav__link">
+    <span class="md-ellipsis">
+      STMT (STMT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priv-priv" class="md-nav__link">
+    <span class="md-ellipsis">
+      PRIV (PRIV)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impl-impl" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMPL (IMPL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conf-conf" class="md-nav__link">
+    <span class="md-ellipsis">
+      CONF (CONF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#band-band" class="md-nav__link">
+    <span class="md-ellipsis">
+      BAND (BAND)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb-verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      VERB (VERB)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrsa-lrsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRSA (LRSA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mon-mon" class="md-nav__link">
+    <span class="md-ellipsis">
+      MON (MON)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actid-actid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACTID (ACTID)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aid-aid" class="md-nav__link">
+    <span class="md-ellipsis">
+      AID (AID)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrsp-lrsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRSP (LRSP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foundation-concepts-prerequisites-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundation Concepts - Prerequisites (FOUND)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#educational-use-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Use Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/learning-graph/taxonomy-distribution.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="taxonomy-distribution-report">Taxonomy Distribution Report<a class="headerlink" href="#taxonomy-distribution-report" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Total Concepts</strong>: 250</li>
+<li><strong>Number of Taxonomies</strong>: 12</li>
+<li><strong>Average Concepts per Taxonomy</strong>: 20.8</li>
+</ul>
+<h2 id="distribution-summary">Distribution Summary<a class="headerlink" href="#distribution-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>TaxonomyID</th>
+<th>Count</th>
+<th>Percentage</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STMT</td>
+<td>STMT</td>
+<td>33</td>
+<td>13.2%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>PRIV</td>
+<td>PRIV</td>
+<td>33</td>
+<td>13.2%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>IMPL</td>
+<td>IMPL</td>
+<td>30</td>
+<td>12.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>CONF</td>
+<td>CONF</td>
+<td>26</td>
+<td>10.4%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>BAND</td>
+<td>BAND</td>
+<td>21</td>
+<td>8.4%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>VERB</td>
+<td>VERB</td>
+<td>20</td>
+<td>8.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>LRSA</td>
+<td>LRSA</td>
+<td>17</td>
+<td>6.8%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>MON</td>
+<td>MON</td>
+<td>17</td>
+<td>6.8%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ACTID</td>
+<td>ACTID</td>
+<td>15</td>
+<td>6.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>AID</td>
+<td>AID</td>
+<td>14</td>
+<td>5.6%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>LRSP</td>
+<td>LRSP</td>
+<td>13</td>
+<td>5.2%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Foundation Concepts - Prerequisites</td>
+<td>FOUND</td>
+<td>11</td>
+<td>4.4%</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="visual-distribution">Visual Distribution<a class="headerlink" href="#visual-distribution" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>STMT                      ██████  33 ( 13.2%)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>PRIV                      ██████  33 ( 13.2%)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>IMPL                      ██████  30 ( 12.0%)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>CONF                      █████  26 ( 10.4%)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>BAND                      ████  21 (  8.4%)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>VERB                      ████  20 (  8.0%)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>LRSA                      ███  17 (  6.8%)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>MON                       ███  17 (  6.8%)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>ACTID                     ███  15 (  6.0%)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>AID                       ██  14 (  5.6%)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>LRSP                      ██  13 (  5.2%)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Foundation Concepts - Pre ██  11 (  4.4%)
+</span></code></pre></div>
+<h2 id="balance-analysis">Balance Analysis<a class="headerlink" href="#balance-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="no-over-represented-categories">✅ No Over-Represented Categories<a class="headerlink" href="#no-over-represented-categories" title="Permanent link">&para;</a></h3>
+<p>All categories are under the 30% threshold. Good balance!</p>
+<h2 id="category-details">Category Details<a class="headerlink" href="#category-details" title="Permanent link">&para;</a></h2>
+<h3 id="stmt-stmt">STMT (STMT)<a class="headerlink" href="#stmt-stmt" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 33 concepts (13.2%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>xAPI Statement Model</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Actor Component</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Verb Component</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Object Component</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Result Component</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Context Component</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement ID (UUID)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Timestamp Field</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Stored Timestamp</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Authority Field</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Version Field</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Voiding</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Activity Provider (AP)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Learning Record Provider (LRP)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Activity Consumer</li>
+</ol>
+</li>
+<li><em>...and 18 more</em></li>
+</ul>
+<h3 id="priv-priv">PRIV (PRIV)<a class="headerlink" href="#priv-priv" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 33 concepts (13.2%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>xAPI in K-12 Education</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI in Higher Education</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI in Corporate L&amp;D</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>K-12 Data Governance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LMS Integration (xAPI)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Canvas LMS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Moodle LMS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cross-Organizational Interoperability</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>FERPA Compliance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>COPPA Compliance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>GDPR Compliance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>PII in xAPI Statements</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Actor PII Concerns</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Result Extension PII</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Context Extension PII</li>
+</ol>
+</li>
+<li><em>...and 18 more</em></li>
+</ul>
+<h3 id="impl-impl">IMPL (IMPL)<a class="headerlink" href="#impl-impl" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 30 concepts (12.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Interactive Component Instrumentation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Simulation Instrumentation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Quiz Instrumentation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Adaptive Branching Instrumentation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Level 3 Intelligent Textbook</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>MicroSim (p5.js)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>JavaScript xAPI Client Library</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Construction</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Retry-With-Backoff Pattern</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Fetch API (HTTP)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>JSON Serialization</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>TypeScript Type Definitions</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>MkDocs Intelligent Textbook</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Client Library Design</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Pipeline Architecture</li>
+</ol>
+</li>
+<li><em>...and 15 more</em></li>
+</ul>
+<h3 id="conf-conf">CONF (CONF)<a class="headerlink" href="#conf-conf" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 26 concepts (10.4%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>xAPI Conformance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CMI5 Session Lifecycle</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CMI5 Launch Mechanism</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CMI5 vs xAPI Differences</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>SCORM Completion Mapping</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>SCORM Score Mapping</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>ADL Conformance Test Suite</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Validation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Structure Validation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Required Field Validation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Data Type Validation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Competitive Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI vs IMS Caliper Comparison</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI vs SCORM 2004 Comparison</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI vs CMI5 Comparison</li>
+</ol>
+</li>
+<li><em>...and 11 more</em></li>
+</ul>
+<h3 id="band-band">BAND (BAND)<a class="headerlink" href="#band-band" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 21 concepts (8.4%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Statement Batching</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>HTTP/2 Multiplexing</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Payload Minimization</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Offline Statement Queue</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>IndexedDB Storage</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LocalStorage (Browser)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Service Worker</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Background Sync API</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Progressive Sync Strategy</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Delta Encoding</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Selective Verbosity</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Bandwidth Budget Calculation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Per-Statement Payload Size</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>HTTP Overhead Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Network Throttling Simulation</li>
+</ol>
+</li>
+<li><em>...and 6 more</em></li>
+</ul>
+<h3 id="verb-verb">VERB (VERB)<a class="headerlink" href="#verb-verb" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 20 concepts (8.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>ADL Verb Registry</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Tincan Verb Vocabulary</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Custom Verb Profiles</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Verb IRI Namespace</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Verb Vocabulary Design</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Interacted Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Progressed Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Completed Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Attempted Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Passed Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Failed Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Experienced Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Scored Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Launched Verb</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Initialized Verb</li>
+</ol>
+</li>
+<li><em>...and 5 more</em></li>
+</ul>
+<h3 id="lrsa-lrsa">LRSA (LRSA)<a class="headerlink" href="#lrsa-lrsa" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 17 concepts (6.8%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Mutable vs Immutable LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Architecture</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Storage Models</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statements Endpoint</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Agents Endpoint</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Activities Endpoint</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>State Endpoint</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>About Endpoint</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Concurrency</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Conflict Resolution (LRS)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Query Filters</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Pagination (StatementResult)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>More IRL Pagination</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Scalability</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Query Capability</li>
+</ol>
+</li>
+<li><em>...and 2 more</em></li>
+</ul>
+<h3 id="mon-mon">MON (MON)<a class="headerlink" href="#mon-mon" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 17 concepts (6.8%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Browser DevTools Network Panel</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Traffic Capture</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Charles Proxy</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>mitmproxy</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>HTTP Intercept</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Network Waterfall Chart</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Payload Inspection</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Server Log Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Real-Time Dashboard</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Observable Framework</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Grafana Dashboard</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Engagement Heatmap</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statement Throughput</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Analytics Layer</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Dashboard Layer</li>
+</ol>
+</li>
+<li><em>...and 2 more</em></li>
+</ul>
+<h3 id="actid-actid">ACTID (ACTID)<a class="headerlink" href="#actid-actid" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 15 concepts (6.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Activity IRI</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Activity Type</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Agent Object</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Group Object</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Anonymous Group</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Identified Group</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>mbox Identifier</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>mbox_sha1sum Identifier</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>openid Identifier</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Account Identifier</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Activity Registration</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Learner Identity Management</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Anonymous Learner Tracking</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Pseudonymization</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Custom Activity Types</li>
+</ol>
+</li>
+</ul>
+<h3 id="aid-aid">AID (AID)<a class="headerlink" href="#aid-aid" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 14 concepts (5.6%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Synthetic Data Generation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Claude Code Integration</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Realistic Learner Cohort Simulation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Load Testing</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI Stress Testing</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Learner Archetype Modeling</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Fast Learner Archetype</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Struggling Learner Archetype</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Disengaged Learner Archetype</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Re-Learner Archetype</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Mastery-Seeker Archetype</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Verb Frequency Distribution</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Session Duration Histogram</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Statistical Representativeness</li>
+</ol>
+</li>
+</ul>
+<h3 id="lrsp-lrsp">LRSP (LRSP)<a class="headerlink" href="#lrsp-lrsp" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 13 concepts (5.2%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>LRS Authentication</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Basic Auth (xAPI)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>OAuth 1.0a (xAPI)</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hosted SaaS LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Self-Hosted Open Source LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Embedded LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>TRAX LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Learning Locker LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Ralph LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Watershed LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Platform Comparison</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Multi-Tenant LRS</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>LRS Access Control</li>
+</ol>
+</li>
+</ul>
+<h3 id="foundation-concepts-prerequisites-found">Foundation Concepts - Prerequisites (FOUND)<a class="headerlink" href="#foundation-concepts-prerequisites-found" title="Permanent link">&para;</a></h3>
+<p><strong>Count</strong>: 11 concepts (4.4%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>xAPI Standard Overview</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Tin Can API History</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>SCORM 1.2</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>SCORM 2004</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>AICC Standard</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CMI5 Profile</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>IMS Caliper</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>IMS LTI</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>IMS QTI</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Learning Standards Ecosystem</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>xAPI 1.0.3 Specification</li>
+</ol>
+</li>
+</ul>
+<h2 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ <strong>Excellent balance</strong>: Categories are evenly distributed (spread: 8.8%)</li>
+<li>✅ <strong>MISC category minimal</strong>: Good categorization specificity</li>
+</ul>
+<h3 id="educational-use-recommendations">Educational Use Recommendations<a class="headerlink" href="#educational-use-recommendations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use taxonomy categories for color-coding in graph visualizations</li>
+<li>Design curriculum modules based on taxonomy groupings</li>
+<li>Create filtered views for focused learning paths</li>
+<li>Use categories for assessment organization</li>
+<li>Enable navigation by topic area in interactive tools</li>
+</ul>
+<hr />
+<p><em>Report generated by learning-graph-reports/taxonomy_distribution.py</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,251 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,xAPI Standard Overview,,FOUND
+2,Tin Can API History,1,FOUND
+3,SCORM 1.2,,FOUND
+4,SCORM 2004,3,FOUND
+5,AICC Standard,,FOUND
+6,CMI5 Profile,1|4,FOUND
+7,IMS Caliper,1,FOUND
+8,IMS LTI,,FOUND
+9,IMS QTI,,FOUND
+10,Learning Standards Ecosystem,1|3|5|7|8|9,FOUND
+11,xAPI Statement Model,1,STMT
+12,Actor Component,11,STMT
+13,Verb Component,11,STMT
+14,Object Component,11,STMT
+15,Result Component,11,STMT
+16,Context Component,11,STMT
+17,Statement ID (UUID),11,STMT
+18,Timestamp Field,11,STMT
+19,Stored Timestamp,18,STMT
+20,Authority Field,11,STMT
+21,Statement Version Field,11|22,STMT
+22,xAPI 1.0.3 Specification,1|2,FOUND
+23,Statement Voiding,11|17,STMT
+24,Mutable vs Immutable LRS,23|57,LRSA
+25,Activity Provider (AP),11,STMT
+26,Learning Record Provider (LRP),25,STMT
+27,Activity Consumer,25,STMT
+28,xAPI Conformance,22,CONF
+29,ADL Verb Registry,13,VERB
+30,Tincan Verb Vocabulary,13|2,VERB
+31,Custom Verb Profiles,29|30,VERB
+32,Verb IRI Namespace,13|31,VERB
+33,Activity IRI,14,ACTID
+34,Activity Type,14|33,ACTID
+35,Agent Object,12,ACTID
+36,Group Object,12|35,ACTID
+37,Anonymous Group,36,ACTID
+38,Identified Group,36,ACTID
+39,mbox Identifier,35,ACTID
+40,mbox_sha1sum Identifier,39,ACTID
+41,openid Identifier,35,ACTID
+42,Account Identifier,35,ACTID
+43,Context Activities,16,STMT
+44,Grouping Context Activity,43,STMT
+45,Parent Context Activity,43,STMT
+46,Category Context Activity,43,STMT
+47,Other Context Activity,43,STMT
+48,Result Score,15,STMT
+49,Result Success,15,STMT
+50,Result Completion,15,STMT
+51,Result Duration,15,STMT
+52,Result Response,15,STMT
+53,Extensions (xAPI),11,STMT
+54,Attachment Object,11,STMT
+55,Sub-Statement,11,STMT
+56,Statement References,11|17,STMT
+57,LRS Architecture,1|11,LRSA
+58,LRS Storage Models,57,LRSA
+59,Statements Endpoint,57|11,LRSA
+60,Agents Endpoint,57|35,LRSA
+61,Activities Endpoint,57|33,LRSA
+62,State Endpoint,57,LRSA
+63,About Endpoint,57|22,LRSA
+64,LRS Concurrency,57|58,LRSA
+65,Conflict Resolution (LRS),64,LRSA
+66,Statement Query Filters,59,LRSA
+67,Pagination (StatementResult),59|66,LRSA
+68,More IRL Pagination,67,LRSA
+69,LRS Authentication,57,LRSP
+70,Basic Auth (xAPI),69,LRSP
+71,OAuth 1.0a (xAPI),69,LRSP
+72,Hosted SaaS LRS,57,LRSP
+73,Self-Hosted Open Source LRS,57,LRSP
+74,Embedded LRS,57,LRSP
+75,TRAX LRS,73,LRSP
+76,Learning Locker LRS,73,LRSP
+77,Ralph LRS,73,LRSP
+78,Watershed LRS,72,LRSP
+79,LRS Platform Comparison,72|73|74|75|76|77|78,LRSP
+80,LRS Scalability,57|58,LRSA
+81,Multi-Tenant LRS,57|82,LRSP
+82,LRS Access Control,57|69,LRSP
+83,LRS Query Capability,59|66,LRSA
+84,LRS Request Logs,57|145,LRSA
+85,xAPI in K-12 Education,1,PRIV
+86,xAPI in Higher Education,1,PRIV
+87,xAPI in Corporate L&D,1,PRIV
+88,K-12 Data Governance,85,PRIV
+89,LMS Integration (xAPI),1,PRIV
+90,Canvas LMS,89,PRIV
+91,Moodle LMS,89,PRIV
+92,Cross-Organizational Interoperability,85|86|87,PRIV
+93,Activity Registration,33|34,ACTID
+94,Verb Vocabulary Design,29|31|32,VERB
+95,Interactive Component Instrumentation,11|94,IMPL
+96,Simulation Instrumentation,95|103,IMPL
+97,Quiz Instrumentation,95,IMPL
+98,Adaptive Branching Instrumentation,95,IMPL
+99,Learner Identity Management,35|39,ACTID
+100,Anonymous Learner Tracking,99|37,ACTID
+101,Pseudonymization,100,ACTID
+102,Level 3 Intelligent Textbook,,IMPL
+103,MicroSim (p5.js),102,IMPL
+104,Interacted Verb,29|95,VERB
+105,Progressed Verb,29,VERB
+106,Completed Verb,29|50,VERB
+107,Attempted Verb,29,VERB
+108,Passed Verb,29|49,VERB
+109,Failed Verb,29|49,VERB
+110,Experienced Verb,29,VERB
+111,Scored Verb,29|48,VERB
+112,Launched Verb,29,VERB
+113,Initialized Verb,29,VERB
+114,Terminated Verb,29,VERB
+115,Abandoned Verb,29,VERB
+116,CMI5 Session Lifecycle,6|112|113|114|115,CONF
+117,CMI5 Launch Mechanism,6|112,CONF
+118,CMI5 vs xAPI Differences,6|11,CONF
+119,SCORM Completion Mapping,4|50|106,CONF
+120,SCORM Score Mapping,4|48|111,CONF
+121,xAPI Statement Patterns,11|13|14,STMT
+122,Statement Batching,59|11,BAND
+123,HTTP/2 Multiplexing,122,BAND
+124,Payload Minimization,122|11,BAND
+125,Offline Statement Queue,122|126|127,BAND
+126,IndexedDB Storage,,BAND
+127,LocalStorage (Browser),,BAND
+128,Service Worker,,BAND
+129,Background Sync API,128,BAND
+130,Progressive Sync Strategy,125|129,BAND
+131,Delta Encoding,124,BAND
+132,Selective Verbosity,124|53,BAND
+133,Bandwidth Budget Calculation,122|134|137,BAND
+134,Per-Statement Payload Size,11|124,BAND
+135,HTTP Overhead Analysis,134,BAND
+136,Network Throttling Simulation,138,BAND
+137,Statement Frequency Analysis,122,BAND
+138,Browser DevTools Network Panel,,MON
+139,xAPI Traffic Capture,138,MON
+140,Charles Proxy,,MON
+141,mitmproxy,,MON
+142,HTTP Intercept,140|141,MON
+143,Network Waterfall Chart,138|139,MON
+144,xAPI Payload Inspection,139|142,MON
+145,LRS Server Log Analysis,57,MON
+146,Real-Time Dashboard,144|145,MON
+147,Observable Framework,146,MON
+148,Grafana Dashboard,146,MON
+149,Engagement Heatmap,146|226,MON
+150,Statement Throughput,137|146,MON
+151,Synthetic Data Generation,152,AID
+152,Claude Code Integration,,AID
+153,Realistic Learner Cohort Simulation,151|156,AID
+154,LRS Load Testing,153,AID
+155,xAPI Stress Testing,154,AID
+156,Learner Archetype Modeling,151,AID
+157,Fast Learner Archetype,156,AID
+158,Struggling Learner Archetype,156,AID
+159,Disengaged Learner Archetype,156,AID
+160,Re-Learner Archetype,156,AID
+161,Mastery-Seeker Archetype,156,AID
+162,Verb Frequency Distribution,13|153,AID
+163,Session Duration Histogram,51|153,AID
+164,Statistical Representativeness,162|163,AID
+165,ADL Conformance Test Suite,28,CONF
+166,xAPI Validation,165|167,CONF
+167,Statement Structure Validation,11|165,CONF
+168,Required Field Validation,167,CONF
+169,Data Type Validation,167,CONF
+170,xAPI Competitive Analysis,1|10,CONF
+171,xAPI vs IMS Caliper Comparison,7|170,CONF
+172,xAPI vs SCORM 2004 Comparison,4|170,CONF
+173,xAPI vs CMI5 Comparison,6|170|118,CONF
+174,Proprietary Analytics SDKs,170,CONF
+175,Vendor Lock-In Risk,174|170,CONF
+176,Implementation Cost Analysis,170,CONF
+177,Instrumentation Granularity,170,CONF
+178,Vendor Support Assessment,170,CONF
+179,FERPA Compliance,,PRIV
+180,COPPA Compliance,,PRIV
+181,GDPR Compliance,,PRIV
+182,PII in xAPI Statements,35|179|180|181,PRIV
+183,Actor PII Concerns,35|182,PRIV
+184,Result Extension PII,53|182,PRIV
+185,Context Extension PII,53|182,PRIV
+186,Data Retention Policies,182,PRIV
+187,Anonymization Strategies,182|101,PRIV
+188,Data Minimization Principle,182,PRIV
+189,LRS Privacy Controls,82|182,PRIV
+190,Role-Based Access Control (LRS),82,PRIV
+191,JavaScript xAPI Client Library,192|198,IMPL
+192,Statement Construction,11|121|195,IMPL
+193,Retry-With-Backoff Pattern,191|213,IMPL
+194,Fetch API (HTTP),,IMPL
+195,JSON Serialization,,IMPL
+196,TypeScript Type Definitions,195,IMPL
+197,MkDocs Intelligent Textbook,102,IMPL
+198,xAPI Client Library Design,11|192,IMPL
+199,xAPI Vocabulary Profile Design,31|94,VERB
+200,Custom Activity Types,34|199,ACTID
+201,Extension Namespace Design,53|199,VERB
+202,Cross-Platform Analytics,199|94,VERB
+203,xAPI Pipeline Architecture,25|57|205,IMPL
+204,Activity Provider Integration,25|203,IMPL
+205,Analytics Layer,57|225,MON
+206,Dashboard Layer,146|205,MON
+207,Pipeline Failure Points,203,MON
+208,Pipeline Latency Analysis,203,MON
+209,Client-Side xAPI Emission,25|194,IMPL
+210,Server-Side xAPI Emission,25,IMPL
+211,Statement Authenticity,209|210|20,IMPL
+212,xAPI Debugging Techniques,144|213,IMPL
+213,xAPI Error Handling,11|214|215,IMPL
+214,4xx Error Patterns (LRS),145,IMPL
+215,5xx Error Patterns (LRS),145,IMPL
+216,Production Readiness Checklist,165|217,CONF
+217,xAPI Implementation Review,165,CONF
+218,xAPI Security Best Practices,69|219|220,PRIV
+219,HTTPS for xAPI,,PRIV
+220,Token-Based Authentication,69,PRIV
+221,xAPI Version Negotiation,22|21,CONF
+222,Backwards Compatibility (xAPI),22|221,CONF
+223,xAPI Profile Server,31|199,CONF
+224,Profile Validation,223|166,CONF
+225,Learning Analytics Overview,1,PRIV
+226,Engagement Metrics,225,PRIV
+227,Completion Rate Analysis,50|225,PRIV
+228,Struggle Pattern Detection,107|108|109|225,PRIV
+229,Instructional Design Feedback Loop,225|226,PRIV
+230,K-12 Privacy Regulations,85|179|180,PRIV
+231,COPPA Safe Harbor,180,PRIV
+232,School District Data Policy,230|88,PRIV
+233,University Data Governance,86,PRIV
+234,Corporate L&D Analytics,87|225,PRIV
+235,xAPI for Mobile Web,1|236,IMPL
+236,Responsive Web xAPI,,IMPL
+237,Browser Compatibility (xAPI),235|236,IMPL
+238,Polyfill Strategy,237,IMPL
+239,Service Worker Lifecycle,128,BAND
+240,Cache-First Strategy,128|239,BAND
+241,Network-First Strategy,128|239,BAND
+242,Statement Queue Flushing,125|129,BAND
+243,Connectivity Detection,125,BAND
+244,Retry Logic Design,193|242,IMPL
+245,LRS Endpoint Configuration,57|63,LRSA
+246,Activity Provider Configuration,25,IMPL
+247,Statement Authority Configuration,20,IMPL
+248,xAPI Registration Field,16|11,STMT
+249,Revision Field (xAPI),14,STMT
+250,Platform Field (xAPI),16,STMT

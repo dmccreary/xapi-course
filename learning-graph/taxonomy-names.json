@@ -1,0 +1,14 @@
+{
+  "FOUND": "Foundations of xAPI and Learning Standards",
+  "STMT": "xAPI Statement Model",
+  "VERB": "Verb and Vocabulary Design",
+  "ACTID": "Activity, Agent, and Identity",
+  "LRSA": "Learning Record Store Architecture",
+  "LRSP": "LRS Platforms and Authentication",
+  "IMPL": "Implementation in Intelligent Textbooks",
+  "BAND": "Bandwidth and Network Optimization",
+  "MON": "Monitoring and Observability",
+  "AID": "Synthetic Data and AI-Assisted Testing",
+  "CONF": "Conformance, Validation, and Standards Comparison",
+  "PRIV": "Privacy, Compliance, and Organizational Context"
+}

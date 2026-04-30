@@ -1,0 +1,10 @@
+{
+  "title": "xAPI for Intelligent Textbooks",
+  "description": "An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering the LRS ecosystem, statement model, verb vocabulary design, bandwidth optimization, traffic monitoring, synthetic data generation with AI, and the broader educational standards landscape (SCORM, AICC, CMI5, IMS Caliper, LTI).",
+  "creator": "Dan McCreary",
+  "date": "2026-04-30",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

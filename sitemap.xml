@@ -17,6 +17,10 @@
          <lastmod>2026-04-30</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/xapi-course/glossary/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/xapi-course/license/</loc>
          <lastmod>2026-04-30</lastmod>
     </url>
@@ -25,7 +29,71 @@
          <lastmod>2026-04-30</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/01-foundations-and-standards/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/02-statement-model/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/03-advanced-statement-structure/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/04-verb-vocabulary-design/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/05-activities-agents-identity/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/06-lrs-architecture/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/07-lrs-platforms-and-auth/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/08-implementing-in-textbooks/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/09-bandwidth-and-offline/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/10-monitoring-and-observability/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/11-synthetic-data-and-ai-testing/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/12-conformance-and-comparison/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/13-pipeline-and-production/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/chapters/14-privacy-and-compliance/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/xapi-course/learning-graph/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/learning-graph/concept-list/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/learning-graph/concept-taxonomy/</loc>
          <lastmod>2026-04-30</lastmod>
     </url>
     <url>
@@ -33,7 +101,27 @@
          <lastmod>2026-04-30</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/xapi-course/learning-graph/mascot-test/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/learning-graph/quality-metrics/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/learning-graph/taxonomy-distribution/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/xapi-course/sims/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/sims/graph-viewer/</loc>
+         <lastmod>2026-04-30</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/xapi-course/sims/xapi-statement-triple/</loc>
          <lastmod>2026-04-30</lastmod>
     </url>
 </urlset>

@@ -1,0 +1,2848 @@
+{
+  "metadata": {
+    "title": "xAPI for Intelligent Textbooks",
+    "description": "An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering the LRS ecosystem, statement model, verb vocabulary design, bandwidth optimization, traffic monitoring, synthetic data generation with AI, and the broader educational standards landscape (SCORM, AICC, CMI5, IMS Caliper, LTI).",
+    "creator": "Dan McCreary",
+    "date": "2026-04-30",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Foundations of xAPI and Learning Standards",
+      "color": "SteelBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "STMT": {
+      "classifierName": "xAPI Statement Model",
+      "color": "DarkSlateBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "VERB": {
+      "classifierName": "Verb and Vocabulary Design",
+      "color": "DarkGreen",
+      "font": {
+        "color": "white"
+      }
+    },
+    "ACTID": {
+      "classifierName": "Activity, Agent, and Identity",
+      "color": "LimeGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LRSA": {
+      "classifierName": "Learning Record Store Architecture",
+      "color": "Gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LRSP": {
+      "classifierName": "LRS Platforms and Authentication",
+      "color": "DarkGoldenrod",
+      "font": {
+        "color": "white"
+      }
+    },
+    "IMPL": {
+      "classifierName": "Implementation in Intelligent Textbooks",
+      "color": "Teal",
+      "font": {
+        "color": "white"
+      }
+    },
+    "BAND": {
+      "classifierName": "Bandwidth and Network Optimization",
+      "color": "DodgerBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MON": {
+      "classifierName": "Monitoring and Observability",
+      "color": "MediumPurple",
+      "font": {
+        "color": "white"
+      }
+    },
+    "AID": {
+      "classifierName": "Synthetic Data and AI-Assisted Testing",
+      "color": "Orange",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CONF": {
+      "classifierName": "Conformance, Validation, and Standards Comparison",
+      "color": "Crimson",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PRIV": {
+      "classifierName": "Privacy, Compliance, and Organizational Context",
+      "color": "DarkRed",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "xAPI Standard Overview",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Tin Can API History",
+      "group": "FOUND"
+    },
+    {
+      "id": 3,
+      "label": "SCORM 1.2",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 4,
+      "label": "SCORM 2004",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "AICC Standard",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 6,
+      "label": "CMI5 Profile",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "IMS Caliper",
+      "group": "FOUND"
+    },
+    {
+      "id": 8,
+      "label": "IMS LTI",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 9,
+      "label": "IMS QTI",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 10,
+      "label": "Learning Standards Ecosystem",
+      "group": "FOUND"
+    },
+    {
+      "id": 11,
+      "label": "xAPI Statement Model",
+      "group": "STMT"
+    },
+    {
+      "id": 12,
+      "label": "Actor Component",
+      "group": "STMT"
+    },
+    {
+      "id": 13,
+      "label": "Verb Component",
+      "group": "STMT"
+    },
+    {
+      "id": 14,
+      "label": "Object Component",
+      "group": "STMT"
+    },
+    {
+      "id": 15,
+      "label": "Result Component",
+      "group": "STMT"
+    },
+    {
+      "id": 16,
+      "label": "Context Component",
+      "group": "STMT"
+    },
+    {
+      "id": 17,
+      "label": "Statement ID (UUID)",
+      "group": "STMT"
+    },
+    {
+      "id": 18,
+      "label": "Timestamp Field",
+      "group": "STMT"
+    },
+    {
+      "id": 19,
+      "label": "Stored Timestamp",
+      "group": "STMT"
+    },
+    {
+      "id": 20,
+      "label": "Authority Field",
+      "group": "STMT"
+    },
+    {
+      "id": 21,
+      "label": "Statement Version Field",
+      "group": "STMT"
+    },
+    {
+      "id": 22,
+      "label": "xAPI 1.0.3 Specification",
+      "group": "FOUND"
+    },
+    {
+      "id": 23,
+      "label": "Statement Voiding",
+      "group": "STMT"
+    },
+    {
+      "id": 24,
+      "label": "Mutable vs Immutable LRS",
+      "group": "LRSA"
+    },
+    {
+      "id": 25,
+      "label": "Activity Provider (AP)",
+      "group": "STMT"
+    },
+    {
+      "id": 26,
+      "label": "Learning Record Provider (LRP)",
+      "group": "STMT"
+    },
+    {
+      "id": 27,
+      "label": "Activity Consumer",
+      "group": "STMT"
+    },
+    {
+      "id": 28,
+      "label": "xAPI Conformance",
+      "group": "CONF"
+    },
+    {
+      "id": 29,
+      "label": "ADL Verb Registry",
+      "group": "VERB"
+    },
+    {
+      "id": 30,
+      "label": "Tincan Verb Vocabulary",
+      "group": "VERB"
+    },
+    {
+      "id": 31,
+      "label": "Custom Verb Profiles",
+      "group": "VERB"
+    },
+    {
+      "id": 32,
+      "label": "Verb IRI Namespace",
+      "group": "VERB"
+    },
+    {
+      "id": 33,
+      "label": "Activity IRI",
+      "group": "ACTID"
+    },
+    {
+      "id": 34,
+      "label": "Activity Type",
+      "group": "ACTID"
+    },
+    {
+      "id": 35,
+      "label": "Agent Object",
+      "group": "ACTID"
+    },
+    {
+      "id": 36,
+      "label": "Group Object",
+      "group": "ACTID"
+    },
+    {
+      "id": 37,
+      "label": "Anonymous Group",
+      "group": "ACTID"
+    },
+    {
+      "id": 38,
+      "label": "Identified Group",
+      "group": "ACTID"
+    },
+    {
+      "id": 39,
+      "label": "mbox Identifier",
+      "group": "ACTID"
+    },
+    {
+      "id": 40,
+      "label": "mbox_sha1sum Identifier",
+      "group": "ACTID"
+    },
+    {
+      "id": 41,
+      "label": "openid Identifier",
+      "group": "ACTID"
+    },
+    {
+      "id": 42,
+      "label": "Account Identifier",
+      "group": "ACTID"
+    },
+    {
+      "id": 43,
+      "label": "Context Activities",
+      "group": "STMT"
+    },
+    {
+      "id": 44,
+      "label": "Grouping Context Activity",
+      "group": "STMT"
+    },
+    {
+      "id": 45,
+      "label": "Parent Context Activity",
+      "group": "STMT"
+    },
+    {
+      "id": 46,
+      "label": "Category Context Activity",
+      "group": "STMT"
+    },
+    {
+      "id": 47,
+      "label": "Other Context Activity",
+      "group": "STMT"
+    },
+    {
+      "id": 48,
+      "label": "Result Score",
+      "group": "STMT"
+    },
+    {
+      "id": 49,
+      "label": "Result Success",
+      "group": "STMT"
+    },
+    {
+      "id": 50,
+      "label": "Result Completion",
+      "group": "STMT"
+    },
+    {
+      "id": 51,
+      "label": "Result Duration",
+      "group": "STMT"
+    },
+    {
+      "id": 52,
+      "label": "Result Response",
+      "group": "STMT"
+    },
+    {
+      "id": 53,
+      "label": "Extensions (xAPI)",
+      "group": "STMT"
+    },
+    {
+      "id": 54,
+      "label": "Attachment Object",
+      "group": "STMT"
+    },
+    {
+      "id": 55,
+      "label": "Sub-Statement",
+      "group": "STMT"
+    },
+    {
+      "id": 56,
+      "label": "Statement References",
+      "group": "STMT"
+    },
+    {
+      "id": 57,
+      "label": "LRS Architecture",
+      "group": "LRSA"
+    },
+    {
+      "id": 58,
+      "label": "LRS Storage Models",
+      "group": "LRSA"
+    },
+    {
+      "id": 59,
+      "label": "Statements Endpoint",
+      "group": "LRSA"
+    },
+    {
+      "id": 60,
+      "label": "Agents Endpoint",
+      "group": "LRSA"
+    },
+    {
+      "id": 61,
+      "label": "Activities Endpoint",
+      "group": "LRSA"
+    },
+    {
+      "id": 62,
+      "label": "State Endpoint",
+      "group": "LRSA"
+    },
+    {
+      "id": 63,
+      "label": "About Endpoint",
+      "group": "LRSA"
+    },
+    {
+      "id": 64,
+      "label": "LRS Concurrency",
+      "group": "LRSA"
+    },
+    {
+      "id": 65,
+      "label": "Conflict Resolution (LRS)",
+      "group": "LRSA"
+    },
+    {
+      "id": 66,
+      "label": "Statement Query Filters",
+      "group": "LRSA"
+    },
+    {
+      "id": 67,
+      "label": "Pagination (StatementResult)",
+      "group": "LRSA"
+    },
+    {
+      "id": 68,
+      "label": "More IRL Pagination",
+      "group": "LRSA"
+    },
+    {
+      "id": 69,
+      "label": "LRS Authentication",
+      "group": "LRSP"
+    },
+    {
+      "id": 70,
+      "label": "Basic Auth (xAPI)",
+      "group": "LRSP"
+    },
+    {
+      "id": 71,
+      "label": "OAuth 1.0a (xAPI)",
+      "group": "LRSP"
+    },
+    {
+      "id": 72,
+      "label": "Hosted SaaS LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 73,
+      "label": "Self-Hosted Open Source LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 74,
+      "label": "Embedded LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 75,
+      "label": "TRAX LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 76,
+      "label": "Learning Locker LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 77,
+      "label": "Ralph LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 78,
+      "label": "Watershed LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 79,
+      "label": "LRS Platform Comparison",
+      "group": "LRSP"
+    },
+    {
+      "id": 80,
+      "label": "LRS Scalability",
+      "group": "LRSA"
+    },
+    {
+      "id": 81,
+      "label": "Multi-Tenant LRS",
+      "group": "LRSP"
+    },
+    {
+      "id": 82,
+      "label": "LRS Access Control",
+      "group": "LRSP"
+    },
+    {
+      "id": 83,
+      "label": "LRS Query Capability",
+      "group": "LRSA"
+    },
+    {
+      "id": 84,
+      "label": "LRS Request Logs",
+      "group": "LRSA"
+    },
+    {
+      "id": 85,
+      "label": "xAPI in K-12 Education",
+      "group": "PRIV"
+    },
+    {
+      "id": 86,
+      "label": "xAPI in Higher Education",
+      "group": "PRIV"
+    },
+    {
+      "id": 87,
+      "label": "xAPI in Corporate L&D",
+      "group": "PRIV"
+    },
+    {
+      "id": 88,
+      "label": "K-12 Data Governance",
+      "group": "PRIV"
+    },
+    {
+      "id": 89,
+      "label": "LMS Integration (xAPI)",
+      "group": "PRIV"
+    },
+    {
+      "id": 90,
+      "label": "Canvas LMS",
+      "group": "PRIV"
+    },
+    {
+      "id": 91,
+      "label": "Moodle LMS",
+      "group": "PRIV"
+    },
+    {
+      "id": 92,
+      "label": "Cross-Organizational Interoperability",
+      "group": "PRIV"
+    },
+    {
+      "id": 93,
+      "label": "Activity Registration",
+      "group": "ACTID"
+    },
+    {
+      "id": 94,
+      "label": "Verb Vocabulary Design",
+      "group": "VERB"
+    },
+    {
+      "id": 95,
+      "label": "Interactive Component Instrumentation",
+      "group": "IMPL"
+    },
+    {
+      "id": 96,
+      "label": "Simulation Instrumentation",
+      "group": "IMPL"
+    },
+    {
+      "id": 97,
+      "label": "Quiz Instrumentation",
+      "group": "IMPL"
+    },
+    {
+      "id": 98,
+      "label": "Adaptive Branching Instrumentation",
+      "group": "IMPL"
+    },
+    {
+      "id": 99,
+      "label": "Learner Identity Management",
+      "group": "ACTID"
+    },
+    {
+      "id": 100,
+      "label": "Anonymous Learner Tracking",
+      "group": "ACTID"
+    },
+    {
+      "id": 101,
+      "label": "Pseudonymization",
+      "group": "ACTID"
+    },
+    {
+      "id": 102,
+      "label": "Level 3 Intelligent Textbook",
+      "group": "IMPL",
+      "shape": "box"
+    },
+    {
+      "id": 103,
+      "label": "MicroSim (p5.js)",
+      "group": "IMPL"
+    },
+    {
+      "id": 104,
+      "label": "Interacted Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 105,
+      "label": "Progressed Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 106,
+      "label": "Completed Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 107,
+      "label": "Attempted Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 108,
+      "label": "Passed Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 109,
+      "label": "Failed Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 110,
+      "label": "Experienced Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 111,
+      "label": "Scored Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 112,
+      "label": "Launched Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 113,
+      "label": "Initialized Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 114,
+      "label": "Terminated Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 115,
+      "label": "Abandoned Verb",
+      "group": "VERB"
+    },
+    {
+      "id": 116,
+      "label": "CMI5 Session Lifecycle",
+      "group": "CONF"
+    },
+    {
+      "id": 117,
+      "label": "CMI5 Launch Mechanism",
+      "group": "CONF"
+    },
+    {
+      "id": 118,
+      "label": "CMI5 vs xAPI Differences",
+      "group": "CONF"
+    },
+    {
+      "id": 119,
+      "label": "SCORM Completion Mapping",
+      "group": "CONF"
+    },
+    {
+      "id": 120,
+      "label": "SCORM Score Mapping",
+      "group": "CONF"
+    },
+    {
+      "id": 121,
+      "label": "xAPI Statement Patterns",
+      "group": "STMT"
+    },
+    {
+      "id": 122,
+      "label": "Statement Batching",
+      "group": "BAND"
+    },
+    {
+      "id": 123,
+      "label": "HTTP/2 Multiplexing",
+      "group": "BAND"
+    },
+    {
+      "id": 124,
+      "label": "Payload Minimization",
+      "group": "BAND"
+    },
+    {
+      "id": 125,
+      "label": "Offline Statement Queue",
+      "group": "BAND"
+    },
+    {
+      "id": 126,
+      "label": "IndexedDB Storage",
+      "group": "BAND",
+      "shape": "box"
+    },
+    {
+      "id": 127,
+      "label": "LocalStorage (Browser)",
+      "group": "BAND",
+      "shape": "box"
+    },
+    {
+      "id": 128,
+      "label": "Service Worker",
+      "group": "BAND",
+      "shape": "box"
+    },
+    {
+      "id": 129,
+      "label": "Background Sync API",
+      "group": "BAND"
+    },
+    {
+      "id": 130,
+      "label": "Progressive Sync Strategy",
+      "group": "BAND"
+    },
+    {
+      "id": 131,
+      "label": "Delta Encoding",
+      "group": "BAND"
+    },
+    {
+      "id": 132,
+      "label": "Selective Verbosity",
+      "group": "BAND"
+    },
+    {
+      "id": 133,
+      "label": "Bandwidth Budget Calculation",
+      "group": "BAND"
+    },
+    {
+      "id": 134,
+      "label": "Per-Statement Payload Size",
+      "group": "BAND"
+    },
+    {
+      "id": 135,
+      "label": "HTTP Overhead Analysis",
+      "group": "BAND"
+    },
+    {
+      "id": 136,
+      "label": "Network Throttling Simulation",
+      "group": "BAND"
+    },
+    {
+      "id": 137,
+      "label": "Statement Frequency Analysis",
+      "group": "BAND"
+    },
+    {
+      "id": 138,
+      "label": "Browser DevTools Network Panel",
+      "group": "MON",
+      "shape": "box"
+    },
+    {
+      "id": 139,
+      "label": "xAPI Traffic Capture",
+      "group": "MON"
+    },
+    {
+      "id": 140,
+      "label": "Charles Proxy",
+      "group": "MON",
+      "shape": "box"
+    },
+    {
+      "id": 141,
+      "label": "mitmproxy",
+      "group": "MON",
+      "shape": "box"
+    },
+    {
+      "id": 142,
+      "label": "HTTP Intercept",
+      "group": "MON"
+    },
+    {
+      "id": 143,
+      "label": "Network Waterfall Chart",
+      "group": "MON"
+    },
+    {
+      "id": 144,
+      "label": "xAPI Payload Inspection",
+      "group": "MON"
+    },
+    {
+      "id": 145,
+      "label": "LRS Server Log Analysis",
+      "group": "MON"
+    },
+    {
+      "id": 146,
+      "label": "Real-Time Dashboard",
+      "group": "MON"
+    },
+    {
+      "id": 147,
+      "label": "Observable Framework",
+      "group": "MON"
+    },
+    {
+      "id": 148,
+      "label": "Grafana Dashboard",
+      "group": "MON"
+    },
+    {
+      "id": 149,
+      "label": "Engagement Heatmap",
+      "group": "MON"
+    },
+    {
+      "id": 150,
+      "label": "Statement Throughput",
+      "group": "MON"
+    },
+    {
+      "id": 151,
+      "label": "Synthetic Data Generation",
+      "group": "AID"
+    },
+    {
+      "id": 152,
+      "label": "Claude Code Integration",
+      "group": "AID",
+      "shape": "box"
+    },
+    {
+      "id": 153,
+      "label": "Realistic Learner Cohort Simulation",
+      "group": "AID"
+    },
+    {
+      "id": 154,
+      "label": "LRS Load Testing",
+      "group": "AID"
+    },
+    {
+      "id": 155,
+      "label": "xAPI Stress Testing",
+      "group": "AID"
+    },
+    {
+      "id": 156,
+      "label": "Learner Archetype Modeling",
+      "group": "AID"
+    },
+    {
+      "id": 157,
+      "label": "Fast Learner Archetype",
+      "group": "AID"
+    },
+    {
+      "id": 158,
+      "label": "Struggling Learner Archetype",
+      "group": "AID"
+    },
+    {
+      "id": 159,
+      "label": "Disengaged Learner Archetype",
+      "group": "AID"
+    },
+    {
+      "id": 160,
+      "label": "Re-Learner Archetype",
+      "group": "AID"
+    },
+    {
+      "id": 161,
+      "label": "Mastery-Seeker Archetype",
+      "group": "AID"
+    },
+    {
+      "id": 162,
+      "label": "Verb Frequency Distribution",
+      "group": "AID"
+    },
+    {
+      "id": 163,
+      "label": "Session Duration Histogram",
+      "group": "AID"
+    },
+    {
+      "id": 164,
+      "label": "Statistical Representativeness",
+      "group": "AID"
+    },
+    {
+      "id": 165,
+      "label": "ADL Conformance Test Suite",
+      "group": "CONF"
+    },
+    {
+      "id": 166,
+      "label": "xAPI Validation",
+      "group": "CONF"
+    },
+    {
+      "id": 167,
+      "label": "Statement Structure Validation",
+      "group": "CONF"
+    },
+    {
+      "id": 168,
+      "label": "Required Field Validation",
+      "group": "CONF"
+    },
+    {
+      "id": 169,
+      "label": "Data Type Validation",
+      "group": "CONF"
+    },
+    {
+      "id": 170,
+      "label": "xAPI Competitive Analysis",
+      "group": "CONF"
+    },
+    {
+      "id": 171,
+      "label": "xAPI vs IMS Caliper Comparison",
+      "group": "CONF"
+    },
+    {
+      "id": 172,
+      "label": "xAPI vs SCORM 2004 Comparison",
+      "group": "CONF"
+    },
+    {
+      "id": 173,
+      "label": "xAPI vs CMI5 Comparison",
+      "group": "CONF"
+    },
+    {
+      "id": 174,
+      "label": "Proprietary Analytics SDKs",
+      "group": "CONF"
+    },
+    {
+      "id": 175,
+      "label": "Vendor Lock-In Risk",
+      "group": "CONF"
+    },
+    {
+      "id": 176,
+      "label": "Implementation Cost Analysis",
+      "group": "CONF"
+    },
+    {
+      "id": 177,
+      "label": "Instrumentation Granularity",
+      "group": "CONF"
+    },
+    {
+      "id": 178,
+      "label": "Vendor Support Assessment",
+      "group": "CONF"
+    },
+    {
+      "id": 179,
+      "label": "FERPA Compliance",
+      "group": "PRIV",
+      "shape": "box"
+    },
+    {
+      "id": 180,
+      "label": "COPPA Compliance",
+      "group": "PRIV",
+      "shape": "box"
+    },
+    {
+      "id": 181,
+      "label": "GDPR Compliance",
+      "group": "PRIV",
+      "shape": "box"
+    },
+    {
+      "id": 182,
+      "label": "PII in xAPI Statements",
+      "group": "PRIV"
+    },
+    {
+      "id": 183,
+      "label": "Actor PII Concerns",
+      "group": "PRIV"
+    },
+    {
+      "id": 184,
+      "label": "Result Extension PII",
+      "group": "PRIV"
+    },
+    {
+      "id": 185,
+      "label": "Context Extension PII",
+      "group": "PRIV"
+    },
+    {
+      "id": 186,
+      "label": "Data Retention Policies",
+      "group": "PRIV"
+    },
+    {
+      "id": 187,
+      "label": "Anonymization Strategies",
+      "group": "PRIV"
+    },
+    {
+      "id": 188,
+      "label": "Data Minimization Principle",
+      "group": "PRIV"
+    },
+    {
+      "id": 189,
+      "label": "LRS Privacy Controls",
+      "group": "PRIV"
+    },
+    {
+      "id": 190,
+      "label": "Role-Based Access Control (LRS)",
+      "group": "PRIV"
+    },
+    {
+      "id": 191,
+      "label": "JavaScript xAPI Client Library",
+      "group": "IMPL"
+    },
+    {
+      "id": 192,
+      "label": "Statement Construction",
+      "group": "IMPL"
+    },
+    {
+      "id": 193,
+      "label": "Retry-With-Backoff Pattern",
+      "group": "IMPL"
+    },
+    {
+      "id": 194,
+      "label": "Fetch API (HTTP)",
+      "group": "IMPL",
+      "shape": "box"
+    },
+    {
+      "id": 195,
+      "label": "JSON Serialization",
+      "group": "IMPL",
+      "shape": "box"
+    },
+    {
+      "id": 196,
+      "label": "TypeScript Type Definitions",
+      "group": "IMPL"
+    },
+    {
+      "id": 197,
+      "label": "MkDocs Intelligent Textbook",
+      "group": "IMPL"
+    },
+    {
+      "id": 198,
+      "label": "xAPI Client Library Design",
+      "group": "IMPL"
+    },
+    {
+      "id": 199,
+      "label": "xAPI Vocabulary Profile Design",
+      "group": "VERB"
+    },
+    {
+      "id": 200,
+      "label": "Custom Activity Types",
+      "group": "ACTID"
+    },
+    {
+      "id": 201,
+      "label": "Extension Namespace Design",
+      "group": "VERB"
+    },
+    {
+      "id": 202,
+      "label": "Cross-Platform Analytics",
+      "group": "VERB"
+    },
+    {
+      "id": 203,
+      "label": "xAPI Pipeline Architecture",
+      "group": "IMPL"
+    },
+    {
+      "id": 204,
+      "label": "Activity Provider Integration",
+      "group": "IMPL"
+    },
+    {
+      "id": 205,
+      "label": "Analytics Layer",
+      "group": "MON"
+    },
+    {
+      "id": 206,
+      "label": "Dashboard Layer",
+      "group": "MON"
+    },
+    {
+      "id": 207,
+      "label": "Pipeline Failure Points",
+      "group": "MON"
+    },
+    {
+      "id": 208,
+      "label": "Pipeline Latency Analysis",
+      "group": "MON"
+    },
+    {
+      "id": 209,
+      "label": "Client-Side xAPI Emission",
+      "group": "IMPL"
+    },
+    {
+      "id": 210,
+      "label": "Server-Side xAPI Emission",
+      "group": "IMPL"
+    },
+    {
+      "id": 211,
+      "label": "Statement Authenticity",
+      "group": "IMPL"
+    },
+    {
+      "id": 212,
+      "label": "xAPI Debugging Techniques",
+      "group": "IMPL"
+    },
+    {
+      "id": 213,
+      "label": "xAPI Error Handling",
+      "group": "IMPL"
+    },
+    {
+      "id": 214,
+      "label": "4xx Error Patterns (LRS)",
+      "group": "IMPL"
+    },
+    {
+      "id": 215,
+      "label": "5xx Error Patterns (LRS)",
+      "group": "IMPL"
+    },
+    {
+      "id": 216,
+      "label": "Production Readiness Checklist",
+      "group": "CONF"
+    },
+    {
+      "id": 217,
+      "label": "xAPI Implementation Review",
+      "group": "CONF"
+    },
+    {
+      "id": 218,
+      "label": "xAPI Security Best Practices",
+      "group": "PRIV"
+    },
+    {
+      "id": 219,
+      "label": "HTTPS for xAPI",
+      "group": "PRIV",
+      "shape": "box"
+    },
+    {
+      "id": 220,
+      "label": "Token-Based Authentication",
+      "group": "PRIV"
+    },
+    {
+      "id": 221,
+      "label": "xAPI Version Negotiation",
+      "group": "CONF"
+    },
+    {
+      "id": 222,
+      "label": "Backwards Compatibility (xAPI)",
+      "group": "CONF"
+    },
+    {
+      "id": 223,
+      "label": "xAPI Profile Server",
+      "group": "CONF"
+    },
+    {
+      "id": 224,
+      "label": "Profile Validation",
+      "group": "CONF"
+    },
+    {
+      "id": 225,
+      "label": "Learning Analytics Overview",
+      "group": "PRIV"
+    },
+    {
+      "id": 226,
+      "label": "Engagement Metrics",
+      "group": "PRIV"
+    },
+    {
+      "id": 227,
+      "label": "Completion Rate Analysis",
+      "group": "PRIV"
+    },
+    {
+      "id": 228,
+      "label": "Struggle Pattern Detection",
+      "group": "PRIV"
+    },
+    {
+      "id": 229,
+      "label": "Instructional Design Feedback Loop",
+      "group": "PRIV"
+    },
+    {
+      "id": 230,
+      "label": "K-12 Privacy Regulations",
+      "group": "PRIV"
+    },
+    {
+      "id": 231,
+      "label": "COPPA Safe Harbor",
+      "group": "PRIV"
+    },
+    {
+      "id": 232,
+      "label": "School District Data Policy",
+      "group": "PRIV"
+    },
+    {
+      "id": 233,
+      "label": "University Data Governance",
+      "group": "PRIV"
+    },
+    {
+      "id": 234,
+      "label": "Corporate L&D Analytics",
+      "group": "PRIV"
+    },
+    {
+      "id": 235,
+      "label": "xAPI for Mobile Web",
+      "group": "IMPL"
+    },
+    {
+      "id": 236,
+      "label": "Responsive Web xAPI",
+      "group": "IMPL",
+      "shape": "box"
+    },
+    {
+      "id": 237,
+      "label": "Browser Compatibility (xAPI)",
+      "group": "IMPL"
+    },
+    {
+      "id": 238,
+      "label": "Polyfill Strategy",
+      "group": "IMPL"
+    },
+    {
+      "id": 239,
+      "label": "Service Worker Lifecycle",
+      "group": "BAND"
+    },
+    {
+      "id": 240,
+      "label": "Cache-First Strategy",
+      "group": "BAND"
+    },
+    {
+      "id": 241,
+      "label": "Network-First Strategy",
+      "group": "BAND"
+    },
+    {
+      "id": 242,
+      "label": "Statement Queue Flushing",
+      "group": "BAND"
+    },
+    {
+      "id": 243,
+      "label": "Connectivity Detection",
+      "group": "BAND"
+    },
+    {
+      "id": 244,
+      "label": "Retry Logic Design",
+      "group": "IMPL"
+    },
+    {
+      "id": 245,
+      "label": "LRS Endpoint Configuration",
+      "group": "LRSA"
+    },
+    {
+      "id": 246,
+      "label": "Activity Provider Configuration",
+      "group": "IMPL"
+    },
+    {
+      "id": 247,
+      "label": "Statement Authority Configuration",
+      "group": "IMPL"
+    },
+    {
+      "id": 248,
+      "label": "xAPI Registration Field",
+      "group": "STMT"
+    },
+    {
+      "id": 249,
+      "label": "Revision Field (xAPI)",
+      "group": "STMT"
+    },
+    {
+      "id": 250,
+      "label": "Platform Field (xAPI)",
+      "group": "STMT"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 6,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 4
+    },
+    {
+      "from": 7,
+      "to": 1
+    },
+    {
+      "from": 10,
+      "to": 1
+    },
+    {
+      "from": 10,
+      "to": 3
+    },
+    {
+      "from": 10,
+      "to": 5
+    },
+    {
+      "from": 10,
+      "to": 7
+    },
+    {
+      "from": 10,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 9
+    },
+    {
+      "from": 11,
+      "to": 1
+    },
+    {
+      "from": 12,
+      "to": 11
+    },
+    {
+      "from": 13,
+      "to": 11
+    },
+    {
+      "from": 14,
+      "to": 11
+    },
+    {
+      "from": 15,
+      "to": 11
+    },
+    {
+      "from": 16,
+      "to": 11
+    },
+    {
+      "from": 17,
+      "to": 11
+    },
+    {
+      "from": 18,
+      "to": 11
+    },
+    {
+      "from": 19,
+      "to": 18
+    },
+    {
+      "from": 20,
+      "to": 11
+    },
+    {
+      "from": 21,
+      "to": 11
+    },
+    {
+      "from": 21,
+      "to": 22
+    },
+    {
+      "from": 22,
+      "to": 1
+    },
+    {
+      "from": 22,
+      "to": 2
+    },
+    {
+      "from": 23,
+      "to": 11
+    },
+    {
+      "from": 23,
+      "to": 17
+    },
+    {
+      "from": 24,
+      "to": 23
+    },
+    {
+      "from": 24,
+      "to": 57
+    },
+    {
+      "from": 25,
+      "to": 11
+    },
+    {
+      "from": 26,
+      "to": 25
+    },
+    {
+      "from": 27,
+      "to": 25
+    },
+    {
+      "from": 28,
+      "to": 22
+    },
+    {
+      "from": 29,
+      "to": 13
+    },
+    {
+      "from": 30,
+      "to": 13
+    },
+    {
+      "from": 30,
+      "to": 2
+    },
+    {
+      "from": 31,
+      "to": 29
+    },
+    {
+      "from": 31,
+      "to": 30
+    },
+    {
+      "from": 32,
+      "to": 13
+    },
+    {
+      "from": 32,
+      "to": 31
+    },
+    {
+      "from": 33,
+      "to": 14
+    },
+    {
+      "from": 34,
+      "to": 14
+    },
+    {
+      "from": 34,
+      "to": 33
+    },
+    {
+      "from": 35,
+      "to": 12
+    },
+    {
+      "from": 36,
+      "to": 12
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 36
+    },
+    {
+      "from": 38,
+      "to": 36
+    },
+    {
+      "from": 39,
+      "to": 35
+    },
+    {
+      "from": 40,
+      "to": 39
+    },
+    {
+      "from": 41,
+      "to": 35
+    },
+    {
+      "from": 42,
+      "to": 35
+    },
+    {
+      "from": 43,
+      "to": 16
+    },
+    {
+      "from": 44,
+      "to": 43
+    },
+    {
+      "from": 45,
+      "to": 43
+    },
+    {
+      "from": 46,
+      "to": 43
+    },
+    {
+      "from": 47,
+      "to": 43
+    },
+    {
+      "from": 48,
+      "to": 15
+    },
+    {
+      "from": 49,
+      "to": 15
+    },
+    {
+      "from": 50,
+      "to": 15
+    },
+    {
+      "from": 51,
+      "to": 15
+    },
+    {
+      "from": 52,
+      "to": 15
+    },
+    {
+      "from": 53,
+      "to": 11
+    },
+    {
+      "from": 54,
+      "to": 11
+    },
+    {
+      "from": 55,
+      "to": 11
+    },
+    {
+      "from": 56,
+      "to": 11
+    },
+    {
+      "from": 56,
+      "to": 17
+    },
+    {
+      "from": 57,
+      "to": 1
+    },
+    {
+      "from": 57,
+      "to": 11
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 11
+    },
+    {
+      "from": 60,
+      "to": 57
+    },
+    {
+      "from": 60,
+      "to": 35
+    },
+    {
+      "from": 61,
+      "to": 57
+    },
+    {
+      "from": 61,
+      "to": 33
+    },
+    {
+      "from": 62,
+      "to": 57
+    },
+    {
+      "from": 63,
+      "to": 57
+    },
+    {
+      "from": 63,
+      "to": 22
+    },
+    {
+      "from": 64,
+      "to": 57
+    },
+    {
+      "from": 64,
+      "to": 58
+    },
+    {
+      "from": 65,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 59
+    },
+    {
+      "from": 67,
+      "to": 59
+    },
+    {
+      "from": 67,
+      "to": 66
+    },
+    {
+      "from": 68,
+      "to": 67
+    },
+    {
+      "from": 69,
+      "to": 57
+    },
+    {
+      "from": 70,
+      "to": 69
+    },
+    {
+      "from": 71,
+      "to": 69
+    },
+    {
+      "from": 72,
+      "to": 57
+    },
+    {
+      "from": 73,
+      "to": 57
+    },
+    {
+      "from": 74,
+      "to": 57
+    },
+    {
+      "from": 75,
+      "to": 73
+    },
+    {
+      "from": 76,
+      "to": 73
+    },
+    {
+      "from": 77,
+      "to": 73
+    },
+    {
+      "from": 78,
+      "to": 72
+    },
+    {
+      "from": 79,
+      "to": 72
+    },
+    {
+      "from": 79,
+      "to": 73
+    },
+    {
+      "from": 79,
+      "to": 74
+    },
+    {
+      "from": 79,
+      "to": 75
+    },
+    {
+      "from": 79,
+      "to": 76
+    },
+    {
+      "from": 79,
+      "to": 77
+    },
+    {
+      "from": 79,
+      "to": 78
+    },
+    {
+      "from": 80,
+      "to": 57
+    },
+    {
+      "from": 80,
+      "to": 58
+    },
+    {
+      "from": 81,
+      "to": 57
+    },
+    {
+      "from": 81,
+      "to": 82
+    },
+    {
+      "from": 82,
+      "to": 57
+    },
+    {
+      "from": 82,
+      "to": 69
+    },
+    {
+      "from": 83,
+      "to": 59
+    },
+    {
+      "from": 83,
+      "to": 66
+    },
+    {
+      "from": 84,
+      "to": 57
+    },
+    {
+      "from": 84,
+      "to": 145
+    },
+    {
+      "from": 85,
+      "to": 1
+    },
+    {
+      "from": 86,
+      "to": 1
+    },
+    {
+      "from": 87,
+      "to": 1
+    },
+    {
+      "from": 88,
+      "to": 85
+    },
+    {
+      "from": 89,
+      "to": 1
+    },
+    {
+      "from": 90,
+      "to": 89
+    },
+    {
+      "from": 91,
+      "to": 89
+    },
+    {
+      "from": 92,
+      "to": 85
+    },
+    {
+      "from": 92,
+      "to": 86
+    },
+    {
+      "from": 92,
+      "to": 87
+    },
+    {
+      "from": 93,
+      "to": 33
+    },
+    {
+      "from": 93,
+      "to": 34
+    },
+    {
+      "from": 94,
+      "to": 29
+    },
+    {
+      "from": 94,
+      "to": 31
+    },
+    {
+      "from": 94,
+      "to": 32
+    },
+    {
+      "from": 95,
+      "to": 11
+    },
+    {
+      "from": 95,
+      "to": 94
+    },
+    {
+      "from": 96,
+      "to": 95
+    },
+    {
+      "from": 96,
+      "to": 103
+    },
+    {
+      "from": 97,
+      "to": 95
+    },
+    {
+      "from": 98,
+      "to": 95
+    },
+    {
+      "from": 99,
+      "to": 35
+    },
+    {
+      "from": 99,
+      "to": 39
+    },
+    {
+      "from": 100,
+      "to": 99
+    },
+    {
+      "from": 100,
+      "to": 37
+    },
+    {
+      "from": 101,
+      "to": 100
+    },
+    {
+      "from": 103,
+      "to": 102
+    },
+    {
+      "from": 104,
+      "to": 29
+    },
+    {
+      "from": 104,
+      "to": 95
+    },
+    {
+      "from": 105,
+      "to": 29
+    },
+    {
+      "from": 106,
+      "to": 29
+    },
+    {
+      "from": 106,
+      "to": 50
+    },
+    {
+      "from": 107,
+      "to": 29
+    },
+    {
+      "from": 108,
+      "to": 29
+    },
+    {
+      "from": 108,
+      "to": 49
+    },
+    {
+      "from": 109,
+      "to": 29
+    },
+    {
+      "from": 109,
+      "to": 49
+    },
+    {
+      "from": 110,
+      "to": 29
+    },
+    {
+      "from": 111,
+      "to": 29
+    },
+    {
+      "from": 111,
+      "to": 48
+    },
+    {
+      "from": 112,
+      "to": 29
+    },
+    {
+      "from": 113,
+      "to": 29
+    },
+    {
+      "from": 114,
+      "to": 29
+    },
+    {
+      "from": 115,
+      "to": 29
+    },
+    {
+      "from": 116,
+      "to": 6
+    },
+    {
+      "from": 116,
+      "to": 112
+    },
+    {
+      "from": 116,
+      "to": 113
+    },
+    {
+      "from": 116,
+      "to": 114
+    },
+    {
+      "from": 116,
+      "to": 115
+    },
+    {
+      "from": 117,
+      "to": 6
+    },
+    {
+      "from": 117,
+      "to": 112
+    },
+    {
+      "from": 118,
+      "to": 6
+    },
+    {
+      "from": 118,
+      "to": 11
+    },
+    {
+      "from": 119,
+      "to": 4
+    },
+    {
+      "from": 119,
+      "to": 50
+    },
+    {
+      "from": 119,
+      "to": 106
+    },
+    {
+      "from": 120,
+      "to": 4
+    },
+    {
+      "from": 120,
+      "to": 48
+    },
+    {
+      "from": 120,
+      "to": 111
+    },
+    {
+      "from": 121,
+      "to": 11
+    },
+    {
+      "from": 121,
+      "to": 13
+    },
+    {
+      "from": 121,
+      "to": 14
+    },
+    {
+      "from": 122,
+      "to": 59
+    },
+    {
+      "from": 122,
+      "to": 11
+    },
+    {
+      "from": 123,
+      "to": 122
+    },
+    {
+      "from": 124,
+      "to": 122
+    },
+    {
+      "from": 124,
+      "to": 11
+    },
+    {
+      "from": 125,
+      "to": 122
+    },
+    {
+      "from": 125,
+      "to": 126
+    },
+    {
+      "from": 125,
+      "to": 127
+    },
+    {
+      "from": 129,
+      "to": 128
+    },
+    {
+      "from": 130,
+      "to": 125
+    },
+    {
+      "from": 130,
+      "to": 129
+    },
+    {
+      "from": 131,
+      "to": 124
+    },
+    {
+      "from": 132,
+      "to": 124
+    },
+    {
+      "from": 132,
+      "to": 53
+    },
+    {
+      "from": 133,
+      "to": 122
+    },
+    {
+      "from": 133,
+      "to": 134
+    },
+    {
+      "from": 133,
+      "to": 137
+    },
+    {
+      "from": 134,
+      "to": 11
+    },
+    {
+      "from": 134,
+      "to": 124
+    },
+    {
+      "from": 135,
+      "to": 134
+    },
+    {
+      "from": 136,
+      "to": 138
+    },
+    {
+      "from": 137,
+      "to": 122
+    },
+    {
+      "from": 139,
+      "to": 138
+    },
+    {
+      "from": 142,
+      "to": 140
+    },
+    {
+      "from": 142,
+      "to": 141
+    },
+    {
+      "from": 143,
+      "to": 138
+    },
+    {
+      "from": 143,
+      "to": 139
+    },
+    {
+      "from": 144,
+      "to": 139
+    },
+    {
+      "from": 144,
+      "to": 142
+    },
+    {
+      "from": 145,
+      "to": 57
+    },
+    {
+      "from": 146,
+      "to": 144
+    },
+    {
+      "from": 146,
+      "to": 145
+    },
+    {
+      "from": 147,
+      "to": 146
+    },
+    {
+      "from": 148,
+      "to": 146
+    },
+    {
+      "from": 149,
+      "to": 146
+    },
+    {
+      "from": 149,
+      "to": 226
+    },
+    {
+      "from": 150,
+      "to": 137
+    },
+    {
+      "from": 150,
+      "to": 146
+    },
+    {
+      "from": 151,
+      "to": 152
+    },
+    {
+      "from": 153,
+      "to": 151
+    },
+    {
+      "from": 153,
+      "to": 156
+    },
+    {
+      "from": 154,
+      "to": 153
+    },
+    {
+      "from": 155,
+      "to": 154
+    },
+    {
+      "from": 156,
+      "to": 151
+    },
+    {
+      "from": 157,
+      "to": 156
+    },
+    {
+      "from": 158,
+      "to": 156
+    },
+    {
+      "from": 159,
+      "to": 156
+    },
+    {
+      "from": 160,
+      "to": 156
+    },
+    {
+      "from": 161,
+      "to": 156
+    },
+    {
+      "from": 162,
+      "to": 13
+    },
+    {
+      "from": 162,
+      "to": 153
+    },
+    {
+      "from": 163,
+      "to": 51
+    },
+    {
+      "from": 163,
+      "to": 153
+    },
+    {
+      "from": 164,
+      "to": 162
+    },
+    {
+      "from": 164,
+      "to": 163
+    },
+    {
+      "from": 165,
+      "to": 28
+    },
+    {
+      "from": 166,
+      "to": 165
+    },
+    {
+      "from": 166,
+      "to": 167
+    },
+    {
+      "from": 167,
+      "to": 11
+    },
+    {
+      "from": 167,
+      "to": 165
+    },
+    {
+      "from": 168,
+      "to": 167
+    },
+    {
+      "from": 169,
+      "to": 167
+    },
+    {
+      "from": 170,
+      "to": 1
+    },
+    {
+      "from": 170,
+      "to": 10
+    },
+    {
+      "from": 171,
+      "to": 7
+    },
+    {
+      "from": 171,
+      "to": 170
+    },
+    {
+      "from": 172,
+      "to": 4
+    },
+    {
+      "from": 172,
+      "to": 170
+    },
+    {
+      "from": 173,
+      "to": 6
+    },
+    {
+      "from": 173,
+      "to": 170
+    },
+    {
+      "from": 173,
+      "to": 118
+    },
+    {
+      "from": 174,
+      "to": 170
+    },
+    {
+      "from": 175,
+      "to": 174
+    },
+    {
+      "from": 175,
+      "to": 170
+    },
+    {
+      "from": 176,
+      "to": 170
+    },
+    {
+      "from": 177,
+      "to": 170
+    },
+    {
+      "from": 178,
+      "to": 170
+    },
+    {
+      "from": 182,
+      "to": 35
+    },
+    {
+      "from": 182,
+      "to": 179
+    },
+    {
+      "from": 182,
+      "to": 180
+    },
+    {
+      "from": 182,
+      "to": 181
+    },
+    {
+      "from": 183,
+      "to": 35
+    },
+    {
+      "from": 183,
+      "to": 182
+    },
+    {
+      "from": 184,
+      "to": 53
+    },
+    {
+      "from": 184,
+      "to": 182
+    },
+    {
+      "from": 185,
+      "to": 53
+    },
+    {
+      "from": 185,
+      "to": 182
+    },
+    {
+      "from": 186,
+      "to": 182
+    },
+    {
+      "from": 187,
+      "to": 182
+    },
+    {
+      "from": 187,
+      "to": 101
+    },
+    {
+      "from": 188,
+      "to": 182
+    },
+    {
+      "from": 189,
+      "to": 82
+    },
+    {
+      "from": 189,
+      "to": 182
+    },
+    {
+      "from": 190,
+      "to": 82
+    },
+    {
+      "from": 191,
+      "to": 192
+    },
+    {
+      "from": 191,
+      "to": 198
+    },
+    {
+      "from": 192,
+      "to": 11
+    },
+    {
+      "from": 192,
+      "to": 121
+    },
+    {
+      "from": 192,
+      "to": 195
+    },
+    {
+      "from": 193,
+      "to": 191
+    },
+    {
+      "from": 193,
+      "to": 213
+    },
+    {
+      "from": 196,
+      "to": 195
+    },
+    {
+      "from": 197,
+      "to": 102
+    },
+    {
+      "from": 198,
+      "to": 11
+    },
+    {
+      "from": 198,
+      "to": 192
+    },
+    {
+      "from": 199,
+      "to": 31
+    },
+    {
+      "from": 199,
+      "to": 94
+    },
+    {
+      "from": 200,
+      "to": 34
+    },
+    {
+      "from": 200,
+      "to": 199
+    },
+    {
+      "from": 201,
+      "to": 53
+    },
+    {
+      "from": 201,
+      "to": 199
+    },
+    {
+      "from": 202,
+      "to": 199
+    },
+    {
+      "from": 202,
+      "to": 94
+    },
+    {
+      "from": 203,
+      "to": 25
+    },
+    {
+      "from": 203,
+      "to": 57
+    },
+    {
+      "from": 203,
+      "to": 205
+    },
+    {
+      "from": 204,
+      "to": 25
+    },
+    {
+      "from": 204,
+      "to": 203
+    },
+    {
+      "from": 205,
+      "to": 57
+    },
+    {
+      "from": 205,
+      "to": 225
+    },
+    {
+      "from": 206,
+      "to": 146
+    },
+    {
+      "from": 206,
+      "to": 205
+    },
+    {
+      "from": 207,
+      "to": 203
+    },
+    {
+      "from": 208,
+      "to": 203
+    },
+    {
+      "from": 209,
+      "to": 25
+    },
+    {
+      "from": 209,
+      "to": 194
+    },
+    {
+      "from": 210,
+      "to": 25
+    },
+    {
+      "from": 211,
+      "to": 209
+    },
+    {
+      "from": 211,
+      "to": 210
+    },
+    {
+      "from": 211,
+      "to": 20
+    },
+    {
+      "from": 212,
+      "to": 144
+    },
+    {
+      "from": 212,
+      "to": 213
+    },
+    {
+      "from": 213,
+      "to": 11
+    },
+    {
+      "from": 213,
+      "to": 214
+    },
+    {
+      "from": 213,
+      "to": 215
+    },
+    {
+      "from": 214,
+      "to": 145
+    },
+    {
+      "from": 215,
+      "to": 145
+    },
+    {
+      "from": 216,
+      "to": 165
+    },
+    {
+      "from": 216,
+      "to": 217
+    },
+    {
+      "from": 217,
+      "to": 165
+    },
+    {
+      "from": 218,
+      "to": 69
+    },
+    {
+      "from": 218,
+      "to": 219
+    },
+    {
+      "from": 218,
+      "to": 220
+    },
+    {
+      "from": 220,
+      "to": 69
+    },
+    {
+      "from": 221,
+      "to": 22
+    },
+    {
+      "from": 221,
+      "to": 21
+    },
+    {
+      "from": 222,
+      "to": 22
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 223,
+      "to": 31
+    },
+    {
+      "from": 223,
+      "to": 199
+    },
+    {
+      "from": 224,
+      "to": 223
+    },
+    {
+      "from": 224,
+      "to": 166
+    },
+    {
+      "from": 225,
+      "to": 1
+    },
+    {
+      "from": 226,
+      "to": 225
+    },
+    {
+      "from": 227,
+      "to": 50
+    },
+    {
+      "from": 227,
+      "to": 225
+    },
+    {
+      "from": 228,
+      "to": 107
+    },
+    {
+      "from": 228,
+      "to": 108
+    },
+    {
+      "from": 228,
+      "to": 109
+    },
+    {
+      "from": 228,
+      "to": 225
+    },
+    {
+      "from": 229,
+      "to": 225
+    },
+    {
+      "from": 229,
+      "to": 226
+    },
+    {
+      "from": 230,
+      "to": 85
+    },
+    {
+      "from": 230,
+      "to": 179
+    },
+    {
+      "from": 230,
+      "to": 180
+    },
+    {
+      "from": 231,
+      "to": 180
+    },
+    {
+      "from": 232,
+      "to": 230
+    },
+    {
+      "from": 232,
+      "to": 88
+    },
+    {
+      "from": 233,
+      "to": 86
+    },
+    {
+      "from": 234,
+      "to": 87
+    },
+    {
+      "from": 234,
+      "to": 225
+    },
+    {
+      "from": 235,
+      "to": 1
+    },
+    {
+      "from": 235,
+      "to": 236
+    },
+    {
+      "from": 237,
+      "to": 235
+    },
+    {
+      "from": 237,
+      "to": 236
+    },
+    {
+      "from": 238,
+      "to": 237
+    },
+    {
+      "from": 239,
+      "to": 128
+    },
+    {
+      "from": 240,
+      "to": 128
+    },
+    {
+      "from": 240,
+      "to": 239
+    },
+    {
+      "from": 241,
+      "to": 128
+    },
+    {
+      "from": 241,
+      "to": 239
+    },
+    {
+      "from": 242,
+      "to": 125
+    },
+    {
+      "from": 242,
+      "to": 129
+    },
+    {
+      "from": 243,
+      "to": 125
+    },
+    {
+      "from": 244,
+      "to": 193
+    },
+    {
+      "from": 244,
+      "to": 242
+    },
+    {
+      "from": 245,
+      "to": 57
+    },
+    {
+      "from": 245,
+      "to": 63
+    },
+    {
+      "from": 246,
+      "to": 25
+    },
+    {
+      "from": 247,
+      "to": 20
+    },
+    {
+      "from": 248,
+      "to": 16
+    },
+    {
+      "from": 248,
+      "to": 11
+    },
+    {
+      "from": 249,
+      "to": 14
+    },
+    {
+      "from": 250,
+      "to": 16
+    }
+  ]
+}
