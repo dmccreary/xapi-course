@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -65,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bandwidth Optimization, Offline Queues, and Service Workers - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="How to keep xAPI overhead negligible on real networks — statement batching, payload minimization, offline queues backed by IndexedDB, service worker lifecycle, connectivity detection, and the bandwidth budget calculation that decides whether your instrumentation works in a 30-student classroom on a flaky school WiFi.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/09-bandwidth-and-offline/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/09-bandwidth-and-offline/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Bandwidth Optimization, Offline Queues, and Service Workers - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="How to keep xAPI overhead negligible on real networks — statement batching, payload minimization, offline queues backed by IndexedDB, service worker lifecycle, connectivity detection, and the bandwidth budget calculation that decides whether your instrumentation works in a 30-student classroom on a flaky school WiFi.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/09-bandwidth-and-offline/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -105,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -133,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -142,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -181,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -205,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -226,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -1085,6 +1105,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1392,7 +1420,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1639,7 +1667,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -1688,16 +1716,16 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/09-bandwidth-and-offline/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="bandwidth-optimization-offline-queues-and-service-workers">Bandwidth Optimization, Offline Queues, and Service Workers<a class="headerlink" href="#bandwidth-optimization-offline-queues-and-service-workers" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h1 id="bandwidth-optimization-offline-queues-and-service-workers">Bandwidth Optimization, Offline Queues, and Service Workers<a class="headerlink" href="#bandwidth-optimization-offline-queues-and-service-workers" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Covers statement batching, payload minimization, delta encoding, IndexedDB and LocalStorage queues, service worker lifecycle, and bandwidth budgeting. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
-<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
 <p>This chapter covers the following 21 concepts from the learning graph:</p>
 <ol>
 <li>Statement Batching</li>
@@ -1722,7 +1750,7 @@
 <li>Connectivity Detection</li>
 <li>Retry Logic Design</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter builds on concepts from:</p>
 <ul>
 <li><a href="../02-statement-model/">Chapter 2: The xAPI Statement Model: Actor, Verb, Object, Result, and Context</a></li>
@@ -1730,16 +1758,16 @@
 <li><a href="../06-lrs-architecture/">Chapter 6: Learning Record Store Architecture and Query Endpoints</a></li>
 <li><a href="../08-implementing-in-textbooks/">Chapter 8: Implementing xAPI in Intelligent Textbooks</a></li>
 </ul>
-<hr />
+<hr>
 <div class="admonition mascot-welcome">
 <p class="admonition-title">Welcome to the Network Chapter</p>
-<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus tangled in network cables">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/welcome.png" data-desc-position="bottom"><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus tangled in network cables"></a>
 A textbook with great instrumentation that destroys the school's WiFi is a textbook nobody adopts. This chapter is about making xAPI invisible at the network layer — small payloads, clever batching, graceful behavior offline. You'll learn what an instrumented session actually costs, in bytes and round-trips, and how to bring that cost down by an order of magnitude when you need to.</p>
 </div>
-<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">¶</a></h2>
 <p>By the end of this chapter, you'll be able to <strong>calculate exactly how much bandwidth your instrumentation costs per learner per session, decide whether that cost is acceptable, and apply the right techniques to bring it down</strong>. This is the kind of analysis that turns a worried network admin into an ally. "We did the math, this textbook adds 80KB per learner per hour, here's the breakdown" is a different conversation than "trust us, it's fine."</p>
 <p>You'll also build the offline-resilience layer that lets the textbook keep working when the network drops — a daily occurrence in real classrooms — without losing statements. This is the part of xAPI that production deployments most often skip and most often regret.</p>
-<h2 id="what-an-instrumented-session-costs">What an Instrumented Session Costs<a class="headerlink" href="#what-an-instrumented-session-costs" title="Permanent link">&para;</a></h2>
+<h2 id="what-an-instrumented-session-costs">What an Instrumented Session Costs<a class="headerlink" href="#what-an-instrumented-session-costs" title="Permanent link">¶</a></h2>
 <p>Before optimizing, measure. A typical xAPI statement, freshly emitted from a textbook component, lands somewhere between 700 and 1500 bytes serialized as JSON. That's the <strong>per-statement payload size</strong>. Add HTTP overhead — request line, headers, response — and the wire cost climbs to 1500–3000 bytes per individual statement when each one is POSTed alone. <strong>HTTP overhead analysis</strong> is the practice of breaking that wire cost down so you know what to attack.</p>
 <p>Where the bytes go in a single, individually-posted statement:</p>
 <ul>
@@ -1756,12 +1784,12 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <li>Spread over 20 minutes = ~17 KB/sec aggregate</li>
 </ul>
 <p>That number is small enough to be invisible on a campus connection and large enough to be noticeable on a school's shared 100 Mbps link during peak hours. Now we'll attack it.</p>
-<h4 id="diagram-bandwidth-budget-calculator-microsim">Diagram: Bandwidth Budget Calculator MicroSim<a class="headerlink" href="#diagram-bandwidth-budget-calculator-microsim" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-bandwidth-budget-calculator-microsim">Diagram: Bandwidth Budget Calculator MicroSim<a class="headerlink" href="#diagram-bandwidth-budget-calculator-microsim" title="Permanent link">¶</a></h4>
 <details>
 <summary>Bandwidth Budget Calculator MicroSim</summary>
 <p>Type: micro-sim
-<strong>sim-id:</strong> bandwidth-budget-calculator-microsim<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> bandwidth-budget-calculator-microsim<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Applying):</strong> Estimate the total bandwidth cost of an xAPI deployment by adjusting per-statement size, frequency, batch size, and concurrent learner count.</p>
 <p><strong>Layout:</strong> 2/3 (left) input controls + 1/3 (right) live output panel.</p>
@@ -1790,7 +1818,7 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <p><strong>Default canvas:</strong> 1000×600px, responsive.</p>
 <p>Implementation: p5.js for the sliders, layout, and dynamic computations; HTML overlay for the output panel.</p>
 </details>
-<h2 id="statement-batching">Statement Batching<a class="headerlink" href="#statement-batching" title="Permanent link">&para;</a></h2>
+<h2 id="statement-batching">Statement Batching<a class="headerlink" href="#statement-batching" title="Permanent link">¶</a></h2>
 <p><strong>Statement batching</strong> is the practice of buffering multiple statements client-side and POSTing them together as a single array, exploiting the LRS's atomic-batch semantics (Chapter 6). Batching is the single highest-leverage bandwidth optimization in xAPI, and the easiest to implement.</p>
 <p>The math, with the numbers from the worked example. Forty-five statements posted individually cost 45 × 1900 ≈ 85 KB. Forty-five statements posted in three batches of 15 cost 3 × (15 × 1200 + 700) = 56 KB — a 34% reduction with no information loss. Push the batch size to a single batch of 45 and the cost drops to 1 × (45 × 1200 + 700) = 54.7 KB — almost exactly the raw statement payload, with HTTP overhead amortized to near-zero.</p>
 <p>The implementation is small. The client library buffers incoming statements and flushes when one of three conditions is met: the batch reaches a configured size limit, a timer expires, or <code>flush()</code> is called explicitly (typically at page-unload):</p>
@@ -1819,16 +1847,16 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </span></code></pre></div>
 <p>Three pieces to internalize. The buffer drains atomically (<code>splice(0)</code>) so concurrent <code>send</code> calls don't share a half-drained buffer. The timer is canceled when the buffer drains so the next <code>send</code> starts a fresh window. And <code>flush()</code> is idempotent on an empty buffer — safe to call from <code>beforeunload</code> listeners that fire whether or not buffered data exists.</p>
 <p>Tunable parameters: a batch size of 25 and a batch delay of 5 seconds works well for most textbooks. Smaller batches mean less aggregation benefit; larger batches mean events are delayed reaching the LRS, which can confuse real-time dashboards. Five seconds is short enough that the dashboard still feels live; 25 is large enough to amortize HTTP overhead nicely.</p>
-<h3 id="http2-multiplexing">HTTP/2 Multiplexing<a class="headerlink" href="#http2-multiplexing" title="Permanent link">&para;</a></h3>
+<h3 id="http2-multiplexing">HTTP/2 Multiplexing<a class="headerlink" href="#http2-multiplexing" title="Permanent link">¶</a></h3>
 <p><strong>HTTP/2 multiplexing</strong> is the protocol-level feature that lets a single HTTP/2 connection carry multiple concurrent requests and responses without the head-of-line blocking that hurt HTTP/1.1. It's relevant to xAPI because it changes the math on whether to batch <em>across</em> requests as well as within them.</p>
 <p>Under HTTP/1.1, each unbatched POST opened a new TCP connection (roughly), serialized requests, and paid the TCP slow-start cost on each. Batching was a major win because every avoided POST avoided a connection setup. Under HTTP/2, a single connection carries many concurrent requests cheaply — so the marginal cost of an extra POST is much lower. Batching is still a win because of header compression and amortized parsing, but the win is smaller (roughly 30–50% bandwidth reduction under HTTP/2 vs. 60–80% under HTTP/1.1).</p>
 <p>The takeaway: <strong>batching is still worth doing under HTTP/2</strong> — the savings are smaller but real, and the offline-queueing logic depends on having a single point of submission. Don't skip batching just because you're on HTTP/2.</p>
-<h4 id="diagram-batching-wire-cost-comparison">Diagram: Batching Wire-Cost Comparison<a class="headerlink" href="#diagram-batching-wire-cost-comparison" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-batching-wire-cost-comparison">Diagram: Batching Wire-Cost Comparison<a class="headerlink" href="#diagram-batching-wire-cost-comparison" title="Permanent link">¶</a></h4>
 <details>
 <summary>Batching Wire-Cost Comparison</summary>
 <p>Type: interactive-infographic
-<strong>sim-id:</strong> batching-wire-cost-comparison<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> batching-wire-cost-comparison<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Analyzing):</strong> Compare individual-POST and batched-POST traffic patterns visually, recognizing how HTTP overhead amortizes as batch size grows.</p>
 <p><strong>Layout:</strong> Two side-by-side timelines (top: "Individual POST", bottom: "Batched POST"); a side panel on the right shows numerical comparison.</p>
@@ -1849,22 +1877,22 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <p><strong>Default canvas:</strong> 1000×550px, responsive.</p>
 <p>Implementation: p5.js for the timeline rendering and animated re-layout on slider change.</p>
 </details>
-<h2 id="payload-minimization">Payload Minimization<a class="headerlink" href="#payload-minimization" title="Permanent link">&para;</a></h2>
+<h2 id="payload-minimization">Payload Minimization<a class="headerlink" href="#payload-minimization" title="Permanent link">¶</a></h2>
 <p><strong>Payload minimization</strong> is the practice of trimming unnecessary bytes from each statement before sending. The constraints: don't break conformance, don't lose information the LRS needs, don't make debugging painful. Two techniques fit those constraints.</p>
 <p><strong>Selective verbosity</strong> is the policy of populating optional fields only when they carry actual signal. The most common offender is the language map on <code>verb.display</code>. The xAPI spec allows multiple language tags; many auto-generated builders include <code>en-US</code> plus four other languages "to be safe." If your textbook is monolingual, you only need <code>en-US</code>. Trimming four extra languages from <code>verb.display</code>, <code>object.definition.name</code>, and <code>object.definition.description</code> shaves 200–400 bytes off every statement.</p>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Verbose — 480 bytes</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">&quot;verb&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;display&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;es-MX&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aprobó&quot;</span><span class="p">,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="s2">&quot;fr-FR&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;réussi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;de-DE&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bestanden&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="s2">&quot;ja-JP&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;合格しました&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">"verb"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"display"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="s2">"en-US"</span><span class="o">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"es-MX"</span><span class="o">:</span><span class="w"> </span><span class="s2">"aprobó"</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="s2">"fr-FR"</span><span class="o">:</span><span class="w"> </span><span class="s2">"réussi"</span><span class="p">,</span><span class="w"> </span><span class="s2">"de-DE"</span><span class="o">:</span><span class="w"> </span><span class="s2">"bestanden"</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="s2">"ja-JP"</span><span class="o">:</span><span class="w"> </span><span class="s2">"合格しました"</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}}</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">// Selective — 70 bytes</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s2">&quot;verb&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;display&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s2">"verb"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"display"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"en-US"</span><span class="o">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="w"> </span><span class="p">}}</span>
 </span></code></pre></div>
 <p><strong>Delta encoding</strong> is the practice of omitting fields that haven't changed between statements in a batch. xAPI itself doesn't support delta encoding at the spec level, but if the same <code>actor</code>, <code>context.platform</code>, <code>context.registration</code>, and <code>context.contextActivities.parent</code> repeat across every statement in a batch (which is typical for one learner working through one chapter), some custom client libraries implement a private encoding that strips the repeats client-side and reconstructs them server-side via a thin proxy. The trade-off: this is non-conformant on the wire, requires a proxy that re-inflates the statements before the LRS sees them, and adds operational complexity. Most teams skip it. Mention it here so you know it exists; the higher-leverage win is selective verbosity.</p>
 <p>The simpler version of "delta encoding" — and the one teams should reach for first — is just <em>not putting redundant data in extensions</em>. If your extensions duplicate fields already in <code>actor</code> or <code>context</code>, fix that first.</p>
-<h2 id="offline-statement-queue">Offline Statement Queue<a class="headerlink" href="#offline-statement-queue" title="Permanent link">&para;</a></h2>
+<h2 id="offline-statement-queue">Offline Statement Queue<a class="headerlink" href="#offline-statement-queue" title="Permanent link">¶</a></h2>
 <p>A <strong>service worker</strong> is a JavaScript module that runs in the background of a web page, separate from the main thread, and intercepts network requests on behalf of the page. Service workers are the foundation of offline-capable web apps; they're how your textbook can keep emitting statements when the network drops.</p>
 <p>A <strong>service worker lifecycle</strong> has four states: registered, installing, activated, and (in case of update) updating. The simple version: on first page load, the service worker file is fetched, parsed, and installed. After installation, it activates and starts intercepting requests. On subsequent loads, the browser checks for an updated service worker; if one exists, it installs alongside the old one and activates after the page closes.</p>
 <p><strong>Service workers</strong> intercept requests in two modes:</p>
@@ -1888,15 +1916,15 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">queueStatement</span><span class="p">(</span><span class="nx">statement</span><span class="p">);</span><span class="w">   </span><span class="c1">// write to IndexedDB</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;online&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">flushQueue</span><span class="p">());</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"online"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">flushQueue</span><span class="p">());</span>
 </span></code></pre></div>
 <p>This is the simplest workable design. Real implementations also handle: timer-based retries while online but unable to reach the LRS (the network is "up" but the LRS is unreachable), distinguishing recoverable from unrecoverable queue entries, and bounding the queue size to avoid unbounded growth on extended outages.</p>
-<h4 id="diagram-service-worker-and-offline-queue-flow">Diagram: Service Worker and Offline Queue Flow<a class="headerlink" href="#diagram-service-worker-and-offline-queue-flow" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-service-worker-and-offline-queue-flow">Diagram: Service Worker and Offline Queue Flow<a class="headerlink" href="#diagram-service-worker-and-offline-queue-flow" title="Permanent link">¶</a></h4>
 <details>
 <summary>Service Worker and Offline Queue Flow</summary>
 <p>Type: workflow-diagram
-<strong>sim-id:</strong> service-worker-offline-queue-flow<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> service-worker-offline-queue-flow<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Analyzing):</strong> Trace the path of a statement emitted while offline through the IndexedDB queue and back to the LRS when connectivity returns.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (TD direction). Click handlers on every node.</p>
@@ -1914,21 +1942,21 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives.</p>
 </details>
-<h2 id="background-sync-api">Background Sync API<a class="headerlink" href="#background-sync-api" title="Permanent link">&para;</a></h2>
+<h2 id="background-sync-api">Background Sync API<a class="headerlink" href="#background-sync-api" title="Permanent link">¶</a></h2>
 <p>The <strong>Background Sync API</strong> is the modern browser API for "do this when the user has connectivity, even if the page is closed." A service worker registers a sync event with a tag; when the browser detects connectivity, the worker is woken (if asleep) and the registered sync handler runs. This lets your textbook flush its offline queue <em>after</em> the learner has closed the tab — the quintessential use case being the learner who finishes a chapter on the train, closes the laptop, gets home thirty minutes later, and the laptop wakes up.</p>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// In the page</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">await</span><span class="w"> </span><span class="nx">reg</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;xapi-flush&quot;</span><span class="p">);</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">await</span><span class="w"> </span><span class="nx">reg</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">"xapi-flush"</span><span class="p">);</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// In the service worker</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;sync&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;xapi-flush&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"sync"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"xapi-flush"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span><span class="nx">flushQueueFromIndexedDB</span><span class="p">());</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">});</span>
 </span></code></pre></div>
 <p>Browser support for Background Sync is good in Chrome and Edge, partial in Firefox, and historically absent in Safari. The right strategy: register the sync, but don't <em>rely</em> on it. The page's main-thread <code>online</code> event handler is your primary flush mechanism; Background Sync is a bonus that helps your queue drain even when the tab isn't active.</p>
-<h2 id="connectivity-detection">Connectivity Detection<a class="headerlink" href="#connectivity-detection" title="Permanent link">&para;</a></h2>
+<h2 id="connectivity-detection">Connectivity Detection<a class="headerlink" href="#connectivity-detection" title="Permanent link">¶</a></h2>
 <p><strong>Connectivity detection</strong> is the simple-sounding question of "is the browser online?" — and it's surprisingly subtle. The <code>navigator.onLine</code> property and the <code>online</code>/<code>offline</code> events are the obvious answer, but they only detect <em>network-level</em> connectivity. They don't tell you if the LRS is reachable, if your authentication is still valid, or if a captive portal is intercepting your traffic.</p>
 <p>The robust pattern is layered:</p>
 <ol>
@@ -1938,7 +1966,7 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <li><strong>POST attempt with short timeout</strong> — finally, if the probe succeeds, attempt the queued POSTs with a tight timeout (5–10 seconds) so a stuck connection doesn't block.</li>
 </ol>
 <p>This staircase costs almost nothing in the common case and avoids the "online but actually offline" trap that captive portals create.</p>
-<h2 id="progressive-sync-strategy">Progressive Sync Strategy<a class="headerlink" href="#progressive-sync-strategy" title="Permanent link">&para;</a></h2>
+<h2 id="progressive-sync-strategy">Progressive Sync Strategy<a class="headerlink" href="#progressive-sync-strategy" title="Permanent link">¶</a></h2>
 <p><strong>Progressive sync strategy</strong> is the policy for <em>when</em> to flush the offline queue, what to flush in what order, and how to handle queues that have grown large. The rule of thumb that fits most textbooks:</p>
 <ol>
 <li><strong>Flush in chronological order.</strong> Queue insertion order is queue flush order. Statements emitted earlier should reach the LRS earlier, preserving the temporal narrative.</li>
@@ -1962,7 +1990,7 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="retry-logic-design-revisited">Retry Logic Design Revisited<a class="headerlink" href="#retry-logic-design-revisited" title="Permanent link">&para;</a></h2>
+<h2 id="retry-logic-design-revisited">Retry Logic Design Revisited<a class="headerlink" href="#retry-logic-design-revisited" title="Permanent link">¶</a></h2>
 <p>Chapter 8 introduced retry-with-backoff for in-flight POSTs. <strong>Retry logic design</strong> at this layer extends that pattern across the offline boundary: in-flight retries are bounded (5 attempts, then escalate); offline-queue retries are unbounded but periodic (every 60 seconds while offline, every 5 seconds while online). Together, the two layers ensure that no statement is dropped by a transient failure and no statement spins forever in a tight loop.</p>
 <p>The full retry hierarchy:</p>
 <ol>
@@ -1974,10 +2002,10 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </ol>
 <div class="admonition mascot-thinking">
 <p class="admonition-title">Xavi's Insight — Lossy Is Worse Than Slow</p>
-<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering data loss">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/thinking.png" data-desc-position="bottom"><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering data loss"></a>
 A network optimization that loses 1% of statements is far worse than one that delays them by an hour. xAPI's value depends on the data being complete enough that aggregate queries don't lie. Optimize for <em>eventual delivery</em>, not <em>immediate delivery</em>. The dashboard can wait an hour. The dashboard cannot reconstruct missing data.</p>
 </div>
-<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">¶</a></h2>
 <p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 10.</p>
 <ul>
 <li>You can compute a bandwidth budget for an instrumented session given per-statement size, frequency, and learner count.</li>
@@ -1990,7 +2018,7 @@ A network optimization that loses 1% of statements is far worse than one that de
 </ul>
 <div class="admonition mascot-celebration">
 <p class="admonition-title">Invisible at the Network Layer</p>
-<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an empty network meter">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/celebration.png" data-desc-position="bottom"><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an empty network meter"></a>
 Your textbook now plays nice with school WiFi, cellular tethers, and laptops that go to sleep on the train. That's the bar most production deployments fail to clear. Chapter 10 turns from "how to send statements without breaking the network" to "how to watch the statements flow once they're in motion" — the observability layer that turns raw traffic into operational signal.</p>
 </div>
 
@@ -2018,7 +2046,7 @@ Your textbook now plays nice with school WiFi, cellular tethers, and laptops tha
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -2028,13 +2056,13 @@ Your textbook now plays nice with school WiFi, cellular tethers, and laptops tha
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../08-implementing-in-textbooks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Implementing in Textbooks">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2059,7 +2087,7 @@ Your textbook now plays nice with school WiFi, cellular tethers, and laptops tha
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2071,7 +2099,7 @@ Your textbook now plays nice with school WiFi, cellular tethers, and laptops tha
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -2095,6 +2123,10 @@ Your textbook now plays nice with school WiFi, cellular tethers, and laptops tha
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

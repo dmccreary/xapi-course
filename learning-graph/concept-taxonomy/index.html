@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,6 +12,10 @@
         <link rel="canonical" href="https://dmccreary.github.io/xapi-course/learning-graph/concept-taxonomy/">
       
       
+        <link rel="prev" href="../concept-list/">
+      
+      
+        <link rel="next" href="../quality-metrics/">
       
       
         
@@ -46,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -61,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Concept Taxonomy - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/learning-graph/concept-taxonomy.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/learning-graph/concept-taxonomy/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Concept Taxonomy - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/learning-graph/concept-taxonomy.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -101,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -129,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -138,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -177,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -201,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -222,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -399,6 +423,8 @@
       
   
   
+    
+  
   
   
     
@@ -412,23 +438,30 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
-  
-  
-  
-    <a href="../" class="md-nav__link">
-      
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -442,12 +475,394 @@
   
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Graph
   
 
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description-assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mascot-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mascot Style Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundations-of-xapi-and-learning-standards-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundations of xAPI and Learning Standards (FOUND)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-statement-model-stmt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Statement Model (STMT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb-and-vocabulary-design-verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb and Vocabulary Design (VERB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-agent-and-identity-actid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity, Agent, and Identity (ACTID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-record-store-architecture-lrsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Record Store Architecture (LRSA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrs-platforms-and-authentication-lrsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Platforms and Authentication (LRSP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-in-intelligent-textbooks-impl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation in Intelligent Textbooks (IMPL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-and-network-optimization-band" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bandwidth and Network Optimization (BAND)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-and-observability-mon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring and Observability (MON)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-data-and-ai-assisted-testing-aid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic Data and AI-Assisted Testing (AID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conformance-validation-and-standards-comparison-conf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conformance, Validation, and Standards Comparison (CONF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-compliance-and-organizational-context-priv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy, Compliance, and Organizational Context (PRIV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quality-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Quality Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-distribution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taxonomy Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -719,7 +1134,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -904,6 +1319,46 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -913,70 +1368,70 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/learning-graph/concept-taxonomy.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="concept-taxonomy">Concept Taxonomy<a class="headerlink" href="#concept-taxonomy" title="Permanent link">&para;</a></h1>
+<h1 id="concept-taxonomy">Concept Taxonomy<a class="headerlink" href="#concept-taxonomy" title="Permanent link">¶</a></h1>
 <p>This taxonomy organizes the 250 xAPI course concepts into 12 categories. Each
 category has a 3–5 letter abbreviation (TaxonomyID) used in
 <code>learning-graph.csv</code> and the generated learning graph JSON.</p>
-<h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permanent link">&para;</a></h2>
-<h3 id="foundations-of-xapi-and-learning-standards-found">Foundations of xAPI and Learning Standards (FOUND)<a class="headerlink" href="#foundations-of-xapi-and-learning-standards-found" title="Permanent link">&para;</a></h3>
+<h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permanent link">¶</a></h2>
+<h3 id="foundations-of-xapi-and-learning-standards-found">Foundations of xAPI and Learning Standards (FOUND)<a class="headerlink" href="#foundations-of-xapi-and-learning-standards-found" title="Permanent link">¶</a></h3>
 <p>Foundational concepts about the xAPI standard, its history, the broader
 learning-standards landscape (SCORM, AICC, IMS), and the high-level positioning
 of xAPI relative to other specifications. These concepts form the entry point
 for the entire course.</p>
-<h3 id="xapi-statement-model-stmt">xAPI Statement Model (STMT)<a class="headerlink" href="#xapi-statement-model-stmt" title="Permanent link">&para;</a></h3>
+<h3 id="xapi-statement-model-stmt">xAPI Statement Model (STMT)<a class="headerlink" href="#xapi-statement-model-stmt" title="Permanent link">¶</a></h3>
 <p>Concepts that describe the structure and semantics of xAPI statements
 themselves: Actor / Verb / Object / Result / Context, statement IDs, voiding,
 sub-statements, attachments, extensions, references, and statement patterns.</p>
-<h3 id="verb-and-vocabulary-design-verb">Verb and Vocabulary Design (VERB)<a class="headerlink" href="#verb-and-vocabulary-design-verb" title="Permanent link">&para;</a></h3>
+<h3 id="verb-and-vocabulary-design-verb">Verb and Vocabulary Design (VERB)<a class="headerlink" href="#verb-and-vocabulary-design-verb" title="Permanent link">¶</a></h3>
 <p>Concepts about the xAPI verb system, ADL verb registry, tincan vocabulary,
 custom verb profiles, IRI namespaces, vocabulary design, and the canonical
 verbs used inside intelligent textbooks.</p>
-<h3 id="activity-agent-and-identity-actid">Activity, Agent, and Identity (ACTID)<a class="headerlink" href="#activity-agent-and-identity-actid" title="Permanent link">&para;</a></h3>
+<h3 id="activity-agent-and-identity-actid">Activity, Agent, and Identity (ACTID)<a class="headerlink" href="#activity-agent-and-identity-actid" title="Permanent link">¶</a></h3>
 <p>Concepts about activities, activity types, activity IRIs, registration,
 agents, groups, identifier forms (mbox / mbox_sha1sum / openid / account),
 and learner identity management including pseudonymization.</p>
-<h3 id="learning-record-store-architecture-lrsa">Learning Record Store Architecture (LRSA)<a class="headerlink" href="#learning-record-store-architecture-lrsa" title="Permanent link">&para;</a></h3>
+<h3 id="learning-record-store-architecture-lrsa">Learning Record Store Architecture (LRSA)<a class="headerlink" href="#learning-record-store-architecture-lrsa" title="Permanent link">¶</a></h3>
 <p>LRS architecture and infrastructure: storage models, endpoints (<code>/statements</code>,
 <code>/agents</code>, <code>/activities</code>, <code>/state</code>, <code>/about</code>), concurrency, conflict
 resolution, scalability, multi-tenancy, query capability, request logs, and
 endpoint configuration.</p>
-<h3 id="lrs-platforms-and-authentication-lrsp">LRS Platforms and Authentication (LRSP)<a class="headerlink" href="#lrs-platforms-and-authentication-lrsp" title="Permanent link">&para;</a></h3>
+<h3 id="lrs-platforms-and-authentication-lrsp">LRS Platforms and Authentication (LRSP)<a class="headerlink" href="#lrs-platforms-and-authentication-lrsp" title="Permanent link">¶</a></h3>
 <p>Concrete LRS platforms (TRAX, Learning Locker, Ralph, Watershed), hosting
 models (SaaS, self-hosted, embedded), authentication mechanisms (Basic Auth,
 OAuth 1.0a, token-based), platform comparison, and access control.</p>
-<h3 id="implementation-in-intelligent-textbooks-impl">Implementation in Intelligent Textbooks (IMPL)<a class="headerlink" href="#implementation-in-intelligent-textbooks-impl" title="Permanent link">&para;</a></h3>
+<h3 id="implementation-in-intelligent-textbooks-impl">Implementation in Intelligent Textbooks (IMPL)<a class="headerlink" href="#implementation-in-intelligent-textbooks-impl" title="Permanent link">¶</a></h3>
 <p>Applying xAPI inside Level 3 interactive intelligent textbooks: instrumenting
 MicroSims / quizzes / adaptive branching, JavaScript client library design,
 TypeScript type definitions, statement construction, retry logic, server-side
 vs client-side emission, debugging, and error handling.</p>
-<h3 id="bandwidth-and-network-optimization-band">Bandwidth and Network Optimization (BAND)<a class="headerlink" href="#bandwidth-and-network-optimization-band" title="Permanent link">&para;</a></h3>
+<h3 id="bandwidth-and-network-optimization-band">Bandwidth and Network Optimization (BAND)<a class="headerlink" href="#bandwidth-and-network-optimization-band" title="Permanent link">¶</a></h3>
 <p>Bandwidth-reduction patterns and offline behavior: statement batching,
 HTTP/2 multiplexing, payload minimization, delta encoding, selective
 verbosity, bandwidth budget calculation, offline statement queues with
 IndexedDB / LocalStorage, service workers, background sync, sync strategies,
 and queue flushing.</p>
-<h3 id="monitoring-and-observability-mon">Monitoring and Observability (MON)<a class="headerlink" href="#monitoring-and-observability-mon" title="Permanent link">&para;</a></h3>
+<h3 id="monitoring-and-observability-mon">Monitoring and Observability (MON)<a class="headerlink" href="#monitoring-and-observability-mon" title="Permanent link">¶</a></h3>
 <p>Capturing and analyzing xAPI traffic: browser DevTools, Charles Proxy,
 mitmproxy, network waterfall analysis, payload inspection, real-time
 dashboards (Observable Framework, Grafana), engagement heatmaps, statement
 throughput, server log analysis, and pipeline failure / latency analysis.</p>
-<h3 id="synthetic-data-and-ai-assisted-testing-aid">Synthetic Data and AI-Assisted Testing (AID)<a class="headerlink" href="#synthetic-data-and-ai-assisted-testing-aid" title="Permanent link">&para;</a></h3>
+<h3 id="synthetic-data-and-ai-assisted-testing-aid">Synthetic Data and AI-Assisted Testing (AID)<a class="headerlink" href="#synthetic-data-and-ai-assisted-testing-aid" title="Permanent link">¶</a></h3>
 <p>Using Claude Code and similar generative AI tools to produce realistic xAPI
 datasets, model learner archetypes, simulate cohorts, run LRS load and stress
 tests, and validate statistical representativeness.</p>
-<h3 id="conformance-validation-and-standards-comparison-conf">Conformance, Validation, and Standards Comparison (CONF)<a class="headerlink" href="#conformance-validation-and-standards-comparison-conf" title="Permanent link">&para;</a></h3>
+<h3 id="conformance-validation-and-standards-comparison-conf">Conformance, Validation, and Standards Comparison (CONF)<a class="headerlink" href="#conformance-validation-and-standards-comparison-conf" title="Permanent link">¶</a></h3>
 <p>xAPI conformance, the ADL conformance test suite, statement structure /
 required-field / data-type validation, version negotiation, backwards
 compatibility, profile servers, profile validation, and competitive analysis
 of xAPI against IMS Caliper, SCORM 2004, CMI5, and proprietary SDKs (CMI5
 mappings, SCORM mappings, vendor lock-in, TCO).</p>
-<h3 id="privacy-compliance-and-organizational-context-priv">Privacy, Compliance, and Organizational Context (PRIV)<a class="headerlink" href="#privacy-compliance-and-organizational-context-priv" title="Permanent link">&para;</a></h3>
+<h3 id="privacy-compliance-and-organizational-context-priv">Privacy, Compliance, and Organizational Context (PRIV)<a class="headerlink" href="#privacy-compliance-and-organizational-context-priv" title="Permanent link">¶</a></h3>
 <p>Regulatory and organizational concerns: FERPA, COPPA, GDPR, K-12 / higher-ed /
 corporate L&amp;D contexts, data governance, PII concerns, anonymization, data
 minimization, retention, LRS privacy controls, RBAC, LMS integration (Canvas,
@@ -1004,7 +1459,7 @@ instructional-design feedback loops.</p>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -1013,13 +1468,51 @@ instructional-design feedback loops.</p>
         <footer class="md-footer">
   
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../concept-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concept Enumeration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Concept Enumeration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../quality-metrics/" class="md-footer__link md-footer__link--next" aria-label="Next: Graph Quality Analysis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Graph Quality Analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -1043,6 +1536,10 @@ instructional-design feedback loops.</p>
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

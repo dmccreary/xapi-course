@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -65,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="LRS Platforms, Authentication, and Hosting Models - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="A practitioner's tour of the actual LRS platforms in the market — TRAX, Learning Locker, Ralph, Watershed — across hosted, self-hosted, and embedded deployment models, plus the authentication mechanisms (Basic, OAuth 1.0a, token-based) and access-control patterns that make multi-tenant LRS deployments safe.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/07-lrs-platforms-and-auth/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/07-lrs-platforms-and-auth/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="LRS Platforms, Authentication, and Hosting Models - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="A practitioner's tour of the actual LRS platforms in the market — TRAX, Learning Locker, Ralph, Watershed — across hosted, self-hosted, and embedded deployment models, plus the authentication mechanisms (Basic, OAuth 1.0a, token-based) and access-control patterns that make multi-tenant LRS deployments safe.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/07-lrs-platforms-and-auth/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -105,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -133,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -142,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -181,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -205,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -226,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -1057,6 +1077,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1364,7 +1392,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1583,7 +1611,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -1632,16 +1660,16 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/07-lrs-platforms-and-auth/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="lrs-platforms-authentication-and-hosting-models">LRS Platforms, Authentication, and Hosting Models<a class="headerlink" href="#lrs-platforms-authentication-and-hosting-models" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h1 id="lrs-platforms-authentication-and-hosting-models">LRS Platforms, Authentication, and Hosting Models<a class="headerlink" href="#lrs-platforms-authentication-and-hosting-models" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Compares TRAX, Learning Locker, Ralph, and Watershed across hosted, self-hosted, and embedded models, plus authentication and access control. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
-<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
 <p>This chapter covers the following 16 concepts from the learning graph:</p>
 <ol>
 <li>LRS Authentication</li>
@@ -1661,33 +1689,33 @@
 <li>Activity Provider Configuration</li>
 <li>Statement Authority Configuration</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter builds on concepts from:</p>
 <ul>
 <li><a href="../02-statement-model/">Chapter 2: The xAPI Statement Model: Actor, Verb, Object, Result, and Context</a></li>
 <li><a href="../06-lrs-architecture/">Chapter 6: Learning Record Store Architecture and Query Endpoints</a></li>
 </ul>
-<hr />
+<hr>
 <div class="admonition mascot-welcome">
 <p class="admonition-title">Welcome to Picking an LRS</p>
-<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus inspecting cardboard boxes">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/welcome.png" data-desc-position="bottom"><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus inspecting cardboard boxes"></a>
 Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to <em>use</em>. There are roughly a dozen serious LRS platforms in the world — four matter for most decisions. Authentication options sound boring until you realize the wrong choice means your LRS credentials end up in your textbook's HTML source. We'll cover both, with strong opinions where strong opinions are warranted.</p>
 </div>
-<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">¶</a></h2>
 <p>By the end of this chapter, you'll be able to <strong>pick a hosting model, a specific LRS platform, and an authentication scheme that match your deployment's scale, privacy posture, and budget — and defend that choice in a procurement meeting</strong>. That's the kind of decision that gets made once and reverberates for years. Picking wrong doesn't just mean re-platforming; it means rebuilding the analytics layer, the auth layer, and possibly the privacy review.</p>
 <p>You'll also be able to wire up Activity Provider configuration correctly: the LRS endpoint URL, the authentication credential, the statement authority. These are the four lines of code that get pasted into every project and changed almost never. Getting them right on day one is cheap; fixing them later is expensive.</p>
-<h2 id="the-three-hosting-models">The Three Hosting Models<a class="headerlink" href="#the-three-hosting-models" title="Permanent link">&para;</a></h2>
+<h2 id="the-three-hosting-models">The Three Hosting Models<a class="headerlink" href="#the-three-hosting-models" title="Permanent link">¶</a></h2>
 <p>Every LRS deployment falls into one of three hosting models. The choice is the first decision you make, and it shapes every decision after it.</p>
 <p>A <strong>hosted SaaS LRS</strong> is operated by a vendor who runs the LRS on their infrastructure and charges you (typically per-statement or per-learner) to use it. You hit a vendor URL with your statements, the vendor stores them, the vendor's dashboard tools query them. The model is "no servers, just a contract." The pioneer is Watershed; competitors include Veracity Learning's hosted tier and several smaller players.</p>
 <p>A <strong>self-hosted open source LRS</strong> is operated by you, on your infrastructure, using LRS software you download and run. You hit your own URL, your own servers store the data, your own DBA worries about disk space. The model is "your data stays on your hardware." The major options are TRAX (PHP/Laravel), Learning Locker (Node.js, MongoDB-backed), and Ralph (Python, ClickHouse-backed).</p>
 <p>An <strong>embedded LRS</strong> runs inside the same process or device as the Activity Provider. It's used when there's no network connection (offline simulators, kiosk-mode learning apps, military training environments) or when latency requirements demand local-only writes. The statements live on-device until they can be flushed to a central LRS, often using <code>IndexedDB</code> (Chapter 9) as the local store. Embedded LRSs are niche but real.</p>
 <p>The hosting decision interacts with three constraints: data sovereignty (where can the data legally live?), scale (how many statements per second at peak?), and operational capacity (do we have the team to run a database?). Get those three right and the hosting model usually picks itself.</p>
-<h4 id="diagram-hosting-model-decision-tree">Diagram: Hosting Model Decision Tree<a class="headerlink" href="#diagram-hosting-model-decision-tree" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-hosting-model-decision-tree">Diagram: Hosting Model Decision Tree<a class="headerlink" href="#diagram-hosting-model-decision-tree" title="Permanent link">¶</a></h4>
 <details>
 <summary>Hosting Model Decision Tree</summary>
 <p>Type: workflow-diagram
-<strong>sim-id:</strong> hosting-model-decision-tree<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> hosting-model-decision-tree<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Evaluating):</strong> Apply a structured decision process to choose between hosted SaaS, self-hosted open source, and embedded LRS for a given deployment scenario.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.</p>
@@ -1704,14 +1732,14 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives.</p>
 </details>
-<h2 id="the-platforms">The Platforms<a class="headerlink" href="#the-platforms" title="Permanent link">&para;</a></h2>
+<h2 id="the-platforms">The Platforms<a class="headerlink" href="#the-platforms" title="Permanent link">¶</a></h2>
 <p>Four platforms cover most deployments most of the time. The brief tour:</p>
 <p><strong>TRAX LRS</strong> is a self-hosted open source LRS written in PHP (Laravel framework), backed by MySQL or PostgreSQL. It's free, well-maintained, and easy to install — the "fits in a single Docker container" LRS that schools and small districts adopt. It's not the highest-throughput option in the field, but it covers the spec faithfully and has a low operational cost. Use TRAX when you need a self-hosted LRS for a single school or a small department, you have basic LAMP-stack ops capacity, and your peak ingestion is in the hundreds-per-second range.</p>
 <p><strong>Learning Locker LRS</strong> is a self-hosted open source LRS originally written by HT2 Labs (now part of Learning Pool), written in Node.js with a MongoDB backend. It has a richer admin UI than TRAX, better multi-tenancy support, and a longer track record at scale — multi-million-statement deployments are common. The trade-off is operational complexity: Node + MongoDB + Redis + Elasticsearch in production is more moving parts to keep alive. Use Learning Locker when you need multi-tenant support, custom dashboards, or scale into the low millions of statements per day.</p>
 <p><strong>Ralph LRS</strong> is a newer self-hosted open source LRS written in Python (FastAPI), backed by ClickHouse (a columnar OLAP database) for statement storage. Ralph is purpose-built for very high ingestion rates and very large historical volumes — the kind of deployment where statement counts are in the billions. It's the modern choice for state- or country-scale education deployments. Use Ralph when your scale targets are above the comfort zone of the older platforms or when you want a Python ecosystem for the analytics layer.</p>
 <p><strong>Watershed LRS</strong> is the original hosted SaaS LRS, operated by Watershed (the company, formerly tied to Saba). It's commercial, mature, and has the deepest dashboard tooling of any LRS in the market. The trade-off is that you're committing to a vendor, and pricing is per-statement above generous thresholds. Use Watershed when you want hosted SaaS with strong analytics out of the box and your enterprise has the budget.</p>
 <p>These four cover roughly 80% of real-world deployments. There are others — Veracity Learning, GrassBlade, RISC's LRS — that fit niches the four don't. The pattern is the same: pick the platform that matches your hosting model, scale, and budget, and don't over-engineer for hypothetical futures.</p>
-<h2 id="platform-comparison">Platform Comparison<a class="headerlink" href="#platform-comparison" title="Permanent link">&para;</a></h2>
+<h2 id="platform-comparison">Platform Comparison<a class="headerlink" href="#platform-comparison" title="Permanent link">¶</a></h2>
 <p>The four platforms aren't interchangeable. Here are the dimensions that actually matter when you're choosing between them. Read this as a summary of the prose above, not the introduction:</p>
 <table>
 <thead>
@@ -1760,12 +1788,12 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 </tbody>
 </table>
 <p>The dimension that surprises new teams: <strong>MongoDB-backed LRSs and ClickHouse-backed LRSs are good at very different queries</strong>. MongoDB excels at single-statement lookups and small per-learner queries; ClickHouse excels at aggregate queries across millions of statements. If your dashboard needs are mostly per-learner, Learning Locker is fine. If they're mostly cohort-wide aggregates, Ralph is dramatically faster. Match the engine to the query shape.</p>
-<h4 id="diagram-lrs-platform-comparison-card-grid">Diagram: LRS Platform Comparison Card Grid<a class="headerlink" href="#diagram-lrs-platform-comparison-card-grid" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-lrs-platform-comparison-card-grid">Diagram: LRS Platform Comparison Card Grid<a class="headerlink" href="#diagram-lrs-platform-comparison-card-grid" title="Permanent link">¶</a></h4>
 <details>
 <summary>LRS Platform Comparison Card Grid</summary>
 <p>Type: interactive-infographic
-<strong>sim-id:</strong> lrs-platform-comparison-card-grid<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> lrs-platform-comparison-card-grid<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Evaluating):</strong> Compare the four major LRS platforms across multiple dimensions and select the appropriate platform for a given deployment scenario.</p>
 <p><strong>Layout:</strong> A 2×2 grid of cards on the left (2/3) representing TRAX, Learning Locker, Ralph, Watershed; a side panel on the right (1/3) showing the selected card's detail.</p>
@@ -1785,16 +1813,16 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 <p><strong>Default canvas:</strong> 1000×550px, responsive.</p>
 <p>Implementation: p5.js for the cards, the radar charts, and selection state; HTML overlay for the side panel and preset buttons.</p>
 </details>
-<h2 id="lrs-authentication">LRS Authentication<a class="headerlink" href="#lrs-authentication" title="Permanent link">&para;</a></h2>
+<h2 id="lrs-authentication">LRS Authentication<a class="headerlink" href="#lrs-authentication" title="Permanent link">¶</a></h2>
 <p><strong>LRS authentication</strong> is how the LRS verifies that the client posting statements is actually allowed to. Every conformant LRS supports at least one authentication scheme; most production LRSs support several. The xAPI 1.0.3 spec mandates support for HTTP Basic Auth and recommends OAuth 1.0a; modern LRSs typically also offer token-based authentication as a non-standard extension.</p>
 <p>Before we walk through each option, the framing. <strong>Authentication is one of the few places where the xAPI spec is genuinely showing its age.</strong> OAuth 1.0a hasn't been the right answer in production HTTP since around 2015. Basic Auth over HTTPS is fine for backend-to-backend calls but a disaster when credentials end up in browser-shipped JavaScript. Token-based auth is what most teams actually use, even though it's not formally part of the spec. We'll cover all three honestly.</p>
 <p><strong>Basic Auth (xAPI)</strong> is HTTP Basic authentication: a username and password, base64-encoded into an <code>Authorization: Basic &lt;token&gt;</code> header on every request. It's simple, supported everywhere, and entirely fine <em>when the credential never reaches the browser</em>. The right pattern for Basic Auth is a backend proxy: the textbook's frontend POSTs to your backend, your backend authenticates against the LRS using stored credentials, your backend forwards the statement. Basic Auth credentials should never appear in browser-shipped JavaScript.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POST /xAPI/statements
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Authorization: Basic dXNlcjpwYXNz   ← base64 of &quot;user:pass&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Authorization: Basic dXNlcjpwYXNz   ← base64 of "user:pass"
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Content-Type: application/json
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>X-Experience-API-Version: 1.0.3
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>{ &quot;actor&quot;: ..., &quot;verb&quot;: ..., &quot;object&quot;: ... }
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>{ "actor": ..., "verb": ..., "object": ... }
 </span></code></pre></div>
 <p><strong>OAuth 1.0a (xAPI)</strong> is the older OAuth flavor that the xAPI spec recommends for browser-based emit paths. It uses cryptographic signatures rather than transmitting a shared secret on every request, which means credentials don't leak the same way Basic Auth does when the request is captured. OAuth 1.0a is, however, painful to implement correctly — the signature math is fussy, the timestamp and nonce requirements trip up beginners, and almost no popular HTTP library has first-class OAuth 1.0a support in 2026. Most teams that try it end up moving to token-based auth instead. Implementations exist (the <code>oauth-1.0a</code> npm package is the standard), but you'll spend a day getting the first call to work.</p>
 <p><strong>Token-based authentication</strong> is the pattern most production deployments actually use. The LRS issues an opaque bearer token (typically tied to a specific Activity Provider configuration), and the client sends it in an <code>Authorization: Bearer &lt;token&gt;</code> header. Tokens can be scoped, rotated, and revoked centrally. They can be short-lived if you want them to be. They work cleanly with browser-shipped code because the token can be issued per-session by your backend at page-load time. This is not part of the xAPI 1.0.3 spec, but every major LRS supports it as an extension and most teams adopt it for browser-emitting deployments.</p>
@@ -1803,12 +1831,12 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Content-Type: application/json
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>X-Experience-API-Version: 1.0.3
 </span></code></pre></div>
-<h4 id="diagram-authentication-scheme-comparison">Diagram: Authentication Scheme Comparison<a class="headerlink" href="#diagram-authentication-scheme-comparison" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-authentication-scheme-comparison">Diagram: Authentication Scheme Comparison<a class="headerlink" href="#diagram-authentication-scheme-comparison" title="Permanent link">¶</a></h4>
 <details>
 <summary>Authentication Scheme Comparison</summary>
 <p>Type: interactive-infographic
-<strong>sim-id:</strong> authentication-scheme-comparison<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> authentication-scheme-comparison<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Evaluating):</strong> Compare HTTP Basic, OAuth 1.0a, and token-based authentication across security posture, browser-safety, implementation cost, and revocation support, and pick the appropriate scheme for a deployment scenario.</p>
 <p><strong>Layout:</strong> Three side-by-side columns, one per scheme; a side panel on the right showing the selected scheme's detail.</p>
@@ -1828,7 +1856,7 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 <p><strong>Default canvas:</strong> 1000×550px, responsive.</p>
 <p>Implementation: p5.js for the column rendering, bar charts, and selection state; HTML overlay for the side panel.</p>
 </details>
-<h2 id="multi-tenant-lrs-and-access-control">Multi-Tenant LRS and Access Control<a class="headerlink" href="#multi-tenant-lrs-and-access-control" title="Permanent link">&para;</a></h2>
+<h2 id="multi-tenant-lrs-and-access-control">Multi-Tenant LRS and Access Control<a class="headerlink" href="#multi-tenant-lrs-and-access-control" title="Permanent link">¶</a></h2>
 <p>A <strong>multi-tenant LRS</strong> is an LRS that serves multiple logically-isolated customers (tenants) from a single deployment. Each tenant has its own statements, its own credentials, its own admin users, and its dashboards see only its own data. The LRS enforces the boundary; tenants cannot see each other's statements no matter what queries they construct.</p>
 <p>Multi-tenancy matters because most real-world deployments are multi-tenant whether the team initially realized it or not. A district-wide LRS is multi-tenant: each school is a tenant, and Roosevelt High's data must not leak to Lincoln High. A vendor-hosted LRS is multi-tenant by construction. A consortium LRS shared by three universities is multi-tenant. If you skip multi-tenancy at design time, you're often re-architecting in year two.</p>
 <p><strong>LRS access control</strong> is the policy mechanism that decides which authenticated identities can do what. The dimensions:</p>
@@ -1838,7 +1866,7 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 <li><strong>Per-statement filters</strong> — some identities (analytics roles) may be restricted to seeing only de-identified or aggregated data; the LRS strips PII before returning.</li>
 </ul>
 <p>The mechanisms vary by platform. Learning Locker has a built-in multi-tenancy model with stores (tenants), client credentials per store, and role-based access for users. Ralph implements multi-tenancy via separate ClickHouse databases per tenant and OAuth2 scopes mapped to tenant access. Watershed uses an account model with role-based dashboards. TRAX is the simplest — historically single-tenant — and is being extended for multi-tenant use cases.</p>
-<h2 id="activity-provider-configuration">Activity Provider Configuration<a class="headerlink" href="#activity-provider-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="activity-provider-configuration">Activity Provider Configuration<a class="headerlink" href="#activity-provider-configuration" title="Permanent link">¶</a></h2>
 <p><strong>Activity Provider configuration</strong> is the small bundle of settings that tells the AP how to talk to an LRS. The minimum:</p>
 <ul>
 <li><strong>LRS endpoint URL</strong> — the base path including <code>/xAPI/</code>, e.g., <code>https://lrs.example.org/xAPI/</code></li>
@@ -1856,23 +1884,23 @@ Chapter 6 told you what an LRS <em>is</em>. This chapter tells you which LRS to 
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">xapiConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">XAPI_ENDPOINT</span><span class="p">,</span><span class="w">    </span><span class="c1">// https://lrs.example.org/xAPI/</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">authToken</span><span class="o">:</span><span class="w"> </span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">XAPI_TOKEN</span><span class="p">,</span><span class="w">      </span><span class="c1">// bearer token, fetched from backend</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">"1.0.3"</span><span class="p">,</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nx">batchSize</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nx">retryAttempts</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>The bearer token in this example is <em>not</em> a long-lived secret; it's a short-lived token issued by your backend at the start of each session. The long-lived credential lives only on the backend, where it's never shipped to the browser.</p>
-<h2 id="statement-authority-configuration">Statement Authority Configuration<a class="headerlink" href="#statement-authority-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="statement-authority-configuration">Statement Authority Configuration<a class="headerlink" href="#statement-authority-configuration" title="Permanent link">¶</a></h2>
 <p>The <code>authority</code> field of a statement (Chapter 2) names the entity that vouches for the statement's truth. <strong>Statement authority configuration</strong> is the policy that determines which authority the AP claims when emitting statements.</p>
 <p>In most deployments, the LRS sets the authority itself, based on the credentials used to authenticate the request. The AP doesn't need to set it explicitly. This is the right default — it ties every statement to the credential that posted it, which is exactly the audit trail you want.</p>
 <p>In some advanced deployments (multi-tenant LRSs, statement re-emission pipelines, statement importers from legacy systems), the AP needs to claim a specific authority that's distinct from its credential identity. The AP includes an explicit <code>authority</code> block in the outgoing statement, and the LRS validates that the credential is permitted to make that claim. This is where the <strong>Statement Authority Configuration</strong> policy becomes consequential — get it wrong and you've forged your own audit trail.</p>
 <p>The default rule for new deployments: don't set <code>authority</code> explicitly; let the LRS attach it. Revisit only when you have a specific multi-tenant or re-emission use case.</p>
 <div class="admonition mascot-thinking">
 <p class="admonition-title">Xavi's Insight — Authority Belongs to the LRS</p>
-<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering authority semantics">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/thinking.png" data-desc-position="bottom"><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering authority semantics"></a>
 The authority field exists so a future analyst can answer "who was vouching for this when it was written?" If you set authority client-side, you're claiming the answer is <em>you</em> — the textbook code. That's almost never what you want. Let the LRS attach authority based on credentials. Then "who vouches for this" becomes "the credential that authenticated the POST," which is reliable, auditable, and not subject to client tampering.</p>
 </div>
-<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">¶</a></h2>
 <p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 8.</p>
 <ul>
 <li>You can name the three hosting models and the constraints that decide between them.</li>
@@ -1884,7 +1912,7 @@ The authority field exists so a future analyst can answer "who was vouching for 
 </ul>
 <div class="admonition mascot-celebration">
 <p class="admonition-title">The Stack Is Picked</p>
-<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a chosen platform">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/celebration.png" data-desc-position="bottom"><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a chosen platform"></a>
 You can now pick a hosting model, a platform, and an auth scheme — and explain the trade-offs to a procurement committee. That's the foundation for everything in the next part of the book. Chapter 8 turns from infrastructure to instrumentation: how to wire xAPI emit calls into a real intelligent textbook without scattering boilerplate across every component.</p>
 </div>
 
@@ -1912,7 +1940,7 @@ You can now pick a hosting model, a platform, and an auth scheme — and explain
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -1922,13 +1950,13 @@ You can now pick a hosting model, a platform, and an auth scheme — and explain
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../06-lrs-architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. LRS Architecture">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -1953,7 +1981,7 @@ You can now pick a hosting model, a platform, and an auth scheme — and explain
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -1965,7 +1993,7 @@ You can now pick a hosting model, a platform, and an auth scheme — and explain
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -1989,6 +2017,10 @@ You can now pick a hosting model, a platform, and an auth scheme — and explain
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

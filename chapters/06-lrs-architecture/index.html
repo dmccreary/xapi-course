@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -65,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Learning Record Store Architecture and Query Endpoints - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="How an LRS is structured internally — storage models, the five canonical endpoints, query filters, pagination, concurrency, conflict resolution, and the scalability decisions that determine whether your LRS handles a classroom or a campus.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/06-lrs-architecture/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/06-lrs-architecture/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Learning Record Store Architecture and Query Endpoints - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="How an LRS is structured internally — storage models, the five canonical endpoints, query filters, pagination, concurrency, conflict resolution, and the scalability decisions that determine whether your LRS handles a classroom or a campus.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/06-lrs-architecture/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -105,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -133,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -142,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -181,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -205,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -226,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -1068,6 +1088,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1375,7 +1403,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1605,7 +1633,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -1654,16 +1682,16 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/06-lrs-architecture/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="learning-record-store-architecture-and-query-endpoints">Learning Record Store Architecture and Query Endpoints<a class="headerlink" href="#learning-record-store-architecture-and-query-endpoints" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h1 id="learning-record-store-architecture-and-query-endpoints">Learning Record Store Architecture and Query Endpoints<a class="headerlink" href="#learning-record-store-architecture-and-query-endpoints" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Examines LRS storage models, the core endpoints, concurrency, conflict resolution, query capability, and pagination. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
-<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
 <p>This chapter covers the following 16 concepts from the learning graph:</p>
 <ol>
 <li>Mutable vs Immutable LRS</li>
@@ -1683,7 +1711,7 @@
 <li>LRS Query Capability</li>
 <li>LRS Endpoint Configuration</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter builds on concepts from:</p>
 <ul>
 <li><a href="../01-foundations-and-standards/">Chapter 1: Foundations of xAPI and the Learning Standards Landscape</a></li>
@@ -1691,16 +1719,16 @@
 <li><a href="../03-advanced-statement-structure/">Chapter 3: Advanced Statement Structure: Voiding, Sub-Statements, Extensions, and Attachments</a></li>
 <li><a href="../05-activities-agents-identity/">Chapter 5: Activities, Agents, and Learner Identity</a></li>
 </ul>
-<hr />
+<hr>
 <div class="admonition mascot-welcome">
 <p class="admonition-title">Welcome to the Other Side of the Wire</p>
-<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus opening a server cabinet">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/welcome.png" data-desc-position="bottom"><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus opening a server cabinet"></a>
 For five chapters we've talked about statements as if they fly off the textbook and disappear into a magic box. This chapter cracks open the magic box. The Learning Record Store — the LRS — is where statements actually live, get queried, get aggregated, and (eventually) get fed into dashboards. By the end of this chapter you'll be able to read the LRS the way you'd read a database: tables, indexes, query plans, the whole thing.</p>
 </div>
-<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">¶</a></h2>
 <p>By the end of this chapter, you'll be able to <strong>send a statement to any conformant LRS, query that statement back with the right filters, and reason about how the LRS will behave under load</strong>. That's the practical foundation for everything in the second half of this book. Once the LRS stops being a black box, every problem downstream — bandwidth tuning, observability, conformance testing, privacy review — becomes tractable.</p>
 <p>You'll also walk away knowing the difference between a small LRS that "works on my laptop" and an LRS that handles thirty thousand concurrent learners during a state-wide assessment window. The architectural decisions are not subtle, but they are not always obvious until something goes wrong.</p>
-<h2 id="what-an-lrs-actually-is">What an LRS Actually Is<a class="headerlink" href="#what-an-lrs-actually-is" title="Permanent link">&para;</a></h2>
+<h2 id="what-an-lrs-actually-is">What an LRS Actually Is<a class="headerlink" href="#what-an-lrs-actually-is" title="Permanent link">¶</a></h2>
 <p>A <strong>Learning Record Store</strong> (LRS) is a server that implements the xAPI specification's HTTP API. It accepts statements via HTTP POST, stores them durably, and serves them back via HTTP GET against a small set of canonical endpoints. The xAPI specification defines exactly which endpoints must exist, what they accept, and what they return. Anything that conforms to that contract is an LRS. Anything that doesn't, isn't.</p>
 <p><strong>LRS architecture</strong> at the simplest level is three layers: an HTTP API layer that speaks the xAPI protocol, a storage layer that persists statements and other state, and (in production deployments) an indexing layer that makes queries fast. The xAPI spec is silent on the storage layer — vendors are free to build on PostgreSQL, MongoDB, Elasticsearch, ClickHouse, DynamoDB, or anything else, as long as the HTTP API behaves correctly. This silence is deliberate. It's why the LRS market has produced everything from a 200-megabyte SQLite-backed LRS that runs on a Raspberry Pi to clustered LRS deployments handling billions of statements.</p>
 <p>The <strong>xAPI 1.0.3 specification</strong> defines five HTTP endpoints, all rooted at the same base path (<code>/xAPI/</code>):</p>
@@ -1712,12 +1740,12 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <li><code>/xAPI/about</code> — read-only endpoint advertising LRS capabilities and supported xAPI versions</li>
 </ul>
 <p>Before we look at the architecture diagram, here's the orientation. Most of your traffic will go to <code>/statements</code>. Most of your queries will go to <code>/statements</code>. Most of your debugging will involve <code>/statements</code>. The other four endpoints exist for narrower purposes and you'll rarely think about them after this chapter. We're spending most of the page-count on the heart, less on the auxiliaries — but the auxiliaries are real, and you'll be glad you know they exist when the right use case shows up.</p>
-<h4 id="diagram-lrs-architecture-overview">Diagram: LRS Architecture Overview<a class="headerlink" href="#diagram-lrs-architecture-overview" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-lrs-architecture-overview">Diagram: LRS Architecture Overview<a class="headerlink" href="#diagram-lrs-architecture-overview" title="Permanent link">¶</a></h4>
 <details>
 <summary>LRS Architecture Overview</summary>
 <p>Type: clickable-mermaid
-<strong>sim-id:</strong> lrs-architecture-overview<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> lrs-architecture-overview<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Understanding):</strong> Identify the major components of a conformant LRS — HTTP API layer, the five endpoints, the storage layer, and the indexing layer — and explain how a request flows through each.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node open a side-panel infobox.</p>
@@ -1736,7 +1764,7 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives bound to a side panel populated from <code>data.json</code>.</p>
 </details>
-<h2 id="storage-models-mutable-vs-immutable">Storage Models — Mutable vs Immutable<a class="headerlink" href="#storage-models-mutable-vs-immutable" title="Permanent link">&para;</a></h2>
+<h2 id="storage-models-mutable-vs-immutable">Storage Models — Mutable vs Immutable<a class="headerlink" href="#storage-models-mutable-vs-immutable" title="Permanent link">¶</a></h2>
 <p><strong>LRS storage models</strong> are the architectural decisions an LRS vendor makes about how statements are stored physically and what operations are allowed on them after storage. The most consequential decision is mutability.</p>
 <p>A <strong>mutable LRS</strong> allows existing statements to be modified in place. This sounds convenient and is, in fact, almost never what you want. Mutability undermines the audit trail, makes voiding semantics ambiguous (if you can modify a statement, why void?), and tends to attract requirements ("can you also let me edit timestamps?") that erode the credibility of the data. Mutable LRSs exist in the market, but the gravitational pull of the xAPI ecosystem is strongly toward immutability.</p>
 <p>An <strong>immutable LRS</strong> treats every stored statement as permanent. The only way to retract a statement is to void it (Chapter 3) by emitting a new statement that references the original. The original is still there, queryable with <code>voided=true</code>, but excluded from default queries. This is the model the xAPI spec implicitly assumes and the model that makes auditability work. New deployments should always choose immutability, full stop.</p>
@@ -1777,7 +1805,7 @@ For five chapters we've talked about statements as if they fly off the textbook 
 </tbody>
 </table>
 <p>The implementation choice underneath the storage model is independent. An immutable LRS can be backed by an append-only log, by a relational database with <code>INSERT</code>-only access, by an event-sourced store, or by any other mechanism that ensures statements aren't modified after write. The xAPI spec doesn't care — it cares about the contract the HTTP API enforces.</p>
-<h2 id="the-statements-endpoint">The Statements Endpoint<a class="headerlink" href="#the-statements-endpoint" title="Permanent link">&para;</a></h2>
+<h2 id="the-statements-endpoint">The Statements Endpoint<a class="headerlink" href="#the-statements-endpoint" title="Permanent link">¶</a></h2>
 <p>The <strong><code>/xAPI/statements</code> endpoint</strong> is where almost everything happens. It accepts:</p>
 <ul>
 <li><code>POST /xAPI/statements</code> — submit a single statement or an array of statements</li>
@@ -1793,16 +1821,16 @@ For five chapters we've talked about statements as if they fly off the textbook 
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>X-Experience-API-Version: 1.0.3
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  { &quot;actor&quot;: ..., &quot;verb&quot;: ..., &quot;object&quot;: ... },
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  { &quot;actor&quot;: ..., &quot;verb&quot;: ..., &quot;object&quot;: ... }
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  { "actor": ..., "verb": ..., "object": ... },
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  { "actor": ..., "verb": ..., "object": ... }
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>]
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>→ HTTP 200 OK
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>[ &quot;fd41c918-b88b-4b20-a0a5-a4c32391aaa0&quot;,
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  &quot;8a1f3c4d-2b9e-4c7a-9d6f-1e8a7b4c2d5f&quot; ]
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>[ "fd41c918-b88b-4b20-a0a5-a4c32391aaa0",
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  "8a1f3c4d-2b9e-4c7a-9d6f-1e8a7b4c2d5f" ]
 </span></code></pre></div>
 <p>Note the <code>X-Experience-API-Version</code> header — it's required on every request. The LRS uses it to decide which version of the spec to apply. Forget the header and you get a 400 response that's surprisingly hard to debug if you don't know to look for it.</p>
-<h2 id="statement-query-filters">Statement Query Filters<a class="headerlink" href="#statement-query-filters" title="Permanent link">&para;</a></h2>
+<h2 id="statement-query-filters">Statement Query Filters<a class="headerlink" href="#statement-query-filters" title="Permanent link">¶</a></h2>
 <p>The GET form of <code>/statements</code> accepts a defined set of filter parameters that the LRS indexes on. These are the <strong>statement query filters</strong>, and they are deliberately limited — the xAPI spec doesn't allow arbitrary "give me all statements where some extension equals X" queries, because doing so would require the LRS to index every possible extension, which it can't. The supported filters answer the questions every analytics dashboard actually needs to ask. Before the worked example, here's what each filter does in plain language:</p>
 <ul>
 <li><strong><code>agent</code></strong> — filter to statements involving this agent (as actor, as object, or in context)</li>
@@ -1817,35 +1845,35 @@ For five chapters we've talked about statements as if they fly off the textbook 
 </ul>
 <p>A typical query for "every passed-quiz statement for Lin in the last 24 hours" looks like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET /xAPI/statements?
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  agent={&quot;account&quot;:{&quot;homePage&quot;:&quot;https://canvas.university.edu&quot;,&quot;name&quot;:&quot;stu-8f3a2b1c&quot;}}
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  agent={"account":{"homePage":"https://canvas.university.edu","name":"stu-8f3a2b1c"}}
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  &amp;verb=http://adlnet.gov/expapi/verbs/passed
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  &amp;since=2026-04-29T00:00:00Z
 </span></code></pre></div>
 <p>Two annoyances worth flagging. First, the <code>agent</code> filter takes a JSON-encoded agent object as a query string parameter — yes, really, JSON-in-a-query-string. URL-encode it carefully. Second, the spec defines the <em>minimum</em> set of filters; many LRSs support additional non-standard filters via vendor extensions. Stick to the standard filters for portable queries.</p>
-<h2 id="pagination-statementresult-and-more-irl">Pagination — <code>StatementResult</code> and <code>more</code> IRL<a class="headerlink" href="#pagination-statementresult-and-more-irl" title="Permanent link">&para;</a></h2>
+<h2 id="pagination-statementresult-and-more-irl">Pagination — <code>StatementResult</code> and <code>more</code> IRL<a class="headerlink" href="#pagination-statementresult-and-more-irl" title="Permanent link">¶</a></h2>
 <p>The response to a successful GET against <code>/statements</code> is a JSON object called a <strong>StatementResult</strong>, not a bare array. The shape:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;statements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* array of statement objects */</span><span class="w"> </span><span class="p">],</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;more&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/xAPI/statements?offsetToken=...&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"statements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="cm">/* array of statement objects */</span><span class="w"> </span><span class="p">],</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xAPI/statements?offsetToken=..."</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The <code>statements</code> array contains up to <code>limit</code> statements (or whatever ceiling the LRS imposes — many cap at 1000). The <code>more</code> field is the <strong>More IRL Pagination</strong> mechanism: if the query had additional results beyond what fit in this response, the LRS provides a relative URL the client can GET to retrieve the next page. The client follows the chain by issuing GETs against the <code>more</code> URL until the field comes back as an empty string.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET /xAPI/statements?verb=http://adlnet.gov/expapi/verbs/completed&amp;limit=500
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  → 500 statements + &quot;more&quot;: &quot;/xAPI/statements?offsetToken=abc123&quot;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  → 500 statements + "more": "/xAPI/statements?offsetToken=abc123"
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>GET /xAPI/statements?offsetToken=abc123
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  → 500 statements + &quot;more&quot;: &quot;/xAPI/statements?offsetToken=def456&quot;
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  → 500 statements + "more": "/xAPI/statements?offsetToken=def456"
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>GET /xAPI/statements?offsetToken=def456
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  → 117 statements + &quot;more&quot;: &quot;&quot;   (no more results)
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  → 117 statements + "more": ""   (no more results)
 </span></code></pre></div>
 <p>The pagination model is <strong>opaque-token</strong>, not page-number. The client should treat the <code>more</code> URL as an opaque string and just GET it as-is. The LRS controls the encoding of pagination state inside that URL — typically a cursor or stored-timestamp boundary — and may change the encoding between releases. Code that parses the <code>more</code> URL and synthesizes its own offset is fragile and will break.</p>
-<h4 id="diagram-statement-query-and-pagination-flow">Diagram: Statement Query and Pagination Flow<a class="headerlink" href="#diagram-statement-query-and-pagination-flow" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-statement-query-and-pagination-flow">Diagram: Statement Query and Pagination Flow<a class="headerlink" href="#diagram-statement-query-and-pagination-flow" title="Permanent link">¶</a></h4>
 <details>
 <summary>Statement Query and Pagination Flow</summary>
 <p>Type: workflow-diagram
-<strong>sim-id:</strong> statement-query-pagination-flow<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> statement-query-pagination-flow<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Applying):</strong> Trace the round-trip flow of a paginated statement query, identifying when the client should follow the <code>more</code> URL and when to stop.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (TD direction) representing the client-side loop. Click handlers on every node.</p>
@@ -1863,7 +1891,7 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives.</p>
 </details>
-<h2 id="the-auxiliary-endpoints">The Auxiliary Endpoints<a class="headerlink" href="#the-auxiliary-endpoints" title="Permanent link">&para;</a></h2>
+<h2 id="the-auxiliary-endpoints">The Auxiliary Endpoints<a class="headerlink" href="#the-auxiliary-endpoints" title="Permanent link">¶</a></h2>
 <p>The four other endpoints handle narrower concerns. We'll cover each briefly so you know they exist and what they're for; you'll rarely write code that hits them directly.</p>
 <p>The <strong><code>/xAPI/agents</code> endpoint</strong> returns the LRS's aggregated view of a specific agent — typically all the IFI variants the LRS has seen for that agent and any agent profile data stored against them. You query it by passing an agent object as a JSON parameter, the same way you'd filter <code>/statements</code>. Use case: an admin tool that wants to display "everything we know about this learner." Almost never used inside an emit path.</p>
 <p>The <strong><code>/xAPI/activities</code> endpoint</strong> returns the LRS's aggregated activity definition for a specific activity IRI. Different statements about the same activity may have arrived with slightly different definitions over time (different <code>name</code> translations, an updated description); the LRS aggregates them and returns the canonical view. Use case: a content authoring tool that wants to look up an activity's official name.</p>
@@ -1872,12 +1900,12 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET /xAPI/about
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>→ HTTP 200
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>{
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  &quot;version&quot;: [&quot;1.0.3&quot;, &quot;1.0.2&quot;, &quot;1.0.1&quot;],
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  &quot;extensions&quot;: {}
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  "version": ["1.0.3", "1.0.2", "1.0.1"],
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  "extensions": {}
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>}
 </span></code></pre></div>
 <p>A small but real concern: some LRSs return version arrays that include <code>2.0.0</code> (the next major version, in active development); clients should explicitly check for <code>1.0.3</code> rather than just using the first element of the array.</p>
-<h2 id="lrs-concurrency-and-conflict-resolution">LRS Concurrency and Conflict Resolution<a class="headerlink" href="#lrs-concurrency-and-conflict-resolution" title="Permanent link">&para;</a></h2>
+<h2 id="lrs-concurrency-and-conflict-resolution">LRS Concurrency and Conflict Resolution<a class="headerlink" href="#lrs-concurrency-and-conflict-resolution" title="Permanent link">¶</a></h2>
 <p><strong>LRS concurrency</strong> is the property that an LRS handles multiple simultaneous writes correctly. xAPI deployments routinely have hundreds of concurrent Activity Providers (browser tabs, mobile clients, simulation engines) all POSTing to the same LRS. The LRS has to ingest those POSTs without losing data, without corrupting state, and without serializing all writes through a single bottleneck.</p>
 <p>The interesting concurrency case is the State endpoint. Two browser tabs from the same learner can both PUT to <code>/xAPI/state?activityId=quiz-1&amp;stateId=progress</code> at almost the same moment. Without a concurrency mechanism, one tab's update silently overwrites the other's. The xAPI spec mandates HTTP <code>If-Match</code> and <code>If-None-Match</code> headers carrying ETag values for State operations, exactly to handle this case. The pattern:</p>
 <ol>
@@ -1888,12 +1916,12 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <li>If the document has changed, the LRS returns <code>412 Precondition Failed</code> and the client must re-fetch and retry.</li>
 </ol>
 <p><strong>Conflict resolution (LRS)</strong> at the State endpoint is therefore optimistic — concurrent writers don't block each other; the second writer just gets a 412 and is responsible for resolving the conflict. At the Statements endpoint, conflict resolution is simpler: statements are immutable, so concurrent POSTs of <em>different</em> statements never conflict; concurrent POSTs of the <em>same</em> statement (same UUID) result in the LRS storing the first and rejecting subsequent duplicates with <code>409 Conflict</code>.</p>
-<h4 id="diagram-optimistic-concurrency-on-the-state-endpoint">Diagram: Optimistic Concurrency on the State Endpoint<a class="headerlink" href="#diagram-optimistic-concurrency-on-the-state-endpoint" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-optimistic-concurrency-on-the-state-endpoint">Diagram: Optimistic Concurrency on the State Endpoint<a class="headerlink" href="#diagram-optimistic-concurrency-on-the-state-endpoint" title="Permanent link">¶</a></h4>
 <details>
 <summary>Optimistic Concurrency on the State Endpoint</summary>
 <p>Type: workflow-diagram
-<strong>sim-id:</strong> optimistic-concurrency-state-endpoint<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> optimistic-concurrency-state-endpoint<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Analyzing):</strong> Trace two concurrent clients writing to the same state document and identify which writer wins, which gets a 412, and what the losing client must do to recover.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (TD direction) showing two parallel client lanes converging on a single LRS lane. Click handlers on every node.</p>
@@ -1910,7 +1938,7 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with two parallel subgraphs and click directives.</p>
 </details>
-<h2 id="lrs-scalability">LRS Scalability<a class="headerlink" href="#lrs-scalability" title="Permanent link">&para;</a></h2>
+<h2 id="lrs-scalability">LRS Scalability<a class="headerlink" href="#lrs-scalability" title="Permanent link">¶</a></h2>
 <p><strong>LRS scalability</strong> is the architectural property that a single LRS deployment can serve more concurrent learners and store more cumulative statements without falling over. Scalability is where LRS vendors differentiate most heavily — and where deployment decisions cost or save the most money.</p>
 <p>The dimensions to think about:</p>
 <ul>
@@ -1922,10 +1950,10 @@ For five chapters we've talked about statements as if they fly off the textbook 
 <p>The <strong>LRS endpoint configuration</strong> that ties this together is, at minimum: a base URL, an authentication credential, and a chosen xAPI version. In production deployments, it's typically more — connection pool sizes, read replicas, batch limits, retry policies. Activity Providers and clients are configured with this information at startup and re-validate against <code>/about</code> periodically to detect upgrades.</p>
 <div class="admonition mascot-warning">
 <p class="admonition-title">Common Pitfall — Choosing the LRS Last</p>
-<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a tentacle in caution">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/warning.png" data-desc-position="bottom"><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a tentacle in caution"></a>
 Many teams pick an LRS by demoing the smallest open-source one on a laptop, building all their instrumentation around it, and discovering during pilot that it doesn't scale. Pick your LRS <em>with</em> your scale targets in mind, not after. Chapter 7 walks through the platforms; the wrong choice here can cost a re-platform.</p>
 </div>
-<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">¶</a></h2>
 <p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 7.</p>
 <ul>
 <li>You can describe the three layers of an LRS architecture and the role of each.</li>
@@ -1938,7 +1966,7 @@ Many teams pick an LRS by demoing the smallest open-source one on a laptop, buil
 </ul>
 <div class="admonition mascot-celebration">
 <p class="admonition-title">The Black Box Is Open</p>
-<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an open black box">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/celebration.png" data-desc-position="bottom"><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an open black box"></a>
 The LRS is no longer mysterious. You can now look at any conformant deployment, sketch its architecture, predict how it will behave under load, and write portable code against its endpoints. Chapter 7 picks up where this one stops: which actual LRS platforms exist on the market today, how they differ, and how authentication works on each.</p>
 </div>
 
@@ -1966,7 +1994,7 @@ The LRS is no longer mysterious. You can now look at any conformant deployment, 
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -1976,13 +2004,13 @@ The LRS is no longer mysterious. You can now look at any conformant deployment, 
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../05-activities-agents-identity/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Activities, Agents, Identity">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2007,7 +2035,7 @@ The LRS is no longer mysterious. You can now look at any conformant deployment, 
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2019,7 +2047,7 @@ The LRS is no longer mysterious. You can now look at any conformant deployment, 
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -2043,6 +2071,10 @@ The LRS is no longer mysterious. You can now look at any conformant deployment, 
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

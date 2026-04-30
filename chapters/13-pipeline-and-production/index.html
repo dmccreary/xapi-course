@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -65,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="How to design a custom vocabulary profile, run a profile server, architect the full pipeline from Activity Provider through LRS through analytics and dashboards, identify failure points and latency, secure the deployment, and execute a production-readiness review before launch.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/13-pipeline-and-production/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/13-pipeline-and-production/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="How to design a custom vocabulary profile, run a profile server, architect the full pipeline from Activity Provider through LRS through analytics and dashboards, identify failure points and latency, secure the deployment, and execute a production-readiness review before launch.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/13-pipeline-and-production/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -105,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -133,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -142,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -181,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -205,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -226,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -1057,6 +1077,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1364,7 +1392,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1583,7 +1611,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -1632,16 +1660,16 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/13-pipeline-and-production/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="xapi-pipeline-architecture-vocabulary-profiles-and-production-readiness">xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness<a class="headerlink" href="#xapi-pipeline-architecture-vocabulary-profiles-and-production-readiness" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h1 id="xapi-pipeline-architecture-vocabulary-profiles-and-production-readiness">xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness<a class="headerlink" href="#xapi-pipeline-architecture-vocabulary-profiles-and-production-readiness" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Designs custom vocabulary profiles, the full xAPI pipeline, profile servers, security best practices, and production-readiness review. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
-<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
 <p>This chapter covers the following 16 concepts from the learning graph:</p>
 <ol>
 <li>xAPI Vocabulary Profile Design</li>
@@ -1661,7 +1689,7 @@
 <li>xAPI Profile Server</li>
 <li>Profile Validation</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter builds on concepts from:</p>
 <ul>
 <li><a href="../02-statement-model/">Chapter 2: The xAPI Statement Model: Actor, Verb, Object, Result, and Context</a></li>
@@ -1673,16 +1701,16 @@
 <li><a href="../10-monitoring-and-observability/">Chapter 10: Monitoring, Observability, and xAPI Traffic Analysis</a></li>
 <li><a href="../12-conformance-and-comparison/">Chapter 12: Conformance Testing, Validation, and Competitive Standards Analysis</a></li>
 </ul>
-<hr />
+<hr>
 <div class="admonition mascot-welcome">
 <p class="admonition-title">Welcome to Shipping It</p>
-<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus packing a suitcase labeled Production">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/welcome.png" data-desc-position="bottom"><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus packing a suitcase labeled Production"></a>
 Twelve chapters of preparation. One chapter to put it all into a deployable shape. We'll design the vocabulary profile that pulls every emit site into a coherent contract, sketch the full pipeline from textbook through LRS through dashboards, identify the failure points before they fail in production, and walk through the readiness checklist that turns "we're done coding" into "we're ready to ship."</p>
 </div>
-<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">¶</a></h2>
 <p>By the end of this chapter, you'll be able to <strong>architect, document, and prove the readiness of a complete xAPI pipeline that survives production</strong>. That's the skill set that distinguishes a textbook with xAPI on the feature list from one that delivers actionable analytics every day. The pipeline architecture isn't optional; the profile isn't optional; the security review isn't optional; the readiness checklist isn't optional. They are the difference between shipping and re-shipping.</p>
 <p>You'll also learn to design <strong>cross-platform analytics</strong> — instrumentation that works coherently across multiple textbooks, multiple deployments, multiple LRSs. That's the analytics property that lets a state department of education pull together data from dozens of textbooks under one report. It depends entirely on profile discipline.</p>
-<h2 id="xapi-vocabulary-profile-design-a-real-profile">xAPI Vocabulary Profile Design — A Real Profile<a class="headerlink" href="#xapi-vocabulary-profile-design-a-real-profile" title="Permanent link">&para;</a></h2>
+<h2 id="xapi-vocabulary-profile-design-a-real-profile">xAPI Vocabulary Profile Design — A Real Profile<a class="headerlink" href="#xapi-vocabulary-profile-design-a-real-profile" title="Permanent link">¶</a></h2>
 <p>Chapter 4 introduced custom verb profiles in passing. <strong>xAPI vocabulary profile design</strong> is the full discipline of building one — verbs, activity types, and extensions — and publishing it as a stable contract. A vocabulary profile is the document that says "anyone emitting statements in this deployment uses these verbs, these activity types, and these extensions, in these documented combinations."</p>
 <p>The components of a complete profile:</p>
 <ul>
@@ -1698,12 +1726,12 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://textbook.example.org/extensions/v1/&lt;extension-name&gt;
 </span></code></pre></div>
 <p>The <code>v1</code> segment is non-negotiable. The day a schema needs to change incompatibly — and that day comes for every long-running project — you'll create <code>v2</code> and run both for a transition period. Without versioning, you have no migration path.</p>
-<h4 id="diagram-vocabulary-profile-architecture">Diagram: Vocabulary Profile Architecture<a class="headerlink" href="#diagram-vocabulary-profile-architecture" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-vocabulary-profile-architecture">Diagram: Vocabulary Profile Architecture<a class="headerlink" href="#diagram-vocabulary-profile-architecture" title="Permanent link">¶</a></h4>
 <details>
 <summary>Vocabulary Profile Architecture</summary>
 <p>Type: clickable-mermaid
-<strong>sim-id:</strong> vocabulary-profile-architecture<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> vocabulary-profile-architecture<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Understanding):</strong> Identify the components of a complete xAPI vocabulary profile and how they relate to one another.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (TD direction). Click handlers on every node.</p>
@@ -1724,7 +1752,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives.</p>
 </details>
-<h2 id="xapi-profile-server-and-profile-validation">xAPI Profile Server and Profile Validation<a class="headerlink" href="#xapi-profile-server-and-profile-validation" title="Permanent link">&para;</a></h2>
+<h2 id="xapi-profile-server-and-profile-validation">xAPI Profile Server and Profile Validation<a class="headerlink" href="#xapi-profile-server-and-profile-validation" title="Permanent link">¶</a></h2>
 <p>An <strong>xAPI profile server</strong> is the HTTP service that publishes your vocabulary profile at a stable URL. The profile is a JSON-LD document; the server's job is to serve it with the right Content-Type, version it correctly, and provide changelog access. For most deployments, a profile server is a static file hosted alongside the textbook (an <code>S3</code> bucket, a <code>nginx</code> static config, a GitHub Pages site). For more sophisticated deployments — multi-tenant, multi-textbook — a profile server may be a small dynamic service that resolves profile IRIs to documents and serves change notifications.</p>
 <p>ADL maintains a public profile server at <code>https://profiles.adlnet.gov</code> that hosts the canonical xAPI Profiles, including the cmi5 profile. Your project's profile lives under your own namespace.</p>
 <p><strong>Profile validation</strong> is the verification that statements emitted by a deployment conform to its declared profile. This is a layer above raw xAPI conformance (Chapter 12). A statement can be xAPI-conformant (well-formed JSON, valid IRIs, correct types) but profile-non-conformant (uses a verb that's not in the profile, includes an extension not in the profile, doesn't match any approved pattern). Profile validation catches the latter category.</p>
@@ -1734,7 +1762,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">profile</span><span class="p">.</span><span class="nx">verbs</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">verb</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`verb </span><span class="si">${</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">verb</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb"> not in profile`</span><span class="p">);</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">objectType</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">objectType</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stmt</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">definition</span><span class="o">?</span><span class="p">.</span><span class="kr">type</span><span class="p">;</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kr">type</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">profile</span><span class="p">.</span><span class="nx">activityTypes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="kr">type</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`activity type </span><span class="si">${</span><span class="kr">type</span><span class="si">}</span><span class="sb"> not in profile`</span><span class="p">);</span>
@@ -1749,7 +1777,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Run profile validation in CI on a representative sample of generated statements. A profile-non-conformant emit site is a bug; failing the build catches it before it reaches production.</p>
-<h2 id="cross-platform-analytics">Cross-Platform Analytics<a class="headerlink" href="#cross-platform-analytics" title="Permanent link">&para;</a></h2>
+<h2 id="cross-platform-analytics">Cross-Platform Analytics<a class="headerlink" href="#cross-platform-analytics" title="Permanent link">¶</a></h2>
 <p><strong>Cross-platform analytics</strong> is the property that data from multiple textbooks, multiple deployments, or multiple LRSs can be coherently aggregated into a single analytical view. Cross-platform analytics is the value proposition that justifies xAPI's flexibility tax: you can roll up Lin Park's progress across the algebra textbook, the geometry textbook, and the calculus textbook, even though each was authored by a different team and may live in a different LRS — <em>if</em> every textbook adheres to a shared vocabulary profile.</p>
 <p>The conditions for cross-platform analytics to work:</p>
 <ol>
@@ -1759,7 +1787,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <li><strong>Shared extension namespace conventions</strong> — when textbooks emit extensions, they follow agreed-upon schemas for the common ones.</li>
 </ol>
 <p>Without these conditions, you have analytics-per-textbook, not cross-platform analytics. With them, the dashboard team can ask "which students struggled with quadratics across any algebra textbook?" and get an honest answer that spans the deployment.</p>
-<h2 id="the-full-pipeline-architecture">The Full Pipeline Architecture<a class="headerlink" href="#the-full-pipeline-architecture" title="Permanent link">&para;</a></h2>
+<h2 id="the-full-pipeline-architecture">The Full Pipeline Architecture<a class="headerlink" href="#the-full-pipeline-architecture" title="Permanent link">¶</a></h2>
 <p><strong>xAPI pipeline architecture</strong> is the complete data path from a learner's interaction to a dashboard chart. The pipeline has four logical layers, and each layer has its own implementation choices, performance characteristics, and failure modes.</p>
 <p>The four layers:</p>
 <ol>
@@ -1780,12 +1808,12 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p><strong>Activity Provider integration</strong> is wired into your textbook code (Chapter 8). The integration point with downstream layers is the LRS endpoint — your AP doesn't need to know anything about the analytics or dashboard layers, only the LRS URL and credentials. This separation is what keeps the pipeline modular.</p>
 <p>The <strong>analytics layer</strong> is where most production teams add complexity over time. Initially, dashboards query the LRS directly — fast enough at small scale. As volume grows, direct LRS queries get slow (the LRS is optimized for ingestion, not OLAP), so the team adds a stream processor that pre-computes aggregates. Eventually, the analytics layer becomes its own data warehouse with its own engineers.</p>
 <p>The <strong>dashboard layer</strong> consumes the aggregates and turns them into charts. It's the layer most non-technical stakeholders see, which means it's the layer most often blamed for problems that originate elsewhere. Pipeline-level visibility (Chapter 10) helps adjudicate whether a "wrong dashboard" is a dashboard bug, an analytics bug, an LRS issue, or an emit-path issue.</p>
-<h4 id="diagram-full-pipeline-architecture">Diagram: Full Pipeline Architecture<a class="headerlink" href="#diagram-full-pipeline-architecture" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-full-pipeline-architecture">Diagram: Full Pipeline Architecture<a class="headerlink" href="#diagram-full-pipeline-architecture" title="Permanent link">¶</a></h4>
 <details>
 <summary>Full Pipeline Architecture</summary>
 <p>Type: clickable-mermaid
-<strong>sim-id:</strong> full-pipeline-architecture<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> full-pipeline-architecture<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Analyzing):</strong> Trace a learner interaction from emit through every pipeline layer to its appearance on a dashboard, identifying the responsibilities and typical latencies of each layer.</p>
 <p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node.</p>
@@ -1808,7 +1836,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives.</p>
 </details>
-<h2 id="pipeline-failure-points-and-latency">Pipeline Failure Points and Latency<a class="headerlink" href="#pipeline-failure-points-and-latency" title="Permanent link">&para;</a></h2>
+<h2 id="pipeline-failure-points-and-latency">Pipeline Failure Points and Latency<a class="headerlink" href="#pipeline-failure-points-and-latency" title="Permanent link">¶</a></h2>
 <p><strong>Pipeline failure points</strong> are the layer boundaries where things go wrong. Each boundary has a characteristic failure mode and a characteristic recovery pattern. Knowing them in advance is the difference between hours of investigation and minutes.</p>
 <p>The five most common pipeline failure points:</p>
 <ol>
@@ -1819,7 +1847,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <li><strong>Dashboard query timeout.</strong> Dashboard query is too expensive to run on the live OLAP store. Recovered by pre-aggregating the result or reducing the query scope.</li>
 </ol>
 <p><strong>Pipeline latency analysis</strong> is the discipline of measuring end-to-end latency — from learner click to dashboard chart — and decomposing it across the layers. The dashboard team usually wants "click to chart" under 60 seconds for real-time displays, under 5 minutes for typical dashboards. Pipeline latency budgets allocate that target across the layers: 1s emit, 5s LRS-to-stream, 30s stream-to-aggregate, 5s dashboard query. When the total budget is missed, the layer-by-layer breakdown points to the offender.</p>
-<h2 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">&para;</a></h2>
+<h2 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">¶</a></h2>
 <p><strong>xAPI security best practices</strong> at this point in the book are mostly things you've already learned (Chapter 7's auth discussion, Chapter 5's pseudonymization). Pulling them together as a checklist:</p>
 <ol>
 <li><strong>HTTPS for xAPI</strong> — every endpoint, always. Plain HTTP for xAPI is an interception risk that's not worth taking. <strong>HTTPS for xAPI</strong> is non-negotiable, including in development and staging.</li>
@@ -1830,12 +1858,12 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <li><strong>Privacy controls are testable.</strong> Re-identification flow is documented; request-based deletion is implemented (more in Chapter 14).</li>
 <li><strong>Profile validation runs in CI.</strong> Non-conformant emit sites are caught before reaching production.</li>
 </ol>
-<h4 id="diagram-production-readiness-checklist">Diagram: Production Readiness Checklist<a class="headerlink" href="#diagram-production-readiness-checklist" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-production-readiness-checklist">Diagram: Production Readiness Checklist<a class="headerlink" href="#diagram-production-readiness-checklist" title="Permanent link">¶</a></h4>
 <details>
 <summary>Production Readiness Checklist</summary>
 <p>Type: interactive-infographic
-<strong>sim-id:</strong> production-readiness-checklist<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> production-readiness-checklist<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p><strong>Learning objective (Bloom — Evaluating):</strong> Assess the readiness of an xAPI deployment against a structured checklist covering vocabulary, pipeline, observability, and security.</p>
 <p><strong>Layout:</strong> Four columns of checkbox items grouped by category, with a status bar across the top showing overall readiness percentage.</p>
@@ -1856,7 +1884,7 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p><strong>Default canvas:</strong> 1100×600px, responsive.</p>
 <p>Implementation: p5.js for the column layout, checkbox state, and progress bar; HTML overlay for the side panel and presets.</p>
 </details>
-<h2 id="production-readiness-review">Production Readiness Review<a class="headerlink" href="#production-readiness-review" title="Permanent link">&para;</a></h2>
+<h2 id="production-readiness-review">Production Readiness Review<a class="headerlink" href="#production-readiness-review" title="Permanent link">¶</a></h2>
 <p><strong>Production readiness checklist</strong> and <strong>xAPI implementation review</strong> are the structured gates that turn "we think we're ready" into "we know we're ready." A formal review covers four areas, each with explicit criteria.</p>
 <p>The complete review:</p>
 <ol>
@@ -1876,10 +1904,10 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p>A deployment that fails any one of the four areas isn't production-ready, even if the other three are perfect. The areas are interdependent: an observability gap means you can't catch a vocabulary drift; a security gap means a vocabulary leak becomes a privacy leak.</p>
 <div class="admonition mascot-warning">
 <p class="admonition-title">Common Pitfall — Skipping the Profile</p>
-<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi cautioning against profile-less deployments">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/warning.png" data-desc-position="bottom"><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi cautioning against profile-less deployments"></a>
 The single most common reason a production xAPI deployment "kind of works but the dashboard is unreliable" is that the team never wrote down a profile. Without a profile, every emit site drifts independently, and after six months no two textbooks emit consistent data. Write the profile before the third emit site ships. It's three engineer-days you'll never regret.</p>
 </div>
-<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">¶</a></h2>
 <p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 14.</p>
 <ul>
 <li>You can design a complete xAPI vocabulary profile (verbs, activity types, extensions, patterns, examples) and publish it at a stable URL.</li>
@@ -1892,7 +1920,7 @@ The single most common reason a production xAPI deployment "kind of works but th
 </ul>
 <div class="admonition mascot-celebration">
 <p class="admonition-title">Production Shape</p>
-<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a production-ready ship">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/celebration.png" data-desc-position="bottom"><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a production-ready ship"></a>
 Your deployment now has the shape of something you can ship and operate. Chapter 14 closes the book on the most consequential dimension we haven't yet given full chapter treatment to: privacy and compliance. Get this right and the deployment ships; get it wrong and the deployment never even leaves the lab.</p>
 </div>
 
@@ -1920,7 +1948,7 @@ Your deployment now has the shape of something you can ship and operate. Chapter
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -1930,13 +1958,13 @@ Your deployment now has the shape of something you can ship and operate. Chapter
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../12-conformance-and-comparison/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Conformance and Comparison">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -1961,7 +1989,7 @@ Your deployment now has the shape of something you can ship and operate. Chapter
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -1973,7 +2001,7 @@ Your deployment now has the shape of something you can ship and operate. Chapter
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -1997,6 +2025,10 @@ Your deployment now has the shape of something you can ship and operate. Chapter
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

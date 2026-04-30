@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,7 +47,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -65,7 +62,30 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="The xAPI Statement Model — Actor, Verb, Object, Result, and Context - xAPI for Intelligent Textbooks">
+<meta property="og:description" content="Walks through the anatomy of an xAPI statement field-by-field, the metadata that makes statements queryable, and the three ecosystem roles (Activity Provider, Learning Record Provider, Activity Consumer) that move statements through the world.">
+<meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/02-statement-model/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/02-statement-model/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="The xAPI Statement Model — Actor, Verb, Object, Result, and Context - xAPI for Intelligent Textbooks">
+<meta property="twitter:description" content="Walks through the anatomy of an xAPI statement field-by-field, the metadata that makes statements queryable, and the three ecosystem roles (Activity Provider, Learning Record Provider, Activity Consumer) that move statements through the world.">
+<meta property="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/02-statement-model/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -105,7 +125,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -133,7 +153,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -142,20 +162,20 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -181,7 +201,7 @@
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -205,7 +225,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -226,7 +246,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -1124,6 +1144,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1431,7 +1459,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1717,7 +1745,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -1766,16 +1794,16 @@
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/02-statement-model/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
 
 
-<h1 id="the-xapi-statement-model-actor-verb-object-result-and-context">The xAPI Statement Model: Actor, Verb, Object, Result, and Context<a class="headerlink" href="#the-xapi-statement-model-actor-verb-object-result-and-context" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h1 id="the-xapi-statement-model-actor-verb-object-result-and-context">The xAPI Statement Model: Actor, Verb, Object, Result, and Context<a class="headerlink" href="#the-xapi-statement-model-actor-verb-object-result-and-context" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>Walks through the core anatomy of an xAPI statement, the canonical fields, and the roles of Activity Provider, Learning Record Provider, and Activity Consumer. This chapter fits into the overall progression by building on prior concepts and preparing readers for the chapters that follow. After completing this chapter, students will be able to recognize, explain, and apply the concepts listed below in the context of xAPI-instrumented intelligent textbooks.</p>
-<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
 <p>This chapter covers the following 16 concepts from the learning graph:</p>
 <ol>
 <li>xAPI Statement Model</li>
@@ -1795,67 +1823,67 @@
 <li>Activity Consumer</li>
 <li>xAPI Conformance</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter builds on concepts from:</p>
 <ul>
 <li><a href="../01-foundations-and-standards/">Chapter 1: Foundations of xAPI and the Learning Standards Landscape</a></li>
 </ul>
-<hr />
+<hr>
 <div class="admonition mascot-welcome">
 <p class="admonition-title">Welcome to the Statement Model!</p>
-<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus waving hello">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/welcome.png" data-desc-position="bottom"><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus waving hello"></a>
 Last chapter we said xAPI is built around a sentence: Actor, Verb, Object. This chapter is where that sentence grows up. We're going to crack open a real statement, name every field inside it, and meet the three job titles in the xAPI ecosystem who pass these statements around. By the time we're done, you'll be able to read a raw xAPI statement the way a sommelier reads a wine label.</p>
 </div>
-<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">¶</a></h2>
 <p>By the end of this chapter, you'll be able to do something that surprisingly few developers can do confidently on day one: <strong>read any well-formed xAPI statement and explain, field by field, what every line means and why it's there</strong>. That's not just an academic skill. The moment you can fluently read a statement, you can debug a statement, validate a statement, transform a statement, and — eventually — generate hundreds of thousands of synthetic ones for load testing without inventing nonsense data. Statement fluency is the foundation skill for everything else in this book.</p>
 <p>We'll work bottom-up. First, the irreducible core: the three required fields. Then the optional-but-powerful payload fields (<code>result</code>, <code>context</code>). Then the metadata fields the LRS uses to keep your statements honest (<code>id</code>, <code>timestamp</code>, <code>stored</code>, <code>authority</code>, <code>version</code>). And finally, the three human-and-system roles that turn a statement from a JSON object on a textbook page into a queryable record in a permanent ledger.</p>
-<h2 id="what-counts-as-a-statement">What Counts as a Statement<a class="headerlink" href="#what-counts-as-a-statement" title="Permanent link">&para;</a></h2>
+<h2 id="what-counts-as-a-statement">What Counts as a Statement<a class="headerlink" href="#what-counts-as-a-statement" title="Permanent link">¶</a></h2>
 <p>A <strong>statement</strong> is the fundamental unit of data in xAPI. It is a JSON object that describes one learning event — one thing that one actor did, one time, to one object. The xAPI 1.0.3 specification (the canonical version this book targets) defines exactly which fields are allowed inside a statement, which are required, and what their data types must be. Anything that conforms to that schema is a statement; anything that doesn't, isn't. There is no "kind of a statement." This binary character is one of the standard's quiet superpowers.</p>
 <p>Before we pull a real one apart, let's see the whole thing once. Below is a complete, conformant xAPI 1.0.3 statement. Everything in this chapter will be a deeper explanation of one of these lines:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fd41c918-b88b-4b20-a0a5-a4c32391aaa0&quot;</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lin Park&quot;</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;mbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:lin@example.edu&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd41c918-b88b-4b20-a0a5-a4c32391aaa0"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lin Park"</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">"mbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailto:lin@example.edu"</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/passed&quot;</span><span class="p">,</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/verbs/passed"</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passed"</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="p">,</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quadratics Chapter Quiz&quot;</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/assessment&quot;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://textbook.example.org/chapters/quadratics/quiz"</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quadratics Chapter Quiz"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/activities/assessment"</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">&quot;completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scaled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">"completion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"scaled"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Intelligent Algebra Textbook&quot;</span><span class="p">,</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="p">,</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">&quot;contextActivities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/courses/algebra-1&quot;</span><span class="p">,</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intelligent Algebra Textbook"</span><span class="p">,</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">"contextActivities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://textbook.example.org/courses/algebra-1"</span><span class="p">,</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span>
 </span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">      </span><span class="p">}]</span>
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-15T18:32:14.512Z&quot;</span><span class="p">,</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="nt">&quot;stored&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-15T18:32:15.001Z&quot;</span><span class="p">,</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">,</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">      </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://lrs.example.org&quot;</span><span class="p">,</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;intelligent-algebra-client&quot;</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-15T18:32:14.512Z"</span><span class="p">,</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="nt">"stored"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-15T18:32:15.001Z"</span><span class="p">,</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">"authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">      </span><span class="nt">"homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://lrs.example.org"</span><span class="p">,</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intelligent-algebra-client"</span>
 </span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.3&quot;</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.3"</span>
 </span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Eleven top-level fields. Three are required (<code>actor</code>, <code>verb</code>, <code>object</code>); the rest are optional, generated by the LRS, or technically required-but-defaulted depending on which clause of the spec you read on which day. We'll walk every one. Before we look at the visual breakdown, here's the field roster as a quick reference:</p>
@@ -1932,12 +1960,12 @@ Last chapter we said xAPI is built around a sentence: Actor, Verb, Object. This 
 </tbody>
 </table>
 <p>Now the diagram view. Click any field to read its formal definition.</p>
-<h4 id="diagram-xapi-statement-anatomy">Diagram: xAPI Statement Anatomy<a class="headerlink" href="#diagram-xapi-statement-anatomy" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-xapi-statement-anatomy">Diagram: xAPI Statement Anatomy<a class="headerlink" href="#diagram-xapi-statement-anatomy" title="Permanent link">¶</a></h4>
 <details>
 <summary>Clickable anatomy of every field in an xAPI 1.0.3 statement</summary>
 <p>Type: diagram
-<strong>sim-id:</strong> xapi-statement-anatomy<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> xapi-statement-anatomy<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p>Purpose: Give the reader an interactive map of the eleven top-level fields of an xAPI 1.0.3 statement. Every node is clickable; clicking a node reveals an infobox containing the field's name, whether it is required, who sets it, the data type, and a one-paragraph plain-English definition pulled from the chapter glossary.</p>
 <p>Bloom level: Understand (L2). Bloom verb: identify, explain.</p>
@@ -1955,7 +1983,7 @@ Last chapter we said xAPI is built around a sentence: Actor, Verb, Object. This 
 "<strong>verb</strong> — Required. Object. Set by the Activity Provider. Identifies the action the actor performed. Must contain an IRI in the <code>id</code> field; the IRI should resolve to a published verb definition. Optional <code>display</code> map provides human-readable labels in one or more languages. Example: <code>{ id: 'http://adlnet.gov/expapi/verbs/passed', display: { 'en-US': 'passed' } }</code>."</p>
 <p>Implementation: Mermaid <code>flowchart TB</code> with classDefs and <code>click</code> directives wired to a JavaScript <code>showFieldInfo(name)</code> function that reads from a JSON dictionary of field definitions and renders the infobox in a side panel. Responsive width via <code>&lt;div style="width:100%"&gt;</code> wrapper.</p>
 </details>
-<h2 id="actor-who-did-it">Actor — Who Did It<a class="headerlink" href="#actor-who-did-it" title="Permanent link">&para;</a></h2>
+<h2 id="actor-who-did-it">Actor — Who Did It<a class="headerlink" href="#actor-who-did-it" title="Permanent link">¶</a></h2>
 <p>The <strong>Actor component</strong> identifies the agent that performed the action recorded in the statement. In xAPI, an actor is almost always one of three things: an individual learner (an <code>Agent</code>), a named group (a <code>Group</code>), or — occasionally — an automated process acting on behalf of a learner. The Actor field is required in every statement; a sentence with no subject is not a sentence.</p>
 <p>Here is the catch that surprises new xAPI implementers: an actor is not identified by a database primary key. It is identified by an <strong>Inverse Functional Identifier</strong>, or <strong>IFI</strong> — a value that is globally unique on its own, with no central registry. xAPI defines exactly four IFI types, and an actor must use exactly one:</p>
 <ul>
@@ -1967,10 +1995,10 @@ Last chapter we said xAPI is built around a sentence: Actor, Verb, Object. This 
 <p>We'll go deeper on identity in Chapter 5. For now, what you need to remember is that the Actor field carries enough information to recognize the same learner across two systems that have never spoken to each other before — provided they both use the same IFI shape for that learner.</p>
 <div class="admonition mascot-thinking">
 <p class="admonition-title">Why IFIs and not database IDs?</p>
-<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi thinking">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/thinking.png" data-desc-position="bottom"><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi thinking"></a>
 Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> table." That's worthless to a different system. An IFI is global by construction — <code>mailto:lin@example.edu</code> means the same thing in your LRS, in mine, and in the LRS that gets stood up next year. xAPI's identity model assumes data will outlive applications, which is exactly the right assumption for a learning ledger.</p>
 </div>
-<h2 id="verb-what-they-did">Verb — What They Did<a class="headerlink" href="#verb-what-they-did" title="Permanent link">&para;</a></h2>
+<h2 id="verb-what-they-did">Verb — What They Did<a class="headerlink" href="#verb-what-they-did" title="Permanent link">¶</a></h2>
 <p>The <strong>Verb component</strong> is the action. Every verb in xAPI is identified by an <strong>IRI</strong> — an Internationalized Resource Identifier, which is just a fancy URL — that points (at least conceptually) to a published definition somewhere on the public internet. The point of using IRIs instead of strings is that two different systems can independently use the verb <code>http://adlnet.gov/expapi/verbs/passed</code> and be confident they mean the same thing, because there is one canonical definition at that address.</p>
 <p>Verbs come from <strong>vocabularies</strong>: published collections of verbs with formal definitions. The most common are:</p>
 <ul>
@@ -1980,12 +2008,12 @@ Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> ta
 </ul>
 <p>A verb object also includes an optional <code>display</code> map — human-readable labels in one or more languages — which is how dashboards render <code>passed</code> instead of the full IRI. The <code>display</code> field is purely cosmetic; the LRS matches and indexes on the IRI in <code>id</code>.</p>
 <p>We'll spend an entire chapter (Chapter 4) on verb vocabulary design, because picking the wrong verbs early is one of the easiest ways to wreck the analytics value of an xAPI deployment. For now, the verb explorer below lets you preview the canonical ADL verbs you'll be reaching for most often.</p>
-<h4 id="diagram-adl-verb-vocabulary-explorer">Diagram: ADL Verb Vocabulary Explorer<a class="headerlink" href="#diagram-adl-verb-vocabulary-explorer" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-adl-verb-vocabulary-explorer">Diagram: ADL Verb Vocabulary Explorer<a class="headerlink" href="#diagram-adl-verb-vocabulary-explorer" title="Permanent link">¶</a></h4>
 <details>
 <summary>Interactive explorer for the canonical ADL xAPI verb vocabulary</summary>
 <p>Type: infographic
-<strong>sim-id:</strong> adl-verb-vocabulary-explorer<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> adl-verb-vocabulary-explorer<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p>Purpose: Let the reader explore the canonical ADL xAPI verbs by category, understand which verb is appropriate for which kind of learning event, and copy the verb's full IRI and <code>display</code> block in one click. Reinforces that verbs are IRIs, not strings.</p>
 <p>Bloom level: Understand (L2). Bloom verb: classify, exemplify.</p>
@@ -2009,7 +2037,7 @@ Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> ta
 <p>Visual style: rounded chips with slight drop shadow, category color band running down the left edge of each chip, monospace font for IRIs in the infobox, clear visual distinction between chips and infobox.</p>
 <p>Implementation: p5.js with <code>createButton</code>, <code>createSelect</code>, and <code>createInput</code> builtin controls. Chip layout uses a flexbox-like algorithm in <code>draw()</code>. Verb dataset loaded from a local JSON file. Responsive — calls <code>updateCanvasSize()</code> first thing in <code>setup()</code>.</p>
 </details>
-<h2 id="object-to-what">Object — To What<a class="headerlink" href="#object-to-what" title="Permanent link">&para;</a></h2>
+<h2 id="object-to-what">Object — To What<a class="headerlink" href="#object-to-what" title="Permanent link">¶</a></h2>
 <p>The <strong>Object component</strong> answers the third question: what was the verb done to? In the vast majority of xAPI statements, the object is an <strong>Activity</strong> — a piece of content, a chapter, a quiz, a simulation, a video, an exercise, a discussion thread. An Activity is identified by an IRI (its <code>id</code>) and may carry a <code>definition</code> block describing its name, type, and other metadata in human-readable form.</p>
 <p>But the object doesn't have to be an Activity. It can also be an <code>Agent</code> or <code>Group</code> (for statements like "the instructor commended the student"), a <code>SubStatement</code> (for nested statements like "the tutor reported that the learner answered correctly"), or a <code>StatementRef</code> (a pointer to another statement, used for voiding and threading). The four object types cover essentially every relationship you'd want to record between learners and the things they encounter.</p>
 <p>The list below names the four object types and when each is appropriate, so the table that follows it organizes what we already understand:</p>
@@ -2063,7 +2091,7 @@ Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> ta
 </tbody>
 </table>
 <p>In this book — and in nearly every real-world intelligent textbook deployment — you'll spend 95% of your time emitting statements whose object is an Activity. The other four object types are rarely needed, but they're in your toolbox when you need them.</p>
-<h2 id="result-how-it-went">Result — How It Went<a class="headerlink" href="#result-how-it-went" title="Permanent link">&para;</a></h2>
+<h2 id="result-how-it-went">Result — How It Went<a class="headerlink" href="#result-how-it-went" title="Permanent link">¶</a></h2>
 <p>The <strong>Result component</strong> is optional, but it's where the analytical gold often hides. Result describes the outcome of the verb-on-object event: did the learner succeed? Did they complete the activity? What score did they earn? How long did it take? Did they enter a free-text response? All of those questions live in <code>result</code>.</p>
 <p>The standard <code>result</code> fields are:</p>
 <ul>
@@ -2076,10 +2104,10 @@ Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> ta
 </ul>
 <div class="admonition mascot-warning">
 <p class="admonition-title">The footgun in <code>result.completion</code></p>
-<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a warning tentacle">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/warning.png" data-desc-position="bottom"><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a warning tentacle"></a>
 <code>result.completion</code> is a boolean. If you forget to set it, it isn't <code>false</code> — it's <em>absent</em>, which is a different thing entirely from <code>false</code>. Most LRS query engines treat absent and <code>false</code> differently when filtering. This is the textbook <strong>footgun pattern</strong>: silent (no error), easy to trigger (just leave it off), and damaging far from the cause (your "completion rate" report a month later mysteriously undercounts everything). Always set <code>completion</code> explicitly when you mean it.</p>
 </div>
-<h2 id="context-under-what-circumstances">Context — Under What Circumstances<a class="headerlink" href="#context-under-what-circumstances" title="Permanent link">&para;</a></h2>
+<h2 id="context-under-what-circumstances">Context — Under What Circumstances<a class="headerlink" href="#context-under-what-circumstances" title="Permanent link">¶</a></h2>
 <p>The <strong>Context component</strong> captures the surrounding situation: which course this statement belongs to, which platform emitted it, which language the learner was using, which other activities this one is grouped with. Context is what lets your analytics team answer questions like "show me all <code>passed</code> statements for the algebra textbook, but only for learners in the Tuesday cohort, taken in Spanish." Without context, every statement is an island.</p>
 <p>The most useful context fields are:</p>
 <ul>
@@ -2092,24 +2120,24 @@ Database IDs are local. They mean "row 4172 in <em>my</em> <code>users</code> ta
 <li><strong><code>extensions</code></strong> — same idea as <code>result.extensions</code>: an IRI-keyed map for custom context</li>
 </ul>
 <p>The four <code>contextActivities</code> arrays are subtly different and frequently confused. Here's the rule: <code>parent</code> is for the <em>direct container</em> (the chapter that contains this quiz), <code>grouping</code> is for <em>peer activities</em> the statement is grouped with, <code>category</code> is for <em>labels and tags</em> (like "formative-assessment" or "section-3.4"), and <code>other</code> is the catch-all for anything else. Get <code>parent</code> right and you can already answer most "which chapter?" questions in your analytics.</p>
-<h2 id="statement-metadata-id-timestamp-stored-authority-version">Statement Metadata — <code>id</code>, <code>timestamp</code>, <code>stored</code>, <code>authority</code>, <code>version</code><a class="headerlink" href="#statement-metadata-id-timestamp-stored-authority-version" title="Permanent link">&para;</a></h2>
+<h2 id="statement-metadata-id-timestamp-stored-authority-version">Statement Metadata — <code>id</code>, <code>timestamp</code>, <code>stored</code>, <code>authority</code>, <code>version</code><a class="headerlink" href="#statement-metadata-id-timestamp-stored-authority-version" title="Permanent link">¶</a></h2>
 <p>The five metadata fields are what turn a statement from a JSON object into a record in a queryable ledger. Some of these you set; some the LRS sets for you; some are required and some are optional. Knowing who sets what is one of the things that separates a confident xAPI engineer from a confused one.</p>
 <p>The <strong>Statement ID (UUID)</strong> is a Version 4 UUID that uniquely identifies the statement. If you don't supply one when you POST the statement, the LRS will mint one and return it. In production code, you should <em>always</em> generate the UUID client-side and include it — that lets you safely retry a failed POST without creating duplicates, because the LRS will reject a second POST with the same ID rather than store the same event twice.</p>
 <p>The <strong>Timestamp Field</strong> records when the <em>learner</em> experienced the event, in ISO 8601 format with timezone (typically UTC, suffix <code>Z</code>). This is the field your dashboards filter on for "events between Monday and Friday." If you don't supply it, the LRS will default it to the moment the statement arrives — which is <em>not</em> the same moment, especially if your statements were buffered offline for hours or days before sync.</p>
 <p>The <strong>Stored Timestamp</strong> is set by the LRS, never by the client. It records when the LRS received and persisted the statement. You'll use <code>stored</code> for replication and audit ("which statements arrived after our last backup?"), and you'll use <code>timestamp</code> for everything pedagogical ("when did the learner actually do this?"). Confusing these two is a classic rookie mistake; the gap between them is your offline-sync buffer in action.</p>
 <div class="admonition mascot-tip">
 <p class="admonition-title">Always send <code>id</code> and <code>timestamp</code> from the client</p>
-<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Xavi giving a tip">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/tip.png" data-desc-position="bottom"><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Xavi giving a tip"></a>
 Two habits will save you weeks of debugging. First, always generate the statement's UUID at the moment of the event, not later. Second, always set <code>timestamp</code> to the wall-clock time when the learner experienced the event, not when your code happens to call <code>fetch()</code>. Together, these two habits make your offline queue, your retry logic, and your "did the learner study this on Tuesday or Wednesday?" report all behave correctly without any extra plumbing.</p>
 </div>
 <p>The <strong>Authority Field</strong> identifies the agent vouching for the truth of the statement. You almost never set this yourself — the LRS sets it based on the credentials your client used to POST. If your client authenticated as <code>intelligent-algebra-client</code>, every statement that client POSTs gets <code>authority</code> set to that account. Authority is what stops a textbook from impersonating a teacher; the LRS knows who actually sent the bytes, regardless of what the JSON claims.</p>
 <p>The <strong>Statement Version Field</strong> records the xAPI specification version under which the statement was processed. This is also LRS-set. The current canonical version is <code>1.0.3</code>, which is what this book targets throughout. (xAPI 2.0 has been published, but adoption is still uneven across the LRS landscape; we'll discuss the differences in Chapter 12.)</p>
-<h4 id="diagram-who-sets-what-client-vs-lrs-field-ownership">Diagram: Who Sets What — Client vs. LRS Field Ownership<a class="headerlink" href="#diagram-who-sets-what-client-vs-lrs-field-ownership" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-who-sets-what-client-vs-lrs-field-ownership">Diagram: Who Sets What — Client vs. LRS Field Ownership<a class="headerlink" href="#diagram-who-sets-what-client-vs-lrs-field-ownership" title="Permanent link">¶</a></h4>
 <details>
 <summary>Interactive diagram showing which fields are set by the client and which by the LRS</summary>
 <p>Type: diagram
-<strong>sim-id:</strong> statement-field-ownership<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> statement-field-ownership<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p>Purpose: Disambiguate, at a glance, which statement fields are the client's responsibility and which are the LRS's. Eliminates a class of bugs where developers try to set <code>stored</code> or <code>authority</code> from the client and are surprised when the LRS overwrites them.</p>
 <p>Bloom level: Analyze (L4). Bloom verb: differentiate, attribute.</p>
@@ -2126,14 +2154,14 @@ Two habits will save you weeks of debugging. First, always generate the statemen
 "<strong>stored</strong> — Set by the LRS, never by the client. ISO 8601 timestamp recording when the LRS received and persisted the statement. Use <code>stored</code> for replication, audit, and reconciliation. Do not confuse with <code>timestamp</code>, which is when the learner experienced the event. The gap between <code>timestamp</code> and <code>stored</code> is your offline buffer in action."</p>
 <p>Implementation: Mermaid <code>flowchart LR</code> with classDefs and <code>click</code> directives wired to a JavaScript <code>showFieldOwnership(name)</code> function. Responsive width.</p>
 </details>
-<h2 id="build-a-statement-yourself">Build a Statement Yourself<a class="headerlink" href="#build-a-statement-yourself" title="Permanent link">&para;</a></h2>
+<h2 id="build-a-statement-yourself">Build a Statement Yourself<a class="headerlink" href="#build-a-statement-yourself" title="Permanent link">¶</a></h2>
 <p>Reading statements is half the skill. Building them is the other half. The MicroSim below lets you assemble a complete xAPI statement piece by piece, watch the JSON construct itself, and see live conformance feedback as you go.</p>
-<h4 id="diagram-xapi-statement-builder-microsim">Diagram: xAPI Statement Builder MicroSim<a class="headerlink" href="#diagram-xapi-statement-builder-microsim" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-xapi-statement-builder-microsim">Diagram: xAPI Statement Builder MicroSim<a class="headerlink" href="#diagram-xapi-statement-builder-microsim" title="Permanent link">¶</a></h4>
 <details>
 <summary>Interactive statement builder with live JSON output and conformance checking</summary>
 <p>Type: microsim
-<strong>sim-id:</strong> xapi-statement-builder<br/>
-<strong>Library:</strong> p5.js<br/>
+<strong>sim-id:</strong> xapi-statement-builder<br>
+<strong>Library:</strong> p5.js<br>
 <strong>Status:</strong> Specified</p>
 <p>Learning objective: Given an English description of a learning event, the reader can construct a conformant xAPI 1.0.3 statement by selecting an actor, verb, and object, and optionally adding result, context, and metadata fields. Reinforces field-level understanding through hands-on assembly. Bloom level: Apply (L3). Bloom verb: construct, implement.</p>
 <p>Instructional Rationale: The Apply level requires the learner to use field knowledge in a new situation. A passive read-through of the spec produces recognition; building a statement and seeing live conformance feedback produces application. Step-by-step assembly with running JSON output lets the learner see, concretely, how each field they add changes the resulting object — without ever leaving the textbook page.</p>
@@ -2161,21 +2189,21 @@ Two habits will save you weeks of debugging. First, always generate the statemen
 </details>
 <div class="admonition mascot-encourage">
 <p class="admonition-title">If conformance feels picky, that's the point</p>
-<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Xavi being encouraging">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/encouraging.png" data-desc-position="bottom"><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Xavi being encouraging"></a>
 The first time you run the validator and watch it complain about your perfectly reasonable-looking statement, it's tempting to feel that xAPI is being uptight. It's actually doing you a favor. Strict conformance is what lets two systems on opposite sides of the world agree on what a statement <em>means</em>. Loose schemas are the reason previous learning standards quietly drifted out of interoperability over the decade after their release. We'll lean into the strictness — your future analytics dashboards will thank you.</p>
 </div>
-<h2 id="the-three-roles-in-the-xapi-ecosystem">The Three Roles in the xAPI Ecosystem<a class="headerlink" href="#the-three-roles-in-the-xapi-ecosystem" title="Permanent link">&para;</a></h2>
+<h2 id="the-three-roles-in-the-xapi-ecosystem">The Three Roles in the xAPI Ecosystem<a class="headerlink" href="#the-three-roles-in-the-xapi-ecosystem" title="Permanent link">¶</a></h2>
 <p>A statement is a noun. It just sits there. To make anything <em>happen</em>, you need three roles to act on statements — and the spec gives them job titles. These three roles will appear in nearly every system diagram you draw for the rest of this book, so let's name them now.</p>
 <p>The <strong>Activity Provider (AP)</strong> is the system that <em>creates</em> statements. Your intelligent textbook is an Activity Provider. A simulation is an Activity Provider. A quiz tool is an Activity Provider. The AP's job is to detect a learning event, build a conformant statement describing it, and POST that statement to an LRS.</p>
 <p>The <strong>Learning Record Provider (LRP)</strong> is a more general term for any system that <em>provides</em> records to an LRS. Every Activity Provider is also a Learning Record Provider, but not every LRP is an AP — for example, an LMS that imports a batch of historical statements from an old SCORM database is acting as an LRP without ever having generated those statements itself. In practice, "AP" and "LRP" are often used interchangeably, but the spec keeps them separate for the case where the source of the statements isn't the same as the system reporting them.</p>
 <p>The <strong>Activity Consumer</strong> is the system that <em>reads</em> statements back out of the LRS. Dashboards, analytics pipelines, recommender systems, and grade exports are all Activity Consumers. An Activity Consumer never writes statements — it queries them, aggregates them, and turns them into reports, scores, and decisions.</p>
 <p>The diagram below lays the three roles out with the LRS in the middle. Click any role to see its responsibilities, the HTTP verbs it uses, and an example real-world system that fills that role.</p>
-<h4 id="diagram-activity-provider-lrs-and-activity-consumer">Diagram: Activity Provider, LRS, and Activity Consumer<a class="headerlink" href="#diagram-activity-provider-lrs-and-activity-consumer" title="Permanent link">&para;</a></h4>
+<h4 id="diagram-activity-provider-lrs-and-activity-consumer">Diagram: Activity Provider, LRS, and Activity Consumer<a class="headerlink" href="#diagram-activity-provider-lrs-and-activity-consumer" title="Permanent link">¶</a></h4>
 <details>
 <summary>The three xAPI ecosystem roles and how statements flow between them</summary>
 <p>Type: workflow
-<strong>sim-id:</strong> xapi-three-roles<br/>
-<strong>Library:</strong> Mermaid<br/>
+<strong>sim-id:</strong> xapi-three-roles<br>
+<strong>Library:</strong> Mermaid<br>
 <strong>Status:</strong> Specified</p>
 <p>Purpose: Cement the three role names — Activity Provider, Learning Record Provider, Activity Consumer — and show how statements flow from creation, through the LRS, to consumption. Disambiguates the AP-vs-LRP distinction visually.</p>
 <p>Bloom level: Understand (L2). Bloom verb: describe, classify.</p>
@@ -2197,16 +2225,16 @@ The first time you run the validator and watch it complain about your perfectly 
 "<strong>Activity Consumer</strong> — A system that reads statements from an LRS via HTTP GET. Consumers never write statements. Examples: a real-time engagement dashboard, a personalized recommender that suggests next chapters based on completion patterns, a grade-export script that pushes final scores to an LMS gradebook. Common confusion: a system can be both an AP and a Consumer (it writes some statements and reads others), but the two roles are conceptually distinct and often have different authentication credentials."</p>
 <p>Implementation: Mermaid <code>flowchart LR</code> with classDefs, a Mermaid <code>subgraph</code> for the LRP envelope, and <code>click</code> directives wired to a JavaScript <code>showRoleInfo(role)</code> function. Responsive width.</p>
 </details>
-<h2 id="xapi-103-and-conformance">xAPI 1.0.3 and Conformance<a class="headerlink" href="#xapi-103-and-conformance" title="Permanent link">&para;</a></h2>
+<h2 id="xapi-103-and-conformance">xAPI 1.0.3 and Conformance<a class="headerlink" href="#xapi-103-and-conformance" title="Permanent link">¶</a></h2>
 <p>The <strong>xAPI 1.0.3 Specification</strong> is the version this book targets. It is the most widely deployed version in production LRSs as of 2026 and the version that all major open-source and commercial LRS platforms support without caveat. xAPI 2.0 has been published — it adds JSON-LD support, clarifies a number of edge cases, and tightens some conformance rules — but adoption is uneven and many production systems still target 1.0.3 for compatibility reasons. When this book says "xAPI", we mean 1.0.3 unless we explicitly note otherwise.</p>
 <p><strong>xAPI Conformance</strong> is the property of being a valid implementation of the spec. The ADL maintains a conformance test suite that probes an LRS or AP for spec compliance: does it accept all required statement shapes? Does it reject malformed ones with the correct HTTP status codes? Does it return the correct fields in the correct format from the <code>/statements</code> GET endpoint? An LRS that passes the suite earns the right to call itself conformant; one that doesn't is, technically, just <em>xAPI-flavored</em>.</p>
 <p>We'll run the conformance suite against an open-source LRS in Chapter 12. For now, the takeaway is this: when you build an Activity Provider, conformance is not an aspiration — it is a binary property your code either has or doesn't have. The statement builder above gives you a glimpse of that strictness; the conformance suite formalizes it.</p>
-<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">¶</a></h2>
 <p>You started this chapter able to recognize the Actor-Verb-Object triple. You're leaving it able to read every line of an eleven-field xAPI 1.0.3 statement, name who sets each field and when, distinguish the three ecosystem roles, and articulate why xAPI's identity model is built on globally unique IFIs instead of database keys. That's a serious foundation, and every chapter that follows will lean on it.</p>
 <p>The next chapter goes deeper into the structural patterns you'll need for real-world data: nested SubStatements, voiding, signed statements, attachments, and the language map convention that makes xAPI multilingual by default. After that, we'll spend a full chapter on verb vocabulary design — the single highest-leverage decision you'll make on any xAPI deployment.</p>
 <div class="admonition mascot-celebration">
 <p class="admonition-title">You can read xAPI fluently now!</p>
-<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with tentacles in the air">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/mascot/celebration.png" data-desc-position="bottom"><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with tentacles in the air"></a>
 Eleven fields. Three required, two optional-but-powerful, five metadata. Three ecosystem roles. Four IFI shapes. One conformance suite. <strong>You just earned your statement-reading license.</strong> From here on, when someone shows you a raw xAPI payload in a debugger, you'll see structure where most engineers see noise. Every interaction tells a story — and now you can read every word.</p>
 </div>
 
@@ -2234,7 +2262,7 @@ Eleven fields. Three required, two optional-but-powerful, five metadata. Three e
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -2244,13 +2272,13 @@ Eleven fields. Three required, two optional-but-powerful, five metadata. Three e
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../01-foundations-and-standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Foundations and Standards">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2275,7 +2303,7 @@ Eleven fields. Three required, two optional-but-powerful, five metadata. Three e
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2287,7 +2315,7 @@ Eleven fields. Three required, two optional-but-powerful, five metadata. Three e
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -2311,6 +2339,10 @@ Eleven fields. Three required, two optional-but-powerful, five metadata. Three e
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
+        <script src="../../js/extra.js"></script>
+      
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
