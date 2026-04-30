@@ -1,0 +1,16 @@
+/* Project custom CSS — override Material theme defaults here. */
+
+/* Cover image on the home page */
+.cover-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: 1rem auto 2rem;
+    display: block;
+}
+
+/* Iframe embeds for MicroSims should not show a border by default */
+iframe {
+    border: 0;
+}

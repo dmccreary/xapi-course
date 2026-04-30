@@ -1,0 +1,989 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A detailed course description for implementing the xAPI (Experience API / Tin Can API) standard in level 3 interactive intelligent textbooks, including the LRS ecosystem, educational standards landscape, bandwidth optimization, and traffic monitoring, organized according to the 2001 Bloom's Taxonomy learning outcomes.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/xapi-course/course-description/">
+      
+      
+        <link rel="prev" href="../about/">
+      
+      
+        <link rel="next" href="../chapters/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Course Description for xAPI Standard for Intelligent Textbooks - xAPI for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xapi-standard-for-intelligent-textbooks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="xAPI for Intelligent Textbooks" class="md-header__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xAPI for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Course Description for xAPI Standard for Intelligent Textbooks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="xAPI for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    xAPI for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-topics-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Topics Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topics-not-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topics Not Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Outcomes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Outcomes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remember
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understand
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyze
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-course-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Course Matters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-topics-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Topics Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topics-not-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topics Not Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Outcomes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Outcomes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remember
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understand
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyze
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-course-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Course Matters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/course-description.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="xapi-standard-for-intelligent-textbooks">xAPI Standard for Intelligent Textbooks<a class="headerlink" href="#xapi-standard-for-intelligent-textbooks" title="Permanent link">&para;</a></h1>
+<p><strong>Title:</strong> Implementing the xAPI Standard in Interactive Intelligent Textbooks</p>
+<p><strong>Target Audience:</strong> Software professionals (web developers, instructional technologists, learning engineers, and platform architects) who are building or extending Level 3 interactive intelligent textbooks and want to instrument them with xAPI for detailed learner analytics.</p>
+<p><strong>Prerequisites:</strong>
+- Proficiency in at least one web programming language (JavaScript/TypeScript preferred)
+- Familiarity with REST APIs and HTTP/JSON concepts
+- Basic understanding of relational or document databases
+- Experience using generative AI coding assistants (e.g., Claude Code) is helpful but not required
+- No prior knowledge of xAPI or learning standards is required</p>
+<hr />
+<h2 id="course-overview">Course Overview<a class="headerlink" href="#course-overview" title="Permanent link">&para;</a></h2>
+<p>The Experience API (xAPI), formerly known as Tin Can API, is an open e-learning specification that enables learning experiences to be recorded and shared across systems in a consistent, interoperable format. Where older standards like SCORM constrained learning to browser-locked modules, xAPI allows any digital experience — a quiz in an intelligent textbook, a simulation, a watched video, a mobile app interaction — to emit structured activity statements that flow into a Learning Record Store (LRS). This course gives software professionals the practical skills to design, implement, validate, and optimize xAPI instrumentation inside Level 3 interactive intelligent textbooks.</p>
+<p>This course takes a holistic, systems-thinking view of xAPI. Students will understand how the standard fits within a broader ecosystem of educational data infrastructure — including LRS platforms, Learning Management Systems (LMS), Learning Analytics platforms, IMS Global standards (LTI, Caliper), and CMI5 — and how these components connect across K-12, higher education, and corporate learning environments. Rather than treating xAPI as an isolated API, the course frames it as the nervous system of a modern learning organization, carrying fine-grained behavioral signals from the learner's browser to persistent analytics infrastructure.</p>
+<p>A practical engineering thread runs throughout the course. Students will use Claude Code and other generative AI agents to synthesize realistic xAPI statement datasets for load testing and validation, configure open-source LRS platforms (e.g., TRAX, Learning Locker, Ralph), profile network traffic with browser DevTools and proxy tools, and apply bandwidth-reduction patterns — statement batching, delta encoding, and selective verbosity — to keep per-learner overhead negligible even on constrained networks.</p>
+<hr />
+<h2 id="main-topics-covered">Main Topics Covered<a class="headerlink" href="#main-topics-covered" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>xAPI Fundamentals</strong> — the Actor/Verb/Object statement model, statement IDs, context activities, result scoring, and the xAPI specification versioning history</li>
+<li><strong>Learning Record Store (LRS) Architecture</strong> — LRS roles, storage models, query endpoints (<code>/statements</code>, <code>/agents</code>, <code>/activities</code>, <code>/state</code>), concurrency, and conflict resolution</li>
+<li><strong>xAPI Ecosystem and Standards Landscape</strong> — SCORM, AICC, CMI5, IMS Caliper, LTI, IMS QTI, and how each standard addresses different instrumentation needs</li>
+<li><strong>xAPI in Organizational Contexts</strong> — K-12 district data governance, higher education LMS integration, corporate L&amp;D platforms, and cross-organizational interoperability</li>
+<li><strong>Implementing xAPI in Intelligent Textbooks</strong> — registering activities, designing verb vocabularies, instrumenting interactive components (simulations, quizzes, adaptive branching), and managing learner identity</li>
+<li><strong>Bandwidth Efficiency and Network Optimization</strong> — statement batching, HTTP/2 multiplexing, payload minimization, offline buffering with service workers, and progressive sync strategies</li>
+<li><strong>Monitoring and Observability</strong> — capturing xAPI traffic with browser DevTools, Charles Proxy / mitmproxy, LRS request logs, and building real-time dashboards with open-source tooling</li>
+<li><strong>Synthetic Test Data Generation with AI</strong> — using Claude Code to generate realistic Actor/Verb/Object fixtures, simulate learner cohorts, and stress-test LRS endpoints</li>
+<li><strong>Competitive Analysis of Learning Standards</strong> — a structured comparison of xAPI, IMS Caliper, SCORM 2004, CMI5, and proprietary analytics SDKs across instrumentation granularity, vendor support, privacy posture, and implementation cost</li>
+<li><strong>Privacy, Security, and Compliance</strong> — FERPA, COPPA, GDPR considerations for learner data, LRS access control patterns, and anonymization strategies</li>
+</ol>
+<hr />
+<h2 id="topics-not-covered">Topics Not Covered<a class="headerlink" href="#topics-not-covered" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Deep-dive LRS server administration or DevOps for hosting LRS at scale (infrastructure concerns are introduced but not the course focus)</li>
+<li>Learning Analytics algorithm design (e.g., knowledge tracing models, Bayesian student models) — covered in a companion analytics course</li>
+<li>Authoring tool integration (Articulate Storyline, Adobe Captivate) — the course targets custom-coded intelligent textbooks, not packaged authoring environments</li>
+<li>Full LMS administration (Canvas, Moodle, Blackboard) — LMS integration is discussed at the API level only</li>
+<li>Mobile native app instrumentation (iOS/Android SDK) — the course focuses on browser-based web delivery</li>
+<li>Competency frameworks and credential standards (Open Badges, CLR) — briefly mentioned but not implemented</li>
+</ul>
+<hr />
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>After completing this course, students will be able to:</p>
+<h3 id="remember">Remember<a class="headerlink" href="#remember" title="Permanent link">&para;</a></h3>
+<p><em>Retrieving, recognizing, and recalling relevant knowledge from long-term memory.</em></p>
+<ul>
+<li>Recall the four core components of an xAPI statement: Actor, Verb, Object, and Result</li>
+<li>List the primary HTTP endpoints of the xAPI LRS specification (<code>/statements</code>, <code>/agents</code>, <code>/activities</code>, <code>/state</code>, <code>/about</code>)</li>
+<li>Name the major learning standards in the ecosystem: SCORM 1.2, SCORM 2004, AICC, CMI5, IMS Caliper, LTI, and xAPI</li>
+<li>Identify the three main LRS platform categories: hosted SaaS, self-hosted open source, and embedded LRS</li>
+<li>Recall what a statement's UUID, timestamp, stored timestamp, and authority fields represent</li>
+<li>State the difference between an Activity Provider (AP) and a Learning Record Provider (LRP) in xAPI terminology</li>
+<li>Name at least five canonical xAPI verbs from the ADL and tincan vocabularies (e.g., <code>experienced</code>, <code>attempted</code>, <code>completed</code>, <code>passed</code>, <code>scored</code>)</li>
+<li>Identify the organizational contexts in which xAPI is deployed: K-12, higher education, and corporate L&amp;D</li>
+</ul>
+<h3 id="understand">Understand<a class="headerlink" href="#understand" title="Permanent link">&para;</a></h3>
+<p><em>Constructing meaning from instructional messages, including oral, written, and graphic communication.</em></p>
+<ul>
+<li>Explain how xAPI's Actor/Verb/Object model generalizes the SCORM completion/score paradigm to arbitrary learning experiences</li>
+<li>Describe the role of an LRS as a persistent, queryable ledger of learning events and how it differs from a traditional LMS gradebook</li>
+<li>Explain why CMI5 was created as a constrained profile on top of xAPI and what problems it solves for LMS-integrated content</li>
+<li>Summarize the trade-offs between IMS Caliper and xAPI in terms of vocabulary richness, implementation complexity, and LMS vendor adoption</li>
+<li>Explain how xAPI context activities (grouping, parent, category, other) encode hierarchical relationships between learning objects</li>
+<li>Describe how statement batching reduces HTTP overhead and why it matters for high-frequency interactive textbook events</li>
+<li>Explain the difference between mutable and immutable LRS statement storage and why voiding statements is preferred over deletion</li>
+<li>Interpret a network waterfall chart from browser DevTools to identify xAPI statement payloads, response times, and potential bottlenecks</li>
+<li>Explain how FERPA, COPPA, and GDPR affect what learner data can be stored in an LRS and for how long</li>
+</ul>
+<h3 id="apply">Apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
+<p><em>Carrying out or using a procedure in a given situation.</em></p>
+<ul>
+<li>Install and configure an open-source LRS (e.g., TRAX LRS or Ralph) and verify connectivity using the xAPI <code>/about</code> endpoint</li>
+<li>Write JavaScript functions that construct valid xAPI statements from interactive textbook events (button clicks, quiz submissions, simulation interactions)</li>
+<li>Send individual and batched xAPI statements to an LRS using <code>fetch</code> with proper authentication headers (Basic Auth, OAuth 1.0a)</li>
+<li>Use Claude Code to generate a synthetic dataset of 500+ xAPI statements representing a realistic learner cohort navigating an intelligent textbook chapter</li>
+<li>Instrument a Level 3 interactive MicroSim (p5.js or similar) to emit <code>interacted</code>, <code>progressed</code>, and <code>completed</code> statements with contextual metadata</li>
+<li>Query an LRS <code>/statements</code> endpoint with filters (agent, verb, activity, since/until) and parse the paginated StatementResult response</li>
+<li>Use browser DevTools Network panel to capture, inspect, and decode xAPI POST request payloads in real time</li>
+<li>Implement an offline statement queue using the browser's IndexedDB or localStorage with a service worker that flushes to the LRS when connectivity is restored</li>
+<li>Apply mitmproxy or Charles Proxy to intercept and log all xAPI traffic between a textbook page and a remote LRS during a test session</li>
+</ul>
+<h3 id="analyze">Analyze<a class="headerlink" href="#analyze" title="Permanent link">&para;</a></h3>
+<p><em>Breaking material into constituent parts and determining how the parts relate to one another and to an overall structure or purpose.</em></p>
+<ul>
+<li>Analyze an existing SCORM 2004 course's completion and score events and map them to equivalent xAPI statement patterns</li>
+<li>Examine a set of raw LRS statement logs to identify which textbook sections have low engagement (few <code>experienced</code> verbs) versus high struggle (multiple <code>attempted</code> without <code>passed</code>)</li>
+<li>Decompose the bandwidth cost of xAPI instrumentation into per-statement payload size, HTTP overhead, and frequency to calculate total data transfer per learner session</li>
+<li>Compare the network profiles of individual-statement posting versus batched posting under simulated 3G network throttling using DevTools</li>
+<li>Analyze the xAPI verb vocabulary choices of three different intelligent textbook implementations and assess whether they support consistent cross-platform analytics</li>
+<li>Break down the architecture of a full xAPI pipeline: Activity Provider → LRS → Analytics Layer → Dashboard, and identify the failure points and latency contributors in each segment</li>
+<li>Examine CMI5 session lifecycle (launch, initialized, passed/failed, completed, terminated, abandoned) and map it to corresponding xAPI statement sequences</li>
+<li>Distinguish between client-side and server-side xAPI emission strategies and analyze their implications for statement authenticity, privacy, and debugging</li>
+</ul>
+<h3 id="evaluate">Evaluate<a class="headerlink" href="#evaluate" title="Permanent link">&para;</a></h3>
+<p><em>Making judgments based on criteria and standards through checking and critiquing.</em></p>
+<ul>
+<li>Evaluate whether a given LRS platform (e.g., TRAX, Learning Locker, Watershed) is appropriate for a specific organizational context based on scalability, privacy controls, and query capability</li>
+<li>Assess a proposed xAPI verb vocabulary for an intelligent textbook against the ADL vocabulary registry for semantic clarity, reusability, and collision risk</li>
+<li>Critique a peer's xAPI implementation for missing required fields, incorrect data types, and non-conformant statement structure using the ADL xAPI conformance test suite</li>
+<li>Evaluate the privacy posture of an xAPI deployment by reviewing what PII is stored in Actor identifiers, result extensions, and context extensions against FERPA/GDPR requirements</li>
+<li>Compare IMS Caliper 1.2, xAPI 1.0.3, and a proprietary analytics SDK for a K-12 intelligent textbook deployment across five criteria: implementation effort, LMS compatibility, analytics depth, vendor lock-in risk, and total cost of ownership</li>
+<li>Judge whether a synthetic dataset generated by Claude Code is statistically representative of real learner behavior by comparing verb frequency distributions and session duration histograms</li>
+<li>Evaluate the readiness of an xAPI integration for production by running the ADL conformance test suite and reviewing LRS server logs for 4xx/5xx error patterns</li>
+</ul>
+<h3 id="create">Create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
+<p><em>Putting elements together to form a coherent or functional whole; reorganizing elements into a new pattern or structure.</em></p>
+<ul>
+<li>Design a complete xAPI vocabulary profile for a new Level 3 intelligent textbook domain (e.g., physics simulations, coding exercises, historical document analysis) including custom verbs, activity types, and extension namespaces</li>
+<li>Build a reusable JavaScript/TypeScript xAPI client library that handles statement construction, batching, retry-with-backoff, offline queuing, and authentication — suitable for embedding in any MkDocs-based intelligent textbook</li>
+<li>Create a Claude Code prompt library that generates realistic synthetic xAPI datasets for at least five learner archetypes (fast learner, struggling learner, disengaged, re-learner, mastery-seeker) for use in LRS load testing</li>
+<li>Architect a multi-tenant xAPI pipeline for a school district or university system that routes statements from multiple intelligent textbooks into segmented LRS tenants with role-based access controls</li>
+<li>Develop a real-time xAPI traffic monitoring dashboard (using Observable Framework, Grafana, or a custom p5.js visualization) that displays per-chapter engagement heatmaps and statement throughput over time</li>
+<li>Construct a bandwidth budget for a 30-student classroom session using a high-frequency xAPI-instrumented simulation, and implement the minimal set of optimizations (batching, field pruning, delta updates) needed to keep traffic under a defined threshold</li>
+<li><strong>Capstone Project:</strong> Instrument a complete chapter of an existing intelligent textbook with a production-quality xAPI implementation — including offline support, batch delivery, a custom verb profile, and a monitoring dashboard — and present a comparative analysis of the implementation against IMS Caliper and CMI5 alternatives</li>
+</ul>
+<hr />
+<h2 id="why-this-course-matters">Why This Course Matters<a class="headerlink" href="#why-this-course-matters" title="Permanent link">&para;</a></h2>
+<p>Modern intelligent textbooks are not static reading experiences. Level 3 textbooks contain adaptive simulations, branching scenarios, embedded assessments, and AI-tutored interactions — each generating a stream of behavioral signals that, if captured, can reveal how learners actually engage with material, where they struggle, and how instructional design should evolve. Without a standards-based instrumentation layer, these signals are lost or locked inside proprietary systems.</p>
+<p>xAPI provides that layer. It is the only open standard with sufficient granularity to capture the full richness of intelligent textbook interactions, the flexibility to span formal and informal learning contexts, and the momentum of broad adoption across corporate L&amp;D, higher education, and increasingly K-12. Understanding xAPI is no longer optional for software professionals building the next generation of learning technology — it is foundational infrastructure.</p>
+<p>This course equips practitioners to implement xAPI correctly and efficiently, navigate the competitive landscape of learning standards, and build the observability infrastructure that transforms raw statement logs into actionable insights for instructors, instructional designers, and learners themselves.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                About
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chapters/" class="md-footer__link md-footer__link--next" aria-label="Next: List of Chapters">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
