@@ -121,7 +121,7 @@ Stewardship has since shifted. In December 2025, the **Institute for Infrastruct
 #### Diagram: A Timeline of Learning Interoperability Standards
 
 
-<iframe src="../../sims/learning-standards-timeline/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="../../sims/learning-standards-timeline/main.html" width="100%" height="582px" scrolling="no"></iframe>
 [Run A Timeline of Learning Interoperability Standards Fullscreen](../../sims/learning-standards-timeline/main.html)
 
 <details markdown="1">

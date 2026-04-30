@@ -1,10 +1,19 @@
 {
   "title": "A Timeline of Learning Interoperability Standards",
-  "description": "A Timeline of Learning Interoperability Standards",
-  "creator": "Dementia Education Project",
+  "description": "An interactive vis-timeline of major learning-data interoperability standards from AICC (1988) through I2IDL (2026), color-coded by sponsoring family with click-to-reveal infoboxes and keyboard navigation.",
+  "creator": "xAPI Course",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xAPI",
+    "learning standards",
+    "SCORM",
+    "AICC",
+    "LTI",
+    "Caliper",
+    "CMI5",
+    "IEEE 9274.1.1",
+    "I2IDL",
+    "interoperability"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +21,38 @@
   "rights": "CC BY 4.0",
   "identifier": "learning-standards-timeline",
   "library": "vis-timeline",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Remember + Understand",
+  "bloomVerb": "place / recognize",
+  "completion_status": "implemented",
   "chapter_number": 1,
   "chapter_title": "Foundations of xAPI and the Learning Standards Landscape",
-  "chapter_dir": "01-foundations-and-standards"
+  "chapter_dir": "01-foundations-and-standards",
+  "learning_objective": "The reader can place the major learning standards on a timeline and recognize which family each belongs to.",
+  "interactivity": [
+    "click event to open infobox",
+    "hover event for tooltip",
+    "filter by family (ADL / AICC / IMS / I2IDL)",
+    "keyboard navigation with arrow keys",
+    "pan and zoom controls",
+    "emits xAPI interacted statements"
+  ],
+  "educational": {
+    "audience": "Developers, instructional designers, and analytics engineers learning the xAPI ecosystem.",
+    "educationLevel": "Adult / professional",
+    "learningResourceType": "Interactive timeline",
+    "interactivityType": "active",
+    "typicalAgeRange": "18+",
+    "timeRequired": "PT5M"
+  },
+  "pedagogical": {
+    "bloomLevel": "Remember + Understand",
+    "bloomVerbs": ["place", "recognize", "identify"],
+    "learningObjective": "The reader can place the major learning standards on a timeline and recognize which family each belongs to.",
+    "prerequisites": [
+      "Familiarity with the idea of an LMS",
+      "No prior xAPI knowledge required"
+    ],
+    "instructionalPattern": "Explore-and-reveal: learner scans the chronological landscape, then drills into individual standards via click-to-reveal infoboxes.",
+    "assessmentNotes": "The timeline supports formative assessment via xAPI interacted statements; chapter quizzes assess summative understanding."
+  }
 }
