@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="How to use Claude Code (and similar generative AI tools) to produce realistic synthetic xAPI datasets — five canonical learner archetypes, statistically representative cohorts, and the load-testing pipelines that let you stress an LRS to its breaking point without involving a single real student.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../12-conformance-and-comparison/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>11. Synthetic Data and AI Testing - xAPI for Intelligent Textbooks</title>
+        <title>Synthetic Data Generation and AI-Assisted LRS Testing - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11. Synthetic Data and AI Testing
+              Synthetic Data Generation and AI-Assisted LRS Testing
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -496,9 +533,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -517,9 +561,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -538,9 +589,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -559,9 +617,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,9 +645,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -601,9 +673,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -631,9 +710,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -642,9 +728,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -667,7 +760,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -676,7 +771,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -685,7 +782,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-synthetic-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Synthetic Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learner-archetype-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learner Archetype Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learner Archetype Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learner-archetype-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Learner Archetype Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realistic-learner-cohort-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realistic Learner Cohort Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-load-testing-and-stress-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Load Testing and Stress Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LRS Load Testing and Stress Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-load-testing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Load Testing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-representativeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistical Representativeness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Representativeness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-statistical-representativeness-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Statistical Representativeness Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-the-generation-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together — The Generation Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -710,9 +959,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -731,9 +987,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1015,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1060,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1071,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1112,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1129,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1166,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1193,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1220,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1266,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1277,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1288,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-synthetic-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Synthetic Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learner-archetype-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learner Archetype Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learner Archetype Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learner-archetype-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Learner Archetype Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realistic-learner-cohort-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realistic Learner Cohort Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-load-testing-and-stress-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Load Testing and Stress Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LRS Load Testing and Stress Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-load-testing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Load Testing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-representativeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistical Representativeness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Representativeness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-statistical-representativeness-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Statistical Representativeness Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-the-generation-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together — The Generation Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1456,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/11-synthetic-data-and-ai-testing/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/11-synthetic-data-and-ai-testing/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1036,13 +1547,203 @@
 <li><a href="../03-advanced-statement-structure/">Chapter 3: Advanced Statement Structure: Voiding, Sub-Statements, Extensions, and Attachments</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to Fake Students Doing Real Work</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus directing imaginary students">
+Real student data is scarce, slow to accumulate, and legally radioactive. Synthetic student data is abundant, instant, and harmless. This chapter shows you how to use Claude Code to generate xAPI datasets that look like real cohorts — believable, varied, and statistically representative — so you can stress-test your LRS, validate your dashboards, and ship confidently without waiting for actual classrooms.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>conjure realistic xAPI datasets on demand and use them to stress, validate, and demo any LRS deployment without involving a single real learner</strong>. That capability rewires the development cycle. Where most teams wait six months for production data to accumulate before they trust their analytics, you'll be able to test against believable data on day one.</p>
+<p>You'll also learn the discipline of <strong>statistical representativeness</strong> — what it means for a synthetic dataset to actually look like a real one, and how to verify that match instead of just hoping for it. This is the difference between a load test that exercises your LRS realistically and one that exercises only the easy paths.</p>
+<h2 id="why-synthetic-data">Why Synthetic Data<a class="headerlink" href="#why-synthetic-data" title="Permanent link">&para;</a></h2>
+<p>Three problems make production data hard to use during development. <strong>Privacy</strong> — real student data carries FERPA, COPPA, and GDPR obligations that make casual access impossible. <strong>Volume</strong> — early in a deployment, real data is too sparse to stress anything; even an entire pilot semester might emit fewer statements than a single load-test run needs. <strong>Repeatability</strong> — real data evolves; a regression test that compares "today's dashboard" to "last month's dashboard" against real data will fail for legitimate reasons every run, hiding the bugs.</p>
+<p><strong>Synthetic data generation</strong> is the practice of producing artificial-but-realistic xAPI datasets that solve all three problems. Synthetic data is, by definition, never about a real learner — privacy is a non-issue. Synthetic data scales to whatever volume you need — a million statements is a five-minute generation run. Synthetic data is deterministic if you fix the random seed — same seed, same data, same dashboard.</p>
+<p>The trade-off is <em>realism</em>. Bad synthetic data exercises only the happy path: every learner finishes every chapter, every quiz is passed on the first try, every session lasts exactly 23 minutes. A load test against bad synthetic data tells you the LRS handles the easy case, which you already knew. The interesting bugs hide in the long tail of unusual sessions, partial completions, and edge-case interactions. Realism is the property that makes synthetic data useful, and realism is what we'll spend most of this chapter on.</p>
+<h2 id="claude-code-integration">Claude Code Integration<a class="headerlink" href="#claude-code-integration" title="Permanent link">&para;</a></h2>
+<p><strong>Claude Code integration</strong> in this context means: using Claude Code (or a similar coding assistant powered by a large language model) as the generation engine for the synthetic data pipeline. Claude Code's strengths align well with the problem — it writes JSON fluently, it understands xAPI's structure when shown the schema, and it can produce variability that hand-coded generators struggle to match.</p>
+<p>The pattern that works:</p>
+<ol>
+<li><strong>Specify the cohort.</strong> Tell Claude Code the target size, the chapter or chapters being simulated, the time window, and the archetype mix.</li>
+<li><strong>Provide the schema and examples.</strong> A few real (or known-good) statements as in-context examples produce dramatically better output than schema descriptions alone.</li>
+<li><strong>Generate iteratively in chunks.</strong> Don't ask for 10,000 statements in one call; ask for 50 statements per learner per archetype, in batches of 25 learners.</li>
+<li><strong>Validate against the schema.</strong> Run every generated batch through your conformance tester (Chapter 12) before committing it to the test corpus.</li>
+<li><strong>Compare distributions.</strong> Verify the synthetic distribution matches expectations (verb frequencies, session lengths, score distributions).</li>
+</ol>
+<p>A representative invocation, expressed as a Claude Code prompt template:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Generate 50 xAPI 1.0.3 statements for one learner working through the chapter at
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>http://textbook.example.org/chapters/quadratics. The learner is a &quot;struggling
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>learner&quot; archetype: low first-try pass rate (~40%), longer-than-average session
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>(35–45 min), 2–3 retries on most quiz items. Use the 5-statement quiz pattern
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>(attempted, scored, passed/failed, completed) for each quiz attempt. Output a
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>single JSON array. The actor&#39;s account.name should be the UUID I provide:
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>{learner_uuid}.
+</span></code></pre></div>
+<p>The prompt is small but loaded with constraints: archetype shape, statement count, pattern conformance, output format, identity. The output is a JSON array you can save, validate, and POST to the LRS.</p>
+<h2 id="learner-archetype-modeling">Learner Archetype Modeling<a class="headerlink" href="#learner-archetype-modeling" title="Permanent link">&para;</a></h2>
+<p><strong>Learner archetype modeling</strong> is the practice of defining recurring "shapes" of learner behavior that, in combination, produce a realistic cohort. The xAPI specification doesn't define archetypes — they're a pedagogical research idea applied to test data. Five archetypes cover most of the realistic distribution:</p>
+<p>The <strong>fast learner archetype</strong> moves through material quickly, passes assessments on the first attempt at a high rate (~85%), spends little time per section, and rarely revisits content. Their statement stream is short — 25–40 statements per chapter — and dominated by <code>experienced</code>, <code>attempted</code>, <code>passed</code>, <code>completed</code>. They're the easy case for any system.</p>
+<p>The <strong>struggling learner archetype</strong> moves slowly, attempts each assessment 2–3 times before passing, lingers on sections, and emits clarifying interactions (hint requests, simulation manipulations) more often than other archetypes. Their statement stream is long — 80–120 statements per chapter — with a heavy tail of <code>attempted</code> and <code>failed</code> paired with eventual <code>passed</code>. They're the case where real bugs hide.</p>
+<p>The <strong>disengaged learner archetype</strong> opens the chapter, scrolls through quickly, attempts very few assessments, and abandons the session early. Their statement stream is short and biased toward <code>experienced</code> with very few <code>attempted</code> or <code>completed</code>. They're the case where dashboards need to look honest about non-engagement.</p>
+<p>The <strong>re-learner archetype</strong> is a learner returning to material they've seen before. They skip introductory content (low <code>experienced</code> count for the early sections), engage selectively with the harder parts, and often skip directly to assessments. Their pattern frequently shows session-lifecycle verbs (<code>launched</code>, <code>terminated</code>) without a corresponding <code>completed</code>. They're the case where activity registration UUIDs accumulate.</p>
+<p>The <strong>mastery-seeker archetype</strong> is the over-achiever. They complete every section, attempt every optional challenge, replay simulations, and exit only after exceeding the bar set by the activity. Their statement stream is the longest — 150+ statements per chapter — with high counts of <code>interacted</code>, <code>progressed</code>, and successive <code>attempted</code>/<code>passed</code> pairs. They're the case where bandwidth and frequency limits get tested.</p>
+<p>A realistic cohort isn't a uniform mix. Production observation suggests a rough breakdown of 15% fast, 30% struggling, 25% disengaged, 15% re-learner, and 15% mastery-seeker — with substantial deployment variance. The cohort generator should let you tune the mix.</p>
+<h4 id="diagram-learner-archetype-profiles">Diagram: Learner Archetype Profiles<a class="headerlink" href="#diagram-learner-archetype-profiles" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Learner Archetype Profiles</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> learner-archetype-profiles<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Distinguish the five canonical learner archetypes by their behavioral signatures, and recognize which archetype dominates a given session pattern.</p>
+<p><strong>Layout:</strong> Five horizontal cards stacked vertically (one per archetype) on the left (2/3); a side panel on the right (1/3) showing the selected archetype's full detail.</p>
+<p><strong>Each card shows:</strong></p>
+<ul>
+<li>Archetype name in a header bar</li>
+<li>Three small bar charts side by side: typical statement count, typical session length, typical first-try pass rate</li>
+<li>A one-line summary</li>
+<li>An archetype-color band (Fast: blue, Struggling: red, Disengaged: gray, Re-learner: purple, Mastery-seeker: green)</li>
+</ul>
+<p><strong>Side panel shows:</strong></p>
+<ul>
+<li>Full description of the archetype</li>
+<li>The verb-frequency profile expected from that archetype (a small bar chart of the eight ADL verbs from Chapter 4)</li>
+<li>A worked example session (5–10 statements) representative of that archetype</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Hover or click a card to update the side panel</li>
+<li>Slider at the bottom: cohort mix (five sliders summing to 100%) — adjusts the recommended cohort composition</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×650px, responsive.</p>
+<p>Implementation: p5.js for the cards, charts, and selection state; HTML overlay for the side panel and mix sliders.</p>
+</details>
+<h2 id="realistic-learner-cohort-simulation">Realistic Learner Cohort Simulation<a class="headerlink" href="#realistic-learner-cohort-simulation" title="Permanent link">&para;</a></h2>
+<p><strong>Realistic learner cohort simulation</strong> is the next step up from single-learner generation: producing a coordinated dataset for a full cohort that exhibits the right archetype mix, the right time-of-day distribution, and the right inter-learner correlations. Real cohorts have structure beyond per-learner patterns — Tuesday afternoon has more engagement than Friday afternoon, the night before a due date spikes, two students who sit together often submit within minutes of each other.</p>
+<p>The pipeline:</p>
+<ol>
+<li><strong>Generate the learner roster.</strong> A list of opaque account.name values, one per simulated learner. UUIDs work fine; archetype-tagged identifiers (<code>struggling-001</code>) are easier to debug.</li>
+<li><strong>Assign archetypes per learner.</strong> Sample from the configured mix; remember each learner's archetype for the rest of the simulation.</li>
+<li><strong>Generate session schedules per learner.</strong> Time-of-day distribution should reflect realistic patterns (low overnight, peaks late morning and early evening for K-12, weekends differ from weekdays).</li>
+<li><strong>Generate per-session statement streams.</strong> For each scheduled session, invoke the per-archetype generator to produce that session's statements, with timestamps fitted to the scheduled session window.</li>
+<li><strong>Add cross-learner correlations.</strong> A small fraction of sessions should overlap and produce time-clustered statements; this exercises LRS concurrency that uniform-random schedules would never trigger.</li>
+</ol>
+<p>The output is a flat list of statements, sorted by <code>stored</code> timestamp, ready to be POSTed to the LRS in chronological order — or all at once for raw load testing.</p>
+<h2 id="lrs-load-testing-and-stress-testing">LRS Load Testing and Stress Testing<a class="headerlink" href="#lrs-load-testing-and-stress-testing" title="Permanent link">&para;</a></h2>
+<p><strong>LRS load testing</strong> is the practice of subjecting the LRS to a <em>realistic</em> level of traffic to verify it handles the expected production load with acceptable latency. <strong>xAPI stress testing</strong> pushes past realistic levels to find the LRS's breaking point — when does latency spike unacceptably, when do POSTs start failing, when does the database lose its mind?</p>
+<p>The two are complementary and the synthetic data approach handles both. Generate a cohort representing your expected production scale and POST it at the rate it would arrive in production — that's load testing. Then generate a 5x or 10x cohort and POST it at peak rate or faster — that's stress testing.</p>
+<p>The minimum metrics to capture during a load or stress run:</p>
+<ul>
+<li><strong>Ingestion rate</strong> — statements/sec accepted by the LRS</li>
+<li><strong>POST latency</strong> — p50, p95, p99 of LRS response times</li>
+<li><strong>Error rate</strong> — percentage of POSTs returning 5xx</li>
+<li><strong>Storage throughput</strong> — disk write rate during the run (helps spot storage bottlenecks)</li>
+<li><strong>Query latency</strong> — periodic dashboard-equivalent queries during the run, measuring whether read performance degrades under write load</li>
+</ul>
+<p>A load-testing run that holds steady ingestion at the expected production rate for 30 minutes with p99 POST latency under 500ms is a passing run. A stress run that finds the breaking point — the rate at which p99 latency exceeds 5 seconds — gives you the safety margin number you'll cite in the architecture review.</p>
+<h4 id="diagram-load-testing-pipeline">Diagram: Load Testing Pipeline<a class="headerlink" href="#diagram-load-testing-pipeline" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Load Testing Pipeline</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> load-testing-pipeline<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Trace the flow of a load test from synthetic data generation through LRS ingestion to metric capture and result analysis.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ol>
+<li><code>Cohort spec (size, archetype mix, duration)</code></li>
+<li><code>Claude Code generation</code> → <code>Synthetic statement corpus (JSON)</code></li>
+<li><code>Conformance validator (drop malformed)</code></li>
+<li><code>Load runner (replay at configured rate)</code> → <code>LRS under test</code></li>
+<li><code>LRS instrumentation (POST latency, error rate, throughput)</code> → <code>Time-series metric store</code></li>
+<li><code>Dashboard / report (pass/fail vs SLOs)</code></li>
+<li>Side branch: <code>Periodic dashboard queries</code> → also feeds metric store</li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing the component, the typical tooling at that step, and an example metric or output.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="statistical-representativeness">Statistical Representativeness<a class="headerlink" href="#statistical-representativeness" title="Permanent link">&para;</a></h2>
+<p><strong>Statistical representativeness</strong> is the property that a synthetic dataset matches a real dataset on the dimensions that matter for whatever you're testing. The dataset doesn't need to match on every dimension — only on the ones the tests will exercise. The two dimensions that matter most for LRS testing:</p>
+<p>The <strong>verb frequency distribution</strong> is the count (or relative frequency) of each verb across the dataset. A real K-12 deployment might show roughly: <code>experienced</code> 35%, <code>interacted</code> 30%, <code>attempted</code> 12%, <code>passed</code> 8%, <code>failed</code> 6%, <code>progressed</code> 5%, <code>completed</code> 3%, others 1%. A synthetic dataset that puts 90% of its statements in <code>interacted</code> (because the generator over-emits MicroSim interactions) is not representative — the LRS index pressure will be wildly different from production. Verb-frequency comparison is the first sanity check on any synthetic dataset.</p>
+<p>The <strong>session duration histogram</strong> is the distribution of session lengths across all learners. Real cohorts have a long-tailed distribution: many short sessions, fewer medium, rare long. A synthetic dataset that produces uniform 20-minute sessions for everyone is unrealistic and will exercise the LRS very differently from production. Session length affects how many statements arrive per registration UUID, which affects index growth patterns.</p>
+<p>The check is procedural: take a real dataset (or a known-good reference), compute the verb frequency and session histogram, compare to the synthetic counterpart, and require the percentage differences to be within a tolerance (e.g., 10% for verb frequency, 20% for histogram bins). If a synthetic run fails the check, retune the archetype mix and regenerate.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">representativeness_check</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">synthetic</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.10</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">real_freq</span> <span class="o">=</span> <span class="n">verb_frequency</span><span class="p">(</span><span class="n">real</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">syn_freq</span> <span class="o">=</span> <span class="n">verb_frequency</span><span class="p">(</span><span class="n">synthetic</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">for</span> <span class="n">verb</span><span class="p">,</span> <span class="n">real_pct</span> <span class="ow">in</span> <span class="n">real_freq</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">syn_pct</span> <span class="o">=</span> <span class="n">syn_freq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">verb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">real_pct</span> <span class="o">-</span> <span class="n">syn_pct</span><span class="p">)</span> <span class="o">/</span> <span class="n">real_pct</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;verb </span><span class="si">{</span><span class="n">verb</span><span class="si">}</span><span class="s2">: real=</span><span class="si">{</span><span class="n">real_pct</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> syn=</span><span class="si">{</span><span class="n">syn_pct</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;OK&quot;</span>
+</span></code></pre></div>
+<h4 id="diagram-statistical-representativeness-comparison">Diagram: Statistical Representativeness Comparison<a class="headerlink" href="#diagram-statistical-representativeness-comparison" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Statistical Representativeness Comparison</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> statistical-representativeness-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Evaluating):</strong> Compare a synthetic dataset to a reference real dataset across verb frequency and session duration, identifying where the synthetic falls outside the acceptable tolerance.</p>
+<p><strong>Layout:</strong> Two side-by-side bar-chart pairs (top: verb frequency; bottom: session duration histogram); a tolerance-bar overlay; a side panel reporting pass/fail.</p>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Top: side-by-side bar charts, each verb a pair (real left, synthetic right), with a tolerance band shown as a shaded background</li>
+<li>Bottom: side-by-side histogram bins (5-minute buckets, 0–60 min), real left, synthetic right</li>
+<li>Side panel: pass/fail badge per dimension, with the worst-deviating verb or bucket highlighted</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Slider: tolerance percentage (5% – 30%)</li>
+<li>Slider: synthetic-archetype mix (five sliders) — adjusting the mix re-generates the synthetic data and re-renders the comparison</li>
+<li>Preset buttons: "Match real cohort", "Over-engaged synthetic", "Under-engaged synthetic", "Skewed-archetype synthetic"</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×650px, responsive.</p>
+<p>Implementation: p5.js for the bar charts, histogram rendering, and live re-computation when sliders change.</p>
+</details>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Common Pitfall — Treating Synthetic as Real</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi cautioning against confusing real and synthetic">
+Once a synthetic dataset is good enough to fool a load test, it's tempting to use it to validate analytics findings or train ML models. Don't. Synthetic data is good for testing systems; it's not good for discovering insights about learners. Insights about synthetic learners are insights about your generator, not about pedagogy. Keep the boundary clear: synthetic for systems, real for science.</p>
+</div>
+<h2 id="putting-it-together-the-generation-recipe">Putting It Together — The Generation Recipe<a class="headerlink" href="#putting-it-together-the-generation-recipe" title="Permanent link">&para;</a></h2>
+<p>A complete recipe for a stress-testable corpus, expressed as steps:</p>
+<ol>
+<li><strong>Define the target.</strong> Cohort size 5000, two-week window, archetype mix 15/30/25/15/15, simulated against a single chapter.</li>
+<li><strong>Generate roster and schedules.</strong> A pre-pass produces 5000 learner UUIDs, archetype tags, and session timestamps in the simulated window.</li>
+<li><strong>Iterate per learner.</strong> For each learner, invoke Claude Code with a prompt parameterized by archetype, schedule, and learner UUID. Cache results to disk as JSON files.</li>
+<li><strong>Validate.</strong> Run every JSON file through the schema validator (Chapter 12); reject and regenerate any that fail.</li>
+<li><strong>Aggregate.</strong> Concatenate all per-learner files into a single corpus, sort by <code>timestamp</code>, save the canonical artifact.</li>
+<li><strong>Check representativeness.</strong> Compare verb frequency and session histogram against your real reference; pass or retune.</li>
+<li><strong>Replay against the LRS.</strong> Use a load runner that respects timestamps (replay at real-time rate) for load testing, or that ignores them (replay at maximum rate) for stress testing.</li>
+</ol>
+<p>The generation phase is slow — Claude Code is not free and is rate-limited — but the corpus is reusable. Generate once, replay many times against different LRS configurations, different platforms, different network conditions.</p>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 12.</p>
+<ul>
+<li>You can describe the three reasons synthetic data is preferable to production data during development.</li>
+<li>You can construct a Claude Code prompt that produces realistic per-archetype statement streams.</li>
+<li>You can name and describe the five canonical learner archetypes and their behavioral signatures.</li>
+<li>You can sketch the cohort-simulation pipeline from roster generation to corpus assembly.</li>
+<li>You can distinguish load testing from stress testing and name the metrics that matter for each.</li>
+<li>You can apply the verb-frequency and session-duration checks for statistical representativeness.</li>
+<li>You can articulate why synthetic data is appropriate for system testing but not for analytical insights about learners.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Fake Cohorts, Real Confidence</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with rows of cardboard students">
+You can now produce believable synthetic cohorts on demand and use them to validate every part of your stack. That's a capability most teams don't develop until year two of a deployment — and it's the capability that prevents the biggest production surprises. Chapter 12 turns to formal conformance: how do you prove your statements are valid, and how does xAPI compare to the other learning standards in the ecosystem?</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1128,10 +1829,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

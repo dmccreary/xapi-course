@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="How xAPI names the things learners interact with (activity IRIs, activity types, registration, revision, platform) and the people who interact with them (agents, groups, the four inverse functional identifiers, and the strategies for tracking learners while protecting their privacy).">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../06-lrs-architecture/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>5. Activities, Agents, Identity - xAPI for Intelligent Textbooks</title>
+        <title>Activities, Agents, and Learner Identity - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5. Activities, Agents, Identity
+              Activities, Agents, and Learner Identity
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -505,9 +542,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -516,9 +560,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -541,7 +592,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -550,7 +603,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -559,7 +614,170 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activities-properly-named" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activities, Properly Named
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities, Properly Named">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-activity-naming-and-occurrence-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Activity Naming and Occurrence Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity-registration-the-attempt-uuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity Registration — The Attempt UUID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents-naming-learners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents — Naming Learners
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agents — Naming Learners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-four-inverse-functional-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: The Four Inverse Functional Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups-when-the-actor-isnt-one-person" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groups — When the Actor Isn't One Person
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learner-identity-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learner Identity Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anonymous-learner-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anonymous Learner Tracking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudonymization-useful-without-being-identifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudonymization — Useful Without Being Identifying
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pseudonymization — Useful Without Being Identifying">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pseudonymization-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pseudonymization Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tying-it-together-a-worked-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tying It Together — A Worked Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -584,9 +802,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -605,9 +830,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -626,9 +858,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -647,9 +886,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -668,9 +914,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -689,9 +942,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -710,9 +970,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -731,9 +998,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1026,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1071,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1082,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1123,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1140,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1177,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1204,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1231,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1277,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1288,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1299,170 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activities-properly-named" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activities, Properly Named
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities, Properly Named">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-activity-naming-and-occurrence-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Activity Naming and Occurrence Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity-registration-the-attempt-uuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity Registration — The Attempt UUID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents-naming-learners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents — Naming Learners
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agents — Naming Learners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-four-inverse-functional-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: The Four Inverse Functional Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groups-when-the-actor-isnt-one-person" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groups — When the Actor Isn't One Person
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learner-identity-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learner Identity Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anonymous-learner-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anonymous Learner Tracking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudonymization-useful-without-being-identifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudonymization — Useful Without Being Identifying
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pseudonymization — Useful Without Being Identifying">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pseudonymization-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pseudonymization Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tying-it-together-a-worked-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tying It Together — A Worked Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1478,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/05-activities-agents-identity/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/05-activities-agents-identity/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1038,13 +1571,323 @@
 <li><a href="../02-statement-model/">Chapter 2: The xAPI Statement Model: Actor, Verb, Object, Result, and Context</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to the Naming Chapter</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus pointing at a name tag">
+The verb tells you what happened. This chapter tells you <em>who it happened to</em> and <em>what it happened with</em> — and that's where xAPI gets surprisingly subtle. Naming a learner without leaking who they are, naming an activity in a way that lets a future textbook re-use it, naming a learning session so you can stitch fragmented events back together — every one of those is a deliberate design decision. Every interaction tells a story; first you have to name the cast.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>uniquely identify any learner, any activity, and any learning session in xAPI without exposing personally identifiable information you didn't intend to expose</strong>. That's three superpowers stacked. Most teams nail one of them and accidentally torch the other two. The textbook that uses learner email addresses everywhere and then has to comply with FERPA finds out the hard way. The textbook that gives every activity a fresh UUID per page-load finds out that no analytics queries work. The textbook that forgets to set the <code>registration</code> field can't tell three quiz attempts apart from one.</p>
+<p>You'll also leave this chapter knowing which <strong>inverse functional identifier</strong> to pick for which deployment context, the difference between an agent and a group (and when to use which), and the simplest workable approach to <strong>pseudonymization</strong> that doesn't break analytics. These are the boring-sounding decisions that determine whether your deployment passes a privacy audit.</p>
+<h2 id="activities-properly-named">Activities, Properly Named<a class="headerlink" href="#activities-properly-named" title="Permanent link">&para;</a></h2>
+<p>Chapter 2 introduced the activity object — the thing a verb is happening <em>to</em>. We focused on the required <code>id</code> field. This chapter covers the rest of the activity-shaped real estate, plus three top-level statement fields (<code>registration</code>, <code>revision</code>, <code>platform</code>) that finish naming the <em>occurrence</em> of the activity, not just the activity itself.</p>
+<p>An <strong>activity IRI</strong> is the globally unique identifier for an activity. Like a verb IRI, it's a fully-qualified IRI — almost always an <code>http://</code> or <code>https://</code> URL — in a namespace you own. Two activities with the same IRI are <em>the same activity</em> across the entire xAPI ecosystem. Two activities with different IRIs are <em>different activities</em>, even if they look identical to a human reader. The IRI is the identity. Everything else in the activity object — its name, its description, its type — is metadata that may vary between statements.</p>
+<p>The naming rule that matters: <strong>activity IRIs are durable, not generated</strong>. An activity's IRI is the same today, tomorrow, and in five years. It does not contain the learner's ID, the session ID, the build hash of the textbook, or the timestamp of the page render. It names the activity itself — the abstract thing called "Quadratics Quiz, Algebra 1" — not the particular instance of that thing being attempted on Thursday afternoon.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quadratics Chapter Quiz&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Four-question formative assessment on factoring quadratics.&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/assessment&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The <code>definition.type</code> field — the <strong>activity type</strong> — is itself an IRI. It classifies the activity into a category (<code>assessment</code>, <code>course</code>, <code>module</code>, <code>simulation</code>, <code>lesson</code>) so dashboards can group like with like. ADL maintains a registry of canonical activity types at <code>http://adlnet.gov/expapi/activities/</code>, and the same advice applies as for verbs: use canonical types when you can, mint custom types only when you must, and document them in your project profile.</p>
+<p>Three top-level statement fields complete the picture by naming the <em>occurrence</em> of the activity, not just the activity itself. Before we look at the diagram, let's define each one in plain language so the diagram lands as a summary rather than an introduction.</p>
+<ul>
+<li><strong><code>registration</code></strong> — a UUID that ties together a sequence of statements describing one <em>attempt</em> at an activity. If the same learner takes the quadratics quiz three times, each attempt should have its own registration UUID. The activity IRI stays the same; the registration changes.</li>
+<li><strong><code>revision</code></strong> — a string identifying the version of the activity. Useful when content changes over time and you want to be able to ask "show me everyone who took version 2 of the quiz." Free-form, but conventionally semver or a date.</li>
+<li><strong><code>platform</code></strong> — a string identifying the host environment that emitted the statement. Useful when the same textbook ships in multiple platforms (web, embedded LMS frame, kiosk) and you want to slice analytics by platform.</li>
+</ul>
+<p>These three fields cohabit the statement at different levels — <code>registration</code> and <code>platform</code> live in <code>context</code>, <code>revision</code> lives inside the activity definition. They sound similar in passing and are easy to confuse, which is exactly why the diagram below sorts them by where they live and what question each answers.</p>
+<h4 id="diagram-activity-naming-and-occurrence-fields">Diagram: Activity Naming and Occurrence Fields<a class="headerlink" href="#diagram-activity-naming-and-occurrence-fields" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Activity Naming and Occurrence Fields</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> activity-naming-and-occurrence-fields<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Distinguish the four fields that name an activity occurrence (<code>object.id</code>, <code>object.definition.type</code>, <code>context.registration</code>, <code>object.definition.revision</code>, <code>context.platform</code>), and identify which question each one answers.</p>
+<p><strong>Layout:</strong> A single annotated JSON statement on the left (2/3) with five colored highlight boxes drawn around the relevant fields; a side panel on the right (1/3) explaining the highlighted field.</p>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>A worked statement rendered as syntax-highlighted JSON</li>
+<li>Five colored highlights:<ul>
+<li>Blue around <code>object.id</code> — "Which activity?"</li>
+<li>Green around <code>object.definition.type</code> — "What kind of activity?"</li>
+<li>Orange around <code>context.registration</code> — "Which attempt?"</li>
+<li>Purple around <code>object.definition.revision</code> — "Which version of the activity?"</li>
+<li>Red around <code>context.platform</code> — "Which host environment?"</li>
+</ul>
+</li>
+<li>Side panel updates on hover/click of any highlight, showing: the field's plain-English question, when to set it, and a one-line example value</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Hover or click a highlight to update the side panel</li>
+<li>Toggle "Compare two attempts" — swaps the JSON for two side-by-side statements and emphasizes which fields differ between them (registration changes; activity IRI stays the same)</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×500px, responsive.</p>
+<p>Implementation: p5.js for the highlight overlay and hover detection; HTML overlay for the JSON syntax highlighting and the side panel.</p>
+</details>
+<h2 id="activity-registration-the-attempt-uuid">Activity Registration — The Attempt UUID<a class="headerlink" href="#activity-registration-the-attempt-uuid" title="Permanent link">&para;</a></h2>
+<p>The <strong>xAPI registration field</strong> is a context-level UUID that ties together every statement describing one specific attempt at an activity. <strong>Activity registration</strong> is the practice of generating that UUID at the start of an attempt, attaching it to every statement emitted during the attempt, and not changing it until the attempt ends.</p>
+<p>This pattern lets the dashboard team answer questions that would otherwise be hard or impossible:</p>
+<ul>
+<li>"Show me every statement from the third time Lin attempted the quadratics quiz."</li>
+<li>"How long did the median attempt take, end to end?"</li>
+<li>"Which attempts ended without a <code>passed</code>/<code>failed</code> statement?"</li>
+</ul>
+<p>Without a registration UUID, those questions become "approximate by timestamp clustering and pray," which is exactly as reliable as it sounds. With a registration UUID, they become trivial filters.</p>
+<p>The implementation is small. When the learner begins an activity, mint a UUID, store it in the page's session state, and attach it to every statement until the activity ends:</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">v4</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">uuidv4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;uuid&quot;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uuidv4</span><span class="p">();</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">function</span><span class="w"> </span><span class="nx">buildAttemptStatement</span><span class="p">(</span><span class="nx">verb</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="p">(),</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="nx">verb</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">objectType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">activityIri</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>uuidv4</code> produces a random 128-bit UUID — the kind that looks like <code>fd41c918-b88b-4b20-a0a5-a4c32391aaa0</code>. Random UUIDs are appropriate here because we don't want the registration ID to leak when the attempt happened or which learner it was. It's an opaque correlation handle, nothing more.</p>
+<h2 id="agents-naming-learners">Agents — Naming Learners<a class="headerlink" href="#agents-naming-learners" title="Permanent link">&para;</a></h2>
+<p>Chapter 2 introduced the actor field and showed that an actor is either an agent (a single person) or a group (multiple people). This chapter cracks open both. Let's start with <strong>agents</strong>.</p>
+<p>An <strong>agent object</strong> represents a single learner. It has an optional <code>name</code> (for human readability — never used for matching), an <code>objectType</code> of <code>Agent</code> (often omitted, since <code>Agent</code> is the default), and exactly <em>one</em> of four possible <strong>inverse functional identifiers</strong> (IFIs). An IFI is a field whose value uniquely identifies the agent across the entire LRS — two agents with the same IFI value are the same person.</p>
+<p>The four IFI types, with the rule that only <em>one</em> may be present per agent:</p>
+<ul>
+<li><strong><code>mbox</code></strong> — an email address as a <code>mailto:</code> URI. The most common IFI in early xAPI deployments and the most privacy-leaky. The agent's email is, by definition, identifying.</li>
+<li><strong><code>mbox_sha1sum</code></strong> — the lowercase hex SHA-1 hash of the email address. A pseudonymization step over <code>mbox</code>. Looks opaque but is reversible if the attacker can guess the email and hash it; treat it as obscured, not anonymized.</li>
+<li><strong><code>openid</code></strong> — an OpenID URL identifying the learner. Useful when the deployment integrates with an OpenID identity provider; rare in practice today.</li>
+<li><strong><code>account</code></strong> — a structured object containing a <code>homePage</code> URL (the identity provider's base URL) and a <code>name</code> string (the identifier within that system). The most flexible IFI and the right default for new deployments.</li>
+</ul>
+<p>Before we look at the comparison, here's the rule that determines which one you pick: <strong>the IFI you choose is a privacy decision, not a convenience decision</strong>. Your security and compliance teams should be in the conversation, especially in K-12 contexts where FERPA constrains what can flow through your LRS.</p>
+<table>
+<thead>
+<tr>
+<th>IFI form</th>
+<th>Identifying?</th>
+<th>LMS-integration friendliness</th>
+<th>Cross-deployment portability</th>
+<th>Recommended for new textbooks?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mbox</code></td>
+<td>Yes (direct)</td>
+<td>High</td>
+<td>High</td>
+<td>Only when learners are adults and consent</td>
+</tr>
+<tr>
+<td><code>mbox_sha1sum</code></td>
+<td>Reversible</td>
+<td>Medium</td>
+<td>High</td>
+<td>Rarely — looks pseudonymous but isn't</td>
+</tr>
+<tr>
+<td><code>openid</code></td>
+<td>Depends</td>
+<td>Low (OpenID providers rare)</td>
+<td>Medium</td>
+<td>Niche</td>
+</tr>
+<tr>
+<td><code>account</code></td>
+<td>Configurable</td>
+<td>High</td>
+<td>Low (homePage-scoped)</td>
+<td><strong>Yes</strong> — most flexible default</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>account</code> form is the strongest default for textbooks. It lets you pair a stable namespace (<code>homePage</code>) with an opaque identifier (<code>name</code>) that your LMS or identity provider chooses. The result is a learner ID that's stable enough for analytics but doesn't leak the learner's name, email, or institutional role. Here's an <code>account</code>-based agent:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-8f3a2b1c&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Two statements with that exact account block — same <code>homePage</code>, same <code>name</code> — are about the same learner. The LRS will index them together, queries will join them correctly, and a determined attacker who somehow gets the LRS will see only an opaque code, not the learner's identity.</p>
+<h4 id="diagram-the-four-inverse-functional-identifiers">Diagram: The Four Inverse Functional Identifiers<a class="headerlink" href="#diagram-the-four-inverse-functional-identifiers" title="Permanent link">&para;</a></h4>
+<details>
+<summary>The Four Inverse Functional Identifiers</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> four-inverse-functional-identifiers<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Evaluating):</strong> Compare the four IFI forms across identification strength, privacy posture, and integration cost, and select the appropriate one for a given deployment scenario.</p>
+<p><strong>Layout:</strong> A 2×2 grid of cards on the left (2/3), each card representing one IFI form; a side panel on the right (1/3) showing the selected card's full detail.</p>
+<p><strong>Each card shows:</strong></p>
+<ul>
+<li>IFI name in a header bar (<code>mbox</code>, <code>mbox_sha1sum</code>, <code>openid</code>, <code>account</code>)</li>
+<li>A privacy badge (Red = direct identifying, Yellow = reversible, Green = configurable)</li>
+<li>A one-sentence summary</li>
+<li>A short example agent JSON block</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Hover a card to highlight; click to select. Side panel shows: full description, when-to-use guidance, when-not-to-use cautions, and a worked example</li>
+<li>Three preset scenario buttons across the top — "K-12 elementary," "University LMS," "Corporate L&amp;D" — that recommend an IFI by highlighting the appropriate card and updating the side panel with deployment-specific reasoning</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×550px, responsive.</p>
+<p>Implementation: p5.js for the card rendering and selection state; HTML overlay for the side panel and preset buttons.</p>
+</details>
+<h2 id="groups-when-the-actor-isnt-one-person">Groups — When the Actor Isn't One Person<a class="headerlink" href="#groups-when-the-actor-isnt-one-person" title="Permanent link">&para;</a></h2>
+<p>A <strong>group object</strong> represents multiple agents acting together. The <code>objectType</code> is <code>Group</code>, and the group has an optional <code>member</code> array containing agent objects. Groups exist because some learning events legitimately involve more than one person — a small-group lab exercise, a peer-review session, a team submission.</p>
+<p>xAPI distinguishes two flavors of group, and the difference matters for what the LRS can and can't do with the data.</p>
+<p>An <strong>identified group</strong> has its own IFI (any of the four IFI forms) plus an optional <code>member</code> array. The IFI uniquely identifies the group itself, the way an agent IFI uniquely identifies a person. A history class section, a study cohort, a corporate training pod — anything with a stable identity that exists independently of any single member — is an identified group.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Group&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Algebra 1, Section 3&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;section-alg1-s3-fall2026&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;member&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-8f3a2b1c&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-9a4d3f7e&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>An <strong>anonymous group</strong> has <em>no</em> IFI — it is identified only by its membership. The same set of members today and tomorrow is the same anonymous group; a different set is a different group, even if you'd describe them with the same name. Anonymous groups are useful for ad-hoc collaborations that don't have a persistent identity (the three students who happened to work together on Thursday's lab).</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Group&quot;</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;member&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-8f3a2b1c&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-7c2e1d4f&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The decision is straightforward: if the group has a name people would recognize and a stable identity, it's identified. If it's a transient combination of individuals with no organizational existence, it's anonymous. Most intelligent textbooks emit very few group statements compared to agent statements; groups are the exception, not the rule.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Xavi's Insight — Groups Are for Collective Action</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering a group dynamic">
+A common confusion: "I want to query all the statements from Section 3, so I should make Section 3 the actor." No. The actor is <em>who did the thing</em>. If a single student in Section 3 took a quiz, the actor is that student. Section 3 belongs in <code>context.team</code> or as a grouping context activity. Use a group actor only when the <em>action itself</em> was collective.</p>
+</div>
+<h2 id="learner-identity-management">Learner Identity Management<a class="headerlink" href="#learner-identity-management" title="Permanent link">&para;</a></h2>
+<p><strong>Learner identity management</strong> is the set of decisions that determine how learners are identified across the lifetime of a textbook deployment — across devices, sessions, courses, and years. Get this right and your analytics queries are clean. Get it wrong and you discover that 60% of your "learners" are duplicates the day you try to compute course-completion rates.</p>
+<p>The non-negotiable property: <strong>the same learner must have the same actor IFI in every statement, across every device, across every session</strong>. If Lin uses the textbook on a desktop in the morning and a phone in the afternoon, both sessions emit statements with the same <code>account.name</code>. If you let the actor IFI vary by device, you've shattered Lin's record into pieces no analytics can stitch back together.</p>
+<p>The way teams achieve consistency: a single source of truth for the learner ID. In an LMS-integrated deployment, that source of truth is the LMS — Canvas hands the textbook a learner ID at launch, the textbook caches it, every emit uses it. In a standalone deployment, the source of truth is whatever identity provider the textbook authenticates against. In a fully anonymous deployment (no login), the source of truth is a per-browser UUID stored in <code>localStorage</code> or a cookie, with the explicit understanding that the same learner on a different browser will appear as a different person.</p>
+<h2 id="anonymous-learner-tracking">Anonymous Learner Tracking<a class="headerlink" href="#anonymous-learner-tracking" title="Permanent link">&para;</a></h2>
+<p><strong>Anonymous learner tracking</strong> is the practice of recording learner activity without ever associating it to a real-world identity. The use case is open-content textbooks — public-facing, no login, anyone can read — where you still want analytics on which sections engage readers and which don't. xAPI supports this cleanly through the <code>account</code> IFI: the <code>homePage</code> is your textbook's domain, and the <code>name</code> is a per-browser UUID minted on first visit and stored locally.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://textbook.example.org&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anon-c4f9b1e2-7a83-4b6d-a0c5-9e1f8d3b2a47&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The UUID is generated on the learner's device and never sent anywhere except inside xAPI statements. There's no email, no name, no institutional ID. The same browser on the same machine continues to use the same UUID for as long as the local storage isn't cleared. Different browsers, different machines, or a cleared cache produce a different UUID — at which point that "learner" appears as a new person to the analytics layer.</p>
+<p>This is the right tool for the right job. It's not appropriate for graded courses (where you do need to tie statements to a specific student), but it's perfect for an open math textbook where you want to know which chapters readers complete and which they bail out of.</p>
+<h2 id="pseudonymization-useful-without-being-identifying">Pseudonymization — Useful Without Being Identifying<a class="headerlink" href="#pseudonymization-useful-without-being-identifying" title="Permanent link">&para;</a></h2>
+<p><strong>Pseudonymization</strong> is the practice of replacing direct identifiers with stable but opaque codes, so that statements remain queryable per-learner without exposing who any particular learner is. It sits between fully identified data (real names and emails) and fully anonymous data (no per-learner identity at all). Most production deployments operate in this middle zone, because it's the zone where analytics works <em>and</em> the privacy team is happy.</p>
+<p>The classic pattern: the LMS knows learner Lin Park is <code>stu-8f3a2b1c</code>. The LMS hands the textbook only the opaque code. The textbook emits xAPI statements with <code>account.name = "stu-8f3a2b1c"</code>. The LRS stores those statements. The dashboard team writes queries against <code>stu-8f3a2b1c</code> and gets correct per-learner analytics. Nobody touching the LRS or the dashboard sees Lin's name, email, or institutional role. To resolve <code>stu-8f3a2b1c</code> back to a real person, you need to query the LMS — and that lookup is logged, audited, and restricted to authorized roles.</p>
+<p>The properties that make this work:</p>
+<ul>
+<li><strong>Stable:</strong> the same learner always gets the same code. Otherwise per-learner analytics break.</li>
+<li><strong>Opaque:</strong> the code reveals nothing about the learner. Otherwise it's not pseudonymization.</li>
+<li><strong>One-way at the analytics tier:</strong> the LRS and dashboard cannot recover the real identity from the code. Re-identification requires a separate, audited lookup against the LMS or identity provider.</li>
+<li><strong>Revocable:</strong> if an account is deleted, the LMS can refuse to resolve future lookups. The historical statements remain, anchored only to the opaque code.</li>
+</ul>
+<h4 id="diagram-pseudonymization-pipeline">Diagram: Pseudonymization Pipeline<a class="headerlink" href="#diagram-pseudonymization-pipeline" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Pseudonymization Pipeline</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> pseudonymization-pipeline<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Trace the flow of identity information from the LMS through the textbook into the LRS, identifying at each hop what level of identifying detail is exposed.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (LR direction) representing the pipeline. Click handlers on every node.</p>
+<p><strong>Nodes (left to right):</strong></p>
+<ol>
+<li><code>LMS user record</code> (contains: name, email, role) — privacy badge: Red</li>
+<li><code>LMS launch — pseudonym only</code> (the LMS hands the textbook only <code>stu-8f3a2b1c</code>) — privacy badge: Green</li>
+<li><code>Textbook emit site</code> (constructs xAPI statement with the pseudonym in <code>account.name</code>) — privacy badge: Green</li>
+<li><code>LRS storage</code> (stores statements keyed by pseudonym) — privacy badge: Green</li>
+<li><code>Dashboard query</code> (computes per-learner stats using the pseudonym) — privacy badge: Green</li>
+<li><code>Re-identification lookup</code> (rare; goes back to LMS, audited) — privacy badge: Red, dashed line back to node 1</li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing what data exists at that hop, who has access, and what the privacy posture is. The dashed re-identification edge has its own infobox emphasizing the audit-log requirement.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives bound to a side panel.</p>
+</details>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Privacy Is Engineering, Not Paperwork</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Xavi encouraging careful privacy work">
+The instinct to treat privacy as "the part the legal team handles after we ship" is the single biggest source of expensive xAPI rework. The IFI choice, the pseudonymization design, and the re-identification flow are <em>engineering decisions</em> you make on day one. Get them right and your privacy review takes a meeting. Get them wrong and your privacy review takes a quarter.</p>
+</div>
+<h2 id="tying-it-together-a-worked-statement">Tying It Together — A Worked Statement<a class="headerlink" href="#tying-it-together-a-worked-statement" title="Permanent link">&para;</a></h2>
+<p>Everything in this chapter shows up in a single statement when you put it all together. Here's a complete statement from a hypothetical session: Lin Park (pseudonymized as <code>stu-8f3a2b1c</code>) attempts version 2 of the Quadratics Quiz inside the Intelligent Algebra Textbook on the web platform, on the third try. Read top to bottom and you should now recognize every field's role:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fd41c918-b88b-4b20-a0a5-a4c32391aaa0&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="nt">&quot;homePage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://canvas.university.edu&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stu-8f3a2b1c&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/passed&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="p">,</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Quadratics Chapter Quiz&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/assessment&quot;</span><span class="p">,</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">      </span><span class="nt">&quot;revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scaled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="nt">&quot;completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">    </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Intelligent Algebra Textbook (web)&quot;</span><span class="p">,</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">    </span><span class="nt">&quot;registration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8a1f3c4d-2b9e-4c7a-9d6f-1e8a7b4c2d5f&quot;</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-15T18:32:14.512Z&quot;</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Every choice is now intentional. The <code>account</code> IFI uses the LMS's opaque code, never Lin's email. The activity IRI is the durable name for the quiz, not a per-page-render UUID. The activity type classifies it as an assessment so dashboards group it correctly. The revision distinguishes it from version 1.0. The platform identifies the host environment. The registration ties this <code>passed</code> statement to the matching <code>attempted</code> and <code>scored</code> statements from the same attempt. There's nothing in this statement that exposes Lin's real identity, and nothing missing that the analytics layer needs.</p>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 6.</p>
+<ul>
+<li>You can construct a durable activity IRI and choose an appropriate activity type from the canonical registry.</li>
+<li>You can use <code>registration</code>, <code>revision</code>, and <code>platform</code> to distinguish <em>occurrences</em> of activities from the activities themselves.</li>
+<li>You can list the four inverse functional identifier forms and pick the right one for a given deployment context.</li>
+<li>You can construct an <code>account</code>-IFI agent that pseudonymizes a learner without breaking per-learner analytics.</li>
+<li>You can distinguish an identified group from an anonymous group and explain when each is appropriate.</li>
+<li>You can describe the four properties that make pseudonymization work (stable, opaque, one-way at the analytics tier, revocable).</li>
+<li>You can sketch the identity flow from LMS to textbook to LRS to dashboard, and explain what data is visible at each hop.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">The Cast Is Named</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with all eight tentacles raised">
+You've just learned the part of xAPI that protects the people inside your data. Most teams skip this chapter, copy-paste an <code>mbox</code> example from a tutorial, and find out two years later that they have to re-identify their entire LRS. You won't. Chapter 6 zooms out from individual statements to the system that stores them — the LRS itself — and starts answering the question "where do these statements actually live?"</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1130,10 +1973,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

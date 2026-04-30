@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="How to watch xAPI traffic in motion — browser DevTools, Charles Proxy, mitmproxy, network throttling simulations, LRS request logs, and the dashboards (Observable, Grafana) that turn raw statement throughput into operational signal and engagement insight.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../11-synthetic-data-and-ai-testing/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>10. Monitoring and Observability - xAPI for Intelligent Textbooks</title>
+        <title>Monitoring, Observability, and xAPI Traffic Analysis - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. Monitoring and Observability
+              Monitoring, Observability, and xAPI Traffic Analysis
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -496,9 +533,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -517,9 +561,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -538,9 +589,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -559,9 +617,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,9 +645,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -610,9 +682,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -621,9 +700,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -646,7 +732,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -655,7 +743,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -664,7 +754,170 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-devtools-the-first-mirror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser DevTools — The First Mirror
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Browser DevTools — The First Mirror">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-devtools-driven-xapi-debugging-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: DevTools-Driven xAPI Debugging Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-throttling-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Throttling Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy-tools-charles-and-mitmproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy Tools — Charles and mitmproxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-request-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Request Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Dashboards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Dashboards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-real-time-dashboard-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Real-Time Dashboard Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engagement-heatmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Heatmaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engagement Heatmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-engagement-heatmap-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Engagement Heatmap MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-analytics-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Analytics Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-debugging-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Debugging Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -689,9 +942,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -710,9 +970,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -731,9 +998,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1026,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1071,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1082,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1123,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1140,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1177,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1204,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1231,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1277,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1288,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1299,170 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-devtools-the-first-mirror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser DevTools — The First Mirror
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Browser DevTools — The First Mirror">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-devtools-driven-xapi-debugging-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: DevTools-Driven xAPI Debugging Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-throttling-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Throttling Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy-tools-charles-and-mitmproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy Tools — Charles and mitmproxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-request-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Request Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Dashboards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Dashboards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-real-time-dashboard-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Real-Time Dashboard Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engagement-heatmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Heatmaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engagement Heatmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-engagement-heatmap-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Engagement Heatmap MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-analytics-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Analytics Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-debugging-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Debugging Techniques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1478,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/10-monitoring-and-observability/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/10-monitoring-and-observability/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1041,13 +1574,235 @@
 <li><a href="../09-bandwidth-and-offline/">Chapter 9: Bandwidth Optimization, Offline Queues, and Service Workers</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to Watching Statements Fly</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus peering through binoculars">
+Statements only matter if you can see them. This chapter is about three layers of visibility: what's leaving the browser, what the LRS sees arrive, and what the dashboard surfaces to humans. By the end you'll be able to debug a broken emit path in minutes, profile a slow LRS, and stand up a real-time dashboard that turns the firehose of statements into something a teacher or instructional designer can read.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>observe xAPI traffic at every layer of the stack and turn that observation into actionable signal</strong>. Most engineering teams treat xAPI as fire-and-forget — emit, hope, move on. The teams whose dashboards actually work treat it as fire-and-watch. The difference is roughly two orders of magnitude in how quickly bugs get caught.</p>
+<p>You'll also learn the tools that make this possible: browser DevTools for the client, proxy tools (Charles, mitmproxy) for the wire, LRS logs for the server, and Observable or Grafana for the synthesis layer. Each one is useful on its own; together they form a stack where no statement can hide.</p>
+<h2 id="browser-devtools-the-first-mirror">Browser DevTools — The First Mirror<a class="headerlink" href="#browser-devtools-the-first-mirror" title="Permanent link">&para;</a></h2>
+<p>The <strong>browser DevTools Network panel</strong> is the cheapest and most underused observability tool in xAPI development. Every modern browser ships with it, no installation required, and it shows you every HTTP request the page makes — including every xAPI POST. <strong>xAPI traffic capture</strong> in DevTools is just "open Network panel, filter for <code>/statements</code>, watch."</p>
+<p>The panel renders requests as rows. Each row shows:</p>
+<ul>
+<li>HTTP method (<code>POST</code> for xAPI emit, <code>GET</code> for queries)</li>
+<li>URL</li>
+<li>Status code (200, 4xx, 5xx)</li>
+<li>Total transfer size</li>
+<li>Response time</li>
+<li>Initiator (the JavaScript file that made the request)</li>
+<li>A timing waterfall showing connection setup, request, response</li>
+</ul>
+<p>The <strong>network waterfall chart</strong> is the timing visualization that makes batching and concurrency visible. A single horizontal bar per request, color-banded for connection setup (green), waiting (purple), and download (blue). Twelve unbatched POSTs show twelve bars stacked vertically with sequential offsets; one batched POST shows a single bar carrying the same data. The waterfall is the visual proof that batching works.</p>
+<p><strong>xAPI payload inspection</strong> is what you do when a statement is rejected or behaves unexpectedly. Click any <code>/statements</code> row in the Network panel; the side panel shows the request body (the JSON statement you sent) and the response body (the LRS's reply, including the assigned UUIDs or any error). Most "why is this statement rejected?" questions are answered in 30 seconds by reading the request body and the response body side by side.</p>
+<p>The two filters worth saving as DevTools defaults for xAPI work:</p>
+<ul>
+<li><code>method:POST domain:lrs.example.org</code> — every emit going to your LRS</li>
+<li><code>method:POST status-code:&gt;=400</code> — every emit that failed</li>
+</ul>
+<h4 id="diagram-devtools-driven-xapi-debugging-flow">Diagram: DevTools-Driven xAPI Debugging Flow<a class="headerlink" href="#diagram-devtools-driven-xapi-debugging-flow" title="Permanent link">&para;</a></h4>
+<details>
+<summary>DevTools-Driven xAPI Debugging Flow</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> devtools-driven-xapi-debugging-flow<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Applying):</strong> Apply a structured debugging workflow that uses DevTools to localize an xAPI emit-path bug to the right layer (component, builder, transport, LRS).</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (TD direction). Click handlers on every node.</p>
+<p><strong>Decision flow:</strong></p>
+<ol>
+<li>Start: <code>Reported issue (no statements / wrong statements / rejected statements)</code></li>
+<li>Diamond: <code>Are statements visible in DevTools Network panel?</code> → No → <code>Bug is in component or client library — check console for errors</code> / Yes → next</li>
+<li>Diamond: <code>Is the request body correct?</code> → No → <code>Bug is in statement builder — fix builder</code> / Yes → next</li>
+<li>Diamond: <code>Is the response status 2xx?</code> → Yes → <code>Statement reached LRS — check LRS-side issues</code> / No → next</li>
+<li>Diamond: <code>Is response status 4xx?</code> → Yes → <code>Read response body — fix client based on error</code> / No (5xx) → <code>LRS-side issue — check LRS logs</code></li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox with concrete DevTools steps and example error messages.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="network-throttling-simulation">Network Throttling Simulation<a class="headerlink" href="#network-throttling-simulation" title="Permanent link">&para;</a></h2>
+<p><strong>Network throttling simulation</strong> is DevTools' built-in feature that pretends the browser is on a slow network — Slow 3G, Fast 3G, custom presets. Throttling matters for xAPI because the difference between "works on my dev laptop" and "works on a fifth-grader's tablet on school WiFi" is the network. Run your textbook through Slow 3G throttling for fifteen minutes and you'll discover bugs in your retry logic, your offline queue, and your batching that ran fine at gigabit speed.</p>
+<p>The presets to use:</p>
+<ul>
+<li><strong>Slow 3G</strong> (~400 Kbps down, 400 Kbps up, 2000ms latency) — simulates a poor cellular connection. Good for testing batching benefits and timeout handling.</li>
+<li><strong>Fast 3G</strong> (~1.6 Mbps down, 750 Kbps up, 562ms latency) — simulates an OK cellular connection. Good for testing the realistic mobile experience.</li>
+<li><strong>Offline</strong> — toggles the network off entirely. Use to verify the offline queue pipeline (Chapter 9).</li>
+</ul>
+<p>A development habit worth adopting: keep DevTools throttled to Fast 3G during normal development. You'll never accidentally ship code that depends on gigabit speed.</p>
+<h2 id="proxy-tools-charles-and-mitmproxy">Proxy Tools — Charles and mitmproxy<a class="headerlink" href="#proxy-tools-charles-and-mitmproxy" title="Permanent link">&para;</a></h2>
+<p>DevTools shows you what the <em>browser</em> sent. <strong>HTTP intercept</strong> tools sit between the browser and the LRS, showing you what actually traversed the network. They're more flexible than DevTools — they can rewrite responses, replay requests, throttle individual paths, and capture traffic from non-browser clients (mobile apps, simulators, embedded devices). Two are worth knowing.</p>
+<p><strong>Charles Proxy</strong> is a commercial GUI HTTP proxy popular among instructional technologists for its low setup friction. Configure your browser or device to route through Charles, install Charles's TLS certificate so it can intercept HTTPS, and you have a clean GUI showing every request — including from the apps and devices DevTools can't see. Charles's killer feature for xAPI work is the response-rewriting tools: simulate a flaky LRS, force specific status codes, inject delays. If you need to test "what happens when the LRS returns 503 every third request," Charles makes it a five-minute exercise.</p>
+<p><strong>mitmproxy</strong> is the open-source command-line equivalent. Same job — TLS-intercepting HTTP proxy — different ergonomics. mitmproxy ships with a Python scripting layer, which means you can write programmable interception rules: "log every statement to a file," "modify every statement's <code>actor</code> to a fixed test agent," "delay every response by 500ms with 5% chance of timeout." Charles is for quick interactive debugging. mitmproxy is for repeatable scripted tests.</p>
+<p>Both require you to install a TLS certificate to intercept HTTPS — a step that's easy on a development machine and explicitly forbidden on production deployments. <strong>Use proxy tools only on systems you own.</strong> Intercepting TLS traffic on systems you don't own is a security violation regardless of intent.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Type</th>
+<th>Strengths</th>
+<th>When to reach for it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DevTools</td>
+<td>Browser</td>
+<td>Zero setup, immediate, visual</td>
+<td>Daily development, browser-only debugging</td>
+</tr>
+<tr>
+<td>Charles</td>
+<td>Proxy GUI</td>
+<td>Response rewriting, mobile-device capture</td>
+<td>Manual flaky-network simulation, mobile debugging</td>
+</tr>
+<tr>
+<td>mitmproxy</td>
+<td>Proxy CLI</td>
+<td>Programmable, scriptable, automatable</td>
+<td>Repeatable failure-injection in CI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lrs-request-logs">LRS Request Logs<a class="headerlink" href="#lrs-request-logs" title="Permanent link">&para;</a></h2>
+<p><strong>LRS request logs</strong> (introduced in Chapter 8) are the server-side equivalent of DevTools — every request the LRS received, with status, latency, payload size, and identity. The shape varies by platform: TRAX writes to Laravel logs, Learning Locker uses MongoDB-backed audit logs, Ralph emits structured JSON to stdout (typical for ClickHouse-backed services), Watershed exposes a query API.</p>
+<p>Three queries the logs answer that DevTools cannot:</p>
+<ol>
+<li><strong>Aggregate failure rates over time</strong> — DevTools shows one session's failures; logs show all sessions' failures and let you spot trends.</li>
+<li><strong>Per-credential traffic</strong> — DevTools shows what one client sent; logs show which credentials are responsible for which traffic, useful for diagnosing rogue clients.</li>
+<li><strong>LRS-side processing time</strong> — DevTools shows network round-trip; logs show how much of that time the LRS itself spent. A POST that's slow on the network may be slow because of LRS load.</li>
+</ol>
+<p>The right logging setup ships LRS logs to your standard observability stack (Datadog, Splunk, ELK, Grafana Loki — whichever your team already uses) so xAPI doesn't become a separate ops silo.</p>
+<h2 id="real-time-dashboards">Real-Time Dashboards<a class="headerlink" href="#real-time-dashboards" title="Permanent link">&para;</a></h2>
+<p>A <strong>real-time dashboard</strong> is the synthesis layer that turns the stream of stored statements into a continuously-updated visualization that humans can read. Dashboards exist for two distinct audiences: operators (is the system healthy?) and educators (are learners learning?). Both consume the same underlying data through different lenses.</p>
+<p><strong>Statement throughput</strong> is the operator's primary signal: statements per second, broken down by credential, verb, and status. A sudden drop in throughput often precedes a user-visible failure by minutes — a token expired in one rollout, a service worker bug shipped in a build, a regional CDN issue. Dashboards that surface throughput give operators a chance to catch issues before users do.</p>
+<p><strong>Engagement metrics</strong> are the educator's primary signal: how many learners reached chapter 5, how long they spent in section 3.2, which questions are getting most attempts, which simulations are most-touched. These metrics are aggregations over the same statement stream that throughput watches, but they answer pedagogical questions rather than operational ones.</p>
+<p>Two dashboard tools dominate xAPI deployments: Observable Framework and Grafana.</p>
+<p><strong>Observable Framework</strong> is a JavaScript-first dashboarding system (formerly Observable Notebooks) that excels at custom interactive visualizations. Its model is "publish a notebook of D3-and-friends visualizations as a deployable site." Observable's strength is data-team flexibility — analysts can prototype a visualization in minutes and ship it to a dashboard URL in hours. Its weakness is that the prototyping flexibility comes at the cost of operational guardrails. Observable is the right choice when your dashboard team is comfortable with JavaScript and wants tight control over the visualization layer.</p>
+<p><strong>Grafana Dashboard</strong> is the operations-flavored dashboarding tool, originally built for time-series metrics and now extended to general analytics. Grafana's strength is its enormous library of pre-built panels, its alerting integration, and its operational maturity. Its weakness is that custom visualizations are harder than in Observable. Grafana is the right choice when your dashboard team overlaps with your ops team and the operational signals (throughput, latency, error rates) matter as much as the educational signals.</p>
+<p>The pragmatic answer for many deployments is <em>both</em>. Grafana for operations, Observable for educational analytics, both pulling from the same underlying LRS query layer.</p>
+<h4 id="diagram-real-time-dashboard-stack">Diagram: Real-Time Dashboard Stack<a class="headerlink" href="#diagram-real-time-dashboard-stack" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Real-Time Dashboard Stack</summary>
+<p>Type: clickable-mermaid
+<strong>sim-id:</strong> real-time-dashboard-stack<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Identify each layer of a real-time xAPI dashboard pipeline and recognize where statements transform into engagement metrics.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Source: <code>LRS (statements + logs)</code></li>
+<li>Aggregation layer: <code>Streaming aggregator (or batched query)</code> with two parallel branches:<ul>
+<li>Branch 1: <code>Operator metrics — throughput, latency, errors</code></li>
+<li>Branch 2: <code>Educator metrics — engagement, completion, attempts</code></li>
+</ul>
+</li>
+<li>Dashboard layer: <code>Grafana</code> (operator) + <code>Observable Framework</code> (educator)</li>
+<li>Consumer layer: <code>Operators</code> and <code>Teachers / Instructional Designers</code></li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing the layer's role, the data shape at that layer, and a one-line example of a metric or query at that layer.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="engagement-heatmaps">Engagement Heatmaps<a class="headerlink" href="#engagement-heatmaps" title="Permanent link">&para;</a></h2>
+<p>An <strong>engagement heatmap</strong> is a per-page-region visualization of how learners interacted with a chapter — a rectangular grid colored by interaction frequency. Heatmaps are the educator's go-to artifact for "where did learners struggle?" Light spots show sections nobody touched (boring? skipped? confusing?). Dark spots show sections everyone interacted with (genuinely engaging? or genuinely confusing, in which case the same heat is <em>bad</em>?).</p>
+<p>The dashboard team builds the heatmap by aggregating <code>interacted</code> and <code>experienced</code> statements grouped by activity IRI (the section or component) and counting per learner. The result is a per-section interaction count, plotted onto the chapter's layout, normalized by cohort size.</p>
+<p>The shape of the input data, after aggregation:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;activity_iri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/section-1&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;interactions&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">412</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;unique_learners&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;activity_iri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/section-2&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;interactions&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">217</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;unique_learners&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;activity_iri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/section-3&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;interactions&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;unique_learners&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">]</span>
+</span></code></pre></div>
+<p>Section 3 has 8 unique learners out of 30 — 73% of the cohort never engaged with it. That's a content signal the educator should investigate immediately.</p>
+<h4 id="diagram-engagement-heatmap-microsim">Diagram: Engagement Heatmap MicroSim<a class="headerlink" href="#diagram-engagement-heatmap-microsim" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Engagement Heatmap MicroSim</summary>
+<p>Type: micro-sim
+<strong>sim-id:</strong> engagement-heatmap-microsim<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Read an engagement heatmap to identify under-engaged sections of a chapter, and adjust input parameters (cohort size, time window, verb filter) to see how the visualization responds.</p>
+<p><strong>Layout:</strong> 2/3 (left) heatmap canvas + 1/3 (right) controls and reading guide.</p>
+<p><strong>Visual elements (left):</strong></p>
+<ul>
+<li>A vertically-arranged grid of 8 chapter sections, each rendered as a row</li>
+<li>Each row colored on a gradient (light-yellow to dark-red) based on per-section interaction counts</li>
+<li>Row labels showing section name and interaction count</li>
+<li>A legend bar at the bottom showing the color scale</li>
+</ul>
+<p><strong>Controls (right):</strong></p>
+<ul>
+<li>Slider: Cohort size (10 – 500 learners)</li>
+<li>Slider: Time window (1 – 30 days)</li>
+<li>Dropdown: Verb filter (<code>all</code>, <code>experienced</code>, <code>interacted</code>, <code>attempted</code>)</li>
+<li>A "Synthesize new data" button that re-randomizes the per-section counts using a realistic distribution</li>
+<li>A reading-guide panel below the controls explaining what dark vs. light rows typically mean</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Adjusting any control re-computes the heatmap colors and counts</li>
+<li>Clicking a row in the heatmap opens a side-detail showing the exact statements aggregated into that count</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×600px, responsive.</p>
+<p>Implementation: p5.js for the heatmap rendering, color gradients, and synthetic data generation.</p>
+</details>
+<h2 id="learning-analytics-overview">Learning Analytics Overview<a class="headerlink" href="#learning-analytics-overview" title="Permanent link">&para;</a></h2>
+<p><strong>Learning analytics overview</strong> is the broader discipline of using data — typically xAPI data, or its equivalent in other standards — to answer questions about teaching and learning. xAPI is the data layer; learning analytics is what you do with the data. The framing matters because most teams setting up xAPI think they're doing analytics. They're not. They're doing instrumentation. Analytics is the next mile, and it's a different skill set.</p>
+<p>A non-exhaustive sample of questions learning analytics tries to answer:</p>
+<ul>
+<li><strong>Engagement</strong> — how much time, attention, and interaction does this material draw?</li>
+<li><strong>Completion</strong> — what fraction of cohorts finish, where do they bail, what predicts completion?</li>
+<li><strong>Mastery</strong> — which concepts are learners actually mastering, and which are they passing without understanding?</li>
+<li><strong>Equity</strong> — are there demographic patterns in engagement, completion, and mastery that suggest the content works differently for different groups?</li>
+</ul>
+<p>xAPI gives you the raw data to ask these questions. Whether your dashboard answers them is determined by what you choose to query, what you choose to surface, and what you choose to act on. Many xAPI deployments collect mountains of data and never ask any of these questions; the data is just there. Don't be that team.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">You Don't Need Every Metric</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Xavi encouraging focus over breadth">
+A small dashboard with three sharply-defined engagement metrics that the educator actually uses is worth ten dashboards with seventy metrics nobody looks at. Pick the questions you want to answer first, build the dashboard from those, and resist the temptation to add more. Statement throughput, completion rate by chapter, and time-on-task per section will get you 80% of the value of any analytics setup.</p>
+</div>
+<h2 id="xapi-debugging-techniques">xAPI Debugging Techniques<a class="headerlink" href="#xapi-debugging-techniques" title="Permanent link">&para;</a></h2>
+<p>Closing the chapter with the practical playbook. <strong>xAPI debugging techniques</strong> are the steps you take when something is broken — and "something is broken" comes in three flavors:</p>
+<ol>
+<li><strong>Statements aren't being emitted.</strong> Check the browser console for errors. Check that the client library is loaded. Check DevTools Network panel for any <code>/statements</code> traffic. If none, the bug is in the component or library, not the LRS.</li>
+<li><strong>Statements are emitted but rejected.</strong> Read the response body of the failed POST in DevTools. Compare against the xAPI spec for the offending field. Most rejections are: malformed agent IFI, invalid IRI in verb or activity, missing version header.</li>
+<li><strong>Statements are accepted but the dashboard is wrong.</strong> Check the LRS query the dashboard runs. Run the same query manually against the LRS. If the LRS returns the right data, the bug is in the dashboard. If the LRS returns the wrong data, the bug is in either the query or in the statements themselves (often a missing or wrong field that the dashboard depends on).</li>
+</ol>
+<p>The mantra: <strong>isolate the layer</strong>. Each layer (component, library, transport, LRS, dashboard) has its own debugging tools. Confirm the bug at one layer before chasing it at the next.</p>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 11.</p>
+<ul>
+<li>You can capture and inspect xAPI traffic in browser DevTools, including the network waterfall and request/response bodies.</li>
+<li>You can pick between Charles Proxy and mitmproxy for a given debugging or testing scenario.</li>
+<li>You can use network throttling to surface bandwidth-related bugs in development.</li>
+<li>You can read LRS request logs and answer questions DevTools cannot (failure-rate trends, per-credential traffic, server-side latency).</li>
+<li>You can describe the architecture of a real-time xAPI dashboard, with separate operator and educator views.</li>
+<li>You can interpret an engagement heatmap and identify sections that need pedagogical investigation.</li>
+<li>You can apply the three-flavor debugging playbook to localize an xAPI issue to the right layer.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">The Statements Are Visible</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating crystal-clear visibility">
+No more black boxes. From the browser to the LRS to the dashboard, you can now see what's happening at every layer. Chapter 11 turns to a question you'll have soon: where do you get realistic test data when production data is privacy-protected and dev data is too sparse to stress anything? The answer involves Claude Code generating synthetic learner cohorts.</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1133,10 +1888,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

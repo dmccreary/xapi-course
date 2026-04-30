@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="How to design a custom vocabulary profile, run a profile server, architect the full pipeline from Activity Provider through LRS through analytics and dashboards, identify failure points and latency, secure the deployment, and execute a production-readiness review before launch.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../14-privacy-and-compliance/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>13. Pipeline and Production - xAPI for Intelligent Textbooks</title>
+        <title>xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13. Pipeline and Production
+              xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -496,9 +533,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -517,9 +561,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -538,9 +589,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -559,9 +617,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,9 +645,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -601,9 +673,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -622,9 +701,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -643,9 +729,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -673,9 +766,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -684,9 +784,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -709,7 +816,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -718,7 +827,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -727,7 +838,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-vocabulary-profile-design-a-real-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Vocabulary Profile Design — A Real Profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI Vocabulary Profile Design — A Real Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-vocabulary-profile-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Vocabulary Profile Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-profile-server-and-profile-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Profile Server and Profile Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-platform-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Platform Analytics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-full-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Full Pipeline Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Full Pipeline Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full Pipeline Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-failure-points-and-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Failure Points and Latency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-production-readiness-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Production Readiness Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-readiness-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Readiness Review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -752,9 +1015,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1060,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1071,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1112,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1129,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1166,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1193,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1220,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1266,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1277,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1288,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-vocabulary-profile-design-a-real-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Vocabulary Profile Design — A Real Profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI Vocabulary Profile Design — A Real Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-vocabulary-profile-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Vocabulary Profile Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-profile-server-and-profile-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Profile Server and Profile Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-platform-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Platform Analytics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-full-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Full Pipeline Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Full Pipeline Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-pipeline-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full Pipeline Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-failure-points-and-latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Failure Points and Latency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-production-readiness-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Production Readiness Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-readiness-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Readiness Review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1456,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/13-pipeline-and-production/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/13-pipeline-and-production/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1044,13 +1555,236 @@
 <li><a href="../12-conformance-and-comparison/">Chapter 12: Conformance Testing, Validation, and Competitive Standards Analysis</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to Shipping It</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus packing a suitcase labeled Production">
+Twelve chapters of preparation. One chapter to put it all into a deployable shape. We'll design the vocabulary profile that pulls every emit site into a coherent contract, sketch the full pipeline from textbook through LRS through dashboards, identify the failure points before they fail in production, and walk through the readiness checklist that turns "we're done coding" into "we're ready to ship."</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>architect, document, and prove the readiness of a complete xAPI pipeline that survives production</strong>. That's the skill set that distinguishes a textbook with xAPI on the feature list from one that delivers actionable analytics every day. The pipeline architecture isn't optional; the profile isn't optional; the security review isn't optional; the readiness checklist isn't optional. They are the difference between shipping and re-shipping.</p>
+<p>You'll also learn to design <strong>cross-platform analytics</strong> — instrumentation that works coherently across multiple textbooks, multiple deployments, multiple LRSs. That's the analytics property that lets a state department of education pull together data from dozens of textbooks under one report. It depends entirely on profile discipline.</p>
+<h2 id="xapi-vocabulary-profile-design-a-real-profile">xAPI Vocabulary Profile Design — A Real Profile<a class="headerlink" href="#xapi-vocabulary-profile-design-a-real-profile" title="Permanent link">&para;</a></h2>
+<p>Chapter 4 introduced custom verb profiles in passing. <strong>xAPI vocabulary profile design</strong> is the full discipline of building one — verbs, activity types, and extensions — and publishing it as a stable contract. A vocabulary profile is the document that says "anyone emitting statements in this deployment uses these verbs, these activity types, and these extensions, in these documented combinations."</p>
+<p>The components of a complete profile:</p>
+<ul>
+<li><strong>Verbs</strong> — the canonical and custom verbs the deployment uses, each with IRI, definition, and usage rules</li>
+<li><strong>Activity types</strong> — both ADL-canonical and project-specific types, each with IRI and definition</li>
+<li><strong>Extensions</strong> — the project's owned extension namespace, with documented schema for every extension key</li>
+<li><strong>Statement patterns</strong> — the approved combinations (Chapter 3), each tying together a verb, activity type, and required result/context fields</li>
+<li><strong>Examples</strong> — at least one worked statement per pattern</li>
+</ul>
+<p>A profile that documents only the verbs is incomplete. A profile that documents verbs, activity types, and extensions but not the patterns is incomplete in a more subtle way — emit sites can still produce inconsistent statements because nothing pins down the <em>combinations</em>. The patterns are what turn the vocabulary into actionable consistency.</p>
+<p><strong>Custom activity types</strong> are the activity-type equivalent of custom verbs. The ADL registry of activity types covers the common kinds (<code>course</code>, <code>module</code>, <code>lesson</code>, <code>assessment</code>, <code>simulation</code>, <code>media</code>, <code>interaction</code>) but not the specifics of every domain. An interactive physics textbook might define <code>physics-simulation</code>, <code>phasor-diagram</code>, <code>wave-canvas</code>. The naming rule is the same as for custom verbs: durable IRIs in a namespace you own, documented in the profile.</p>
+<p><strong>Extension namespace design</strong> is the most often-skipped part of profile work and the most important for long-term coherence. Pick a namespace prefix you own, version it, and require every extension key to live under it. The pattern that has aged best:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://textbook.example.org/extensions/v1/&lt;extension-name&gt;
+</span></code></pre></div>
+<p>The <code>v1</code> segment is non-negotiable. The day a schema needs to change incompatibly — and that day comes for every long-running project — you'll create <code>v2</code> and run both for a transition period. Without versioning, you have no migration path.</p>
+<h4 id="diagram-vocabulary-profile-architecture">Diagram: Vocabulary Profile Architecture<a class="headerlink" href="#diagram-vocabulary-profile-architecture" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Vocabulary Profile Architecture</summary>
+<p>Type: clickable-mermaid
+<strong>sim-id:</strong> vocabulary-profile-architecture<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Identify the components of a complete xAPI vocabulary profile and how they relate to one another.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (TD direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Top: <code>Profile (JSON-LD document at stable URL)</code></li>
+<li>Three branches downstream:<ul>
+<li><code>Verbs</code> — list of canonical + custom verbs with IRIs</li>
+<li><code>Activity Types</code> — list of canonical + custom types with IRIs</li>
+<li><code>Extensions</code> — namespaced extensions with schema</li>
+</ul>
+</li>
+<li>Bottom: <code>Statement Patterns</code> — combines verbs, types, and extensions into approved emit shapes</li>
+<li>Side: <code>Profile Server (publishes JSON-LD at stable URL)</code> connected to <code>Profile</code></li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing the component, an example excerpt, and the chapter section that covers it.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="xapi-profile-server-and-profile-validation">xAPI Profile Server and Profile Validation<a class="headerlink" href="#xapi-profile-server-and-profile-validation" title="Permanent link">&para;</a></h2>
+<p>An <strong>xAPI profile server</strong> is the HTTP service that publishes your vocabulary profile at a stable URL. The profile is a JSON-LD document; the server's job is to serve it with the right Content-Type, version it correctly, and provide changelog access. For most deployments, a profile server is a static file hosted alongside the textbook (an <code>S3</code> bucket, a <code>nginx</code> static config, a GitHub Pages site). For more sophisticated deployments — multi-tenant, multi-textbook — a profile server may be a small dynamic service that resolves profile IRIs to documents and serves change notifications.</p>
+<p>ADL maintains a public profile server at <code>https://profiles.adlnet.gov</code> that hosts the canonical xAPI Profiles, including the cmi5 profile. Your project's profile lives under your own namespace.</p>
+<p><strong>Profile validation</strong> is the verification that statements emitted by a deployment conform to its declared profile. This is a layer above raw xAPI conformance (Chapter 12). A statement can be xAPI-conformant (well-formed JSON, valid IRIs, correct types) but profile-non-conformant (uses a verb that's not in the profile, includes an extension not in the profile, doesn't match any approved pattern). Profile validation catches the latter category.</p>
+<p>The shape of a profile validator:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">validateAgainstProfile</span><span class="p">(</span><span class="nx">stmt</span><span class="o">:</span><span class="w"> </span><span class="kt">Statement</span><span class="p">,</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="kt">Profile</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">errors</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">profile</span><span class="p">.</span><span class="nx">verbs</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">verb</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`verb </span><span class="si">${</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">verb</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb"> not in profile`</span><span class="p">);</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">objectType</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stmt</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">definition</span><span class="o">?</span><span class="p">.</span><span class="kr">type</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kr">type</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">profile</span><span class="p">.</span><span class="nx">activityTypes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="kr">type</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`activity type </span><span class="si">${</span><span class="kr">type</span><span class="si">}</span><span class="sb"> not in profile`</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">extKey</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">allExtensionKeys</span><span class="p">(</span><span class="nx">stmt</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">profile</span><span class="p">.</span><span class="nx">extensions</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">extKey</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`extension </span><span class="si">${</span><span class="nx">extKey</span><span class="si">}</span><span class="sb"> not in profile`</span><span class="p">);</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">errors</span><span class="p">;</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Run profile validation in CI on a representative sample of generated statements. A profile-non-conformant emit site is a bug; failing the build catches it before it reaches production.</p>
+<h2 id="cross-platform-analytics">Cross-Platform Analytics<a class="headerlink" href="#cross-platform-analytics" title="Permanent link">&para;</a></h2>
+<p><strong>Cross-platform analytics</strong> is the property that data from multiple textbooks, multiple deployments, or multiple LRSs can be coherently aggregated into a single analytical view. Cross-platform analytics is the value proposition that justifies xAPI's flexibility tax: you can roll up Lin Park's progress across the algebra textbook, the geometry textbook, and the calculus textbook, even though each was authored by a different team and may live in a different LRS — <em>if</em> every textbook adheres to a shared vocabulary profile.</p>
+<p>The conditions for cross-platform analytics to work:</p>
+<ol>
+<li><strong>Shared verb vocabulary</strong> — all participating textbooks use the same verbs for the same kinds of events.</li>
+<li><strong>Shared activity-type vocabulary</strong> — assessment is <code>assessment</code> across all textbooks; simulation is <code>simulation</code> across all textbooks.</li>
+<li><strong>Shared learner identity</strong> — all textbooks identify Lin with the same <code>account.name</code> against the same <code>homePage</code> (Chapter 5).</li>
+<li><strong>Shared extension namespace conventions</strong> — when textbooks emit extensions, they follow agreed-upon schemas for the common ones.</li>
+</ol>
+<p>Without these conditions, you have analytics-per-textbook, not cross-platform analytics. With them, the dashboard team can ask "which students struggled with quadratics across any algebra textbook?" and get an honest answer that spans the deployment.</p>
+<h2 id="the-full-pipeline-architecture">The Full Pipeline Architecture<a class="headerlink" href="#the-full-pipeline-architecture" title="Permanent link">&para;</a></h2>
+<p><strong>xAPI pipeline architecture</strong> is the complete data path from a learner's interaction to a dashboard chart. The pipeline has four logical layers, and each layer has its own implementation choices, performance characteristics, and failure modes.</p>
+<p>The four layers:</p>
+<ol>
+<li><strong>Activity Provider integration</strong> — the textbook's instrumentation, the client library, the offline queue. The piece you wrote in Chapters 8–9.</li>
+<li><strong>LRS</strong> — the storage and query system. The piece you chose in Chapters 6–7.</li>
+<li><strong>Analytics layer</strong> — the post-processing that transforms raw statements into queryable aggregates. Often a separate database or stream processor that consumes from the LRS.</li>
+<li><strong>Dashboard layer</strong> — the visualization layer that turns aggregates into human-readable charts and tables. The piece you chose in Chapter 10.</li>
+</ol>
+<p>The simplest pipeline goes: textbook → LRS → dashboard, with the LRS doing all the analytics work itself. This works for small deployments. As scale grows, the analytics layer separates: a stream processor (Kafka, Kinesis) reads new statements from the LRS, computes aggregates (per-day completion counts, per-section interaction counts), and writes them to a fast analytical store (ClickHouse, BigQuery, Snowflake) optimized for dashboard queries.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌──────────────┐    ┌──────────────┐    ┌────────────────┐    ┌──────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│ Activity     │ →  │ LRS          │ →  │ Analytics      │ →  │ Dashboard    │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│ Provider     │    │ (TRAX/Ralph) │    │ (Stream + OLAP)│    │ (Grafana)    │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│ (textbook)   │    │              │    │                │    │              │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└──────────────┘    └──────────────┘    └────────────────┘    └──────────────┘
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>       ↑                    ↓                     ↓                   ↓
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   xAPI POST         Statement storage      Pre-aggregation       Visualization
+</span></code></pre></div>
+<p><strong>Activity Provider integration</strong> is wired into your textbook code (Chapter 8). The integration point with downstream layers is the LRS endpoint — your AP doesn't need to know anything about the analytics or dashboard layers, only the LRS URL and credentials. This separation is what keeps the pipeline modular.</p>
+<p>The <strong>analytics layer</strong> is where most production teams add complexity over time. Initially, dashboards query the LRS directly — fast enough at small scale. As volume grows, direct LRS queries get slow (the LRS is optimized for ingestion, not OLAP), so the team adds a stream processor that pre-computes aggregates. Eventually, the analytics layer becomes its own data warehouse with its own engineers.</p>
+<p>The <strong>dashboard layer</strong> consumes the aggregates and turns them into charts. It's the layer most non-technical stakeholders see, which means it's the layer most often blamed for problems that originate elsewhere. Pipeline-level visibility (Chapter 10) helps adjudicate whether a "wrong dashboard" is a dashboard bug, an analytics bug, an LRS issue, or an emit-path issue.</p>
+<h4 id="diagram-full-pipeline-architecture">Diagram: Full Pipeline Architecture<a class="headerlink" href="#diagram-full-pipeline-architecture" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Full Pipeline Architecture</summary>
+<p>Type: clickable-mermaid
+<strong>sim-id:</strong> full-pipeline-architecture<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Trace a learner interaction from emit through every pipeline layer to its appearance on a dashboard, identifying the responsibilities and typical latencies of each layer.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Layer 1: <code>Browser (Component → Client Library → Offline Queue)</code></li>
+<li>Layer 2: <code>LRS (Statement Endpoint → Storage → Query API)</code></li>
+<li>Layer 3: <code>Stream Processor → OLAP Aggregate Store</code></li>
+<li>Layer 4: <code>Dashboard (Grafana / Observable)</code></li>
+</ul>
+<p><strong>Annotations on edges:</strong></p>
+<ul>
+<li>Browser → LRS: typical latency 100–500ms; failure mode: network drop</li>
+<li>LRS → Stream: typical latency seconds; failure mode: consumer lag</li>
+<li>Stream → OLAP: typical latency seconds-to-minutes; failure mode: aggregation bug</li>
+<li>OLAP → Dashboard: typical latency milliseconds; failure mode: query timeout</li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing the component's responsibility, the chapter that covers it, the typical implementation tooling, and the most common failure mode.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="pipeline-failure-points-and-latency">Pipeline Failure Points and Latency<a class="headerlink" href="#pipeline-failure-points-and-latency" title="Permanent link">&para;</a></h2>
+<p><strong>Pipeline failure points</strong> are the layer boundaries where things go wrong. Each boundary has a characteristic failure mode and a characteristic recovery pattern. Knowing them in advance is the difference between hours of investigation and minutes.</p>
+<p>The five most common pipeline failure points:</p>
+<ol>
+<li><strong>Browser → LRS network failures.</strong> Network drops, TLS handshake failures, captive portal interception. Recovered by the offline queue (Chapter 9).</li>
+<li><strong>LRS authentication failures.</strong> Token expired, credential rotated, IP allowlist changed. Recovered by re-fetching the token; surfaces as 401 in DevTools (Chapter 10).</li>
+<li><strong>LRS ingestion overload.</strong> Burst of POSTs exceeds LRS capacity, latency spikes, some POSTs return 503. Recovered by the retry-with-backoff layer plus the offline queue.</li>
+<li><strong>Stream processor lag.</strong> Consumer falls behind LRS write rate; aggregates become stale; dashboards show old numbers. Recovered by scaling the consumer or shedding load.</li>
+<li><strong>Dashboard query timeout.</strong> Dashboard query is too expensive to run on the live OLAP store. Recovered by pre-aggregating the result or reducing the query scope.</li>
+</ol>
+<p><strong>Pipeline latency analysis</strong> is the discipline of measuring end-to-end latency — from learner click to dashboard chart — and decomposing it across the layers. The dashboard team usually wants "click to chart" under 60 seconds for real-time displays, under 5 minutes for typical dashboards. Pipeline latency budgets allocate that target across the layers: 1s emit, 5s LRS-to-stream, 30s stream-to-aggregate, 5s dashboard query. When the total budget is missed, the layer-by-layer breakdown points to the offender.</p>
+<h2 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">&para;</a></h2>
+<p><strong>xAPI security best practices</strong> at this point in the book are mostly things you've already learned (Chapter 7's auth discussion, Chapter 5's pseudonymization). Pulling them together as a checklist:</p>
+<ol>
+<li><strong>HTTPS for xAPI</strong> — every endpoint, always. Plain HTTP for xAPI is an interception risk that's not worth taking. <strong>HTTPS for xAPI</strong> is non-negotiable, including in development and staging.</li>
+<li><strong>Credentials never reach the browser.</strong> Long-lived LRS credentials live on the backend. Short-lived bearer tokens are issued per-session.</li>
+<li><strong>Tokens are short-lived and rotated.</strong> A 24-hour token is fine for analytics-only emit; a 1-hour token is better for graded emit.</li>
+<li><strong>PII discipline.</strong> Use the <code>account</code> IFI (Chapter 5) with opaque identifiers. Never include real names, emails, or institutional roles in extensions.</li>
+<li><strong>Audit logs are retained.</strong> LRS request logs (Chapter 10) should be archived for at least the deployment's compliance window.</li>
+<li><strong>Privacy controls are testable.</strong> Re-identification flow is documented; request-based deletion is implemented (more in Chapter 14).</li>
+<li><strong>Profile validation runs in CI.</strong> Non-conformant emit sites are caught before reaching production.</li>
+</ol>
+<h4 id="diagram-production-readiness-checklist">Diagram: Production Readiness Checklist<a class="headerlink" href="#diagram-production-readiness-checklist" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Production Readiness Checklist</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> production-readiness-checklist<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Evaluating):</strong> Assess the readiness of an xAPI deployment against a structured checklist covering vocabulary, pipeline, observability, and security.</p>
+<p><strong>Layout:</strong> Four columns of checkbox items grouped by category, with a status bar across the top showing overall readiness percentage.</p>
+<p><strong>Categories and example items:</strong></p>
+<ul>
+<li><strong>Vocabulary</strong>: Profile published; profile validation in CI; activity types documented; extension namespace versioned</li>
+<li><strong>Pipeline</strong>: AP integration complete; LRS chosen and provisioned; analytics layer in place; dashboard layer in place; pipeline latency under SLO</li>
+<li><strong>Observability</strong>: DevTools-ready; LRS logs shipped to ops stack; dashboards live; alerting configured</li>
+<li><strong>Security</strong>: HTTPS everywhere; tokens short-lived; PII discipline enforced; audit logs retained; re-identification flow documented</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Each checkbox is clickable; clicking toggles its state</li>
+<li>The status bar updates in real time showing percentage complete</li>
+<li>A side panel shows the selected item's detail with the chapter and section it's covered in</li>
+<li>Preset buttons: "Reset all", "Mark realistic alpha", "Mark realistic beta", "Mark realistic GA"</li>
+</ul>
+<p><strong>Default canvas:</strong> 1100×600px, responsive.</p>
+<p>Implementation: p5.js for the column layout, checkbox state, and progress bar; HTML overlay for the side panel and presets.</p>
+</details>
+<h2 id="production-readiness-review">Production Readiness Review<a class="headerlink" href="#production-readiness-review" title="Permanent link">&para;</a></h2>
+<p><strong>Production readiness checklist</strong> and <strong>xAPI implementation review</strong> are the structured gates that turn "we think we're ready" into "we know we're ready." A formal review covers four areas, each with explicit criteria.</p>
+<p>The complete review:</p>
+<ol>
+<li>
+<p><strong>Vocabulary readiness.</strong> Profile published at a stable URL with versioning. All custom verbs, activity types, and extensions documented. Profile validation runs in CI. At least one worked example per pattern. Cross-platform compatibility (if relevant) verified against partner profiles.</p>
+</li>
+<li>
+<p><strong>Pipeline readiness.</strong> AP integration complete with retry, batching, and offline queue. LRS provisioned at the right scale (Chapter 11 load test passed). Analytics layer either in place or explicitly out of scope with a documented "we query the LRS directly" decision. Dashboard layer live with at least the operator-side metrics (throughput, error rate, latency) and the educator-side metrics for whichever questions the deployment is designed to answer.</p>
+</li>
+<li>
+<p><strong>Observability readiness.</strong> Browser DevTools captures meaningful traffic and is documented for the support team. LRS logs ship to the same observability stack the rest of ops uses. Real-time dashboards distinguish "system healthy" from "system degraded." Alerts fire on at least: ingestion-rate drop, error-rate spike, dashboard-query failure.</p>
+</li>
+<li>
+<p><strong>Security and privacy readiness.</strong> HTTPS enforced. Long-lived credentials never ship to the browser. Tokens are short-lived. PII review complete (Chapter 14). FERPA / COPPA / GDPR posture documented for the relevant deployment context. Re-identification flow exists and is auditable. Data-retention policy in place. Incident-response plan exists for credential or PII leaks.</p>
+</li>
+</ol>
+<p>A deployment that fails any one of the four areas isn't production-ready, even if the other three are perfect. The areas are interdependent: an observability gap means you can't catch a vocabulary drift; a security gap means a vocabulary leak becomes a privacy leak.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Common Pitfall — Skipping the Profile</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi cautioning against profile-less deployments">
+The single most common reason a production xAPI deployment "kind of works but the dashboard is unreliable" is that the team never wrote down a profile. Without a profile, every emit site drifts independently, and after six months no two textbooks emit consistent data. Write the profile before the third emit site ships. It's three engineer-days you'll never regret.</p>
+</div>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 14.</p>
+<ul>
+<li>You can design a complete xAPI vocabulary profile (verbs, activity types, extensions, patterns, examples) and publish it at a stable URL.</li>
+<li>You can stand up a minimal profile server and run profile validation against generated statements.</li>
+<li>You can articulate the four conditions that make cross-platform analytics work and audit a deployment against them.</li>
+<li>You can sketch a four-layer xAPI pipeline (AP → LRS → analytics → dashboard) and identify where complexity grows as scale grows.</li>
+<li>You can name the five most common pipeline failure points and the recovery pattern for each.</li>
+<li>You can compute a pipeline latency budget and decompose end-to-end latency across the four layers.</li>
+<li>You can run an xAPI implementation review against the four-area checklist (vocabulary, pipeline, observability, security) and identify gaps.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Production Shape</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a production-ready ship">
+Your deployment now has the shape of something you can ship and operate. Chapter 14 closes the book on the most consequential dimension we haven't yet given full chapter treatment to: privacy and compliance. Get this right and the deployment ships; get it wrong and the deployment never even leaves the lab.</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1136,10 +1870,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

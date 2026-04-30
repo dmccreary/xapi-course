@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="How to prove an xAPI implementation conforms to the spec, how cmi5 sits on top of xAPI, how SCORM 2004 maps into xAPI verbs, and how xAPI compares head-to-head against IMS Caliper, SCORM 2004, cmi5, and proprietary analytics SDKs across the dimensions that matter for procurement.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../13-pipeline-and-production/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>12. Conformance and Comparison - xAPI for Intelligent Textbooks</title>
+        <title>Conformance Testing, Validation, and Competitive Standards Analysis - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12. Conformance and Comparison
+              Conformance Testing, Validation, and Competitive Standards Analysis
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -496,9 +533,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -517,9 +561,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -538,9 +589,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -559,9 +617,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,9 +645,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -601,9 +673,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -622,9 +701,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -652,9 +738,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -663,9 +756,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -688,7 +788,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -697,7 +799,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -706,7 +810,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-validation-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Validation — Three Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adl-conformance-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADL Conformance Test Suite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADL Conformance Test Suite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-conformance-validation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Conformance Validation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmi5-a-profile-on-top-of-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMI5 — A Profile on Top of xAPI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMI5 — A Profile on Top of xAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-cmi5-session-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: CMI5 Session Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scorm-completion-and-score-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCORM Completion and Score Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-version-negotiation-and-backwards-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Version Negotiation and Backwards Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competitive-analysis-xapi-vs-the-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competitive Analysis — xAPI vs the Alternatives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Competitive Analysis — xAPI vs the Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standards-comparison-card-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Standards Comparison Card Grid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-criteria-beyond-the-standards-themselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Criteria — Beyond the Standards Themselves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -731,9 +987,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1015,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1060,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1071,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1112,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1129,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1166,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1193,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1220,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1266,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1277,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1288,159 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-validation-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Validation — Three Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adl-conformance-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADL Conformance Test Suite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADL Conformance Test Suite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-conformance-validation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Conformance Validation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmi5-a-profile-on-top-of-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMI5 — A Profile on Top of xAPI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMI5 — A Profile on Top of xAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-cmi5-session-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: CMI5 Session Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scorm-completion-and-score-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCORM Completion and Score Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-version-negotiation-and-backwards-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI Version Negotiation and Backwards Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competitive-analysis-xapi-vs-the-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competitive Analysis — xAPI vs the Alternatives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Competitive Analysis — xAPI vs the Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standards-comparison-card-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Standards Comparison Card Grid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-criteria-beyond-the-standards-themselves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Criteria — Beyond the Standards Themselves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1456,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/12-conformance-and-comparison/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/12-conformance-and-comparison/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1045,13 +1556,197 @@
 <li><a href="../04-verb-vocabulary-design/">Chapter 4: Verb Vocabulary Design and the ADL Verb Registry</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to Proving It Works</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus holding a checklist">
+"It works on my LRS" is not a conformance claim. This chapter is about formal verification — running the ADL conformance suite, validating every statement, and proving your implementation is portable. We'll also zoom out: xAPI is one of several standards in the learning ecosystem, and you should be able to defend the choice of xAPI over the alternatives in any procurement meeting.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>prove your xAPI implementation is conformant and articulate a credible head-to-head comparison against every alternative standard a procurement committee might raise</strong>. Conformance turns "trust us, it works" into "here's the test report." Comparison turns "we picked xAPI because the engineering team likes it" into a defensible architecture decision with named trade-offs.</p>
+<p>You'll also walk away knowing how cmi5 sits on top of xAPI (it's a profile, not a competitor) and how to map SCORM 2004's completion and score model into xAPI verbs cleanly — both questions you'll get from anyone who's been in learning tech longer than ten years.</p>
+<h2 id="xapi-validation-three-layers">xAPI Validation — Three Layers<a class="headerlink" href="#xapi-validation-three-layers" title="Permanent link">&para;</a></h2>
+<p><strong>xAPI validation</strong> is the verification that a statement, a sequence of statements, or an entire LRS implementation conforms to the xAPI specification. The validation happens at three layers, increasing in scope and difficulty.</p>
+<p><strong>Statement structure validation</strong> checks that a single statement has the right shape. The required top-level fields are present (<code>actor</code>, <code>verb</code>, <code>object</code>); the actor has exactly one IFI; the verb has a valid IRI; the object has a valid IRI; the optional fields, if present, are correctly typed. This is the layer your client library should run on every emit during development.</p>
+<p><strong>Required field validation</strong> is a focused subset: every required field, at every nesting level, must be present and non-empty. The xAPI spec is precise about what's required where — <code>verb.id</code> is required, <code>verb.display</code> is recommended; <code>actor.account.homePage</code> is required if <code>account</code> is the IFI; <code>result.score.scaled</code> must be in [-1, 1] if present. A missing required field is the most common reason an LRS rejects a statement with 400.</p>
+<p><strong>Data type validation</strong> checks that every field has the right type. <code>actor.mbox</code> must start with <code>mailto:</code>; <code>result.duration</code> must be a valid ISO 8601 duration; <code>timestamp</code> must be a valid ISO 8601 timestamp; <code>verb.display</code> is a language map (a JSON object), not a string. Type errors produce 400 responses with cryptic error text; a structured validator catches them locally before the round-trip.</p>
+<p>A small TypeScript validator that handles the common cases:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">validateStatement</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">errors</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">actor</span><span class="p">)</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;missing actor&quot;</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">verb</span><span class="o">?</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;missing verb.id&quot;</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">object</span><span class="o">?</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">object</span><span class="o">?</span><span class="p">.</span><span class="nx">objectType</span><span class="p">)</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;invalid object&quot;</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">actor</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">countIFIs</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">actor</span><span class="p">)</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;actor must have exactly one IFI&quot;</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">timestamp</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isISO8601</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">))</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;invalid timestamp&quot;</span><span class="p">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">result</span><span class="o">?</span><span class="p">.</span><span class="nx">duration</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isISO8601Duration</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">duration</span><span class="p">))</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;invalid duration&quot;</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">result</span><span class="o">?</span><span class="p">.</span><span class="nx">score</span><span class="o">?</span><span class="p">.</span><span class="nx">scaled</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">score</span><span class="p">.</span><span class="nx">scaled</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">score</span><span class="p">.</span><span class="nx">scaled</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;scaled score out of range&quot;</span><span class="p">);</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">errors</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Run this validator on every statement during development. The errors are fast, local, and clearer than any LRS error response.</p>
+<h2 id="adl-conformance-test-suite">ADL Conformance Test Suite<a class="headerlink" href="#adl-conformance-test-suite" title="Permanent link">&para;</a></h2>
+<p>The <strong>ADL conformance test suite</strong> is the official validation harness maintained by ADL. It exercises an LRS implementation against the xAPI specification by submitting hundreds of carefully-crafted statements and queries — some valid, some deliberately malformed — and verifying that the LRS responds correctly to every one.</p>
+<p>The suite tests for three properties:</p>
+<ol>
+<li><strong>Statement validation correctness</strong> — does the LRS accept all valid statements and reject all invalid ones?</li>
+<li><strong>Endpoint correctness</strong> — does each endpoint behave correctly across the full range of inputs?</li>
+<li><strong>Concurrency correctness</strong> — does the LRS handle the State endpoint's optimistic concurrency correctly?</li>
+</ol>
+<p>The suite is open source, runs against any LRS that exposes its standard endpoints, and produces a pass/fail report broken down by test case. New LRS releases routinely include the test suite as part of CI.</p>
+<p>For <em>your</em> deployment — meaning your textbook's emit path against your chosen LRS — the conformance suite isn't directly applicable. The suite tests the LRS, not the AP. Your AP's correctness is verified by the local validator above plus end-to-end smoke tests that exercise representative emit paths and verify the resulting statements arrive at the LRS as expected.</p>
+<h4 id="diagram-conformance-validation-pipeline">Diagram: Conformance Validation Pipeline<a class="headerlink" href="#diagram-conformance-validation-pipeline" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Conformance Validation Pipeline</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> conformance-validation-pipeline<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Trace the layers of conformance validation from a single statement up through the ADL conformance suite, identifying which layer catches which class of bug.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (LR direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ol>
+<li><code>Component emits statement</code></li>
+<li><code>Local validator (structure + required + data type)</code> → on failure, surface error before transmit</li>
+<li><code>Statement transmitted to LRS</code></li>
+<li><code>LRS validates and persists</code></li>
+<li>Side: <code>Periodic ADL conformance run against LRS</code></li>
+<li><code>End-to-end smoke test (synthetic emit → LRS → query → assert)</code></li>
+<li><code>CI pipeline (gates merges on suite pass)</code></li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing what's tested, what's not tested, and example failures.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="cmi5-a-profile-on-top-of-xapi">CMI5 — A Profile on Top of xAPI<a class="headerlink" href="#cmi5-a-profile-on-top-of-xapi" title="Permanent link">&para;</a></h2>
+<p><strong>CMI5</strong> is not a competitor to xAPI; it's a profile <em>on top of</em> xAPI. cmi5 takes xAPI's open vocabulary and constrains it into a specific shape that maps cleanly onto LMS launch-and-completion semantics — the same shape SCORM provided. Where xAPI says "any verb, any activity, any time," cmi5 says "for LMS-launched courses, you will use these specific verbs in this specific sequence." Same wire format. Different rules of engagement.</p>
+<p>The <strong>cmi5 launch mechanism</strong> is the protocol by which an LMS launches a cmi5-compliant course. The LMS opens the course URL with specific query parameters (<code>endpoint</code>, <code>fetch</code>, <code>actor</code>, <code>registration</code>, <code>activityId</code>); the course exchanges the <code>fetch</code> URL for a short-lived auth token; the course then emits cmi5 statements using that token against the LMS-provided LRS endpoint. This is the rigorous launch contract that xAPI alone doesn't specify — and the reason cmi5 exists.</p>
+<p>The <strong>CMI5 session lifecycle</strong> is a strict statement sequence. Every cmi5 session emits, in order:</p>
+<ol>
+<li><strong><code>launched</code></strong> — the LMS started the session</li>
+<li><strong><code>initialized</code></strong> — the AP finished setup and is ready to track learning</li>
+<li><strong>One or more <code>progressed</code> / <code>passed</code> / <code>failed</code> / <code>completed</code> statements</strong> — the actual learning record</li>
+<li><strong><code>terminated</code></strong> — the AP closed the session cleanly, OR</li>
+<li><strong><code>abandoned</code></strong> — a session timeout fires server-side because no <code>terminated</code> arrived</li>
+</ol>
+<p>cmi5 also constrains the verbs (only the eight cmi5-defined verbs are allowed in a session) and the activity types (only cmi5-defined types). This rigidity is the point — an LMS that supports cmi5 can predict exactly what statements a course will emit, which is what makes cmi5 deliverables work as gradable artifacts.</p>
+<h4 id="diagram-cmi5-session-lifecycle">Diagram: CMI5 Session Lifecycle<a class="headerlink" href="#diagram-cmi5-session-lifecycle" title="Permanent link">&para;</a></h4>
+<details>
+<summary>CMI5 Session Lifecycle</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> cmi5-session-lifecycle<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Recall the cmi5 session lifecycle states and the legal transitions between them.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (TD direction) representing the state sequence. Click handlers on every node.</p>
+<p><strong>States:</strong></p>
+<ol>
+<li><code>LMS launches AP</code> (with cmi5 launch parameters)</li>
+<li><code>AP fetches auth token</code></li>
+<li><code>AP emits launched</code></li>
+<li><code>AP emits initialized</code></li>
+<li><code>AP emits learning statements (progressed / passed / failed / completed / scored)</code></li>
+<li>Decision: <code>AP closes cleanly?</code> → Yes → <code>AP emits terminated</code> → <code>Session ends</code> / No → <code>LMS times out → emits abandoned (server-side)</code></li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox showing the verb IRI, when it's emitted, and a one-line example statement.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<p><strong>CMI5 vs xAPI differences</strong> in one paragraph: xAPI is the data format; cmi5 is a profile that constrains how the data format is used in LMS-launched contexts. xAPI alone is fine for textbook instrumentation where the LMS isn't in the loop. cmi5 is required when your content needs to plug into a SCORM-replacement LMS slot. Many deployments emit <em>both</em> — cmi5-compliant statements when launched from an LMS, plus richer non-cmi5 statements alongside them for analytics that go beyond cmi5's vocabulary.</p>
+<h2 id="scorm-completion-and-score-mapping">SCORM Completion and Score Mapping<a class="headerlink" href="#scorm-completion-and-score-mapping" title="Permanent link">&para;</a></h2>
+<p><strong>SCORM completion mapping</strong> is the practice of translating SCORM 2004's <code>cmi.completion_status</code> field into xAPI verbs. SCORM uses four values: <code>not attempted</code>, <code>incomplete</code>, <code>completed</code>, <code>unknown</code>. The xAPI mapping is straightforward:</p>
+<ul>
+<li><code>not attempted</code> → no statement emitted</li>
+<li><code>incomplete</code> → <code>progressed</code> statement with <code>result.completion: false</code></li>
+<li><code>completed</code> → <code>completed</code> statement with <code>result.completion: true</code></li>
+<li><code>unknown</code> → no mapping; ignore</li>
+</ul>
+<p><strong>SCORM score mapping</strong> translates SCORM's <code>cmi.score</code> into xAPI's <code>result.score</code>. SCORM has <code>score.raw</code>, <code>score.min</code>, <code>score.max</code>, and <code>score.scaled</code> — and so does xAPI. The fields map directly. The accompanying <code>cmi.success_status</code> (<code>passed</code>, <code>failed</code>, <code>unknown</code>) maps to xAPI's <code>result.success</code> boolean and to the <code>passed</code>/<code>failed</code> verbs.</p>
+<p>The practical use of these mappings: bridging legacy SCORM content into an xAPI-instrumented analytics layer. A SCORM-to-xAPI shim emits the equivalent xAPI statements alongside the SCORM tracking, letting old content flow into new dashboards without rewriting the courseware. Most modern LMSs include such a shim out of the box.</p>
+<h2 id="xapi-version-negotiation-and-backwards-compatibility">xAPI Version Negotiation and Backwards Compatibility<a class="headerlink" href="#xapi-version-negotiation-and-backwards-compatibility" title="Permanent link">&para;</a></h2>
+<p><strong>xAPI version negotiation</strong> is the protocol step where the AP asks the LRS which spec version it supports (Chapter 6's <code>/about</code> endpoint) and adapts accordingly. The current spec version this book targets is 1.0.3. Version 2.0.0 is in active development at ADL and introduces incremental changes (new optional fields, clarified semantics) without breaking backward compatibility for 1.0.3 statements.</p>
+<p><strong>Backwards compatibility (xAPI)</strong> is the property that statements valid under one minor version remain valid under later minor versions. ADL has been disciplined about this; 1.0.0, 1.0.1, 1.0.2, and 1.0.3 are interchangeable for nearly all practical purposes. Major-version transitions (1.x → 2.x) may introduce changes that need migration, but the 2.0 work-in-progress signals strong continuity rather than a rewrite.</p>
+<p>The version-negotiation contract for production code:</p>
+<ol>
+<li>At AP startup, GET <code>/xAPI/about</code></li>
+<li>If <code>1.0.3</code> is in the returned <code>version</code> array, proceed with <code>X-Experience-API-Version: 1.0.3</code></li>
+<li>If only an earlier 1.0.x is supported, downgrade or fail loudly</li>
+<li>If a 2.0.x is reported, log it for awareness but continue with 1.0.3 unless explicitly upgraded</li>
+</ol>
+<h2 id="competitive-analysis-xapi-vs-the-alternatives">Competitive Analysis — xAPI vs the Alternatives<a class="headerlink" href="#competitive-analysis-xapi-vs-the-alternatives" title="Permanent link">&para;</a></h2>
+<p><strong>xAPI competitive analysis</strong> is the procurement-meeting version of standards comparison. The committee asks "why xAPI and not Caliper?" or "why xAPI and not just SCORM 2004?" — and a credible answer requires understanding all five alternatives in the comparison.</p>
+<p><strong>xAPI vs IMS Caliper comparison.</strong> IMS Caliper is the IMS Global standard for learning analytics, designed for tighter LMS integration and a more constrained vocabulary. Caliper has stronger LMS-vendor adoption (Canvas, Blackboard, D2L), a richer pre-defined ontology, and a Profile-based extensibility model similar to cmi5's relationship to xAPI. xAPI has a larger non-LMS adoption surface (corporate L&amp;D, simulation, mobile), a more flexible verb model, and a better ecosystem for non-LMS content. The honest summary: xAPI is more flexible and cross-vertical; Caliper is more LMS-integrated. For an intelligent textbook <em>that lives outside an LMS</em>, xAPI wins. For one that's deeply LMS-integrated, the choice is closer.</p>
+<p><strong>xAPI vs SCORM 2004 comparison.</strong> SCORM 2004 is the older, browser-locked, content-package standard that xAPI was designed to succeed. SCORM is constrained: tracking is per-package, the vocabulary is fixed (completion + score + interactions), and content must run inside a SCORM-aware LMS frame. xAPI removes all those constraints. The trade-off: SCORM 2004 has wider legacy LMS support (every K-12 LMS speaks SCORM) and predictable behavior. xAPI requires more deliberate design but is dramatically more powerful. For new content, xAPI wins; for content that must run inside a 15-year-old LMS frame, SCORM may still be the only realistic choice.</p>
+<p><strong>xAPI vs CMI5 comparison.</strong> This is the false-comparison case — cmi5 <em>is</em> xAPI, with profile constraints. Choose cmi5 when LMS launch-and-completion is the primary use case; choose plain xAPI (no profile) when LMS integration is secondary. Many deployments use both layers.</p>
+<p><strong>Proprietary analytics SDKs</strong> (Google Analytics, Mixpanel, Amplitude, Segment, the long tail of LMS-vendor-specific analytics SDKs) are the most-likely competitor in many procurement conversations. They're easier to integrate (one SDK call vs. xAPI's vocabulary discipline), produce nicer-looking dashboards out of the box, and require zero standards adoption. They are also: vendor-locked, learning-specific in name only, and incapable of cross-vendor portability. Statements you emit to a proprietary analytics SDK belong to that vendor. Statements you emit via xAPI belong to your LRS, which you control. <strong>Vendor lock-in risk</strong> is the single biggest argument against proprietary SDKs and the single biggest argument for xAPI.</p>
+<h4 id="diagram-standards-comparison-card-grid">Diagram: Standards Comparison Card Grid<a class="headerlink" href="#diagram-standards-comparison-card-grid" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Standards Comparison Card Grid</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> standards-comparison-card-grid<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Evaluating):</strong> Compare xAPI against four alternative standards (IMS Caliper, SCORM 2004, cmi5, proprietary SDKs) across six procurement-relevant dimensions, and select an appropriate standard for a given deployment.</p>
+<p><strong>Layout:</strong> Five cards arranged in a row across the top (one per standard); a side panel below showing the selected standard's full radar chart and detail.</p>
+<p><strong>Each card shows:</strong></p>
+<ul>
+<li>Standard name</li>
+<li>Year of relevant version</li>
+<li>A short tagline</li>
+<li>A 6-axis radar mini-chart on axes: instrumentation granularity, vendor support breadth, vendor lock-in risk (inverted: lower is better), implementation cost (inverted), LMS integration depth, ecosystem flexibility</li>
+</ul>
+<p><strong>Side panel:</strong></p>
+<ul>
+<li>A larger version of the radar chart for the selected standard</li>
+<li>The dimension-by-dimension scoring rationale</li>
+<li>A "Recommended scenario" line: which deployment context favors this standard</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Click a card to update the side panel</li>
+<li>Toggle "Compare two": brings up two radar charts overlaid for direct comparison</li>
+</ul>
+<p><strong>Default canvas:</strong> 1100×600px, responsive.</p>
+<p>Implementation: p5.js for the radar charts, card layout, and overlay comparison; HTML overlay for the rationale text.</p>
+</details>
+<h2 id="decision-criteria-beyond-the-standards-themselves">Decision Criteria — Beyond the Standards Themselves<a class="headerlink" href="#decision-criteria-beyond-the-standards-themselves" title="Permanent link">&para;</a></h2>
+<p>The standards comparison is one input. The procurement decision also depends on dimensions that aren't really about the standards at all.</p>
+<p><strong>Vendor support assessment</strong> is the practical question of which vendors actually support each standard well, in a way that matches your stack. xAPI has broad LRS support (Chapter 7's platforms) and a healthy ecosystem of authoring tools. Caliper has tighter LMS-vendor support but thinner authoring ecosystem. SCORM 2004 has near-universal LMS support and the broadest authoring ecosystem (Storyline, Captivate, Lectora). For a custom-coded intelligent textbook, vendor support questions matter less than for a packaged-content deployment.</p>
+<p><strong>Implementation cost analysis</strong> estimates the engineering effort to ship instrumentation. xAPI typically takes 2–4 engineer-weeks for a basic implementation, 8–12 engineer-weeks for a production-grade one (statement patterns, retry, offline queue, dashboards). SCORM 2004 is similar but with steeper LMS-integration costs. Caliper is similar to xAPI plus extra cost for the schema discipline. Proprietary SDKs are typically days, not weeks — but the long-tail cost of vendor lock-in dwarfs the savings. Track total cost of ownership over five years, not initial integration time.</p>
+<p><strong>Instrumentation granularity</strong> is the depth of behavioral signal each standard captures. xAPI: arbitrary verbs, arbitrary extensions, full sub-statement support — the highest granularity in the industry. Caliper: rich entity-event ontology, finer than SCORM but more constrained than xAPI. SCORM 2004: completion + score + interactions — coarse-grained. Proprietary SDKs: whatever the vendor supports, typically tuned to marketing analytics rather than learning analytics. For Level 3 intelligent textbooks where the entire point is fine-grained behavioral signal, xAPI wins decisively on this dimension.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Xavi's Insight — The Right Comparison Is Five-Year</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi pondering a long time horizon">
+Procurement comparisons that focus on integration time miss the bigger picture. The right question is "where will this data live in five years, and how easily can it be re-purposed for use cases we haven't thought of yet?" xAPI's flexibility costs more upfront and pays off forever. Proprietary SDKs are the opposite. Run the math on the long horizon, not the short one.</p>
+</div>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 13.</p>
+<ul>
+<li>You can describe the three layers of xAPI validation (structure, required field, data type) and write a simple validator.</li>
+<li>You can explain what the ADL conformance test suite tests and why it's run against the LRS rather than the AP.</li>
+<li>You can recall the cmi5 session lifecycle and describe how cmi5 sits as a profile on top of xAPI.</li>
+<li>You can map SCORM 2004's completion and score fields into the equivalent xAPI verbs and result fields.</li>
+<li>You can articulate xAPI's strengths and weaknesses against IMS Caliper, SCORM 2004, cmi5, and proprietary analytics SDKs.</li>
+<li>You can name and apply the key procurement dimensions (vendor support, implementation cost, granularity, lock-in risk) when defending a standards choice.</li>
+<li>You can describe xAPI's version negotiation and backwards-compatibility model and how to write production code that handles both.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Standards Defended</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with a verified compliance check">
+You can now prove your implementation is conformant and defend the standards choice in any procurement room. Chapter 13 turns from individual implementations to the production pipeline: how do statements flow from textbook to dashboard at scale, and where do the failure points live in that flow?</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1137,10 +1832,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

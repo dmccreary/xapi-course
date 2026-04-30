@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="A working tour of xAPI verb IRIs — what makes a verb canonical, how the ADL and tincan registries work, when to design a custom verb profile, and how to use the canonical interactive-textbook verbs without painting yourself into an analytics corner.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../05-activities-agents-identity/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>4. Verb Vocabulary Design - xAPI for Intelligent Textbooks</title>
+        <title>Verb Vocabulary Design and the ADL Verb Registry - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4. Verb Vocabulary Design
+              Verb Vocabulary Design and the ADL Verb Registry
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -484,9 +514,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -495,9 +532,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,7 +564,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -529,7 +575,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -538,7 +586,187 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-verb-is-an-iri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Verb Is an IRI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Verb Is an IRI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-verb-iri-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Verb IRI Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-adl-verb-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The ADL Verb Registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tincan-verb-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Tincan Verb Vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tour-of-the-twelve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Tour of the Twelve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Tour of the Twelve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-canonical-verb-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Canonical Verb Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-design-a-custom-verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Design a Custom Verb
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-verb-profiles-doing-it-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Verb Profiles — Doing It Right
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verb-vocabulary-design-putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb Vocabulary Design — Putting It Together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verb Vocabulary Design — Putting It Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-verb-selection-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Verb Selection Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-component-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Component Instrumentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Component Instrumentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-component-instrumentation-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Component Instrumentation MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -563,9 +791,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -584,9 +819,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -605,9 +847,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -626,9 +875,16 @@
       <a href="../08-implementing-in-textbooks/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -647,9 +903,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -668,9 +931,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -689,9 +959,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -710,9 +987,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -731,9 +1015,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1043,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1088,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1099,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1140,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1157,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1194,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1221,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1248,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1294,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1305,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1316,187 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-verb-is-an-iri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Verb Is an IRI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Verb Is an IRI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-verb-iri-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Verb IRI Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-adl-verb-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The ADL Verb Registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tincan-verb-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Tincan Verb Vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tour-of-the-twelve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Tour of the Twelve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Tour of the Twelve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-canonical-verb-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Canonical Verb Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-design-a-custom-verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Design a Custom Verb
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-verb-profiles-doing-it-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Verb Profiles — Doing It Right
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verb-vocabulary-design-putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb Vocabulary Design — Putting It Together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verb Vocabulary Design — Putting It Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-verb-selection-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Verb Selection Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-component-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Component Instrumentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Component Instrumentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-component-instrumentation-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Component Instrumentation MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1512,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/04-verb-vocabulary-design/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/04-verb-vocabulary-design/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1041,13 +1608,379 @@
 <li><a href="../03-advanced-statement-structure/">Chapter 3: Advanced Statement Structure: Voiding, Sub-Statements, Extensions, and Attachments</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to the Verb Workshop</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus standing at a workbench">
+Verbs are the soul of an xAPI statement. The actor and object answer "who" and "to what" — the verb answers "what happened," and that's the question every analytics dashboard is ultimately built on. This chapter is a workshop. We'll examine the canonical verbs, learn the rules of the registries, and design a custom verb profile for a textbook the right way. Every interaction tells a story — and this is where you choose the right word.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>pick the right verb for any learner event in an intelligent textbook, defend that choice, and document it so future contributors don't drift</strong>. That sounds modest. It isn't. Verb sprawl is the single most common reason xAPI deployments end up with analytics that nobody trusts. When ten developers each invent their own verb for "the learner clicked something useful," the dashboard team can't write a single query that means anything stable.</p>
+<p>You'll also learn when <em>not</em> to invent a verb. Most teams reach for a custom verb on day three and regret it on day three hundred. The canonical ADL verbs cover roughly 80% of the events an intelligent textbook will ever emit, and using the canonical set means your data immediately interoperates with every off-the-shelf xAPI tool.</p>
+<h2 id="a-verb-is-an-iri">A Verb Is an IRI<a class="headerlink" href="#a-verb-is-an-iri" title="Permanent link">&para;</a></h2>
+<p>Chapter 2 said the verb component has an <code>id</code> field that's an IRI. We were brief about it. Let's slow down. A <strong>verb IRI</strong> is a fully-qualified Internationalized Resource Identifier — in practice, almost always an <code>http://</code> or <code>https://</code> URL — that uniquely names a verb across the entire web of xAPI deployments. Two verbs with the same IRI are <em>the same verb</em>, no matter who emitted them. Two verbs with different IRIs are <em>different verbs</em>, even if they have identical English display strings. The IRI is the identity. The display string is just for humans.</p>
+<p>Here's the verb component for a <code>passed</code> statement, with each part labeled in plain language:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/passed&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;es-MX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aprobó&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The <code>id</code> is the verb's globally unique identity. The <code>display</code> is a language map — a JSON object whose keys are language tags and whose values are the verb's display string in that language. The LRS uses the <code>id</code> for indexing and queries. The dashboard uses <code>display</code> for what gets shown to humans. The <em>only</em> part you should ever match against in code is the <code>id</code>.</p>
+<p>A <strong>verb IRI namespace</strong> is the part of the IRI before the verb's local name — the path prefix that signals "this verb belongs to a particular registry or vocabulary." The ADL verbs all live under <code>http://adlnet.gov/expapi/verbs/</code>. The tincan verbs (older, but still seen in legacy data) live under <code>http://activitystrea.ms/schema/1.0/</code>. A custom verb you design for your textbook should live under a namespace you own — <code>https://textbook.example.org/xapi/verbs/</code> is fine; <code>myverbs/</code> is not.</p>
+<h4 id="diagram-verb-iri-anatomy">Diagram: Verb IRI Anatomy<a class="headerlink" href="#diagram-verb-iri-anatomy" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Verb IRI Anatomy</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> verb-iri-anatomy<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Decompose a verb IRI into its three parts (scheme + namespace + local name), and recognize valid versus invalid verb IRIs at a glance.</p>
+<p><strong>Layout:</strong> A single horizontal IRI rendered as a string, with three colored brackets beneath it labeling each part. To the right, a side panel shows the part the user has hovered or clicked.</p>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>The IRI <code>http://adlnet.gov/expapi/verbs/passed</code> rendered in monospace, ~24pt</li>
+<li>Three colored highlight brackets: scheme (blue, <code>http://</code>), namespace (green, <code>adlnet.gov/expapi/verbs/</code>), local name (orange, <code>passed</code>)</li>
+<li>A right-side info panel describing the hovered/clicked part, with a one-line example</li>
+<li>Below the main IRI, a row of three additional IRIs the user can click to swap the active example: an ADL verb, a tincan verb, and a custom verb</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Hover over a part: that part highlights, info panel updates</li>
+<li>Click an alternative IRI: replaces the main IRI and updates highlighting</li>
+<li>Toggle "Show invalid examples": replaces the row with malformed IRIs (e.g., <code>passed</code>, <code>myapp:verbs/done</code>) and shows why each is rejected</li>
+</ul>
+<p><strong>Default canvas:</strong> 950×420px with media queries; falls back to a stacked layout below 700px.</p>
+<p>Implementation: p5.js for the canvas drawing and hover detection; HTML overlay for the info panel.</p>
+</details>
+<h2 id="the-adl-verb-registry">The ADL Verb Registry<a class="headerlink" href="#the-adl-verb-registry" title="Permanent link">&para;</a></h2>
+<p>The <strong>ADL Verb Registry</strong> is the canonical, ADL-maintained list of standard verbs that the xAPI community has agreed to share. ADL stands for Advanced Distributed Learning — the U.S. Department of Defense initiative that originally sponsored the xAPI specification. The registry lives at <code>http://adlnet.gov/expapi/verbs/</code> and contains a curated set of verbs that cover the common kinds of learning events: completion, attempts, assessment outcomes, content consumption, and session lifecycle.</p>
+<p>You should reach for an ADL verb first, every time. The registry is small, deliberate, and intentionally not exhaustive — its size is a feature. A verb that exists in the ADL registry has a well-defined meaning, has been used in production by thousands of deployments, and works out-of-the-box with most xAPI dashboards and reporting tools. A verb you invented yesterday has none of those properties.</p>
+<p>The twelve ADL verbs you'll meet most often in an intelligent textbook break into four functional groups. Before we list them, the four groups in plain language so the table afterward summarizes rather than introduces:</p>
+<ul>
+<li><strong>Content-consumption verbs</strong> describe a learner engaging with material without an explicit assessment outcome. These are the verbs you'll emit on every page view, video play, or simulation hover.</li>
+<li><strong>Assessment verbs</strong> describe attempts at structured tasks with a pass/fail outcome — quizzes, tests, exercises that expect a "right answer."</li>
+<li><strong>Progress verbs</strong> describe forward motion through structured material when there's no single pass/fail moment — adaptive flows, self-paced reading, scaffolded exercises.</li>
+<li><strong>Session-lifecycle verbs</strong> mark the formal beginning and end of a tracked session, and exist primarily for cmi5 compatibility.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Verb</th>
+<th>IRI suffix</th>
+<th>When to emit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content consumption</td>
+<td><code>experienced</code></td>
+<td><code>/verbs/experienced</code></td>
+<td>Learner observed or interacted with content without a pass/fail outcome</td>
+</tr>
+<tr>
+<td>Content consumption</td>
+<td><code>interacted</code></td>
+<td><code>/verbs/interacted</code></td>
+<td>Learner manipulated an interactive element (slider, button, MicroSim control)</td>
+</tr>
+<tr>
+<td>Assessment</td>
+<td><code>attempted</code></td>
+<td><code>/verbs/attempted</code></td>
+<td>Learner began an activity with a defined outcome</td>
+</tr>
+<tr>
+<td>Assessment</td>
+<td><code>passed</code></td>
+<td><code>/verbs/passed</code></td>
+<td>Learner met the success criteria for an attempted activity</td>
+</tr>
+<tr>
+<td>Assessment</td>
+<td><code>failed</code></td>
+<td><code>/verbs/failed</code></td>
+<td>Learner did not meet the success criteria</td>
+</tr>
+<tr>
+<td>Assessment</td>
+<td><code>scored</code></td>
+<td><code>/verbs/scored</code></td>
+<td>A score was recorded against an activity (often paired with passed/failed)</td>
+</tr>
+<tr>
+<td>Progress</td>
+<td><code>progressed</code></td>
+<td><code>/verbs/progressed</code></td>
+<td>Learner moved forward through structured material; partial state</td>
+</tr>
+<tr>
+<td>Progress</td>
+<td><code>completed</code></td>
+<td><code>/verbs/completed</code></td>
+<td>Learner reached the end of an activity, regardless of pass/fail</td>
+</tr>
+<tr>
+<td>Session lifecycle</td>
+<td><code>launched</code></td>
+<td><code>/verbs/launched</code></td>
+<td>A learning session was opened by an external launcher (cmi5)</td>
+</tr>
+<tr>
+<td>Session lifecycle</td>
+<td><code>initialized</code></td>
+<td><code>/verbs/initialized</code></td>
+<td>Activity Provider has finished setup and is ready to record statements</td>
+</tr>
+<tr>
+<td>Session lifecycle</td>
+<td><code>terminated</code></td>
+<td><code>/verbs/terminated</code></td>
+<td>Activity Provider closed the session cleanly</td>
+</tr>
+<tr>
+<td>Session lifecycle</td>
+<td><code>abandoned</code></td>
+<td><code>/verbs/abandoned</code></td>
+<td>Session ended without a clean termination (timeout, tab close)</td>
+</tr>
+</tbody>
+</table>
+<p>The pairings to internalize. <code>passed</code> and <code>failed</code> always travel with <code>attempted</code>, in that temporal order. <code>completed</code> is independent of both — a learner can complete and pass, complete and fail, or complete with no success/failure judgment at all. <code>scored</code> is most useful when you want to record a score <em>without</em> committing to a pass/fail interpretation — automatic graders that will be reviewed later, peer-assessed work, formative assessments without a cutoff. And the four session-lifecycle verbs are best thought of as a group: cmi5 sessions canonically follow <code>launched → initialized → (one or more progress/assessment statements) → completed/passed/failed → terminated</code>, with <code>abandoned</code> substituting for <code>terminated</code> when the learner walked away.</p>
+<h2 id="the-tincan-verb-vocabulary">The Tincan Verb Vocabulary<a class="headerlink" href="#the-tincan-verb-vocabulary" title="Permanent link">&para;</a></h2>
+<p>Before xAPI 1.0 was finalized in 2013, the spec was called Tin Can API and used a different verb vocabulary maintained at <code>http://activitystrea.ms/schema/1.0/</code>. That older registry — the <strong>Tincan Verb Vocabulary</strong> — predates xAPI and was inherited from a more general "activity stream" specification used outside learning. It contains many verbs that don't quite fit learning analytics (<code>favorite</code>, <code>friend</code>, <code>tag</code>) alongside some that do (<code>attended</code>, <code>commented</code>).</p>
+<p>You'll see tincan verbs in two situations: legacy data from pre-2013 deployments that nobody migrated, and modern deployments that adopted them early and stuck with them out of inertia. New textbooks should not emit tincan verbs. If you inherit a deployment that does, leave existing data alone (statements are immutable anyway), but switch new emissions to the ADL registry. Mixed registries inside one deployment makes dashboards confusing — <code>http://activitystrea.ms/schema/1.0/complete</code> and <code>http://adlnet.gov/expapi/verbs/completed</code> are different verbs that any reasonable human would consider the same.</p>
+<h2 id="a-tour-of-the-twelve">A Tour of the Twelve<a class="headerlink" href="#a-tour-of-the-twelve" title="Permanent link">&para;</a></h2>
+<p>We just listed the canonical twelve. Now let's see them in action — a sequence of statements describing one learner's journey through a single textbook chapter, in the order they'd actually be emitted. Read top to bottom; each statement's verb is highlighted by the comment.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 1. Learner opens the chapter — content-consumption</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/experienced&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;experienced&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// 2. Learner manipulates an interactive grapher MicroSim</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/interacted&quot;</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;interacted&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/microsims/parabola-grapher&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">// 3. Learner advances past the warm-up section</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/progressed&quot;</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;progressed&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/section-2&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1">// 4. Learner starts the quiz</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/attempted&quot;</span><span class="p">,</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attempted&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c1">// 5. Learner gets the score recorded</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/scored&quot;</span><span class="p">,</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scored&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scaled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="c1">// 6. Learner passes the quiz</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/passed&quot;</span><span class="p">,</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics/quiz&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1">// 7. Learner finishes the chapter</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/completed&quot;</span><span class="p">,</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">            </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/chapters/quadratics&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>That single learner's chapter generated seven statements with six different verbs. A second learner who failed the quiz would emit the same first five statements, then <code>failed</code> instead of <code>passed</code>, and possibly never emit <code>completed</code>. The patterns are starting to look obvious — and that's exactly the point. Once you know the canonical verbs, reading these sequences becomes second nature.</p>
+<h4 id="diagram-canonical-verb-explorer">Diagram: Canonical Verb Explorer<a class="headerlink" href="#diagram-canonical-verb-explorer" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Canonical Verb Explorer</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> canonical-verb-explorer<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Remembering / Understanding):</strong> Recall the twelve canonical ADL verbs used in intelligent textbooks and explain when each is appropriate.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart, LR direction, with click handlers on every verb node.</p>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Four colored cluster nodes labeled "Content Consumption," "Assessment," "Progress," "Session Lifecycle"</li>
+<li>Each cluster fans out to its member verbs:<ul>
+<li>Content Consumption → <code>experienced</code>, <code>interacted</code></li>
+<li>Assessment → <code>attempted</code>, <code>passed</code>, <code>failed</code>, <code>scored</code></li>
+<li>Progress → <code>progressed</code>, <code>completed</code></li>
+<li>Session Lifecycle → <code>launched</code>, <code>initialized</code>, <code>terminated</code>, <code>abandoned</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard (<code>nodeSpacing: 12</code>, <code>rankSpacing: 60</code>, <code>padding: 4</code>, <code>useMaxWidth: true</code>, <code>securityLevel: 'loose'</code>).</p>
+<p><strong>Click behavior:</strong> Each verb node opens a side-panel infobox showing the full IRI, a one-line definition, a one-line "when to emit" rule, and a complete example statement using that verb.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel pulls content from a <code>data.json</code> keyed by verb local name; pre-populating that JSON from the project glossary is recommended.</p>
+</details>
+<h2 id="when-to-design-a-custom-verb">When to Design a Custom Verb<a class="headerlink" href="#when-to-design-a-custom-verb" title="Permanent link">&para;</a></h2>
+<p>Custom verbs exist for the cases the canonical registry doesn't cover. Some textbooks genuinely need them — a physics simulation might want a <code>calibrated</code> verb that no canonical equivalent really captures. Most textbooks don't.</p>
+<p>Before you design a custom verb, run through this filter:</p>
+<ol>
+<li><strong>Is there an ADL verb that's "close enough"?</strong> "Close enough" usually wins. <code>interacted</code> plus a result extension that captures the <em>kind</em> of interaction is almost always better than inventing <code>clicked-on-thing-1</code>.</li>
+<li><strong>Will another team's dashboard need to query this?</strong> If yes, custom verbs raise the cost. Cross-team analytics requires shared vocabulary.</li>
+<li><strong>Will this verb still make sense in two years?</strong> Verbs designed around the implementation details of a specific UI don't age well. Verbs designed around the <em>learner's intent</em> age fine.</li>
+<li><strong>Could this be expressed by combining a canonical verb with an extension?</strong> A canonical verb plus an extension is almost always more interoperable than a brand-new verb.</li>
+</ol>
+<p>If you've answered "no, no, yes, no" — you have a case for a custom verb. Otherwise, lean on the canonical set.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Common Pitfall — Verb Sprawl</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a tentacle in caution">
+The single most common verb-vocabulary mistake is letting every developer mint verbs ad-hoc. Within a year you'll have <code>clicked</code>, <code>clicked-on</code>, <code>pressed</code>, <code>pressed-button</code>, and <code>tapped</code> — five verbs for one event, and dashboards that have to OR them all together. Pick a verb steward on day one. Make verb additions a pull request, not a personal decision.</p>
+</div>
+<h2 id="custom-verb-profiles-doing-it-right">Custom Verb Profiles — Doing It Right<a class="headerlink" href="#custom-verb-profiles-doing-it-right" title="Permanent link">&para;</a></h2>
+<p>A <strong>custom verb profile</strong> is a documented set of custom verbs (and often custom activity types and extensions) that a project has formally adopted. The profile lives at a stable URL inside a namespace the project owns, contains both human-readable definitions and machine-readable metadata, and is referenced from statements via the <code>category</code> context activity bucket (Chapter 3) so that consumers can detect which profile a statement was authored under.</p>
+<p>A minimal profile is a JSON-LD document at a stable URL. Here's a stripped-down example for a fictional <code>calibrated</code> verb that an interactive physics textbook might define:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://w3id.org/xapi/profiles/context&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://textbook.example.org/profiles/physics-v1&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Profile&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;prefLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interactive Physics Textbook Profile v1&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Custom verbs for instrumented physics simulations.&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;concepts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://textbook.example.org/xapi/verbs/calibrated&quot;</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verb&quot;</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&quot;prefLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calibrated&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Indicates the learner adjusted simulation parameters to match a target reading or condition before running the simulation.&quot;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">}]</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The fields worth understanding before you write your own:</p>
+<ul>
+<li><strong><code>@context</code></strong> — the JSON-LD context that tells consumers how to interpret the rest of the document. Use the canonical xAPI Profiles context shown above; don't invent your own.</li>
+<li><strong><code>id</code></strong> — the profile's IRI. Use a namespace you control. Versioning the path (<code>/profiles/physics-v1</code>) is the right move; you'll want a v2 someday.</li>
+<li><strong><code>concepts</code></strong> — the array of verbs (and activity types and extensions) the profile defines. Each entry has its own IRI, type, label, and definition.</li>
+</ul>
+<p>A profile is a contract. Once a verb is in a published profile, treat it as if you can never change its meaning — you can only deprecate it and add a successor. That discipline is what makes profiles useful for multi-team analytics.</p>
+<h2 id="verb-vocabulary-design-putting-it-together">Verb Vocabulary Design — Putting It Together<a class="headerlink" href="#verb-vocabulary-design-putting-it-together" title="Permanent link">&para;</a></h2>
+<p><strong>Verb vocabulary design</strong> is the engineering discipline of choosing, documenting, and governing the verbs your textbook will emit. It's a small but high-leverage piece of the implementation. Done well, it costs you a half-day at the start of the project and saves months of dashboard rework. Done poorly, it produces an LRS full of statements nobody can confidently aggregate.</p>
+<p>A reasonable vocabulary-design process for a new intelligent textbook:</p>
+<ol>
+<li><strong>Inventory the events.</strong> List every learner interaction the textbook will emit a statement for: page reads, MicroSim manipulations, quiz attempts, video plays, hint requests, navigation jumps, and so on.</li>
+<li><strong>Map each event to a canonical verb.</strong> Use the ADL verb that best fits. Note where the fit is strained.</li>
+<li><strong>Identify the gaps.</strong> For events with no good canonical match, decide whether an extension on a canonical verb solves the problem.</li>
+<li><strong>Mint custom verbs only for genuine gaps.</strong> For each, document: IRI, definition, when to emit, when <em>not</em> to emit, an example statement.</li>
+<li><strong>Publish the profile.</strong> A real URL, a real version, a real changelog.</li>
+<li><strong>Wire it into code review.</strong> New emit sites that don't use a vocabulary verb are blocked at PR time.</li>
+</ol>
+<p>Before we look at the decision-tree diagram, here's the design principle in one sentence: <em>every emit site should be able to point at the documented verb it uses and the project profile that vouches for it</em>. If a developer has to invent a verb to ship a feature, the feature waits for a vocabulary update.</p>
+<h4 id="diagram-verb-selection-decision-tree">Diagram: Verb Selection Decision Tree<a class="headerlink" href="#diagram-verb-selection-decision-tree" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Verb Selection Decision Tree</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> verb-selection-decision-tree<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Evaluating):</strong> Apply a structured decision process to choose between an ADL verb, a canonical verb plus extension, or a custom verb for any new emit site.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.</p>
+<p><strong>Decision flow:</strong></p>
+<ol>
+<li>Start: "New event to emit"</li>
+<li>Diamond: "Is there an ADL verb that fits?" → Yes → "Use ADL verb (done)" / No → next</li>
+<li>Diamond: "Is there an ADL verb that fits with an extension?" → Yes → "Use ADL verb + extension (preferred)" / No → next</li>
+<li>Diamond: "Will the cost of a custom verb (governance, profile, training) be lower than the cost of forcing an ADL fit?" → No → "Force the ADL fit, document the strain" / Yes → next</li>
+<li>Diamond: "Is the verb already in the project profile?" → Yes → "Use existing custom verb" / No → "Open a profile-update PR (custom verb requires steward review)"</li>
+</ol>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code> for click handlers.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox with a brief explanation and one or two real-world examples for that decision branch.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives bound to a side panel.</p>
+</details>
+<h2 id="interactive-component-instrumentation">Interactive Component Instrumentation<a class="headerlink" href="#interactive-component-instrumentation" title="Permanent link">&para;</a></h2>
+<p><strong>Interactive component instrumentation</strong> is the practice of wiring xAPI emit calls into the interactive elements of an intelligent textbook — MicroSims, quizzes, branching activities, video players, drag-and-drop exercises, and anything else that produces an event when the learner touches it. The verbs from this chapter are the vocabulary you'll use; the instrumentation is where they meet code.</p>
+<p>The pattern, at the level of a single interactive element, is small and repeatable:</p>
+<ol>
+<li>The component identifies the kind of event (interaction, attempt, completion).</li>
+<li>The component looks up the project-approved verb for that event kind.</li>
+<li>The component constructs a statement using the project's pattern for that verb (Chapter 3).</li>
+<li>The component hands the statement to a shared client library that handles batching, retry, and authentication (Chapters 7–9).</li>
+</ol>
+<p>The component itself stays narrow. It knows what just happened in the UI and which verb describes it. Everything else — the activity IRI, the parent context, the actor identity — comes from the surrounding page context and the shared client library. This separation matters because it keeps the verb-vocabulary decisions concentrated in a few well-reviewed files instead of scattered across hundreds of components.</p>
+<p>Here's a minimal JavaScript handler for a MicroSim slider that emits an <code>interacted</code> statement when the learner stops adjusting (debounced) — the kind of code that ends up running in dozens of places once the textbook is mature. Note the imported helpers: <code>getCurrentLearner</code> and <code>xapiClient</code> are project-wide singletons defined elsewhere; <code>buildInteractedStatement</code> is a builder that implements the project's pattern.</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../identity.js&quot;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">xapiClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../xapi/client.js&quot;</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../xapi/patterns.js&quot;</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">let</span><span class="w"> </span><span class="nx">debounce</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nx">slider</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">debounce</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nx">debounce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="p">({</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nx">learner</span><span class="o">:</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="p">(),</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://textbook.example.org/microsims/parabola-grapher&quot;</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nx">extension</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="s2">&quot;https://textbook.example.org/extensions/v1/slider-value&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">slider</span><span class="p">.</span><span class="nx">value</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">stmt</span><span class="p">);</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">250</span><span class="p">);</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>The component knows three things: which slider, what the new value is, and that an interaction happened. It does not know the learner's identity, the LRS endpoint, the authentication header, or how to retry on failure. Those concerns live elsewhere. That's the point.</p>
+<h4 id="diagram-component-instrumentation-microsim">Diagram: Component Instrumentation MicroSim<a class="headerlink" href="#diagram-component-instrumentation-microsim" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Component Instrumentation MicroSim</summary>
+<p>Type: micro-sim
+<strong>sim-id:</strong> component-instrumentation-microsim<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Applying):</strong> Manipulate a fake interactive textbook component (slider, button, quiz item) and observe the resulting xAPI statements appear in a side panel — building intuition for which verbs map to which UI events.</p>
+<p><strong>Layout:</strong> 2/3 (left) interactive textbook component + 1/3 (right) live statement log, responsive.</p>
+<p><strong>Visual elements (left panel):</strong></p>
+<ul>
+<li>A slider labeled "Parabola coefficient <code>a</code>" that updates a small parabola plot</li>
+<li>A button labeled "Run Simulation"</li>
+<li>A quiz radio-group with three options</li>
+<li>A button labeled "Submit Quiz"</li>
+</ul>
+<p><strong>Visual elements (right panel):</strong></p>
+<ul>
+<li>A scrolling log of the most recent ten statements emitted by the component</li>
+<li>Each entry shows verb (highlighted), object IRI (truncated), and timestamp</li>
+<li>Click an entry to expand the full statement JSON</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>Sliding the parabola control emits debounced <code>interacted</code> statements (250ms)</li>
+<li>Clicking "Run Simulation" emits an <code>experienced</code> statement</li>
+<li>Selecting a radio option emits no statement (component-internal state)</li>
+<li>Clicking "Submit Quiz" emits <code>attempted</code>, then <code>scored</code>, then either <code>passed</code> or <code>failed</code> based on the selected radio</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×550px, responsive.</p>
+<p>Implementation: p5.js for the parabola plot and the slider/button visuals; HTML radio inputs and statement log overlay.</p>
+</details>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 5.</p>
+<ul>
+<li>You can read a verb IRI and identify its scheme, namespace, and local name.</li>
+<li>You know the twelve canonical ADL verbs an intelligent textbook will use most often, and you can match each to the kind of event it describes.</li>
+<li>You can spot a tincan verb in legacy data and explain why a new deployment shouldn't emit them.</li>
+<li>You can apply the verb-selection decision tree to a new event and justify your choice.</li>
+<li>You can describe what a custom verb profile contains and why publishing one matters.</li>
+<li>You can outline a vocabulary-design process for a new textbook from inventory through code-review enforcement.</li>
+<li>You can sketch the wiring between a UI component and the shared xAPI client library.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Words, Chosen Carefully</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating the right word choice">
+Verbs are how learning shows up in your data. The team that picks them carefully gets dashboards that mean something. The team that doesn't ends up rebuilding their analytics layer in year two. You are now in the first camp. Chapter 5 turns to the <em>other</em> part of the statement subject — the actor — and the deceptively deep question of how you identify a learner across devices, sessions, and years without leaking who they are.</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1133,10 +2066,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

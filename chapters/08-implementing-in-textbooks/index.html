@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+        <meta name="description" content="A hands-on tour of building the JavaScript/TypeScript client library that ships with an MkDocs-based intelligent textbook — covering statement construction, retry-with-backoff, error handling, client-side vs. server-side emission, MicroSim and quiz instrumentation, and mobile-web compatibility.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -21,19 +21,22 @@
         <link rel="next" href="../09-bandwidth-and-offline/">
       
       
+        
+      
+      
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>8. Implementing in Textbooks - xAPI for Intelligent Textbooks</title>
+        <title>Implementing xAPI in Intelligent Textbooks - xAPI for Intelligent Textbooks</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              8. Implementing in Textbooks
+              Implementing xAPI in Intelligent Textbooks
             
           </span>
         </div>
@@ -127,11 +129,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -170,13 +174,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -221,7 +226,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -241,9 +246,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -261,9 +273,16 @@
       <a href="../../about/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -281,9 +300,16 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Course Description
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,61 +333,34 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
+    
     
     
     
@@ -374,14 +373,20 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
+    
+  
     Chapters
+  
+
+    
   </span>
+  
   
 
             </a>
@@ -396,7 +401,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapters
+            
+  
+    Chapters
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -412,9 +421,16 @@
       <a href="../01-foundations-and-standards/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     1. Foundations and Standards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -433,9 +449,16 @@
       <a href="../02-statement-model/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     2. Statement Model
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -454,9 +477,16 @@
       <a href="../03-advanced-statement-structure/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3. Advanced Statement Structure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -475,9 +505,16 @@
       <a href="../04-verb-vocabulary-design/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     4. Verb Vocabulary Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -496,9 +533,16 @@
       <a href="../05-activities-agents-identity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     5. Activities, Agents, Identity
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -517,9 +561,16 @@
       <a href="../06-lrs-architecture/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     6. LRS Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -538,9 +589,16 @@
       <a href="../07-lrs-platforms-and-auth/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     7. LRS Platforms and Auth
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -568,9 +626,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -579,9 +644,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     8. Implementing in Textbooks
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -604,7 +676,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -613,7 +687,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -622,7 +698,176 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-level-3-intelligent-textbook-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Level 3 Intelligent Textbook Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a Level 3 Intelligent Textbook Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-intelligent-textbook-xapi-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Intelligent Textbook xAPI Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-xapi-client-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Client Library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-side-vs-server-side-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client-Side vs. Server-Side Emission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client-Side vs. Server-Side Emission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-emit-path-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Emit-Path Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-with-backoff-and-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry-With-Backoff and Error Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retry-With-Backoff and Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-retry-with-backoff-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Retry-With-Backoff State Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-instrumentation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Instrumentation Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Instrumentation Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-component-instrumentation-pattern-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Component Instrumentation Pattern Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-web-responsive-browser-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Web, Responsive, Browser Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-server-log-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Server Log Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -647,9 +892,16 @@
       <a href="../09-bandwidth-and-offline/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     9. Bandwidth and Offline
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -668,9 +920,16 @@
       <a href="../10-monitoring-and-observability/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     10. Monitoring and Observability
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -689,9 +948,16 @@
       <a href="../11-synthetic-data-and-ai-testing/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     11. Synthetic Data and AI Testing
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -710,9 +976,16 @@
       <a href="../12-conformance-and-comparison/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     12. Conformance and Comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -731,9 +1004,16 @@
       <a href="../13-pipeline-and-production/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     13. Pipeline and Production
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -752,9 +1032,16 @@
       <a href="../14-privacy-and-compliance/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     14. Privacy and Compliance
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -790,6 +1077,7 @@
     
     
     
+    
       
         
         
@@ -800,12 +1088,20 @@
         
   
   
+  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     Learning Graph
+  
+
+    
   </span>
+  
   
 
       
@@ -833,13 +1129,10 @@
         
       
         
-          
-        
       
         
-          
-        
       
+    
     
     
     
@@ -853,12 +1146,20 @@
         
   
   
+  
     <a href="../../sims/" class="md-nav__link">
       
   
+  
   <span class="md-ellipsis">
+    
+  
     MicroSims
+  
+
+    
   </span>
+  
   
 
       
@@ -882,9 +1183,16 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Glossary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -902,9 +1210,16 @@
       <a href="../../license/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     License
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -922,9 +1237,16 @@
       <a href="../../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -961,7 +1283,9 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -970,7 +1294,9 @@
         <li class="md-nav__item">
   <a href="#concepts-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts Covered
+      
+        Concepts Covered
+      
     </span>
   </a>
   
@@ -979,7 +1305,176 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-new-superpower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your New Superpower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-level-3-intelligent-textbook-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Level 3 Intelligent Textbook Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a Level 3 Intelligent Textbook Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-intelligent-textbook-xapi-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Intelligent Textbook xAPI Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-xapi-client-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Client Library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-side-vs-server-side-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client-Side vs. Server-Side Emission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client-Side vs. Server-Side Emission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-emit-path-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Emit-Path Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-with-backoff-and-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry-With-Backoff and Error Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retry-With-Backoff and Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-retry-with-backoff-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Retry-With-Backoff State Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-instrumentation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Instrumentation Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Instrumentation Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-component-instrumentation-pattern-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Component Instrumentation Pattern Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-web-responsive-browser-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Web, Responsive, Browser Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrs-server-log-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LRS Server Log Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-just-leveled-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Leveled Up
+      
     </span>
   </a>
   
@@ -995,12 +1490,62 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
+
   
-    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/08-implementing-in-textbooks/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/08-implementing-in-textbooks/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1049,13 +1594,344 @@
 <li><a href="../06-lrs-architecture/">Chapter 6: Learning Record Store Architecture and Query Endpoints</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to the Code Chapter</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus opening a laptop">
+Seven chapters of theory. One chapter of code. This is where the conceptual architecture stops being a diagram and starts being TypeScript that runs in your textbook. We'll build a real client library, wire it into MicroSims and quizzes, handle the failure modes, and ship something that survives a flaky network. By the end of this chapter you'll have working mental models for every line of an xAPI emit path.</p>
+</div>
+<h2 id="your-new-superpower">Your New Superpower<a class="headerlink" href="#your-new-superpower" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you'll be able to <strong>build a production-grade xAPI client library, instrument any kind of interactive textbook component with it, and reason about every failure mode in the emit path</strong>. That's what separates a textbook that "has xAPI" on the feature list from one whose data team trusts the data. You'll know what happens when the network drops mid-batch. You'll know what 4xx versus 5xx means, and which to retry. You'll know why some of the cleverest emit code is the most fragile.</p>
+<p>You'll also pick up a quieter skill: knowing when <em>not</em> to emit. The best instrumented textbooks are precise, not exhaustive. Emitting a statement on every mouse move is the wrong answer; emitting one on every meaningful learning event is the right one.</p>
+<h2 id="what-a-level-3-intelligent-textbook-is">What a Level 3 Intelligent Textbook Is<a class="headerlink" href="#what-a-level-3-intelligent-textbook-is" title="Permanent link">&para;</a></h2>
+<p>A <strong>Level 3 intelligent textbook</strong> is, in the framing this book uses, a textbook with three properties: it renders as web content (HTML, CSS, JavaScript); it contains genuinely interactive elements that respond to learner input (MicroSims, quizzes, adaptive branching, simulations); and it captures behavioral signals from those interactions through structured instrumentation. xAPI is the standard instrumentation layer for Level 3 textbooks. Levels 1 and 2 are static and non-instrumented respectively; Level 3 is the level where the book becomes a sensor.</p>
+<p>The project this course centers on is built on <strong>MkDocs Material</strong>, a static-site generator that turns markdown files into a structured website. MkDocs handles content rendering and site navigation; the interactive layer (MicroSims, quizzes, xAPI emission) is custom JavaScript that loads alongside the rendered pages. This is the <strong>MkDocs intelligent textbook</strong> pattern: markdown for content, JavaScript for behavior, xAPI for telemetry.</p>
+<p>A <strong>MicroSim (p5.js)</strong> is a small, self-contained interactive simulation rendered with p5.js — the JavaScript port of the Processing visual-coding language. MicroSims show up throughout this textbook in <code>&lt;details&gt;</code> blocks; in your own deployment they'd live in iframes or shadow DOM components. Each MicroSim is a candidate emit site: when a learner manipulates it, an xAPI statement should fire.</p>
+<p>The architecture of the whole stack:</p>
+<ul>
+<li><strong>Markdown content</strong> — chapter prose, rendered by MkDocs</li>
+<li><strong>MicroSims and quizzes</strong> — interactive components, loaded as iframes or modules</li>
+<li><strong>The xAPI client library</strong> — a single shared module that handles statement construction, batching, retry, and authentication</li>
+<li><strong>The LRS</strong> — your chosen platform from Chapter 7</li>
+</ul>
+<h4 id="diagram-intelligent-textbook-xapi-architecture">Diagram: Intelligent Textbook xAPI Architecture<a class="headerlink" href="#diagram-intelligent-textbook-xapi-architecture" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Intelligent Textbook xAPI Architecture</summary>
+<p>Type: clickable-mermaid
+<strong>sim-id:</strong> intelligent-textbook-xapi-architecture<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Understanding):</strong> Identify each layer of an xAPI-instrumented intelligent textbook and trace how a learner's interaction propagates from a MicroSim through the client library to the LRS.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart (TD direction). Click handlers on every node.</p>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>Top layer: <code>Markdown content (MkDocs Material)</code></li>
+<li>Component layer (three nodes side by side): <code>MicroSim</code>, <code>Quiz</code>, <code>Adaptive Branching</code></li>
+<li>Each component layer node arrows down to: <code>xAPI Client Library</code> (single node)</li>
+<li>Client library arrows to: <code>Statement Builder</code>, <code>Batch Buffer</code>, <code>Retry Manager</code>, <code>Auth Header Manager</code> (four parallel nodes)</li>
+<li>All four arrow into: <code>Fetch API → LRS HTTP API</code></li>
+<li>Final node: <code>LRS Storage</code></li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox describing the component's responsibility, the chapter section that covers it, and a one-line code reference.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with click directives.</p>
+</details>
+<h2 id="the-xapi-client-library">The xAPI Client Library<a class="headerlink" href="#the-xapi-client-library" title="Permanent link">&para;</a></h2>
+<p>A <strong>JavaScript xAPI client library</strong> is the single shared module that every emit site in your textbook calls into. It exists because the alternative — letting every component construct, authenticate, and POST its own statements — produces wildly inconsistent emissions, scattered duplication, and a maintenance nightmare. <strong>xAPI client library design</strong> boils down to one rule: every emit site says <em>what happened</em>, the library handles <em>how to send it</em>.</p>
+<p>Good library design separates these four responsibilities:</p>
+<ol>
+<li><strong>Statement construction</strong> — building a conformant statement object from per-event inputs (verb, activity, learner, optional result/context/extensions)</li>
+<li><strong>Authentication</strong> — attaching the right <code>Authorization</code> header without exposing credentials to component code</li>
+<li><strong>Batching and delivery</strong> — buffering statements briefly, POSTing in batches, retrying on failure (Chapter 9)</li>
+<li><strong>Error handling</strong> — distinguishing recoverable from unrecoverable errors and surfacing the right signal to operators</li>
+</ol>
+<p>Here's the public surface of a small but production-shaped client library written in TypeScript. <strong>TypeScript type definitions</strong> matter here because the xAPI statement schema is rich enough that typos and shape errors are easy to produce; types catch most of them at compile time.</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// xapi/types.ts — statement shape and supporting types</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Iri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Agent</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nx">objectType</span><span class="o">?:</span><span class="w"> </span><span class="s2">&quot;Agent&quot;</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">account</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">;</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nx">name?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Verb</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">;</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Activity</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nx">objectType</span><span class="o">?:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nx">definition</span><span class="o">?:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nx">name?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="kr">type</span><span class="nx">?</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nx">revision?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Statement</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nx">id?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="kt">Agent</span><span class="p">;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="kt">Verb</span><span class="p">;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">  </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">Activity</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Statement</span><span class="p">;</span><span class="w">     </span><span class="c1">// SubStatement support</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nx">result?</span><span class="o">:</span><span class="w"> </span><span class="kt">Result</span><span class="p">;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">  </span><span class="nx">context?</span><span class="o">:</span><span class="w"> </span><span class="kt">Context</span><span class="p">;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="nx">timestamp?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">XapiClient</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">  </span><span class="nx">send</span><span class="p">(</span><span class="nx">statement</span><span class="o">:</span><span class="w"> </span><span class="kt">Statement</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">  </span><span class="nx">flush</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The client surface is two methods: <code>send</code> (queue a statement for delivery) and <code>flush</code> (force any buffered statements to be sent immediately, used at page-unload time). Components don't see the LRS URL, the auth token, or the retry logic. Those concerns are entirely the library's.</p>
+<p><strong>Statement construction</strong> is implemented as small builder functions, one per recurring pattern (Chapter 3). The library's job is to fill in the pieces every statement needs (<code>actor</code>, <code>timestamp</code>, <code>version</code>, <code>platform</code>) so emit sites only specify what's specific to the event:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// xapi/builders.ts</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="p">(</span><span class="nx">opts</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">learner</span><span class="o">:</span><span class="w"> </span><span class="kt">Agent</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nx">registration?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">extension?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="nx">Iri</span><span class="p">,</span><span class="w"> </span><span class="nx">unknown</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">})</span><span class="o">:</span><span class="w"> </span><span class="nx">Statement</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="kt">opts.learner</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/interacted&quot;</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;interacted&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">objectType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">opts.activityIri</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nx">platform</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Intelligent Textbook (web)&quot;</span><span class="p">,</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="nx">registration</span><span class="o">:</span><span class="w"> </span><span class="kt">opts.registration</span><span class="p">,</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">      </span><span class="p">...(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">extension</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="kt">opts.extension</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The builder is small, focused, and the only path through which an <code>interacted</code> statement gets created. If the verb IRI ever changes or the platform name needs updating, you change it once.</p>
+<p><strong>JSON serialization</strong> of a statement is <code>JSON.stringify</code> — simple enough that you barely think about it. The two gotchas: ISO 8601 timestamps must end in <code>Z</code> (UTC), not a numeric offset, for maximum LRS compatibility; and the <code>extensions</code> value can contain anything serializable but should not contain circular references (the serializer will throw). Always test extension payloads with <code>JSON.stringify</code> round-trip in unit tests; it catches non-serializable values before they reach production.</p>
+<p>The <strong>Fetch API (HTTP)</strong> is the underlying transport. Modern browsers all support it; older ones (pre-Edge, IE11) need polyfills (covered later in this chapter). The Fetch shape used by the library:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">postBatch</span><span class="p">(</span><span class="nx">batch</span><span class="o">:</span><span class="w"> </span><span class="kt">Statement</span><span class="p">[],</span><span class="w"> </span><span class="nx">cfg</span><span class="o">:</span><span class="w"> </span><span class="kt">ClientConfig</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Response</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">cfg</span><span class="p">.</span><span class="nx">endpoint</span><span class="si">}</span><span class="sb">statements`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="s2">&quot;X-Experience-API-Version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="s2">&quot;Authorization&quot;</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">cfg</span><span class="p">.</span><span class="nx">authToken</span><span class="si">}</span><span class="sb">`</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">JSON.stringify</span><span class="p">(</span><span class="nx">batch</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Three details matter. The <code>X-Experience-API-Version</code> header is required (Chapter 6); forgetting it produces an unhelpful 400. The auth token comes from configuration that was loaded from environment variables (Chapter 7), never hardcoded. And the body is a JSON array — the LRS will store the batch atomically (Chapter 6).</p>
+<h2 id="client-side-vs-server-side-emission">Client-Side vs. Server-Side Emission<a class="headerlink" href="#client-side-vs-server-side-emission" title="Permanent link">&para;</a></h2>
+<p><strong>Client-side xAPI emission</strong> sends statements directly from the learner's browser to the LRS. <strong>Server-side xAPI emission</strong> sends them from your application's backend, which has received some signal from the browser. Most production deployments use a mix.</p>
+<p>Client-side is the obvious default for high-frequency events: MicroSim manipulations, page navigations, hint requests. The browser observes the event, constructs the statement, sends it. No backend round-trip, no latency tax. The trade-off is <strong>statement authenticity</strong> — anyone with developer tools can construct and send statements as if they were the learner. Client-side emission is fine for analytics and personalization, but should not be the source of truth for grades, certifications, or anything with high-stakes consequences.</p>
+<p>Server-side emission is where the high-stakes events go. The browser tells your backend "the learner submitted answer X to question Y"; the backend grades the submission, decides whether the learner passed, and emits the authoritative statement (with the backend's credential). The browser cannot forge a server-side statement because the browser doesn't have the backend's credential. The trade-off is round-trip latency and the operational cost of running a backend grading service.</p>
+<p>The pattern most textbooks settle into: client-side emission for everything except graded-assessment outcomes; server-side emission for the <code>passed</code>/<code>failed</code>/<code>scored</code> statements that tie to grades. The browser may still emit a client-side <code>attempted</code> statement for the dashboard to show progress, but the <em>outcome</em> statements come from the backend.</p>
+<h4 id="diagram-emit-path-topology">Diagram: Emit-Path Topology<a class="headerlink" href="#diagram-emit-path-topology" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Emit-Path Topology</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> emit-path-topology<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Compare client-side, server-side, and hybrid emission topologies and identify which events belong on which path for a given deployment.</p>
+<p><strong>Diagram type:</strong> Mermaid flowchart with three labeled subgraphs side by side: <code>Client-side</code>, <code>Server-side</code>, <code>Hybrid (recommended)</code>. Click handlers on every node.</p>
+<p><strong>Subgraph contents:</strong></p>
+<ul>
+<li>Client-side: <code>Browser</code> → <code>LRS</code>. Annotation: "Low latency. Forgeable. Use for analytics."</li>
+<li>Server-side: <code>Browser</code> → <code>Backend</code> → <code>LRS</code>. Annotation: "Higher latency. Authoritative. Use for grades."</li>
+<li>Hybrid: <code>Browser</code> → <code>LRS</code> (analytics path) AND <code>Browser</code> → <code>Backend</code> → <code>LRS</code> (graded path). Annotation: "Mix and match. Production default."</li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each node opens a side-panel infobox with examples of statements that flow through that path and the security implications.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with three subgraphs and click directives.</p>
+</details>
+<h2 id="retry-with-backoff-and-error-handling">Retry-With-Backoff and Error Handling<a class="headerlink" href="#retry-with-backoff-and-error-handling" title="Permanent link">&para;</a></h2>
+<p>Networks fail. LRSs hiccup. Tokens expire mid-flight. A robust client library handles all three without losing statements. The standard pattern is the <strong>retry-with-backoff pattern</strong>: when a delivery fails, wait, retry, double the wait, retry again, eventually give up and surface the failure.</p>
+<p>Before the implementation, the rule for <em>what</em> to retry. <strong>xAPI error handling</strong> distinguishes two error categories:</p>
+<ul>
+<li><strong>4xx error patterns (LRS)</strong> — client error. The request was malformed, unauthenticated, or otherwise wrong. Retrying with the same payload will fail the same way. Most 4xx errors are unrecoverable from the client's perspective: 400 (bad statement), 401 (bad credentials), 409 (duplicate UUID), 412 (failed precondition). Surface them, log them, do not retry.</li>
+<li><strong>5xx error patterns (LRS)</strong> — server error. The LRS had a bad day. The same payload may succeed five seconds from now. Retry with backoff. Common cases: 500 (internal server error), 502 (bad gateway, often during deploys), 503 (overloaded), 504 (timeout downstream).</li>
+</ul>
+<p>Network-level failures (request never completed) are treated like 5xx — retry with backoff.</p>
+<p>The implementation:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">sendWithRetry</span><span class="p">(</span><span class="nx">batch</span><span class="o">:</span><span class="w"> </span><span class="kt">Statement</span><span class="p">[],</span><span class="w"> </span><span class="nx">cfg</span><span class="o">:</span><span class="w"> </span><span class="kt">ClientConfig</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">attempt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">attempt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">cfg</span><span class="p">.</span><span class="nx">retryAttempts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">postBatch</span><span class="p">(</span><span class="nx">batch</span><span class="p">,</span><span class="w"> </span><span class="nx">cfg</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w">                      </span><span class="c1">// 2xx — done</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">400</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">500</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">XapiClientError</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="c1">// 5xx — fall through to retry</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">XapiClientError</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="nx">e</span><span class="p">;</span><span class="w">   </span><span class="c1">// 4xx — don&#39;t retry</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="c1">// network error — fall through to retry</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mf">2</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="nx">attempt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="mf">30000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">delay</span><span class="p">));</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nx">attempt</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">XapiDeliveryFailure</span><span class="p">(</span><span class="nx">batch</span><span class="p">);</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The math: attempt 0 waits ~1s, attempt 1 waits ~2s, attempt 2 ~4s, capped at 30s. The random jitter prevents many clients from retrying in lockstep after a global outage — the <strong>thundering herd problem</strong>. After <code>retryAttempts</code> (typically 5), the batch is escalated to the offline queue (Chapter 9) for delivery later, and an error is logged.</p>
+<h4 id="diagram-retry-with-backoff-state-machine">Diagram: Retry-With-Backoff State Machine<a class="headerlink" href="#diagram-retry-with-backoff-state-machine" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Retry-With-Backoff State Machine</summary>
+<p>Type: workflow-diagram
+<strong>sim-id:</strong> retry-with-backoff-state-machine<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Analyzing):</strong> Trace the state transitions of a statement batch through the retry-with-backoff pipeline and identify which response codes lead to which outcomes.</p>
+<p><strong>Diagram type:</strong> Mermaid stateDiagram-v2 (or flowchart equivalent if state diagrams don't support click handlers). Click handlers on every node.</p>
+<p><strong>States:</strong></p>
+<ol>
+<li><code>Buffering</code> — statement appended to in-memory batch</li>
+<li><code>Sending</code> — POST in flight</li>
+<li><code>Success (2xx)</code> — terminal success state</li>
+<li><code>Client Error (4xx)</code> — terminal failure state, surfaces error</li>
+<li><code>Backoff</code> — scheduled retry after exponential delay</li>
+<li><code>Offline Queue</code> — terminal handoff state after max retries</li>
+</ol>
+<p><strong>Transitions:</strong></p>
+<ul>
+<li>Buffering → Sending (on flush or batch full)</li>
+<li>Sending → Success (2xx)</li>
+<li>Sending → Client Error (4xx)</li>
+<li>Sending → Backoff (5xx or network error)</li>
+<li>Backoff → Sending (on timer)</li>
+<li>Backoff → Offline Queue (after max retries)</li>
+</ul>
+<p><strong>Mermaid config:</strong> project standard with <code>securityLevel: 'loose'</code>.</p>
+<p><strong>Click behavior:</strong> Each state opens a side-panel infobox describing what happens in that state and the typical duration the state lasts.</p>
+<p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
+<p>Implementation: Mermaid flowchart with state-like nodes and click directives.</p>
+</details>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Common Pitfall — Retrying 4xx Errors</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi cautioning against bad retries">
+Retrying a 4xx error in a tight loop is the most common way to accidentally DDOS your own LRS. A learner with a malformed extension keeps emitting the same broken statement, the client retries it 100 times a minute, the LRS rejects it 100 times a minute, and your alerts go off. Treat 4xx as terminal at the client layer. Surface the error, drop the batch, and move on.</p>
+</div>
+<h2 id="component-instrumentation-patterns">Component Instrumentation Patterns<a class="headerlink" href="#component-instrumentation-patterns" title="Permanent link">&para;</a></h2>
+<p>The shape of instrumentation is consistent across component types. Three concrete examples — quiz, MicroSim, adaptive branching — share the same skeleton: identify the event, look up the verb, build the statement, hand it to the client. The differences are in <em>which</em> events each component cares about.</p>
+<p><strong>Quiz instrumentation</strong> emits a small choreographed sequence: <code>attempted</code> when the learner starts the quiz, <code>scored</code> when an answer is graded, then either <code>passed</code> or <code>failed</code> based on the score, and <code>completed</code> when the learner finishes. All four share a single <code>registration</code> UUID minted at quiz start.</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">startQuiz</span><span class="p">(</span><span class="nx">quizIri</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uuidv4</span><span class="p">();</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">buildAttemptedStatement</span><span class="p">({</span><span class="w"> </span><span class="nx">learner</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">quizIri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="p">}));</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">registration</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">submitQuiz</span><span class="p">(</span><span class="nx">quizIri</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">score</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">buildScoredStatement</span><span class="p">({</span><span class="w"> </span><span class="nx">learner</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">quizIri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="p">,</span><span class="w"> </span><span class="nx">score</span><span class="w"> </span><span class="p">}));</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.7</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">buildPassedStatement</span><span class="p">({</span><span class="w"> </span><span class="nx">learner</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">quizIri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nx">buildFailedStatement</span><span class="p">({</span><span class="w"> </span><span class="nx">learner</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">quizIri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">buildCompletedStatement</span><span class="p">({</span><span class="w"> </span><span class="nx">learner</span><span class="p">,</span><span class="w"> </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="kt">quizIri</span><span class="p">,</span><span class="w"> </span><span class="nx">registration</span><span class="w"> </span><span class="p">}));</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Simulation instrumentation</strong> emits <code>experienced</code> when the learner opens the simulation, <code>interacted</code> (debounced) for parameter changes, and optionally <code>completed</code> if the simulation defines an end condition. MicroSim instrumentation is a special case of simulation instrumentation; the same builders apply.</p>
+<p><strong>Adaptive branching instrumentation</strong> is more interesting. Adaptive content presents different paths based on learner state — and the <em>decision</em> itself is a learning signal. The pattern: emit a <code>progressed</code> statement at every branch decision, with a context extension capturing which branch was taken and why.</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">recordBranchDecision</span><span class="p">(</span><span class="nx">branchPoint</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">,</span><span class="w"> </span><span class="nx">chosenBranch</span><span class="o">:</span><span class="w"> </span><span class="kt">Iri</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="kt">learner</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/progressed&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">            </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;progressed&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">objectType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">branchPoint</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="nx">registration</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="s2">&quot;https://textbook.example.org/extensions/v1/branch-decision&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">          </span><span class="nx">chosen</span><span class="o">:</span><span class="w"> </span><span class="kt">chosenBranch</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">          </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="kt">signal</span><span class="w">     </span><span class="c1">// &quot;passed-prereq&quot;, &quot;struggled-on-A&quot;, &quot;fast-track&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The extension captures <em>why</em> the branch was taken in machine-readable form. The dashboard team can later query "show me every learner who took the fast-track branch" and get a clean answer.</p>
+<h4 id="diagram-component-instrumentation-pattern-browser">Diagram: Component Instrumentation Pattern Browser<a class="headerlink" href="#diagram-component-instrumentation-pattern-browser" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Component Instrumentation Pattern Browser</summary>
+<p>Type: micro-sim
+<strong>sim-id:</strong> component-instrumentation-pattern-browser<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective (Bloom — Applying):</strong> Browse the canonical instrumentation pattern for each component type (quiz, simulation, adaptive branching) and observe the resulting xAPI statement sequence in a side panel.</p>
+<p><strong>Layout:</strong> 2/3 (left) tabbed component preview + 1/3 (right) live statement sequence.</p>
+<p><strong>Tabs (left panel):</strong></p>
+<ul>
+<li>Quiz tab: a 3-question quiz with submit button. Submitting fires the canonical sequence (<code>attempted</code>, <code>scored</code>, <code>passed</code>/<code>failed</code>, <code>completed</code>).</li>
+<li>Simulation tab: a slider-driven simulation. Adjusting the slider fires debounced <code>interacted</code> statements; a "Run" button fires <code>experienced</code>.</li>
+<li>Adaptive Branching tab: a branch decision UI showing two paths. Clicking a path fires a <code>progressed</code> statement with a branch-decision extension.</li>
+</ul>
+<p><strong>Right panel:</strong></p>
+<ul>
+<li>Sequential list of statements emitted, each shown with verb, activity, and a one-line summary</li>
+<li>Click an entry to expand the full JSON statement</li>
+<li>Each entry is annotated with the registration UUID so learners can see attempts grouped</li>
+</ul>
+<p><strong>Default canvas:</strong> 1000×600px, responsive.</p>
+<p>Implementation: p5.js for the simulation tab; HTML for the quiz and branching tabs and the statement list.</p>
+</details>
+<h2 id="mobile-web-responsive-browser-compatibility">Mobile Web, Responsive, Browser Compatibility<a class="headerlink" href="#mobile-web-responsive-browser-compatibility" title="Permanent link">&para;</a></h2>
+<p>Intelligent textbooks are read on phones, tablets, and desktops. <strong>xAPI for Mobile Web</strong> isn't fundamentally different from desktop — same Fetch API, same statement structure — but a few details matter at small viewports and on flaky cellular networks.</p>
+<p><strong>Responsive Web xAPI</strong> mostly means: the textbook layout adapts, so should the instrumentation. Some events are page-shape-dependent (e.g., a "scrolled to end of chapter" event has different geometry on a phone). Don't tie the <em>meaning</em> of an event to a specific viewport; tie it to the learner's intent. "Reached end of chapter" is the same event on phone and desktop, even though the pixel coordinates differ.</p>
+<p><strong>Browser compatibility (xAPI)</strong> is mostly about which browsers your textbook supports. The Fetch API is supported by every browser shipped after ~2017; for older browsers you need a <strong>polyfill strategy</strong>. The two polyfills you'll likely need:</p>
+<ul>
+<li><code>whatwg-fetch</code> — Fetch API polyfill for IE11 and older Safari versions</li>
+<li><code>core-js</code> — broader ES2020+ feature polyfill, often pulled in via Babel transforms during build</li>
+</ul>
+<p>The tactical advice: don't ship polyfills to modern browsers. Use a build-time differential bundle (modern browsers get the slim bundle; older browsers get the polyfilled bundle). Most modern build tools (Vite, esbuild, Webpack with <code>@babel/preset-env</code>) handle this with a one-line config.</p>
+<p>A concrete example of a polyfill conditional in the client library entry:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s2">&quot;fetch&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">window</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s2">&quot;whatwg-fetch&quot;</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s2">&quot;structuredClone&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">window</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s2">&quot;core-js/actual/structured-clone&quot;</span><span class="p">);</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>These dynamic imports cost nothing in modern browsers (the conditional is <code>false</code>, the import never runs) and rescue the older ones.</p>
+<h2 id="lrs-server-log-analysis">LRS Server Log Analysis<a class="headerlink" href="#lrs-server-log-analysis" title="Permanent link">&para;</a></h2>
+<p>When something goes wrong in production — and something always goes wrong in production — you'll spend time in <strong>LRS server log analysis</strong>. The LRS records every request and response: timestamp, endpoint, status code, payload size, response time, and (depending on the platform) the authentication identity that made the request.</p>
+<p>The four queries you'll run most often:</p>
+<ol>
+<li><strong>By status code</strong> — what's the 4xx rate? The 5xx rate? A spike in 401 means a credential expired; a spike in 400 means a recent code change broke statement construction; a spike in 5xx means the LRS itself is unhealthy.</li>
+<li><strong>By endpoint</strong> — which endpoints are getting hit? Unexpected traffic on <code>/state</code> or <code>/agents</code> often signals a misbehaving client.</li>
+<li><strong>By identity</strong> — which client credentials are emitting? A new credential appearing without coordination usually means someone forked the code and is emitting from staging.</li>
+<li><strong>By payload size</strong> — outliers indicate batch-size misconfigurations or extension-bloat bugs.</li>
+</ol>
+<p>Most LRS platforms expose logs as either a file (TRAX, Ralph) or a structured query interface (Watershed, Learning Locker). The shape of analysis is the same: filter, aggregate, compare to baseline.</p>
+<h2 id="what-you-just-leveled-up">What You Just Leveled Up<a class="headerlink" href="#what-you-just-leveled-up" title="Permanent link">&para;</a></h2>
+<p>Walk through this checklist. Reread anything that doesn't feel solid before moving to Chapter 9.</p>
+<ul>
+<li>You can describe the four responsibilities of an xAPI client library and why each is separated.</li>
+<li>You can read the TypeScript types for a Statement and explain what <code>Agent</code>, <code>Verb</code>, and <code>Activity</code> contain.</li>
+<li>You can choose between client-side, server-side, and hybrid emission for a given event, citing statement authenticity as the deciding factor.</li>
+<li>You can implement retry-with-backoff with the right rules for 4xx vs. 5xx vs. network errors.</li>
+<li>You can sketch the instrumentation pattern for a quiz, a MicroSim, and an adaptive branch.</li>
+<li>You can describe a polyfill strategy that delivers minimal payload to modern browsers while still supporting older ones.</li>
+<li>You can list the four most useful queries against LRS server logs and what each tells you about deployment health.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">From Diagram to Working Code</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with a finished build">
+The architecture is now code. Every emit site you'll add to your textbook from here will be a small, predictable extension of patterns you just saw. Chapter 9 turns to the question that decides whether your instrumentation survives a thirty-student classroom on a flaky school network: bandwidth.</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1141,10 +2017,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
