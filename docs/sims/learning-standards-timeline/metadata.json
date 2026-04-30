@@ -1,0 +1,21 @@
+{
+  "title": "A Timeline of Learning Interoperability Standards",
+  "description": "A Timeline of Learning Interoperability Standards",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "learning-standards-timeline",
+  "library": "vis-timeline",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of xAPI and the Learning Standards Landscape",
+  "chapter_dir": "01-foundations-and-standards"
+}

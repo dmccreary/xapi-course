@@ -1,0 +1,14 @@
+{
+  "sim_id": "three-context-comparison",
+  "diagram_name": "Three-Context Comparison",
+  "chapter_number": 14,
+  "chapter_title": "Privacy, Compliance, and Organizational Context",
+  "chapter_dir": "14-privacy-and-compliance",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** three-context-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Evaluating):** Compare K-12, higher education, and corporate L&D xAPI deployment contexts across regulatory burden, deployment timeline, and analytics permissibility.\n\n**Layout:** Three vertical columns, one per context; a side panel below showing the selected context's full profile.\n\n**Each column shows:**\n\n- Context name in a header bar (K-12, Higher Ed, Corporate L&D)\n- A 4-axis radar mini-chart: regulatory burden, deployment timeline, analytics permissibility, vendor flexibility\n- Top three regulatory frameworks that apply (FERPA, COPPA, state laws / FERPA, IRB / GDPR, country labor law)\n- A one-line summary\n\n**Side panel shows:**\n\n- Full context description\n- Typical procurement path\n- Common analytics use cases\n- Common pitfalls\n\n**Interaction:**\n\n- Click a column to update the side panel\n- Toggle \"Add EU enrollees\" — overlays GDPR's additional constraints on each context\n\n**Default canvas:** 1100×600px, responsive.\n\nImplementation: p5.js for the columns, radar charts, and selection state; HTML overlay for the side panel."
+}

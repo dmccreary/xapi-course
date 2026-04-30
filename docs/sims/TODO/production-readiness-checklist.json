@@ -1,0 +1,14 @@
+{
+  "sim_id": "production-readiness-checklist",
+  "diagram_name": "Production Readiness Checklist",
+  "chapter_number": 13,
+  "chapter_title": "xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness",
+  "chapter_dir": "13-pipeline-and-production",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** production-readiness-checklist<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Evaluating):** Assess the readiness of an xAPI deployment against a structured checklist covering vocabulary, pipeline, observability, and security.\n\n**Layout:** Four columns of checkbox items grouped by category, with a status bar across the top showing overall readiness percentage.\n\n**Categories and example items:**\n\n- **Vocabulary**: Profile published; profile validation in CI; activity types documented; extension namespace versioned\n- **Pipeline**: AP integration complete; LRS chosen and provisioned; analytics layer in place; dashboard layer in place; pipeline latency under SLO\n- **Observability**: DevTools-ready; LRS logs shipped to ops stack; dashboards live; alerting configured\n- **Security**: HTTPS everywhere; tokens short-lived; PII discipline enforced; audit logs retained; re-identification flow documented\n\n**Interaction:**\n\n- Each checkbox is clickable; clicking toggles its state\n- The status bar updates in real time showing percentage complete\n- A side panel shows the selected item's detail with the chapter and section it's covered in\n- Preset buttons: \"Reset all\", \"Mark realistic alpha\", \"Mark realistic beta\", \"Mark realistic GA\"\n\n**Default canvas:** 1100×600px, responsive.\n\nImplementation: p5.js for the column layout, checkbox state, and progress bar; HTML overlay for the side panel and presets."
+}

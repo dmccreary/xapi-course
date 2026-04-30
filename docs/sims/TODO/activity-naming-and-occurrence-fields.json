@@ -1,0 +1,14 @@
+{
+  "sim_id": "activity-naming-and-occurrence-fields",
+  "diagram_name": "Activity Naming and Occurrence Fields",
+  "chapter_number": 5,
+  "chapter_title": "Activities, Agents, and Learner Identity",
+  "chapter_dir": "05-activities-agents-identity",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** activity-naming-and-occurrence-fields<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Distinguish the four fields that name an activity occurrence (`object.id`, `object.definition.type`, `context.registration`, `object.definition.revision`, `context.platform`), and identify which question each one answers.\n\n**Layout:** A single annotated JSON statement on the left (2/3) with five colored highlight boxes drawn around the relevant fields; a side panel on the right (1/3) explaining the highlighted field.\n\n**Visual elements:**\n\n- A worked statement rendered as syntax-highlighted JSON\n- Five colored highlights:\n    - Blue around `object.id` — \"Which activity?\"\n    - Green around `object.definition.type` — \"What kind of activity?\"\n    - Orange around `context.registration` — \"Which attempt?\"\n    - Purple around `object.definition.revision` — \"Which version of the activity?\"\n    - Red around `context.platform` — \"Which host environment?\"\n- Side panel updates on hover/click of any highlight, showing: the field's plain-English question, when to set it, and a one-line example value\n\n**Interaction:**\n\n- Hover or click a highlight to update the side panel\n- Toggle \"Compare two attempts\" — swaps the JSON for two side-by-side statements and emphasizes which fields differ between them (registration changes; activity IRI stays the same)\n\n**Default canvas:** 1000×500px, responsive.\n\nImplementation: p5.js for the highlight overlay and hover detection; HTML overlay for the JSON syntax highlighting and the side panel."
+}

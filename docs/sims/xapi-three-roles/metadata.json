@@ -1,0 +1,21 @@
+{
+  "title": "Activity Provider, LRS, and Activity Consumer",
+  "description": "Activity Provider, LRS, and Activity Consumer",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "xapi-three-roles",
+  "library": "Mermaid",
+  "bloomLevel": "Understand (L2). Bloom verb: describe, classify.",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "The xAPI Statement Model — Actor, Verb, Object, Result, and Context",
+  "chapter_dir": "02-statement-model"
+}

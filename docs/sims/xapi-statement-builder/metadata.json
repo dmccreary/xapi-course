@@ -1,0 +1,21 @@
+{
+  "title": "xAPI Statement Builder MicroSim",
+  "description": "Given an English description of a learning event, the reader can construct a conformant xAPI 1.0.3 statement by selecting an actor, verb, and object, and optionally adding result, context, and metadata fields. Reinforces field-level understanding through hands-on assembly. Bloom level: Apply (L3). Bloom verb: construct, implement.",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "xapi-statement-builder",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "The xAPI Statement Model — Actor, Verb, Object, Result, and Context",
+  "chapter_dir": "02-statement-model"
+}

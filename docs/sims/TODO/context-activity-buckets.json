@@ -1,0 +1,14 @@
+{
+  "sim_id": "context-activity-buckets",
+  "diagram_name": "Context Activity Buckets",
+  "chapter_number": 3,
+  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: clickable-mermaid\n**sim-id:** context-activity-buckets<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Identify the role of each context activity bucket and explain how a single statement's main object can be related to multiple activities through different bucket relationships.\n\n**Diagram type:** Mermaid flowchart, LR direction, with click handlers on every node opening an infobox containing the term's definition.\n\n**Structure:**\n\n- Center node: \"Statement Object: Quadratics Quiz\"\n- Four labeled fan-outs to:\n    - Parent: \"Algebra 1, Unit 5\" (edge label `directly contains`)\n    - Grouping: \"Formative Assessments — Q3 2026\" (edge label `is a member of`)\n    - Category: \"ACME Math Profile v2\" (edge label `conforms to`)\n    - Other: \"Pre-class warm-up flow\" (edge label `associated with`)\n\n**Mermaid config (project standard):**\n\n```js\nflowchart: {\n    useMaxWidth: true, htmlLabels: true, curve: 'basis',\n    nodeSpacing: 12, rankSpacing: 60, padding: 4\n}\n```\n\n**Click behavior:** Each node opens a side-panel infobox showing the term, its definition (drawn from the project glossary when available), and a one-line example. The center node's infobox explains the statement's main object.\n\n**Default canvas:** 2/3 width for the diagram, 1/3 for the side panel. Responsive — re-flows to stacked layout below 700px.\n\nImplementation: Mermaid with `securityLevel: 'loose'` to enable click handlers, plus a small JavaScript layer that renders the side panel from a `data.json` keyed by node id."
+}

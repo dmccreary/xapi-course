@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voiding Lifecycle Flow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Voiding Lifecycle Flow</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> voiding-lifecycle-flow</p>
+            <p><strong>Library:</strong> Mermaid</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: workflow-diagram
+    **sim-id:** voiding-lifecycle-flow<br/>
+    **Library:** Mermaid<br/>
+    **Status:** Specified
+    
+    **Learning objective (Bloom — Analyzing):** Trace the lifecycle of a statement that gets voided, identifying which records persist in the LRS and which are filtered from default queries.
+    
+    **Diagram type:** Mermaid flowchart (LR direction) representing the temporal sequence as a left-to-right pipeline. Click handlers open an infobox for every node.
+    
+    **Nodes (left to right):**
+    
+    1. `AP emits original statement` (uuid=fd41…)
+    2. `LRS stores original`
+    3. `Default /statements query — original visible`
+    4. `AP discovers error`
+    5. `AP emits voiding statement` (StatementRef → fd41…, verb=voided)
+    6. `LRS stores voiding statement and flags fd41…`
+    7. `Default /statements query — original filtered out, voiding statement visible`
+    8. `voided=true query — both visible`
+    
+    **Edges:** Solid arrows for the main flow; a dashed arrow loops from node 7 back to node 8 to indicate that operators can still inspect voided records on demand.
+    
+    **Mermaid config:** project standard (`nodeSpacing: 12`, `rankSpacing: 60`, `padding: 4`, `useMaxWidth: true`, `securityLevel: 'loose'`).
+    
+    **Click behavior:** Each node opens a side-panel infobox keyed off `data.json`. Glossary terms (`StatementRef`, `voided`, `authority`, `audit trail`) link to their full glossary definitions.
+    
+    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
+    
+    Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel is a vanilla JS component that swaps content based on the clicked node id.
+    -->
+</body>
+</html>

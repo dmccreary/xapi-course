@@ -1,0 +1,14 @@
+{
+  "sim_id": "learner-archetype-profiles",
+  "diagram_name": "Learner Archetype Profiles",
+  "chapter_number": 11,
+  "chapter_title": "Synthetic Data Generation and AI-Assisted LRS Testing",
+  "chapter_dir": "11-synthetic-data-and-ai-testing",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** learner-archetype-profiles<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Distinguish the five canonical learner archetypes by their behavioral signatures, and recognize which archetype dominates a given session pattern.\n\n**Layout:** Five horizontal cards stacked vertically (one per archetype) on the left (2/3); a side panel on the right (1/3) showing the selected archetype's full detail.\n\n**Each card shows:**\n\n- Archetype name in a header bar\n- Three small bar charts side by side: typical statement count, typical session length, typical first-try pass rate\n- A one-line summary\n- An archetype-color band (Fast: blue, Struggling: red, Disengaged: gray, Re-learner: purple, Mastery-seeker: green)\n\n**Side panel shows:**\n\n- Full description of the archetype\n- The verb-frequency profile expected from that archetype (a small bar chart of the eight ADL verbs from Chapter 4)\n- A worked example session (5–10 statements) representative of that archetype\n\n**Interaction:**\n\n- Hover or click a card to update the side panel\n- Slider at the bottom: cohort mix (five sliders summing to 100%) — adjusts the recommended cohort composition\n\n**Default canvas:** 1000×650px, responsive.\n\nImplementation: p5.js for the cards, charts, and selection state; HTML overlay for the side panel and mix sliders."
+}

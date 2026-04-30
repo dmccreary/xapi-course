@@ -1,0 +1,14 @@
+{
+  "sim_id": "real-time-dashboard-stack",
+  "diagram_name": "Real-Time Dashboard Stack",
+  "chapter_number": 10,
+  "chapter_title": "Monitoring, Observability, and xAPI Traffic Analysis",
+  "chapter_dir": "10-monitoring-and-observability",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: clickable-mermaid\n**sim-id:** real-time-dashboard-stack<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Identify each layer of a real-time xAPI dashboard pipeline and recognize where statements transform into engagement metrics.\n\n**Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node.\n\n**Structure:**\n\n- Source: `LRS (statements + logs)`\n- Aggregation layer: `Streaming aggregator (or batched query)` with two parallel branches:\n    - Branch 1: `Operator metrics — throughput, latency, errors`\n    - Branch 2: `Educator metrics — engagement, completion, attempts`\n- Dashboard layer: `Grafana` (operator) + `Observable Framework` (educator)\n- Consumer layer: `Operators` and `Teachers / Instructional Designers`\n\n**Mermaid config:** project standard with `securityLevel: 'loose'`.\n\n**Click behavior:** Each node opens a side-panel infobox describing the layer's role, the data shape at that layer, and a one-line example of a metric or query at that layer.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with click directives."
+}

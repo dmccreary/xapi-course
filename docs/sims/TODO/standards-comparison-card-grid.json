@@ -1,0 +1,14 @@
+{
+  "sim_id": "standards-comparison-card-grid",
+  "diagram_name": "Standards Comparison Card Grid",
+  "chapter_number": 12,
+  "chapter_title": "Conformance Testing, Validation, and Competitive Standards Analysis",
+  "chapter_dir": "12-conformance-and-comparison",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** standards-comparison-card-grid<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Evaluating):** Compare xAPI against four alternative standards (IMS Caliper, SCORM 2004, cmi5, proprietary SDKs) across six procurement-relevant dimensions, and select an appropriate standard for a given deployment.\n\n**Layout:** Five cards arranged in a row across the top (one per standard); a side panel below showing the selected standard's full radar chart and detail.\n\n**Each card shows:**\n\n- Standard name\n- Year of relevant version\n- A short tagline\n- A 6-axis radar mini-chart on axes: instrumentation granularity, vendor support breadth, vendor lock-in risk (inverted: lower is better), implementation cost (inverted), LMS integration depth, ecosystem flexibility\n\n**Side panel:**\n\n- A larger version of the radar chart for the selected standard\n- The dimension-by-dimension scoring rationale\n- A \"Recommended scenario\" line: which deployment context favors this standard\n\n**Interaction:**\n\n- Click a card to update the side panel\n- Toggle \"Compare two\": brings up two radar charts overlaid for direct comparison\n\n**Default canvas:** 1100×600px, responsive.\n\nImplementation: p5.js for the radar charts, card layout, and overlay comparison; HTML overlay for the rationale text."
+}
