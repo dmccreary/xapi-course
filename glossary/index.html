@@ -18,7 +18,7 @@
         <link rel="prev" href="../sims/xapi-statement-triple/">
       
       
-        <link rel="next" href="../license/">
+        <link rel="next" href="../references/">
       
       
         
@@ -1495,6 +1495,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i2idl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I2IDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-ltsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IEEE LTSC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ims-caliper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2903,6 +2925,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#total-learning-architecture-tla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Learning Architecture (TLA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trax-lrs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3335,6 +3368,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4333,6 +4393,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i2idl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I2IDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-ltsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IEEE LTSC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ims-caliper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5741,6 +5823,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#total-learning-architecture-tla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Learning Architecture (TLA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trax-lrs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6476,6 +6569,12 @@
 <h4 id="implementation-cost-analysis">Implementation Cost Analysis<a class="headerlink" href="#implementation-cost-analysis" title="Permanent link">&para;</a></h4>
 <p>A structured estimate of the total effort required to instrument learning content with xAPI, encompassing design (vocabulary selection, statement patterns), development (client library integration, statement construction), testing (validation, LRS integration), and operations (monitoring, maintenance).</p>
 <p><strong>Example:</strong> An implementation cost analysis might estimate 2 hours for vocabulary design, 8 hours per MicroSim for instrumentation, 4 hours for LRS configuration, and 2 hours/month for ongoing monitoring—enabling an informed build-vs-buy decision.</p>
+<h4 id="i2idl">I2IDL<a class="headerlink" href="#i2idl" title="Permanent link">&para;</a></h4>
+<p>The Institute for Infrastructure and Interoperable Data in Learning, an independent, non-governmental, non-profit organization founded in December 2025 (Savage, Maryland) to maintain the open-source code, conformance test suites, profile server, and Total Learning Architecture reference implementations underlying xAPI and related learning-data standards after stewardship of these assets transitioned away from the U.S. Department of Defense's ADL Initiative.</p>
+<p>I2IDL is explicitly <em>not</em> a standards body; the IEEE Learning Technology Standards Committee continues to own the ratified standards. I2IDL announced its inaugural Technical Steering Committee on January 30, 2026, with 25+ representatives from ADL, Rustici Software, the CERT Division at the Software Engineering Institute, the University of Florida, and other industry, academic, and government voices. Implementers should expect repository URLs and conformance-suite hosting for xAPI-related open-source assets to migrate from <code>adlnet.gov</code> and <code>github.com/adlnet/</code> toward I2IDL infrastructure over time.</p>
+<h4 id="ieee-ltsc">IEEE LTSC<a class="headerlink" href="#ieee-ltsc" title="Permanent link">&para;</a></h4>
+<p>The IEEE Learning Technology Standards Committee, the working group within the IEEE Computer Society that develops and ratifies global learning-technology data standards, including IEEE Std 9274.1.1-2023 (the formally ratified version of xAPI).</p>
+<p>IEEE LTSC has been developing standards supporting the Total Learning Architecture vision since 2017, in coordination with ADL and now I2IDL. The committee owns the published specifications themselves; companion organizations such as I2IDL maintain the open-source reference implementations, conformance suites, and profile registries that turn those specifications into runnable infrastructure. When citing xAPI in procurement frameworks or curriculum standards that require an IEEE reference, cite IEEE Std 9274.1.1-2023 rather than the older ADL-published 1.0.3 specification.</p>
 <h4 id="ims-caliper">IMS Caliper<a class="headerlink" href="#ims-caliper" title="Permanent link">&para;</a></h4>
 <p>An IMS Global learning analytics specification (v1.0 2015, v1.2 2022) that defines a sensor API and metric profiles for emitting structured learning events from edtech tools to an event store, competing with xAPI in the higher education analytics market.</p>
 <p>Caliper's metric profiles provide richer semantic structure for specific interaction types (reading, assessment, annotation) than xAPI's open verb model, but xAPI's wider LRS ecosystem gives it broader tooling support. Architects must evaluate both when selecting a tracking standard.</p>
@@ -6900,6 +6999,10 @@
 <h4 id="token-based-authentication">Token-Based Authentication<a class="headerlink" href="#token-based-authentication" title="Permanent link">&para;</a></h4>
 <p>An authentication mechanism for xAPI LRS access in which the Activity Provider presents a bearer token or JWT in the Authorization header, issued by an identity provider, rather than static username/password credentials.</p>
 <p>Token-based auth enables short-lived credentials with automatic expiry, reducing the risk of credential theft; tokens can encode the AP's allowed scopes (read/write), enabling fine-grained access control without LRS-side credential management.</p>
+<h4 id="total-learning-architecture-tla">Total Learning Architecture (TLA)<a class="headerlink" href="#total-learning-architecture-tla" title="Permanent link">&para;</a></h4>
+<p>A U.S. federal reference architecture for cross-system, lifelong learner data developed by the Advanced Distributed Learning Initiative, in which xAPI is the wire format for learning experience records, an LRS is the storage layer, and companion specifications cover learner profiles, competencies, and credentialing—designed so that data about a learner's training, education, and on-the-job experience can flow across organizational boundaries throughout a career.</p>
+<p>TLA defines an ecosystem rather than a single standard: xAPI for experience tracking, the xAPI Profile Server for vocabulary governance, Shareable Competency Definitions for skills, Enterprise Learner Records for credential portability, and Learning Metadata for content description. Open-source stewardship of TLA reference implementations transitioned from ADL to I2IDL in December 2025, while the underlying standards remain with the IEEE LTSC.</p>
+<p><strong>Example:</strong> A service member completes a corpsman course (xAPI statements to an LRS), earns a competency badge (Shareable Competency Definition), transfers to a civilian EMT program where prior competencies are recognized (Enterprise Learner Record), and the entire career history follows the learner across systems—all under the TLA umbrella.</p>
 <h4 id="trax-lrs">TRAX LRS<a class="headerlink" href="#trax-lrs" title="Permanent link">&para;</a></h4>
 <p>A cloud-hosted and self-hostable open-source xAPI LRS written in PHP/Laravel, offering a RESTful xAPI API, a web UI for statement browsing, and a pipeline architecture for routing statements to analytics backends.</p>
 <p><strong>Example:</strong> An organization deploys TRAX LRS behind their SSO system, configures statement forwarding to an Elasticsearch cluster for full-text analytics, and uses the web UI to audit raw statement traffic during integration testing.</p>
@@ -7073,13 +7176,13 @@
         
         
           
-          <a href="../license/" class="md-footer__link md-footer__link--next" aria-label="Next: License">
+          <a href="../references/" class="md-footer__link md-footer__link--next" aria-label="Next: References">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                License
+                References
               </div>
             </div>
             <div class="md-footer__button md-icon">

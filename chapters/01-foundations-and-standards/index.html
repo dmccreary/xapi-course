@@ -1257,6 +1257,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../license/" class="md-nav__link">
         
   
@@ -1735,12 +1762,13 @@ A statement is a <em>sentence</em>, not a row. That single design choice is what
 <h2 id="a-quick-tour-of-the-tin-can-backstory">A Quick Tour of the Tin Can Backstory<a class="headerlink" href="#a-quick-tour-of-the-tin-can-backstory" title="Permanent link">&para;</a></h2>
 <p>The phrase you'll hear from older practitioners is <strong>Tin Can API</strong>. That's the same thing as xAPI. Here's the short version of how the name happened.</p>
 <p>In 2010, ADL — the same group inside the U.S. Department of Defense that originally shepherded SCORM — funded a research project at Rustici Software to ask, essentially, "What would the <em>successor</em> to SCORM look like?" The team interviewed dozens of practitioners and ran a public design process under the working name <strong>Project Tin Can</strong>, an affectionate nod to the children's "tin can telephone" metaphor: two tin cans connected by a string, sending messages back and forth. The point was that learning data ought to flow as easily between systems as a kid's voice flows down a string.</p>
-<p>The first stable release shipped in April 2013 as <strong>xAPI 1.0</strong>, and the project was renamed to the <strong>Experience API</strong> for the formal specification. The "Tin Can API" name stuck around as the friendly, community-facing label — for years the tincanapi.com site was the most popular reference — so when a vendor's marketing copy says "Tin Can compatible," they mean xAPI compatible. The ADL has since shepherded the specification toward IEEE standardization (IEEE Std 9274.1.1), but the day-to-day name in textbooks, conferences, and product documentation is still xAPI.</p>
+<p>The first stable release shipped in April 2013 as <strong>xAPI 1.0</strong>, and the project was renamed to the <strong>Experience API</strong> for the formal specification. The "Tin Can API" name stuck around as the friendly, community-facing label — for years the tincanapi.com site was the most popular reference — so when a vendor's marketing copy says "Tin Can compatible," they mean xAPI compatible. ADL shepherded the specification through to <strong>IEEE 9274.1.1</strong>, ratified in October 2023, which graduated xAPI from a community spec into a formal IEEE standard.</p>
+<p>Stewardship has since shifted. In December 2025, the <strong>Institute for Infrastructure and Interoperable Data in Learning (I2IDL)</strong> — an independent nonprofit based in Savage, Maryland — launched with an inaugural white paper to take over open-source stewardship of xAPI, the xAPI Profile Server, and the broader Total Learning Architecture (TLA) resources after changes at ADL left the community looking for a new home for these assets. I2IDL is explicit that it is <em>not</em> itself a standards body: the IEEE Learning Technology Standards Committee (LTSC) continues to own the published standards, while I2IDL maintains the open-source code, conformance test suites, and reference implementations the community depends on. In January 2026, I2IDL announced its inaugural 25+ member <strong>Technical Steering Committee</strong> — drawn from ADL, Rustici Software, the CERT Division at the Software Engineering Institute, the University of Florida, and other industry, academic, and government voices — to advise on conformance testing and open-source policy. The day-to-day name in textbooks, conferences, and product documentation is still xAPI; what changed is the door you knock on for the test suite, the profile server, and the verb registry.</p>
 <h4 id="diagram-a-timeline-of-learning-interoperability-standards">Diagram: A Timeline of Learning Interoperability Standards<a class="headerlink" href="#diagram-a-timeline-of-learning-interoperability-standards" title="Permanent link">&para;</a></h4>
 <iframe src="../../sims/learning-standards-timeline/main.html" width="100%" height="450px" scrolling="no"></iframe>
 <p><a href="../../sims/learning-standards-timeline/main.html">Run A Timeline of Learning Interoperability Standards Fullscreen</a></p>
 <details>
-<summary>The major learning standards from 1988 to 2024, on a single horizontal timeline</summary>
+<summary>The major learning standards from 1988 to 2026, on a single horizontal timeline</summary>
 <p>Type: timeline
 <strong>sim-id:</strong> learning-standards-timeline<br/>
 <strong>Library:</strong> vis-timeline<br/>
@@ -1759,19 +1787,23 @@ A statement is a <em>sentence</em>, not a row. That single design choice is what
 <li>2014 — <strong>IMS Caliper 1.0</strong> — IMS Global publishes a competing learning-analytics standard.</li>
 <li>2016 — <strong>CMI5 1.0</strong> — A profile that uses xAPI as the wire format inside an LMS launch flow.</li>
 <li>2019 — <strong>LTI Advantage</strong> — IMS LTI 1.3 + extensions (Names &amp; Roles, Assignments &amp; Grades, Deep Linking).</li>
-<li>2024 — <strong>IEEE 9274.1.1</strong> — xAPI ratified as an IEEE standard.</li>
+<li>2023 — <strong>IEEE 9274.1.1</strong> — xAPI ratified as an IEEE standard (October 2023).</li>
+<li>2025 — <strong>I2IDL founded</strong> — The Institute for Infrastructure and Interoperable Data in Learning launches in December 2025 with an inaugural white paper, taking over open-source stewardship of xAPI, the xAPI Profile Server, and TLA reference implementations after changes at ADL.</li>
+<li>2026 — <strong>I2IDL Technical Steering Committee</strong> — I2IDL announces its inaugural 25+ member TSC on January 30, 2026, drawn from ADL, Rustici Software, CERT/SEI, the University of Florida, and other industry, academic, and government voices, to advise on conformance testing and open-source policy.</li>
 </ul>
-<p>Visual: groups colored by family — ADL (indigo), AICC (gray), IMS (teal). Optional toggle to filter by family.</p>
+<p>Visual: groups colored by family — ADL (indigo), AICC (gray), IMS (teal), I2IDL (purple). Optional toggle to filter by family.</p>
 <p>Learning objective (Bloom — Remember + Understand): The reader can place the major learning standards on a timeline and recognize which family each belongs to.</p>
 <p>Required interactivity:
 - Every event bubble MUST be clickable. Clicking opens an infobox panel below the timeline containing: full standard name, year, sponsoring organization, the problem it solved, the standard it succeeded (if any), the standard that succeeded it (if any), a one-paragraph plain-English description aligned with the chapter glossary, and a deep-link to the official spec.
 - Hovering an event bubble MUST show a tooltip with the standard's full name and short description.
-- The family-filter toggle is mandatory (not optional): the reader must be able to filter the visible bubbles by ADL / AICC / IMS family, and the toggle MUST be visible on first render.
+- The family-filter toggle is mandatory (not optional): the reader must be able to filter the visible bubbles by ADL / AICC / IMS / I2IDL family, and the toggle MUST be visible on first render.
 - Clicking the timeline background between bubbles MUST do nothing (no accidental dismiss); only the explicit "close" affordance on the infobox closes it.
 - Selecting any event MUST emit an xAPI <code>interacted</code> statement to the chapter's LRS, recording which standard the reader explored.
 - The timeline MUST support keyboard navigation (left/right arrows step between events) for accessibility.</p>
 <p>Sample infobox content (for <code>xAPI 1.0</code>):
-"<strong>xAPI 1.0</strong> (2013) — Published by ADL. Generalized the SCORM completion/score paradigm into an Actor/Verb/Object statement model that can describe any learning experience, online or offline. Successor to: SCORM 2004. Succeeded by: xAPI 1.0.3 (the version this book targets) and ultimately IEEE 9274.1.1. Spec: https://github.com/adlnet/xAPI-Spec"</p>
+"<strong>xAPI 1.0</strong> (2013) — Published by ADL. Generalized the SCORM completion/score paradigm into an Actor/Verb/Object statement model that can describe any learning experience, online or offline. Successor to: SCORM 2004. Succeeded by: xAPI 1.0.3 (the version this book targets) and ultimately IEEE 9274.1.1 (ratified October 2023). Open-source stewardship transitioned from ADL to I2IDL in December 2025. Spec: https://github.com/adlnet/xAPI-Spec"</p>
+<p>Sample infobox content (for <code>I2IDL founded</code>):
+"<strong>I2IDL</strong> (December 2025) — The Institute for Infrastructure and Interoperable Data in Learning is an independent, non-governmental, non-profit organization (Savage, Maryland) that maintains the open-source code, conformance test suites, profile server, and TLA reference implementations underlying xAPI and related learning-data standards. I2IDL is <em>not</em> itself a standards body — the IEEE LTSC continues to own the ratified standards. I2IDL was created in response to changes at ADL that left the community uncertain about the future of these open-source assets. Site: https://www.i2idl.org/"</p>
 <p>Implementation: vis-timeline with <code>groups</code> for ADL/AICC/IMS, hover popups via <code>title</code>, click handler bound to <code>select</code> event that renders the infobox panel from a local JSON dictionary. Responsive width; collapses to a vertical timeline below 600px viewport width.</p>
 </details>
 <h2 id="the-scorm-family-how-we-got-here">The SCORM Family: How We Got Here<a class="headerlink" href="#the-scorm-family-how-we-got-here" title="Permanent link">&para;</a></h2>
