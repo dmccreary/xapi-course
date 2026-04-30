@@ -49,8 +49,13 @@ nav:
       # - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
 
   - MicroSims:
-      - List of MicroSims: sims/index.md
+    - List of MicroSims: sims/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
+    - The xAPI Statement Triple — Actor / Verb / Object: sims/xapi-statement-triple/index.md
 
+
+
+  - Glossary: glossary.md
   - License: license.md
   - Contact: contact.md
 

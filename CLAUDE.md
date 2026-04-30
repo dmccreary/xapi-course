@@ -4,6 +4,92 @@ Project home: `/Users/dan/Documents/ws/xapi-course`
 
 ---
 
+## Diagrams Must Be Interactive (No Static Images)
+
+**Every diagram, chart, infographic, MicroSim, timeline, map, workflow, and
+graph model in this textbook MUST be interactive.** Never create static images
+that do not give the learner feedback. This is a defining property of an
+intelligent textbook: every visual element is also a sensor that captures what
+the learner explores, hovers, clicks, or manipulates — and feeds that signal
+back through xAPI.
+
+**Minimum bar for every visual element:**
+
+- The learner can hover, click, or manipulate at least one element
+- That interaction produces visible feedback — an infobox, tooltip, highlight,
+  panel update, parameter change, or state transition
+- The feedback teaches something — a definition, property, relationship, or
+  consequence
+
+**Mermaid is permitted ONLY when every node has a `click` directive** that
+opens an infobox containing the term's definition (ideally pulled from the
+glossary), the relationship's meaning, or supporting context. A plain Mermaid
+diagram with no click handlers is a static image and is NOT acceptable.
+
+**Forbidden patterns:**
+
+- Static SVG/PNG/JPG embedded with no surrounding interaction
+- Mermaid diagrams without click handlers and infoboxes
+- Charts that render once and never respond to hover, click, or filter
+- Timelines, maps, workflows, or graph models with no clickable elements
+
+If a candidate diagram cannot meet this bar, redesign it as a MicroSim, an
+interactive infographic, or a clickable Mermaid diagram — or cut it.
+
+This rule applies to every chapter and every `#### Diagram:` `<details>`
+specification. See the `chapter-content-generator` skill's
+`references/content-element-types.md` for the full specification.
+
+---
+
+## Mermaid MicroSim Layout Rules
+
+When generating a Mermaid-based MicroSim (the 2/3 diagram + 1/3 info-panel
+pattern used by `xapi-statement-triple`), apply these compact layout settings
+unless a specific diagram has a documented reason to deviate. These values were
+tuned to keep the flowchart readable without wasting vertical space:
+
+**`mermaid.initialize` flowchart config:**
+
+```js
+flowchart: {
+    useMaxWidth: true,
+    htmlLabels: true,
+    curve: 'basis',
+    nodeSpacing: 12,    // tight vertical spacing between sibling nodes
+    rankSpacing: 60,    // horizontal spacing between ranks (LR flowcharts)
+    padding: 4          // padding inside each node, around the label text
+}
+```
+
+**Why these values:**
+
+- `nodeSpacing: 12` — Mermaid's default (~50) leaves cavernous gaps between
+  sibling nodes in a vertical fan. 12 keeps related items visually grouped.
+- `rankSpacing: 60` — Tight enough that edge labels still fit but the diagram
+  doesn't sprawl horizontally.
+- `padding: 4` — Default (~15) creates puffy nodes with too much whitespace
+  around 1–2 lines of label text. 4 hugs the text.
+
+**Canvas height:** Set `CANVAS_HEIGHT` to the smallest value that displays the
+entire flowchart without clipping the lowest node. For a Mermaid flowchart at
+the standard 2/3 width with N nodes, this is typically:
+
+- 4–5 nodes: ~380–420px
+- 6–8 nodes: ~480–520px
+- 9+ nodes: measure empirically
+
+Always verify by capturing a screenshot at the target height; the SVG
+preserves its natural aspect ratio under `useMaxWidth: true`, so a too-short
+canvas will silently clip the bottom rows. (Footgun: `overflow: hidden` on the
+diagram panel hides the clip — there is no scrollbar to warn you.)
+
+**Scope:** Apply these defaults to every Mermaid MicroSim in this project. If
+a future diagram needs different values, document the reason inline in
+`main.html` next to the override.
+
+---
+
 ## Learning Mascot: Xavi the Octopus
 
 ### Character Overview

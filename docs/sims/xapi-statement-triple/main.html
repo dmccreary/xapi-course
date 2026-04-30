@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>The xAPI Statement Triple — Actor / Verb / Object</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+        }
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 66.67%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            overflow: hidden;
+        }
+        .mermaid {
+            width: 100%;
+            max-width: 100%;
+        }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            width: 33.33%;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #dee2e6;
+            padding: 14px;
+            overflow-y: auto;
+        }
+        .info-panel h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
+        }
+        .info-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #4338ca;
+            margin-bottom: 4px;
+        }
+        .info-required {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .req-yes { background: #4338ca; color: #fff; }
+        .req-no  { background: #0d9488; color: #fff; }
+        .info-content { font-size: 13px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #be185d;
+        }
+        .info-placeholder { color: #888; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #475569;
+        }
+        .legend .swatch {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect,
+        .node:hover circle,
+        .node:hover polygon,
+        .node:hover path {
+            filter: brightness(1.1);
+        }
+    </style>
+    <script src="xapi-statement-triple.js"></script>
+</head>
+<body>
+    <div class="title">xAPI Statement Anatomy — click any field to see its definition</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    Statement(["xAPI Statement"]):::root
+    Actor["Actor<br/><i>Who?</i>"]:::required
+    Verb["Verb<br/><i>Did what?</i>"]:::required
+    Object["Object<br/><i>To what?</i>"]:::required
+    Result["Result"]:::optional
+    Context["Context"]:::optional
+    Timestamp["Timestamp"]:::optional
+    Authority["Authority"]:::optional
+
+    Statement ==> Actor
+    Statement ==> Verb
+    Statement ==> Object
+    Statement -.-> Result
+    Statement -.-> Context
+    Statement -.-> Timestamp
+    Statement -.-> Authority
+
+    click Statement call showStatementPart("Statement")
+    click Actor call showStatementPart("Actor")
+    click Verb call showStatementPart("Verb")
+    click Object call showStatementPart("Object")
+    click Result call showStatementPart("Result")
+    click Context call showStatementPart("Context")
+    click Timestamp call showStatementPart("Timestamp")
+    click Authority call showStatementPart("Authority")
+
+    classDef root fill:#1e293b,stroke:#0f172a,color:#fff,font-size:16px,font-weight:bold
+    classDef required fill:#4338ca,stroke:#312e81,color:#fff,font-size:16px,font-weight:bold
+    classDef optional fill:#0d9488,stroke:#134e4a,color:#fff,font-size:16px
+
+    linkStyle default stroke:#64748b,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+        <div class="info-panel">
+            <h3>Field Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any field in the diagram to see its definition, whether it's required, and an example value.</p>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#4338ca"></span>Required (Actor, Verb, Object)</div>
+                <div><span class="swatch" style="background:#0d9488"></span>Optional but powerful</div>
+                <div><span class="swatch" style="background:#1e293b"></span>The statement as a whole</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
