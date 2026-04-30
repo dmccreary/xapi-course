@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Pipeline Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Full Pipeline Architecture</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> full-pipeline-architecture</p>
+            <p><strong>Library:</strong> Mermaid</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: clickable-mermaid
+    **sim-id:** full-pipeline-architecture<br/>
+    **Library:** Mermaid<br/>
+    **Status:** Specified
+    
+    **Learning objective (Bloom — Analyzing):** Trace a learner interaction from emit through every pipeline layer to its appearance on a dashboard, identifying the responsibilities and typical latencies of each layer.
+    
+    **Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node.
+    
+    **Structure:**
+    
+    - Layer 1: `Browser (Component → Client Library → Offline Queue)`
+    - Layer 2: `LRS (Statement Endpoint → Storage → Query API)`
+    - Layer 3: `Stream Processor → OLAP Aggregate Store`
+    - Layer 4: `Dashboard (Grafana / Observable)`
+    
+    **Annotations on edges:**
+    
+    - Browser → LRS: typical latency 100–500ms; failure mode: network drop
+    - LRS → Stream: typical latency seconds; failure mode: consumer lag
+    - Stream → OLAP: typical latency seconds-to-minutes; failure mode: aggregation bug
+    - OLAP → Dashboard: typical latency milliseconds; failure mode: query timeout
+    
+    **Mermaid config:** project standard with `securityLevel: 'loose'`.
+    
+    **Click behavior:** Each node opens a side-panel infobox describing the component's responsibility, the chapter that covers it, the typical implementation tooling, and the most common failure mode.
+    
+    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
+    
+    Implementation: Mermaid flowchart with click directives.
+    -->
+</body>
+</html>

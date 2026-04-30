@@ -1,0 +1,14 @@
+{
+  "sim_id": "statement-pattern-composer",
+  "diagram_name": "Statement Pattern Composer",
+  "chapter_number": 3,
+  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: micro-sim\n**sim-id:** statement-pattern-composer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Creating):** Compose a complete xAPI statement by selecting a pattern, filling in pattern-specific slots, and observing the rendered statement to learn how patterns enforce consistency across emit sites.\n\n**Layout:** 2/3 (left) form + 1/3 (right) live JSON preview, responsive, re-flowing on resize.\n\n**Controls:**\n\n- Dropdown: pattern type (Page-Read, Quiz-Submission, MicroSim-Interaction, Adaptive-Branching, Voiding)\n- Dynamic form fields that change based on the selected pattern (e.g., Quiz-Submission shows score sliders, success toggle, duration; Page-Read shows only chapter selector)\n- Static fields visible for all patterns: actor (text), parent activity (dropdown of fake textbook chapters)\n\n**Visual elements:**\n\n- Live JSON preview of the resulting statement, syntax-highlighted\n- A \"Pattern Slot Map\" that highlights which fields the pattern enforces, which are optional, and which are forbidden — color-coded green / yellow / red\n- Validation badge (\"Pattern Valid\" / \"Missing Required Slot\") that updates live\n\n**Interaction:** Selecting a different pattern re-renders the form and the slot map. Filling in slots re-renders the JSON. Invalid combinations are flagged but not blocked — this is a learning tool, not a validator.\n\n**Default canvas:** 1000×550px, responsive.\n\nImplementation: p5.js for the canvas drawing of the slot map; HTML form controls overlaid for accessible inputs. JSON preview rendered into a styled `<pre>` element."
+}

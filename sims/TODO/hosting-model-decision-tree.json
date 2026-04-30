@@ -1,0 +1,14 @@
+{
+  "sim_id": "hosting-model-decision-tree",
+  "diagram_name": "Hosting Model Decision Tree",
+  "chapter_number": 7,
+  "chapter_title": "LRS Platforms, Authentication, and Hosting Models",
+  "chapter_dir": "07-lrs-platforms-and-auth",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: workflow-diagram\n**sim-id:** hosting-model-decision-tree<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Evaluating):** Apply a structured decision process to choose between hosted SaaS, self-hosted open source, and embedded LRS for a given deployment scenario.\n\n**Diagram type:** Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.\n\n**Decision flow:**\n\n1. Start: `New deployment`\n2. Diamond: `Is the device often offline?` → Yes → `Embedded LRS (with sync to central)` / No → next\n3. Diamond: `Does data sovereignty / regulation forbid third-party hosting?` → Yes → `Self-hosted open source` / No → next\n4. Diamond: `Do we have ops capacity to run a database 24/7?` → No → `Hosted SaaS LRS` / Yes → next\n5. Diamond: `Is the projected statement volume above 5k/sec sustained?` → Yes → `Self-hosted open source (Ralph or scaled Learning Locker)` / No → `Hosted SaaS or self-hosted (either fits)`\n\n**Mermaid config:** project standard with `securityLevel: 'loose'`.\n\n**Click behavior:** Each node opens a side-panel infobox with a brief explanation, plus the typical platforms that match that branch.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with click directives."
+}

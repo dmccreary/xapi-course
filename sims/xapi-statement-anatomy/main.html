@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xAPI Statement Anatomy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>xAPI Statement Anatomy</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> xapi-statement-anatomy</p>
+            <p><strong>Library:</strong> Mermaid</p>
+            <p><strong>Bloom Level:</strong> Understand (L2). Bloom verb: identify, explain.</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: diagram
+    **sim-id:** xapi-statement-anatomy<br/>
+    **Library:** Mermaid<br/>
+    **Status:** Specified
+    
+    Purpose: Give the reader an interactive map of the eleven top-level fields of an xAPI 1.0.3 statement. Every node is clickable; clicking a node reveals an infobox containing the field's name, whether it is required, who sets it, the data type, and a one-paragraph plain-English definition pulled from the chapter glossary.
+    
+    Bloom level: Understand (L2). Bloom verb: identify, explain.
+    
+    Layout: Mermaid `flowchart TB` with a root node "xAPI Statement" at the top. Three required fields (`actor`, `verb`, `object`) branch immediately below in indigo fill. Two optional payload fields (`result`, `context`) branch as a second tier in teal fill. Five metadata fields (`id`, `timestamp`, `stored`, `authority`, `version`) form a third tier in lighter gray fill, grouped in a Mermaid `subgraph` labeled "Metadata".
+    
+    Required interactivity:
+    - Every node MUST have a Mermaid `click` directive: `click <nodeId> call showFieldInfo("<field-name>")`.
+    - Clicking a node MUST open a side-panel infobox containing: field name, required status, data type, who sets the value, plain-English definition, and a sample value taken from the example statement in the chapter prose.
+    - Hovering a node MUST highlight the node and show a one-line tooltip with the field's plain-English definition.
+    - The infobox MUST emit an xAPI `interacted` statement when opened (foreshadowing how this textbook itself uses the standard it teaches).
+    
+    ClassDef styling:
+    - `required` — fill #4338ca (indigo), white text, bold border
+    - `optional` — fill #0d9488 (teal), white text
+    - `metadata` — fill #e5e7eb (gray-200), dark text, dashed border
+    
+    Sample infobox content (for `verb`):
+    "**verb** — Required. Object. Set by the Activity Provider. Identifies the action the actor performed. Must contain an IRI in the `id` field; the IRI should resolve to a published verb definition. Optional `display` map provides human-readable labels in one or more languages. Example: `{ id: 'http://adlnet.gov/expapi/verbs/passed', display: { 'en-US': 'passed' } }`."
+    
+    Implementation: Mermaid `flowchart TB` with classDefs and `click` directives wired to a JavaScript `showFieldInfo(name)` function that reads from a JSON dictionary of field definitions and renders the infobox in a side panel. Responsive width via `<div style="width:100%">` wrapper.
+    -->
+</body>
+</html>

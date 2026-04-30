@@ -1,0 +1,21 @@
+{
+  "title": "Statistical Representativeness Comparison",
+  "description": "Statistical Representativeness Comparison",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "statistical-representativeness-comparison",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 11,
+  "chapter_title": "Synthetic Data Generation and AI-Assisted LRS Testing",
+  "chapter_dir": "11-synthetic-data-and-ai-testing"
+}

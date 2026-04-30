@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADL Verb Vocabulary Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>ADL Verb Vocabulary Explorer</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> adl-verb-vocabulary-explorer</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Understand (L2). Bloom verb: classify, exemplify.</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: infographic
+    **sim-id:** adl-verb-vocabulary-explorer<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Purpose: Let the reader explore the canonical ADL xAPI verbs by category, understand which verb is appropriate for which kind of learning event, and copy the verb's full IRI and `display` block in one click. Reinforces that verbs are IRIs, not strings.
+    
+    Bloom level: Understand (L2). Bloom verb: classify, exemplify.
+    
+    Canvas layout (responsive, default 760px wide × 480px tall):
+    - Left panel (60% width): a grid of verb chips arranged in five colored category bands — Engagement (blue), Assessment (gold), Progression (green), Social (purple), Lifecycle (gray).
+    - Right panel (40% width): an infobox that updates when the reader clicks a chip. Shows: full IRI, English display label, one-paragraph definition, two example use-cases drawn from intelligent-textbook scenarios, and a "Copy verb JSON" button.
+    
+    Required interactivity:
+    - Every verb chip is clickable. Clicking populates the right-side infobox.
+    - A category-filter dropdown at the top of the left panel narrows the visible chips.
+    - A free-text filter input narrows chips by substring match on the verb name.
+    - "Copy verb JSON" button copies a `{ id, display }` block to the clipboard.
+    - Hovering a chip shows a one-line tooltip with the verb's English label.
+    - Clicking the "Copy verb JSON" button MUST emit an xAPI `interacted` statement to the chapter's LRS.
+    
+    Sample verb dataset (16 verbs, drawn from the ADL registry):
+    - Engagement: `experienced`, `interacted`, `progressed`, `launched`
+    - Assessment: `attempted`, `answered`, `passed`, `failed`, `scored`
+    - Progression: `completed`, `mastered`, `voided`
+    - Social: `shared`, `commented`
+    - Lifecycle: `initialized`, `terminated`
+    
+    Default state: category dropdown set to "All", no chip selected, infobox shows a one-paragraph "Click any verb to see its definition" placeholder.
+    
+    Visual style: rounded chips with slight drop shadow, category color band running down the left edge of each chip, monospace font for IRIs in the infobox, clear visual distinction between chips and infobox.
+    
+    Implementation: p5.js with `createButton`, `createSelect`, and `createInput` builtin controls. Chip layout uses a flexbox-like algorithm in `draw()`. Verb dataset loaded from a local JSON file. Responsive — calls `updateCanvasSize()` first thing in `setup()`.
+    -->
+</body>
+</html>

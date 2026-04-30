@@ -1,0 +1,14 @@
+{
+  "sim_id": "pii-surface-in-an-xapi-statement",
+  "diagram_name": "PII Surface in an xAPI Statement",
+  "chapter_number": 14,
+  "chapter_title": "Privacy, Compliance, and Organizational Context",
+  "chapter_dir": "14-privacy-and-compliance",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: interactive-infographic\n**sim-id:** pii-surface-in-an-xapi-statement<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Analyzing):** Identify the regions of an xAPI statement most likely to contain personally identifiable information, and apply per-region mitigations.\n\n**Layout:** A worked statement rendered as syntax-highlighted JSON on the left (2/3) with three colored shaded regions; a side panel on the right (1/3) describing the selected region's PII risks and mitigations.\n\n**Visual elements:**\n\n- A worked statement JSON\n- Three shaded regions with colored borders:\n    - Red shade around `actor` (highest direct PII risk)\n    - Yellow shade around `result.extensions` (medium, depends on content)\n    - Yellow shade around `context.extensions` (medium, depends on content)\n- A toggle \"Show clean version\" that swaps the JSON for one with `account` IFI and minimized extensions\n- A toggle \"Show worst-case version\" that swaps for one with name, mbox, full keystroke trace, and over-eager context extensions\n\n**Interaction:**\n\n- Hover or click a shaded region to update the side panel\n- Toggles re-render the JSON; the side panel updates with comparison commentary\n- Side panel shows: PII risks, recommended mitigation, and the relevant regulatory framework that applies\n\n**Default canvas:** 1100×600px, responsive.\n\nImplementation: p5.js for the highlight overlays and JSON rendering; HTML overlay for the side panel and toggles."
+}

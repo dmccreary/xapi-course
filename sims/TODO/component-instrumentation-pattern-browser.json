@@ -1,0 +1,14 @@
+{
+  "sim_id": "component-instrumentation-pattern-browser",
+  "diagram_name": "Component Instrumentation Pattern Browser",
+  "chapter_number": 8,
+  "chapter_title": "Implementing xAPI in Intelligent Textbooks",
+  "chapter_dir": "08-implementing-in-textbooks",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: micro-sim\n**sim-id:** component-instrumentation-pattern-browser<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Applying):** Browse the canonical instrumentation pattern for each component type (quiz, simulation, adaptive branching) and observe the resulting xAPI statement sequence in a side panel.\n\n**Layout:** 2/3 (left) tabbed component preview + 1/3 (right) live statement sequence.\n\n**Tabs (left panel):**\n\n- Quiz tab: a 3-question quiz with submit button. Submitting fires the canonical sequence (`attempted`, `scored`, `passed`/`failed`, `completed`).\n- Simulation tab: a slider-driven simulation. Adjusting the slider fires debounced `interacted` statements; a \"Run\" button fires `experienced`.\n- Adaptive Branching tab: a branch decision UI showing two paths. Clicking a path fires a `progressed` statement with a branch-decision extension.\n\n**Right panel:**\n\n- Sequential list of statements emitted, each shown with verb, activity, and a one-line summary\n- Click an entry to expand the full JSON statement\n- Each entry is annotated with the registration UUID so learners can see attempts grouped\n\n**Default canvas:** 1000×600px, responsive.\n\nImplementation: p5.js for the simulation tab; HTML for the quiz and branching tabs and the statement list."
+}

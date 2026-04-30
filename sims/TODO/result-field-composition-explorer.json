@@ -1,0 +1,14 @@
+{
+  "sim_id": "result-field-composition-explorer",
+  "diagram_name": "Result Field Composition Explorer",
+  "chapter_number": 3,
+  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: micro-sim\n**sim-id:** result-field-composition-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Applying):** Given a learner scenario (e.g., \"passed the quiz with 85%\"), the student selects appropriate values for each `result` sub-field and sees the rendered JSON update in real time, reinforcing the orthogonality of `completion` and `success`.\n\n**Layout:** 2/3 + 1/3 panel split with responsive design that re-flows on window resize. Left panel: input controls. Right panel: live-rendered JSON `result` object with syntax highlighting.\n\n**Controls (left panel):**\n\n- Slider: Raw score (0 – 10, default 7)\n- Slider: Min score (-5 – 0, default 0)\n- Slider: Max score (5 – 20, default 10)\n- Computed display: Scaled score (auto-updates from raw/min/max)\n- Toggle: success (true / false / unset)\n- Toggle: completion (true / false / unset)\n- Slider: duration in seconds (0 – 600, default 47)\n- Text input: response (default `x = -3, x = 5`)\n- Preset buttons: \"Passed Cleanly\", \"Failed but Finished\", \"Bailed Early\", \"Mastery Exit\"\n\n**Visual elements:**\n\n- Live JSON output with monospace font, color-coded keys/values\n- A 2×2 grid showing the four completion×success states, with the current state highlighted\n- Duration shown both as ISO 8601 string and human-readable form\n\n**Interaction:** Every control change recomputes the JSON immediately and redraws the 2×2 grid. Preset buttons populate all controls at once for quick exploration.\n\n**Default canvas:** 900×500px with media queries for narrower viewports.\n\nImplementation: p5.js with a JSON renderer; no external dependencies beyond the p5.js CDN."
+}

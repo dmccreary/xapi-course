@@ -1,0 +1,14 @@
+{
+  "sim_id": "lrs-architecture-overview",
+  "diagram_name": "LRS Architecture Overview",
+  "chapter_number": 6,
+  "chapter_title": "Learning Record Store Architecture and Query Endpoints",
+  "chapter_dir": "06-lrs-architecture",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: clickable-mermaid\n**sim-id:** lrs-architecture-overview<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Identify the major components of a conformant LRS — HTTP API layer, the five endpoints, the storage layer, and the indexing layer — and explain how a request flows through each.\n\n**Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node open a side-panel infobox.\n\n**Structure:**\n\n- Client (Activity Provider) on the left\n- HTTP API layer (single node) labeled \"xAPI HTTP API (auth + version negotiation)\"\n- The five endpoint nodes branching from the API layer: `/statements`, `/agents`, `/activities`, `/state`, `/about`\n- A single \"Storage Layer\" node downstream of the endpoints, labeled \"Document/Relational/Hybrid\"\n- An \"Indexing Layer\" node parallel to storage, labeled \"Inverted indexes on actor, verb, object, timestamp\"\n- An arrow from `/statements` POST flowing through both Storage and Indexing\n- An arrow from `/statements` GET flowing through Indexing first, then Storage\n\n**Mermaid config:** project standard (`nodeSpacing: 12`, `rankSpacing: 60`, `padding: 4`, `useMaxWidth: true`, `securityLevel: 'loose'`).\n\n**Click behavior:** Each node opens a side-panel infobox describing the component, what xAPI fields it cares about, and a one-line example of a request that exercises it.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with click directives bound to a side panel populated from `data.json`."
+}

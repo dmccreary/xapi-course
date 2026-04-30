@@ -1,0 +1,21 @@
+{
+  "title": "Bandwidth Budget Calculator MicroSim",
+  "description": "Bandwidth Budget Calculator MicroSim",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "bandwidth-budget-calculator-microsim",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "Bandwidth Optimization, Offline Queues, and Service Workers",
+  "chapter_dir": "09-bandwidth-and-offline"
+}

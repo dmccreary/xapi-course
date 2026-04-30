@@ -1,0 +1,21 @@
+{
+  "title": "Three-Context Comparison",
+  "description": "Three-Context Comparison",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "three-context-comparison",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 14,
+  "chapter_title": "Privacy, Compliance, and Organizational Context",
+  "chapter_dir": "14-privacy-and-compliance"
+}

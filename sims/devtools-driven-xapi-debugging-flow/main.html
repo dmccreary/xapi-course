@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools-Driven xAPI Debugging Flow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>DevTools-Driven xAPI Debugging Flow</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> devtools-driven-xapi-debugging-flow</p>
+            <p><strong>Library:</strong> Mermaid</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: workflow-diagram
+    **sim-id:** devtools-driven-xapi-debugging-flow<br/>
+    **Library:** Mermaid<br/>
+    **Status:** Specified
+    
+    **Learning objective (Bloom — Applying):** Apply a structured debugging workflow that uses DevTools to localize an xAPI emit-path bug to the right layer (component, builder, transport, LRS).
+    
+    **Diagram type:** Mermaid flowchart (TD direction). Click handlers on every node.
+    
+    **Decision flow:**
+    
+    1. Start: `Reported issue (no statements / wrong statements / rejected statements)`
+    2. Diamond: `Are statements visible in DevTools Network panel?` → No → `Bug is in component or client library — check console for errors` / Yes → next
+    3. Diamond: `Is the request body correct?` → No → `Bug is in statement builder — fix builder` / Yes → next
+    4. Diamond: `Is the response status 2xx?` → Yes → `Statement reached LRS — check LRS-side issues` / No → next
+    5. Diamond: `Is response status 4xx?` → Yes → `Read response body — fix client based on error` / No (5xx) → `LRS-side issue — check LRS logs`
+    
+    **Mermaid config:** project standard with `securityLevel: 'loose'`.
+    
+    **Click behavior:** Each node opens a side-panel infobox with concrete DevTools steps and example error messages.
+    
+    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
+    
+    Implementation: Mermaid flowchart with click directives.
+    -->
+</body>
+</html>

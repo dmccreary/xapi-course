@@ -1,0 +1,14 @@
+{
+  "sim_id": "retry-with-backoff-state-machine",
+  "diagram_name": "Retry-With-Backoff State Machine",
+  "chapter_number": 8,
+  "chapter_title": "Implementing xAPI in Intelligent Textbooks",
+  "chapter_dir": "08-implementing-in-textbooks",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: workflow-diagram\n**sim-id:** retry-with-backoff-state-machine<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Analyzing):** Trace the state transitions of a statement batch through the retry-with-backoff pipeline and identify which response codes lead to which outcomes.\n\n**Diagram type:** Mermaid stateDiagram-v2 (or flowchart equivalent if state diagrams don't support click handlers). Click handlers on every node.\n\n**States:**\n\n1. `Buffering` — statement appended to in-memory batch\n2. `Sending` — POST in flight\n3. `Success (2xx)` — terminal success state\n4. `Client Error (4xx)` — terminal failure state, surfaces error\n5. `Backoff` — scheduled retry after exponential delay\n6. `Offline Queue` — terminal handoff state after max retries\n\n**Transitions:**\n\n- Buffering → Sending (on flush or batch full)\n- Sending → Success (2xx)\n- Sending → Client Error (4xx)\n- Sending → Backoff (5xx or network error)\n- Backoff → Sending (on timer)\n- Backoff → Offline Queue (after max retries)\n\n**Mermaid config:** project standard with `securityLevel: 'loose'`.\n\n**Click behavior:** Each state opens a side-panel infobox describing what happens in that state and the typical duration the state lasts.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with state-like nodes and click directives."
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "verb-selection-decision-tree",
+  "diagram_name": "Verb Selection Decision Tree",
+  "chapter_number": 4,
+  "chapter_title": "Verb Vocabulary Design and the ADL Verb Registry",
+  "chapter_dir": "04-verb-vocabulary-design",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: workflow-diagram\n**sim-id:** verb-selection-decision-tree<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Evaluating):** Apply a structured decision process to choose between an ADL verb, a canonical verb plus extension, or a custom verb for any new emit site.\n\n**Diagram type:** Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.\n\n**Decision flow:**\n\n1. Start: \"New event to emit\"\n2. Diamond: \"Is there an ADL verb that fits?\" → Yes → \"Use ADL verb (done)\" / No → next\n3. Diamond: \"Is there an ADL verb that fits with an extension?\" → Yes → \"Use ADL verb + extension (preferred)\" / No → next\n4. Diamond: \"Will the cost of a custom verb (governance, profile, training) be lower than the cost of forcing an ADL fit?\" → No → \"Force the ADL fit, document the strain\" / Yes → next\n5. Diamond: \"Is the verb already in the project profile?\" → Yes → \"Use existing custom verb\" / No → \"Open a profile-update PR (custom verb requires steward review)\"\n\n**Mermaid config:** project standard with `securityLevel: 'loose'` for click handlers.\n\n**Click behavior:** Each node opens a side-panel infobox with a brief explanation and one or two real-world examples for that decision branch.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with click directives bound to a side panel."
+}

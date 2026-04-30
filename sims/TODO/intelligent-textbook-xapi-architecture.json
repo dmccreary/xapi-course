@@ -1,0 +1,14 @@
+{
+  "sim_id": "intelligent-textbook-xapi-architecture",
+  "diagram_name": "Intelligent Textbook xAPI Architecture",
+  "chapter_number": 8,
+  "chapter_title": "Implementing xAPI in Intelligent Textbooks",
+  "chapter_dir": "08-implementing-in-textbooks",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-04-30",
+  "specification": "Type: clickable-mermaid\n**sim-id:** intelligent-textbook-xapi-architecture<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\n**Learning objective (Bloom — Understanding):** Identify each layer of an xAPI-instrumented intelligent textbook and trace how a learner's interaction propagates from a MicroSim through the client library to the LRS.\n\n**Diagram type:** Mermaid flowchart (TD direction). Click handlers on every node.\n\n**Structure:**\n\n- Top layer: `Markdown content (MkDocs Material)`\n- Component layer (three nodes side by side): `MicroSim`, `Quiz`, `Adaptive Branching`\n- Each component layer node arrows down to: `xAPI Client Library` (single node)\n- Client library arrows to: `Statement Builder`, `Batch Buffer`, `Retry Manager`, `Auth Header Manager` (four parallel nodes)\n- All four arrow into: `Fetch API → LRS HTTP API`\n- Final node: `LRS Storage`\n\n**Mermaid config:** project standard with `securityLevel: 'loose'`.\n\n**Click behavior:** Each node opens a side-panel infobox describing the component's responsibility, the chapter section that covers it, and a one-line code reference.\n\n**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.\n\nImplementation: Mermaid flowchart with click directives."
+}

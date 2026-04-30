@@ -1,0 +1,21 @@
+{
+  "title": "Standards Comparison Card Grid",
+  "description": "Standards Comparison Card Grid",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "standards-comparison-card-grid",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 12,
+  "chapter_title": "Conformance Testing, Validation, and Competitive Standards Analysis",
+  "chapter_dir": "12-conformance-and-comparison"
+}

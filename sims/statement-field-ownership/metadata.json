@@ -1,0 +1,21 @@
+{
+  "title": "Who Sets What — Client vs. LRS Field Ownership",
+  "description": "Who Sets What — Client vs. LRS Field Ownership",
+  "creator": "Dementia Education Project",
+  "date": "2026-04-30",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "statement-field-ownership",
+  "library": "Mermaid",
+  "bloomLevel": "Analyze (L4). Bloom verb: differentiate, attribute.",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "The xAPI Statement Model — Actor, Verb, Object, Result, and Context",
+  "chapter_dir": "02-statement-model"
+}

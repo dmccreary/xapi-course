@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canonical Verb Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Canonical Verb Explorer</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> canonical-verb-explorer</p>
+            <p><strong>Library:</strong> Mermaid</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: interactive-infographic
+    **sim-id:** canonical-verb-explorer<br/>
+    **Library:** Mermaid<br/>
+    **Status:** Specified
+    
+    **Learning objective (Bloom — Remembering / Understanding):** Recall the twelve canonical ADL verbs used in intelligent textbooks and explain when each is appropriate.
+    
+    **Diagram type:** Mermaid flowchart, LR direction, with click handlers on every verb node.
+    
+    **Structure:**
+    
+    - Four colored cluster nodes labeled "Content Consumption," "Assessment," "Progress," "Session Lifecycle"
+    - Each cluster fans out to its member verbs:
+        - Content Consumption → `experienced`, `interacted`
+        - Assessment → `attempted`, `passed`, `failed`, `scored`
+        - Progress → `progressed`, `completed`
+        - Session Lifecycle → `launched`, `initialized`, `terminated`, `abandoned`
+    
+    **Mermaid config:** project standard (`nodeSpacing: 12`, `rankSpacing: 60`, `padding: 4`, `useMaxWidth: true`, `securityLevel: 'loose'`).
+    
+    **Click behavior:** Each verb node opens a side-panel infobox showing the full IRI, a one-line definition, a one-line "when to emit" rule, and a complete example statement using that verb.
+    
+    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
+    
+    Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel pulls content from a `data.json` keyed by verb local name; pre-populating that JSON from the project glossary is recommended.
+    -->
+</body>
+</html>
