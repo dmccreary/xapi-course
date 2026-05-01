@@ -48,6 +48,7 @@ nav:
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
 
+# MicroSims, Interactive Infographics and other interactive content
   - MicroSims:
     - List of MicroSims: sims/index.md
     - A Timeline of Learning Interoperability Standards: sims/learning-standards-timeline/index.md
@@ -99,12 +100,7 @@ nav:
     - xAPI Statement Anatomy: sims/xapi-statement-anatomy/index.md
     - xAPI Statement Builder MicroSim: sims/xapi-statement-builder/index.md
 
-
-
-
-
-
-
+# Supplementary Materials
   - Glossary: glossary.md
   - References: references.md
   - License: license.md
@@ -120,6 +116,9 @@ theme:
     primary: 'indigo'
     accent: 'orange'
   include_sidebar: true
+  # Note: `theme.icon.status` is a Material Insiders feature and is silently
+  # ignored on the community edition. The scaffold/built/approved icons and
+  # their colors are defined as CSS custom properties in docs/css/extra.css.
   features:
     - content.code.copy
     - content.action.edit
@@ -199,6 +198,16 @@ copyright: 'Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/
 extra:
   # Suppress the "Made with Material for MkDocs" footer line
   generator: false
+
+  # MicroSim build-status indicators shown next to nav entries.
+  # The status value is set per-page in the index.md frontmatter.
+  #   scaffold (red)  — placeholder; no implementation yet
+  #   built    (orange) — implemented but not yet reviewed
+  #   approved (green) — tested and approved by the author
+  status:
+    scaffold: Scaffold — placeholder, not yet implemented
+    built: Built — implementation complete, awaiting review
+    approved: Approved — tested and approved
 
   # Intelligent-textbook URI scheme (see
   # https://dmccreary.github.io/intelligent-textbooks/uri-scheme/)

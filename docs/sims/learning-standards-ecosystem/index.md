@@ -1,7 +1,7 @@
 ---
 title: The Learning Standards Ecosystem
 description: The Learning Standards Ecosystem
-status: scaffold
+status: built
 library: vis-network
 bloom_level: TBD
 ---
@@ -22,7 +22,7 @@ TBD
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="452"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

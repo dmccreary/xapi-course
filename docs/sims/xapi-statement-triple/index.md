@@ -6,7 +6,8 @@ og:image: /sims/xapi-statement-triple/xapi-statement-triple.png
 twitter:image: /sims/xapi-statement-triple/xapi-statement-triple.png
 social:
    cards: false
-quality_score: 0
+quality_score: 95
+status: approved
 ---
 
 # The xAPI Statement Triple — Actor / Verb / Object

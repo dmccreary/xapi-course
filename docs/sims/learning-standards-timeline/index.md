@@ -3,7 +3,7 @@ title: A Timeline of Learning Interoperability Standards
 description: An interactive vis-timeline of major learning-data standards from AICC (1988) through I2IDL (2026), with click-to-reveal infoboxes and family filtering.
 image: /sims/learning-standards-timeline/learning-standards-timeline.png
 og:image: /sims/learning-standards-timeline/learning-standards-timeline.png
-status: implemented
+status: built
 library: vis-timeline
 bloom_level: Remember + Understand
 ---
@@ -15,7 +15,7 @@ training and learning-data interoperability — AICC, SCORM, LTI, xAPI,
 Caliper, CMI5, IEEE 9274.1.1, and I2IDL — on a single horizontal axis,
 color-coded by the family that sponsors them.
 
-<iframe src="main.html" width="100%" height="702" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="582" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 [View the Raw Timeline Data](timeline.json){ .md-button }

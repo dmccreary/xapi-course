@@ -1,7 +1,7 @@
 ---
 title: Who Sets What — Client vs. LRS Field Ownership
 description: Who Sets What — Client vs. LRS Field Ownership
-status: scaffold
+status: built
 library: Mermaid
 bloom_level: Analyze (L4). Bloom verb: differentiate, attribute.
 ---
@@ -22,7 +22,7 @@ TBD
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="492"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

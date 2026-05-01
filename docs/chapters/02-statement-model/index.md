@@ -124,6 +124,10 @@ Now the diagram view. Click any field to read its formal definition.
 
 #### Diagram: xAPI Statement Anatomy
 
+
+<iframe src="../../sims/xapi-statement-anatomy/main.html" width="100%" height="522px" scrolling="no"></iframe>
+[Run xAPI Statement Anatomy Fullscreen](../../sims/xapi-statement-anatomy/main.html)
+
 <details markdown="1">
 <summary>Clickable anatomy of every field in an xAPI 1.0.3 statement</summary>
 Type: diagram
@@ -186,6 +190,10 @@ A verb object also includes an optional `display` map — human-readable labels 
 We'll spend an entire chapter (Chapter 4) on verb vocabulary design, because picking the wrong verbs early is one of the easiest ways to wreck the analytics value of an xAPI deployment. For now, the verb explorer below lets you preview the canonical ADL verbs you'll be reaching for most often.
 
 #### Diagram: ADL Verb Vocabulary Explorer
+
+
+<iframe src="../../sims/adl-verb-vocabulary-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+[Run ADL Verb Vocabulary Explorer Fullscreen](../../sims/adl-verb-vocabulary-explorer/main.html)
 
 <details markdown="1">
 <summary>Interactive explorer for the canonical ADL xAPI verb vocabulary</summary>
@@ -301,6 +309,10 @@ The **Statement Version Field** records the xAPI specification version under whi
 
 #### Diagram: Who Sets What — Client vs. LRS Field Ownership
 
+
+<iframe src="../../sims/statement-field-ownership/main.html" width="100%" height="492px" scrolling="no"></iframe>
+[Run Who Sets What — Client vs. LRS Field Ownership Fullscreen](../../sims/statement-field-ownership/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram showing which fields are set by the client and which by the LRS</summary>
 Type: diagram
@@ -335,6 +347,10 @@ Implementation: Mermaid `flowchart LR` with classDefs and `click` directives wir
 Reading statements is half the skill. Building them is the other half. The MicroSim below lets you assemble a complete xAPI statement piece by piece, watch the JSON construct itself, and see live conformance feedback as you go.
 
 #### Diagram: xAPI Statement Builder MicroSim
+
+
+<iframe src="../../sims/xapi-statement-builder/main.html" width="100%" height="602px" scrolling="no"></iframe>
+[Run xAPI Statement Builder MicroSim Fullscreen](../../sims/xapi-statement-builder/main.html)
 
 <details markdown="1">
 <summary>Interactive statement builder with live JSON output and conformance checking</summary>
@@ -391,6 +407,10 @@ The **Activity Consumer** is the system that *reads* statements back out of the 
 The diagram below lays the three roles out with the LRS in the middle. Click any role to see its responsibilities, the HTTP verbs it uses, and an example real-world system that fills that role.
 
 #### Diagram: Activity Provider, LRS, and Activity Consumer
+
+
+<iframe src="../../sims/xapi-three-roles/main.html" width="100%" height="482px" scrolling="no"></iframe>
+[Run Activity Provider, LRS, and Activity Consumer Fullscreen](../../sims/xapi-three-roles/main.html)
 
 <details markdown="1">
 <summary>The three xAPI ecosystem roles and how statements flow between them</summary>
