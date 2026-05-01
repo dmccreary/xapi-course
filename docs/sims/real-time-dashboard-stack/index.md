@@ -1,28 +1,25 @@
 ---
 title: Real-Time Dashboard Stack
 description: Real-Time Dashboard Stack
-status: scaffold
+status: implemented
 library: Mermaid
-bloom_level: TBD
+bloom_level: Understand
 ---
 
 # Real-Time Dashboard Stack
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Identify each layer of a real-time xAPI dashboard pipeline and recognize
+where statements transform into engagement metrics.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Understand
+- **Bloom Verb:** Identify
 - **Library:** Mermaid
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
