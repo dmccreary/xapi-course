@@ -106,6 +106,10 @@ For *your* deployment — meaning your textbook's emit path against your chosen 
 
 #### Diagram: Conformance Validation Pipeline
 
+
+<iframe src="../../sims/conformance-validation-pipeline<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Conformance Validation Pipeline Fullscreen](../../sims/conformance-validation-pipeline<br/>/main.html)
+
 <details markdown="1">
 <summary>Conformance Validation Pipeline</summary>
 Type: workflow-diagram
@@ -153,6 +157,10 @@ The **CMI5 session lifecycle** is a strict statement sequence. Every cmi5 sessio
 cmi5 also constrains the verbs (only the eight cmi5-defined verbs are allowed in a session) and the activity types (only cmi5-defined types). This rigidity is the point — an LMS that supports cmi5 can predict exactly what statements a course will emit, which is what makes cmi5 deliverables work as gradable artifacts.
 
 #### Diagram: CMI5 Session Lifecycle
+
+
+<iframe src="../../sims/cmi5-session-lifecycle<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run CMI5 Session Lifecycle Fullscreen](../../sims/cmi5-session-lifecycle<br/>/main.html)
 
 <details markdown="1">
 <summary>CMI5 Session Lifecycle</summary>
@@ -224,6 +232,10 @@ The version-negotiation contract for production code:
 **Proprietary analytics SDKs** (Google Analytics, Mixpanel, Amplitude, Segment, the long tail of LMS-vendor-specific analytics SDKs) are the most-likely competitor in many procurement conversations. They're easier to integrate (one SDK call vs. xAPI's vocabulary discipline), produce nicer-looking dashboards out of the box, and require zero standards adoption. They are also: vendor-locked, learning-specific in name only, and incapable of cross-vendor portability. Statements you emit to a proprietary analytics SDK belong to that vendor. Statements you emit via xAPI belong to your LRS, which you control. **Vendor lock-in risk** is the single biggest argument against proprietary SDKs and the single biggest argument for xAPI.
 
 #### Diagram: Standards Comparison Card Grid
+
+
+<iframe src="../../sims/standards-comparison-card-grid<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Standards Comparison Card Grid Fullscreen](../../sims/standards-comparison-card-grid<br/>/main.html)
 
 <details markdown="1">
 <summary>Standards Comparison Card Grid</summary>
