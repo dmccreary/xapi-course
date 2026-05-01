@@ -316,6 +316,39 @@ You came into this chapter as someone who wanted to instrument a textbook. You'r
 
 The next chapter dives into the **statement model** — the actual JSON shape of an xAPI statement, the rules for required and optional fields, and the first lines of code you'll write to construct one yourself.
 
+## Where This Book Sits: The Five Levels of Intelligent Textbooks
+
+Before we close the chapter, here is one more map worth committing to memory — the one that tells you what kind of textbook you're holding right now, and where it sits on the road to a fully autonomous AI tutor.
+
+Intelligent textbooks fall into five levels, ordered by how much the book learns *about* the learner and how much it adapts in response. Each level is a strict superset of the one below it.
+
+1. **Level 1 — Static.** Print or PDF. No interaction, no telemetry, no adaptation. About 90% of college textbooks still live here.
+2. **Level 2 — Interactive.** Hyperlinks, embedded video, search, simple quizzes, and — most importantly for us — interactive MicroSims that respond to learner input.
+3. **Level 3 — Adaptive.** The book changes what it shows you based on what you've done. Personalized pathways, performance-based content selection, concept-graph traversal. Requires a learning record store and the analytics layer to read it.
+4. **Level 4 — Chatbot-augmented.** A conversational tutor — usually GraphRAG over an LLM — sits next to the content and answers questions in context.
+5. **Level 5 — Autonomous AI.** Aspirational. The textbook generates lessons in real time from a deep model of what each learner knows, needs, and is ready for next.
+
+#### Diagram: The Five Levels of Intelligent Textbooks
+
+<iframe src="../../sims/book-levels/main.html" width="100%" height="500px" scrolling="no"
+  style="overflow: hidden;"></iframe>
+
+[Run the Book Levels MicroSim Fullscreen](../../sims/book-levels/main.html){ .md-button .md-button--primary }
+
+Hover over each step to see what makes that level distinct, what it costs to build, and what privacy obligations come with it.
+
+### So Where Is *This* Textbook?
+
+This book is at **Level 2.99**. It is unapologetically a Level 2 interactive textbook — every diagram is clickable, every chart responds to hover, every MicroSim teaches by manipulation rather than illustration — but it is built with the bones of a Level 3 textbook already in place. That is what the *.99* is doing in the version number.
+
+Concretely, every interactive element in this book — the statement-triple diagram you clicked earlier, the timeline of standards, the ecosystem map, the Five Levels MicroSim you just hovered over — was designed from day one to emit xAPI statements when wired to a learning record store. The clicks, the hovers, the panel-opens, the filter toggles, the "explored Level 3" event — all of those are first-class learning signals waiting for a destination. Drop in an LRS endpoint, configure an authorization header, and this textbook crosses into Level 3 the same afternoon. The instrumentation is already there; only the receiver is missing.
+
+That is the superpower this chapter has been quietly preparing you to hand to the textbook itself. By the end of Chapter 8 you'll know exactly how to flip the switch.
+
+!!! mascot-thinking "The 2.99 trick"
+    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Xavi thinking">
+    A textbook that *can* emit xAPI but isn't currently pointed at an LRS isn't a Level 3 textbook yet — but it also isn't a regular Level 2 textbook. It's *xAPI-ready*. That distinction matters for procurement, for IRB review, and for the conversation you'll have with your institution's privacy office before you ever turn the data collection on. Level 2.99 is a feature, not a half-measure: it lets the publisher ship without student-data obligations, and lets the adopting institution decide on its own timeline whether to cross into Level 3.
+
 !!! mascot-celebration "You just leveled up!"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating">
     You now have the **standards literacy** that distinguishes someone who can talk about xAPI from someone who can only talk *around* it. That literacy is the foundation everything else in this book sits on. In the next chapter we'll start writing real statements. Tentacles up!

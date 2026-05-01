@@ -1,7 +1,7 @@
 ---
 title: Intelligent Textbook xAPI Architecture
 description: Interactive Mermaid MicroSim showing how a learner's interaction in an intelligent textbook propagates from a MicroSim, quiz, or adaptive branch through the xAPI client library to the LRS.
-status: built
+status: approved
 library: Mermaid
 bloom_level: "Understand"
 bloom_verb: Identify
@@ -15,8 +15,9 @@ bloom_verb: Identify
 ## Learning Objective
 
 Identify each layer of an xAPI-instrumented intelligent textbook and trace how
-a learner's interaction propagates from a MicroSim through the client library
-to the LRS.
+a learner's interaction — whether a page view, a MicroSim click, a quiz
+submission, or an adaptive-branching decision — propagates through the client
+library to the LRS.
 
 - **Bloom Level:** Understand
 - **Bloom Verb:** Identify
@@ -30,8 +31,11 @@ order a single learner interaction travels at runtime:
 
 1. **Markdown content** at the top — the chapter the learner is reading,
    rendered by MkDocs Material.
-2. **Component layer** — the three places interactions originate: a
-   **MicroSim**, a **Quiz**, or **Adaptive Branching** logic.
+2. **Component layer** — the four places interactions originate:
+   **Page Views** (page load, scroll depth, time-on-page), a **MicroSim**, a
+   **Quiz**, or **Adaptive Branching** logic. Page Views is the most
+   universal source — every chapter page emits these signals, even pages
+   with no MicroSim or quiz.
 3. **xAPI Client Library** — the single API that all components call. From
    the component's point of view, recording an event is one function call.
 4. **Client internals** — what the client library does behind the curtain:
@@ -56,10 +60,10 @@ component code stays small.
 
 A few things worth noticing as you click around:
 
-1. **Three components, one client.** Whether the event comes from a
-   MicroSim, a quiz, or branching logic, it goes through the same library.
-   That's the abstraction that lets a textbook swap LRS providers by
-   changing one config object.
+1. **Four components, one client.** Whether the event comes from a page
+   view, a MicroSim, a quiz, or branching logic, it goes through the same
+   library. That's the abstraction that lets a textbook swap LRS providers
+   by changing one config object.
 
 2. **Internals fan out, then fan in.** The client library splits the work
    across four specialists (build, buffer, retry, auth) and then the Fetch
