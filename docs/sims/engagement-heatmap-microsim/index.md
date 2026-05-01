@@ -1,28 +1,26 @@
 ---
 title: Engagement Heatmap MicroSim
 description: Engagement Heatmap MicroSim
-status: scaffold
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Analyze
 ---
 
 # Engagement Heatmap MicroSim
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Read an engagement heatmap to identify under-engaged sections of a chapter,
+and adjust input parameters (cohort size, time window, verb filter) to see
+how the visualization responds.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Analyze
+- **Bloom Verb:** Read
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="602" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

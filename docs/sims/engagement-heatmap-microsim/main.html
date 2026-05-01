@@ -3,121 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Engagement Heatmap MicroSim</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        html, body { font-family: 'Segoe UI', sans-serif; background: #f8fafc;
+            font-size: 13px; overflow: hidden; }
+        main { display: block; width: 100%; }
     </style>
+    <script src="engagement-heatmap-microsim.js" defer></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Engagement Heatmap MicroSim</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> engagement-heatmap-microsim</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: micro-sim
-    **sim-id:** engagement-heatmap-microsim<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Read an engagement heatmap to identify under-engaged sections of a chapter, and adjust input parameters (cohort size, time window, verb filter) to see how the visualization responds.
-    
-    **Layout:** 2/3 (left) heatmap canvas + 1/3 (right) controls and reading guide.
-    
-    **Visual elements (left):**
-    
-    - A vertically-arranged grid of 8 chapter sections, each rendered as a row
-    - Each row colored on a gradient (light-yellow to dark-red) based on per-section interaction counts
-    - Row labels showing section name and interaction count
-    - A legend bar at the bottom showing the color scale
-    
-    **Controls (right):**
-    
-    - Slider: Cohort size (10 – 500 learners)
-    - Slider: Time window (1 – 30 days)
-    - Dropdown: Verb filter (`all`, `experienced`, `interacted`, `attempted`)
-    - A "Synthesize new data" button that re-randomizes the per-section counts using a realistic distribution
-    - A reading-guide panel below the controls explaining what dark vs. light rows typically mean
-    
-    **Interaction:**
-    
-    - Adjusting any control re-computes the heatmap colors and counts
-    - Clicking a row in the heatmap opens a side-detail showing the exact statements aggregated into that count
-    
-    **Default canvas:** 1000×600px, responsive.
-    
-    Implementation: p5.js for the heatmap rendering, color gradients, and synthetic data generation.
-    -->
+    <main></main>
 </body>
 </html>
