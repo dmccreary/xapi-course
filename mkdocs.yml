@@ -23,20 +23,48 @@ nav:
 
   - Chapters:
       - List of Chapters: chapters/index.md
-      - 1. Foundations and Standards: chapters/01-foundations-and-standards/index.md
-      - 2. Statement Model: chapters/02-statement-model/index.md
-      - 3. Advanced Statement Structure: chapters/03-advanced-statement-structure/index.md
-      - 4. Verb Vocabulary Design: chapters/04-verb-vocabulary-design/index.md
-      - 5. Activities, Agents, Identity: chapters/05-activities-agents-identity/index.md
-      - 6. LRS Architecture: chapters/06-lrs-architecture/index.md
-      - 7. LRS Platforms and Auth: chapters/07-lrs-platforms-and-auth/index.md
-      - 8. Implementing in Textbooks: chapters/08-implementing-in-textbooks/index.md
-      - 9. Bandwidth and Offline: chapters/09-bandwidth-and-offline/index.md
-      - 10. Monitoring and Observability: chapters/10-monitoring-and-observability/index.md
-      - 11. Synthetic Data and AI Testing: chapters/11-synthetic-data-and-ai-testing/index.md
-      - 12. Conformance and Comparison: chapters/12-conformance-and-comparison/index.md
-      - 13. Pipeline and Production: chapters/13-pipeline-and-production/index.md
-      - 14. Privacy and Compliance: chapters/14-privacy-and-compliance/index.md
+      - 1. Foundations and Standards:
+          - Content: chapters/01-foundations-and-standards/index.md
+          - Quiz: chapters/01-foundations-and-standards/quiz.md
+      - 2. Statement Model:
+          - Content: chapters/02-statement-model/index.md
+          - Quiz: chapters/02-statement-model/quiz.md
+      - 3. Advanced Statement Structure:
+          - Content: chapters/03-advanced-statement-structure/index.md
+          - Quiz: chapters/03-advanced-statement-structure/quiz.md
+      - 4. Verb Vocabulary Design:
+          - Content: chapters/04-verb-vocabulary-design/index.md
+          - Quiz: chapters/04-verb-vocabulary-design/quiz.md
+      - 5. Activities, Agents, Identity:
+          - Content: chapters/05-activities-agents-identity/index.md
+          - Quiz: chapters/05-activities-agents-identity/quiz.md
+      - 6. LRS Architecture:
+          - Content: chapters/06-lrs-architecture/index.md
+          - Quiz: chapters/06-lrs-architecture/quiz.md
+      - 7. LRS Platforms and Auth:
+          - Content: chapters/07-lrs-platforms-and-auth/index.md
+          - Quiz: chapters/07-lrs-platforms-and-auth/quiz.md
+      - 8. Implementing in Textbooks:
+          - Content: chapters/08-implementing-in-textbooks/index.md
+          - Quiz: chapters/08-implementing-in-textbooks/quiz.md
+      - 9. Bandwidth and Offline:
+          - Content: chapters/09-bandwidth-and-offline/index.md
+          - Quiz: chapters/09-bandwidth-and-offline/quiz.md
+      - 10. Monitoring and Observability:
+          - Content: chapters/10-monitoring-and-observability/index.md
+          - Quiz: chapters/10-monitoring-and-observability/quiz.md
+      - 11. Synthetic Data and AI Testing:
+          - Content: chapters/11-synthetic-data-and-ai-testing/index.md
+          - Quiz: chapters/11-synthetic-data-and-ai-testing/quiz.md
+      - 12. Conformance and Comparison:
+          - Content: chapters/12-conformance-and-comparison/index.md
+          - Quiz: chapters/12-conformance-and-comparison/quiz.md
+      - 13. Pipeline and Production:
+          - Content: chapters/13-pipeline-and-production/index.md
+          - Quiz: chapters/13-pipeline-and-production/quiz.md
+      - 14. Privacy and Compliance:
+          - Content: chapters/14-privacy-and-compliance/index.md
+          - Quiz: chapters/14-privacy-and-compliance/quiz.md
 
   - Learning Graph:
       - Introduction: learning-graph/index.md
@@ -47,6 +75,7 @@ nav:
       - Concept Taxonomy: learning-graph/concept-taxonomy.md
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
+      - Quiz Generation Report: learning-graph/quiz-generation-report.md
 
 # MicroSims, Interactive Infographics and other interactive content
   - MicroSims:

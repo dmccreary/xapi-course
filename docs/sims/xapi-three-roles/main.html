@@ -8,7 +8,7 @@
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
-            startOnLoad: true,
+            startOnLoad: false,
             theme: 'default',
             securityLevel: 'loose',
             flowchart: {
@@ -16,9 +16,20 @@
                 htmlLabels: true,
                 curve: 'basis',
                 nodeSpacing: 12,
-                rankSpacing: 60,
+                rankSpacing: 40,
                 padding: 4
             }
+        });
+
+        await mermaid.run();
+
+        // Add 15px of breathing room above each subgraph title by extending
+        // the cluster rect upward (shift y up by 15 and grow height by 15).
+        document.querySelectorAll('.mermaid .cluster rect').forEach(rect => {
+            const y = parseFloat(rect.getAttribute('y') || 0);
+            const h = parseFloat(rect.getAttribute('height') || 0);
+            rect.setAttribute('y', y - 15);
+            rect.setAttribute('height', h + 15);
         });
     </script>
     <style>
@@ -84,7 +95,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     subgraph LRPEnv ["Learning Record Provider — broader category"]
         AP["Activity Provider<br/><i>creates statements</i>"]:::apNode
     end
@@ -95,7 +106,7 @@ flowchart LR
 
     GET["GET /statements"]:::wireNode
 
-    subgraph ConsumerEnv ["Activity Consumer — reads statements"]
+    subgraph ConsumerEnv ["Activity Consumer - reads statements"]
         AC["Activity Consumer"]:::acNode
         Dash["Dashboard"]:::subNode
         Rec["Recommender"]:::subNode

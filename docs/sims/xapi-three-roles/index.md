@@ -3,28 +3,17 @@ title: Activity Provider, LRS, and Activity Consumer
 description: Activity Provider, LRS, and Activity Consumer
 status: built
 library: Mermaid
-bloom_level: Understand (L2). Bloom verb: describe, classify.
+bloom_level: Understand (L2). Bloom verb- describe, classify.
 ---
-
 # Activity Provider, LRS, and Activity Consumer
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
+<iframe src="main.html" width="100%" height="682"></iframe>
 
-## Learning Objective
-
-TBD
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 - **Bloom Level:** Understand (L2). Bloom verb: describe, classify.
 - **Bloom Verb:** TBD
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="482"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

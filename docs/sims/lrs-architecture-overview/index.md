@@ -9,7 +9,7 @@ bloom_verb: Identify
 
 # LRS Architecture Overview
 
-<iframe src="main.html" height="542" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="642" width="100%" scrolling="no"></iframe>
 
 [Run the LRS Architecture Overview MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
