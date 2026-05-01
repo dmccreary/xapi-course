@@ -3,9 +3,11 @@
 // Bloom: Apply (L3) — estimate bandwidth cost of an xAPI deployment
 
 const refLinks = {
-    wifi:   { label: 'Classroom Wi-Fi (~5 Mbps)',  bps: 5_000_000 / 8 },
-    cell:   { label: '10 Mbps cellular tether',    bps: 10_000_000 / 8 },
-    campus: { label: '1 Gbps campus link',         bps: 1_000_000_000 / 8 }
+    ruralCell: { label: '.1 Mbps Rural Cell',        bps: 1_000_000 / 8 },
+    sat:       { label: '1 Mbps Satellite',        bps: 1_000_000 / 8 },
+    wifi:      { label: '5 Mbps Classroom Wi-Fi',  bps: 5_000_000 / 8 },
+    cell:      { label: '10 Mbps 5G Cell tether', bps: 10_000_000 / 8 },
+    campus:    { label: '1 Gbps campus link',      bps: 1_000_000_000 / 8 }
 };
 
 const presets = {

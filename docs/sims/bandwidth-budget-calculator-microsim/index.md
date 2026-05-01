@@ -1,13 +1,13 @@
 ---
 title: Bandwidth Budget Calculator MicroSim
 description: Bandwidth Budget Calculator MicroSim
-status: implemented
+status: approved
 library: HTML/JS
 bloom_level: "Apply"
 ---
 
 # Bandwidth Budget Calculator MicroSim
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="412" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

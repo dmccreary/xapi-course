@@ -1,7 +1,7 @@
 ---
 title: Activity Naming and Occurrence Fields
 description: Click or hover the five colored fields in a worked xAPI statement to see which question each one answers — and toggle compare mode to see what changes between two attempts of the same activity.
-status: built
+status: approved
 library: HTML/CSS/JavaScript
 bloom_level: "Understand"
 ---
@@ -9,7 +9,7 @@ bloom_level: "Understand"
 # Activity Naming and Occurrence Fields
 <iframe src="main.html" width="100%" height="542" scrolling="no"></iframe>
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+[Run MicroSim in Fullscreen (required for comparison)](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 

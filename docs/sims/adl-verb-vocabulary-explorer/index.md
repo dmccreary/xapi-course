@@ -1,7 +1,7 @@
 ---
 title: ADL Verb Vocabulary Explorer
 description: ADL Verb Vocabulary Explorer
-status: built
+status: approved
 library: p5.js
 bloom_level: "Understand (L2). Bloom verb: classify, exemplify."
 ---
@@ -10,10 +10,6 @@ bloom_level: "Understand (L2). Bloom verb: classify, exemplify."
 <iframe src="main.html" width="100%" height="542"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
-
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
 
 ## Learning Objective
 
