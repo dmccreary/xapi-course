@@ -1,10 +1,13 @@
 {
   "title": "Component Instrumentation MicroSim",
-  "description": "Component Instrumentation MicroSim",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Manipulate a fake interactive textbook component (slider, Run Simulation button, quiz radio-group, Submit Quiz button) and watch xAPI statements stream into a live log on the right, building intuition for which UI events map to which verbs.",
+  "creator": "xAPI for Intelligent Textbooks",
+  "date": "2026-05-01",
   "subject": [
-    "dementia"
+    "xAPI",
+    "instrumentation",
+    "verb vocabulary",
+    "ADL Verb Registry"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +15,38 @@
   "rights": "CC BY 4.0",
   "identifier": "component-instrumentation-microsim",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Apply",
+  "bloomVerb": "Manipulate",
+  "completion_status": "implemented",
   "chapter_number": 4,
   "chapter_title": "Verb Vocabulary Design and the ADL Verb Registry",
-  "chapter_dir": "04-verb-vocabulary-design"
+  "chapter_dir": "04-verb-vocabulary-design",
+  "verbs_emitted": [
+    "interacted",
+    "experienced",
+    "attempted",
+    "scored",
+    "passed",
+    "failed"
+  ],
+  "educational": {
+    "audience": "Developers and instructional designers learning to instrument interactive textbook components with xAPI",
+    "learningResourceType": "interactive simulation",
+    "interactivityType": "active",
+    "interactivityLevel": "high",
+    "typicalLearningTime": "PT5M",
+    "educationalUse": "demonstration",
+    "educationalLevel": "professional"
+  },
+  "pedagogical": {
+    "learningObjective": "Manipulate a fake interactive textbook component (slider, button, quiz item) and observe the resulting xAPI statements appear in a side panel, building intuition for which verbs map to which UI events.",
+    "bloomLevel": "Apply",
+    "bloomVerb": "Manipulate",
+    "prerequisiteKnowledge": [
+      "Basic familiarity with the xAPI statement triple (actor, verb, object)",
+      "Awareness that xAPI verbs are IRIs from the ADL Verb Registry"
+    ],
+    "instructionalPattern": "Manipulate-and-observe: learners trigger UI events and immediately see the resulting statements, including the deliberately silent case (radio selection) that teaches them when NOT to emit.",
+    "assessmentStrategy": "Self-directed exploration; the live log provides immediate feedback for every interaction."
+  }
 }

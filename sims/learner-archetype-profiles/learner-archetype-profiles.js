@@ -3,7 +3,7 @@
 // Bloom: Understand (L2) — distinguish five canonical learner archetypes
 
 let canvasWidth = 800;
-let canvasHeight = 620;
+let canvasHeight = 500;
 
 const ARCHETYPES = [
     { id: 'fast', name: 'Fast Learner', color: '#3b82f6',
@@ -57,7 +57,7 @@ function setup() {
     updateCanvasSize();
     const cnv = createCanvas(canvasWidth, canvasHeight);
     cnv.parent(document.querySelector('main'));
-    textFont('Segoe UI');
+    // textFont('Segoe UI');
     noLoop();
 }
 
@@ -68,7 +68,7 @@ function windowResized() {
 }
 
 function draw() {
-    background(248, 250, 252);
+    background('aliceblue');
 
     const padX = 12;
     const titleY = 6;
@@ -81,7 +81,8 @@ function draw() {
     const cardsX = padX;
     const cardsY = 38;
     const cardsW = canvasWidth - sidePanelW - padX * 3;
-    const cardH = (canvasHeight - cardsY - 14) / ARCHETYPES.length;
+    // const cardH = (canvasHeight - cardsY - 14) / ARCHETYPES.length;
+    const cardH = 80;
 
     cardsRect = [];
     for (let i = 0; i < ARCHETYPES.length; i++) {
