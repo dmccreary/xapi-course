@@ -17,7 +17,8 @@
                 curve: 'basis',
                 nodeSpacing: 12,
                 rankSpacing: 60,
-                padding: 4
+                padding: 4,
+                subGraphTitleMargin: { top: 10, bottom: 14 }
             }
         });
     </script>
@@ -139,6 +140,7 @@
             <div class="mermaid">
 flowchart TD
     Markdown["Markdown content<br/>(MkDocs Material)"]:::content
+    PageViews["Page Views"]:::component
     MicroSim["MicroSim"]:::component
     Quiz["Quiz"]:::component
     Branching["Adaptive Branching"]:::component
@@ -150,9 +152,11 @@ flowchart TD
     Fetch["Fetch API → LRS HTTP API"]:::transport
     LRS[("LRS Storage")]:::storage
 
+    Markdown --> PageViews
     Markdown --> MicroSim
     Markdown --> Quiz
     Markdown --> Branching
+    PageViews --> ClientLib
     MicroSim --> ClientLib
     Quiz --> ClientLib
     Branching --> ClientLib
@@ -167,6 +171,7 @@ flowchart TD
     Fetch --> LRS
 
     click Markdown call showComponent("Markdown")
+    click PageViews call showComponent("PageViews")
     click MicroSim call showComponent("MicroSim")
     click Quiz call showComponent("Quiz")
     click Branching call showComponent("Branching")

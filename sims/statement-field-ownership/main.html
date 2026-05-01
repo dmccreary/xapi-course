@@ -16,8 +16,9 @@
                 htmlLabels: true,
                 curve: 'basis',
                 nodeSpacing: 12,
-                rankSpacing: 60,
-                padding: 4
+                rankSpacing: 40,
+                padding: 4,
+                subGraphTitleMargin: { top: 10, bottom: 14 }
             }
         });
     </script>
@@ -86,7 +87,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     subgraph AP ["Activity Provider — you set these"]
         actor["actor"]:::client
         verb["verb"]:::client
