@@ -3,10 +3,13 @@ title: Engagement Heatmap MicroSim
 description: Engagement Heatmap MicroSim
 status: implemented
 library: p5.js
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # Engagement Heatmap MicroSim
+<iframe src="main.html" width="100%" height="602" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -17,12 +20,6 @@ how the visualization responds.
 - **Bloom Level:** Analyze
 - **Bloom Verb:** Read
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="602" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

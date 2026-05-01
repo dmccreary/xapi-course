@@ -3,10 +3,13 @@ title: Who Sets What — Client vs. LRS Field Ownership
 description: Who Sets What — Client vs. LRS Field Ownership
 status: built
 library: Mermaid
-bloom_level: Analyze (L4). Bloom verb: differentiate, attribute.
+bloom_level: "Analyze (L4). Bloom verb: differentiate, attribute."
 ---
 
 # Who Sets What — Client vs. LRS Field Ownership
+<iframe src="main.html" width="100%" height="802"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ TBD
 - **Bloom Level:** Analyze (L4). Bloom verb: differentiate, attribute.
 - **Bloom Verb:** TBD
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="802"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

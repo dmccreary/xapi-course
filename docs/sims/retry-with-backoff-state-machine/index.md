@@ -3,7 +3,7 @@ title: Retry-With-Backoff State Machine
 description: Interactive Mermaid state diagram showing how an xAPI client batches, sends, retries, and offline-queues statements based on HTTP response codes.
 status: built
 library: Mermaid
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # Retry-With-Backoff State Machine

@@ -3,11 +3,14 @@ title: Component Instrumentation Pattern Browser
 description: Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.
 status: built
 library: p5.js
-bloom_level: Apply
+bloom_level: "Apply"
 bloom_verb: apply
 ---
 
 # Component Instrumentation Pattern Browser
+<iframe src="main.html" width="100%" height="722"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -20,12 +23,6 @@ shared `registration` UUID so attempts stay together.
 - **Bloom Level:** Apply
 - **Bloom Verb:** apply
 - **Library:** p5.js (with HTML/CSS for tabbed UI and statement list)
-
-## Preview
-
-<iframe src="main.html" width="100%" height="722"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## How to Use
 

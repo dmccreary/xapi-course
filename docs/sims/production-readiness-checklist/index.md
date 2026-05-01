@@ -3,10 +3,13 @@ title: Production Readiness Checklist
 description: Production Readiness Checklist
 status: implemented
 library: p5.js
-bloom_level: Evaluate
+bloom_level: "Evaluate"
 ---
 
 # Production Readiness Checklist
+<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ covering vocabulary, pipeline, observability, and security.
 - **Bloom Level:** Evaluate
 - **Bloom Verb:** Assess
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

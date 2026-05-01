@@ -3,10 +3,13 @@ title: Emit-Path Topology
 description: Interactive Mermaid MicroSim comparing client-side, server-side, and hybrid xAPI emission topologies, with click-to-reveal infoboxes describing the statements and security trade-offs of each path.
 status: built
 library: Mermaid
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # Emit-Path Topology
+<iframe src="main.html" height="462" width="100%" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ which events belong on which path for a given deployment.
 - **Bloom Level:** Analyze
 - **Bloom Verb:** Compare
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" height="462" width="100%" scrolling="no"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## About This MicroSim
 

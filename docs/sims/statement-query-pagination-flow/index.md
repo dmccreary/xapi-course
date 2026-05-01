@@ -3,11 +3,14 @@ title: Statement Query and Pagination Flow
 description: Interactive Mermaid flowchart of the client-side loop for paginated xAPI statement queries.
 status: built
 library: Mermaid
-bloom_level: Apply
+bloom_level: "Apply"
 bloom_verb: Trace
 ---
 
 # Statement Query and Pagination Flow
+<iframe src="main.html" width="100%" height="562" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -17,12 +20,6 @@ the client should follow the `more` URL and when to stop.
 - **Bloom Level:** Apply
 - **Bloom Verb:** Trace
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="562" scrolling="no"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## About This MicroSim
 

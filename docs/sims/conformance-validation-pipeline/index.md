@@ -3,10 +3,13 @@ title: Conformance Validation Pipeline
 description: Conformance Validation Pipeline
 status: implemented
 library: Mermaid
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # Conformance Validation Pipeline
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -17,12 +20,6 @@ class of bug.
 - **Bloom Level:** Analyze
 - **Bloom Verb:** Trace
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

@@ -3,10 +3,13 @@ title: PII Surface in an xAPI Statement
 description: PII Surface in an xAPI Statement
 status: implemented
 library: HTML/JS
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # PII Surface in an xAPI Statement
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ personally identifiable information, and apply per-region mitigations.
 - **Bloom Level:** Analyze
 - **Bloom Verb:** Identify
 - **Library:** HTML/JS
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

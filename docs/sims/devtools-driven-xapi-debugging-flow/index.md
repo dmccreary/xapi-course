@@ -3,10 +3,13 @@ title: DevTools-Driven xAPI Debugging Flow
 description: DevTools-Driven xAPI Debugging Flow
 status: implemented
 library: Mermaid
-bloom_level: Apply
+bloom_level: "Apply"
 ---
 
 # DevTools-Driven xAPI Debugging Flow
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ xAPI emit-path bug to the right layer (component, builder, transport, LRS).
 - **Bloom Level:** Apply
 - **Bloom Verb:** Localize
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

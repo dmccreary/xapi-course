@@ -3,7 +3,7 @@ title: Pseudonymization Pipeline
 description: Interactive Mermaid pipeline showing how learner identity flows from the LMS through the textbook into the LRS, and which hops expose identifying data.
 status: built
 library: Mermaid
-bloom_level: Analyze
+bloom_level: "Analyze"
 bloom_verb: Trace
 ---
 

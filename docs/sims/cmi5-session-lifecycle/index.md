@@ -3,10 +3,13 @@ title: CMI5 Session Lifecycle
 description: CMI5 Session Lifecycle
 status: implemented
 library: Mermaid
-bloom_level: Understand
+bloom_level: "Understand"
 ---
 
 # CMI5 Session Lifecycle
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ between them.
 - **Bloom Level:** Understand
 - **Bloom Verb:** Recall
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

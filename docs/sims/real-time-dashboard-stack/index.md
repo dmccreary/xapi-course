@@ -3,10 +3,13 @@ title: Real-Time Dashboard Stack
 description: Real-Time Dashboard Stack
 status: approved
 library: Mermaid
-bloom_level: Understand
+bloom_level: "Understand"
 ---
 
 # Real-Time Dashboard Stack
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ where statements transform into engagement metrics.
 - **Bloom Level:** Understand
 - **Bloom Verb:** Identify
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

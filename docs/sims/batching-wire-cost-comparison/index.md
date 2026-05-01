@@ -3,10 +3,13 @@ title: Batching Wire-Cost Comparison
 description: Batching Wire-Cost Comparison
 status: implemented
 library: p5.js
-bloom_level: Analyze
+bloom_level: "Analyze"
 ---
 
 # Batching Wire-Cost Comparison
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ recognizing how HTTP overhead amortizes as batch size grows.
 - **Bloom Level:** Analyze
 - **Bloom Verb:** Compare
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

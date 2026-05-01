@@ -3,10 +3,13 @@ title: ADL Verb Vocabulary Explorer
 description: ADL Verb Vocabulary Explorer
 status: built
 library: p5.js
-bloom_level: Understand (L2). Bloom verb: classify, exemplify.
+bloom_level: "Understand (L2). Bloom verb: classify, exemplify."
 ---
 
 # ADL Verb Vocabulary Explorer
+<iframe src="main.html" width="100%" height="542"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ TBD
 - **Bloom Level:** Understand (L2). Bloom verb: classify, exemplify.
 - **Bloom Verb:** TBD
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

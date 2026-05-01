@@ -3,11 +3,14 @@ title: The Four Inverse Functional Identifiers
 description: A 2x2 card grid comparing the four xAPI Inverse Functional Identifiers — mbox, mbox_sha1sum, openid, and account — across privacy posture, identification strength, and integration cost, with preset deployment scenarios that recommend the appropriate IFI.
 status: built
 library: p5.js
-bloom_level: Evaluating (L5)
+bloom_level: "Evaluating (L5)"
 bloom_verb: compare, select
 ---
 
 # The Four Inverse Functional Identifiers
+<iframe src="main.html" width="100%" height="602"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ Compare the four IFI forms across identification strength, privacy posture, and 
 - **Bloom Level:** Evaluating (L5)
 - **Bloom Verb:** compare, select
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="602"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## How to Use
 

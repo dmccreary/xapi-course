@@ -3,10 +3,13 @@ title: Canonical Verb Explorer
 description: Canonical Verb Explorer
 status: scaffold
 library: Mermaid
-bloom_level: TBD
+bloom_level: "TBD"
 ---
 
 # Canonical Verb Explorer
+<iframe src="main.html" width="100%" height="600"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ TBD
 - **Bloom Level:** TBD
 - **Bloom Verb:** TBD
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="600"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

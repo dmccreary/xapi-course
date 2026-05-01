@@ -3,7 +3,7 @@ title: Hosting Model Decision Tree
 description: Interactive Mermaid decision tree for choosing between hosted SaaS, self-hosted open source, and embedded LRS deployments.
 status: built
 library: Mermaid
-bloom_level: Evaluate
+bloom_level: "Evaluate"
 bloom_verb: Apply
 ---
 

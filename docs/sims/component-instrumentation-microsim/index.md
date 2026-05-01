@@ -3,7 +3,7 @@ title: Component Instrumentation MicroSim
 description: Manipulate a fake interactive textbook component (slider, button, quiz) and watch xAPI statements stream out in real time, building intuition for which UI events map to which verbs.
 status: approved
 library: p5.js
-bloom_level: Apply
+bloom_level: "Apply"
 image: ./component-instrumentation-microsim.png
 ---
 # Component Instrumentation MicroSim

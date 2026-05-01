@@ -3,10 +3,13 @@ title: Statistical Representativeness Comparison
 description: Statistical Representativeness Comparison
 status: implemented
 library: p5.js
-bloom_level: Evaluate
+bloom_level: "Evaluate"
 ---
 
 # Statistical Representativeness Comparison
+<iframe src="main.html" width="100%" height="662" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -17,12 +20,6 @@ outside the acceptable tolerance.
 - **Bloom Level:** Evaluate
 - **Bloom Verb:** Compare
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="662" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

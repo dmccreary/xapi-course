@@ -3,10 +3,13 @@ title: Authentication Scheme Comparison
 description: Compare HTTP Basic, OAuth 1.0a, and token-based authentication for xAPI across security, browser-safety, implementation cost, and revocation.
 status: built
 library: p5.js
-bloom_level: Evaluate (L5)
+bloom_level: "Evaluate (L5)"
 ---
 
 # Authentication Scheme Comparison
+<iframe src="main.html" width="100%" height="602" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -17,12 +20,6 @@ support, and pick the appropriate scheme for a deployment scenario.
 - **Bloom Level:** Evaluate (L5)
 - **Bloom Verb:** Compare
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="602" scrolling="no"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## How to Use
 

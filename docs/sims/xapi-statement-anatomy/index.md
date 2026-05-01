@@ -3,10 +3,13 @@ title: xAPI Statement Anatomy
 description: xAPI Statement Anatomy
 status: built
 library: Mermaid
-bloom_level: Understand (L2). Bloom verb: identify, explain.
+bloom_level: "Understand (L2). Bloom verb: identify, explain."
 ---
 
 # xAPI Statement Anatomy
+<iframe src="main.html" width="100%" height="522"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ TBD
 - **Bloom Level:** Understand (L2). Bloom verb: identify, explain.
 - **Bloom Verb:** TBD
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="522"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

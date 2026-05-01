@@ -3,11 +3,14 @@ title: Intelligent Textbook xAPI Architecture
 description: Interactive Mermaid MicroSim showing how a learner's interaction in an intelligent textbook propagates from a MicroSim, quiz, or adaptive branch through the xAPI client library to the LRS.
 status: built
 library: Mermaid
-bloom_level: Understand
+bloom_level: "Understand"
 bloom_verb: Identify
 ---
 
 # Intelligent Textbook xAPI Architecture
+<iframe src="main.html" width="100%" height="702" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -18,12 +21,6 @@ to the LRS.
 - **Bloom Level:** Understand
 - **Bloom Verb:** Identify
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="702" scrolling="no"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## About This MicroSim
 

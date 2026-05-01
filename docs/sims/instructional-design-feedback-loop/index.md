@@ -3,7 +3,7 @@ title: Instructional Design Feedback Loop
 description: Instructional Design Feedback Loop
 status: implemented
 library: Mermaid
-bloom_level: Create
+bloom_level: "Create"
 ---
 # Instructional Design Feedback Loop
 

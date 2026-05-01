@@ -3,7 +3,7 @@ title: Activity Provider, LRS, and Activity Consumer
 description: Activity Provider, LRS, and Activity Consumer
 status: built
 library: Mermaid
-bloom_level: Understand (L2). Bloom verb- describe, classify.
+bloom_level: "Understand (L2). Bloom verb- describe, classify."
 ---
 # Activity Provider, LRS, and Activity Consumer
 

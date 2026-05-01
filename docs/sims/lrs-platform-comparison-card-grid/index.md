@@ -3,10 +3,13 @@ title: LRS Platform Comparison Card Grid
 description: Compare TRAX, Learning Locker, Ralph, and Watershed across five dimensions and pick the right LRS for a given deployment scenario.
 status: built
 library: p5.js
-bloom_level: Evaluating
+bloom_level: "Evaluating"
 ---
 
 # LRS Platform Comparison Card Grid
+<iframe src="main.html" width="100%" height="622" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ appropriate platform for a given deployment scenario.
 - **Bloom Level:** Evaluating
 - **Bloom Verb:** Compare / Select
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="622" scrolling="no"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## How to Use
 

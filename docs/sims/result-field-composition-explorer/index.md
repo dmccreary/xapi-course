@@ -3,10 +3,13 @@ title: Result Field Composition Explorer
 description: Result Field Composition Explorer
 status: scaffold
 library: p5.js
-bloom_level: TBD
+bloom_level: "TBD"
 ---
 
 # Result Field Composition Explorer
+<iframe src="main.html" width="100%" height="600"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ TBD
 - **Bloom Level:** TBD
 - **Bloom Verb:** TBD
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="600"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

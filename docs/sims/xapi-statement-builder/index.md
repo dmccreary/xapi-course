@@ -3,10 +3,13 @@ title: xAPI Statement Builder MicroSim
 description: Given an English description of a learning event, the reader can construct a conformant xAPI 1.0.3 statement by selecting an actor, verb, and object, and optionally adding result, context, and metadata fields. Reinforces field-level understanding through hands-on assembly. Bloom level: Apply (L3). Bloom verb: construct, implement.
 status: built
 library: p5.js
-bloom_level: TBD
+bloom_level: "TBD"
 ---
 
 # xAPI Statement Builder MicroSim
+<iframe src="main.html" width="100%" height="602"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 !!! warning "Scaffold"
     This MicroSim has been scaffolded from its specification. The interactive
@@ -19,12 +22,6 @@ Given an English description of a learning event, the reader can construct a con
 - **Bloom Level:** TBD
 - **Bloom Verb:** TBD
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="602"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

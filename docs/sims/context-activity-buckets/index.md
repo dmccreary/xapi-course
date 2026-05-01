@@ -8,7 +8,7 @@ social:
    cards: false
 status: approved
 library: Mermaid
-bloom_level: Understand
+bloom_level: "Understand"
 bloom_verb: Identify, Explain
 ---
 

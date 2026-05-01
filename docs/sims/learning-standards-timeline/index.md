@@ -5,7 +5,7 @@ image: /sims/learning-standards-timeline/learning-standards-timeline.png
 og:image: /sims/learning-standards-timeline/learning-standards-timeline.png
 status: built
 library: vis-timeline
-bloom_level: Remember + Understand
+bloom_level: "Remember + Understand"
 ---
 
 # A Timeline of Learning Interoperability Standards

@@ -3,10 +3,13 @@ title: Bandwidth Budget Calculator MicroSim
 description: Bandwidth Budget Calculator MicroSim
 status: implemented
 library: HTML/JS
-bloom_level: Apply
+bloom_level: "Apply"
 ---
 
 # Bandwidth Budget Calculator MicroSim
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ per-statement size, frequency, batch size, and concurrent learner count.
 - **Bloom Level:** Apply
 - **Bloom Verb:** Estimate
 - **Library:** HTML/JS
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 
