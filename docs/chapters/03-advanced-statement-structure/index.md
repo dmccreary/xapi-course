@@ -144,6 +144,8 @@ These buckets matter because LRS query filters operate on them. Your dashboard t
 
 #### Diagram: Context Activity Buckets
 
+<iframe src="../../sims/context-activity-buckets/main.html" height="462" width="100%" scrolling="no"></iframe>
+
 <details markdown="1">
 <summary>Context Activity Buckets</summary>
 Type: clickable-mermaid

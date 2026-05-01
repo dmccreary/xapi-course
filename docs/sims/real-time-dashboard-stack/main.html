@@ -10,7 +10,7 @@
         mermaid.initialize({
             startOnLoad: true, theme: 'default', securityLevel: 'loose',
             flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
-                nodeSpacing: 14, rankSpacing: 70, padding: 6 }
+                nodeSpacing: 14, rankSpacing: 40, padding: 6 }
         });
     </script>
     <style>
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     LRS[("LRS<br/>statements + logs")]:::source
     Agg["Streaming aggregator<br/>or batched query"]:::agg
     OpMet["Operator metrics<br/>throughput / latency / errors"]:::opmet

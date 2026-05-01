@@ -1,12 +1,15 @@
 ---
 title: Learner Archetype Profiles
 description: Learner Archetype Profiles
-status: implemented
+status: approved
 library: p5.js
 bloom_level: Understand
 ---
-
 # Learner Archetype Profiles
+
+<iframe src="main.html" width="100%" height="502" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ signatures, and recognize which archetype dominates a given session pattern.
 - **Bloom Level:** Understand
 - **Bloom Verb:** Distinguish
 - **Library:** p5.js
-
-## Preview
-
-<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

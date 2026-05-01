@@ -5,8 +5,11 @@ status: implemented
 library: Mermaid
 bloom_level: Create
 ---
-
 # Instructional Design Feedback Loop
+
+<iframe src="main.html" width="100%" height="742" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -16,12 +19,6 @@ to instructional design changes and back to subsequent cohorts.
 - **Bloom Level:** Create
 - **Bloom Verb:** Trace
 - **Library:** Mermaid
-
-## Preview
-
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
-
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Specification
 

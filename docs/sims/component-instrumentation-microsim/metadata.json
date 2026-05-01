@@ -1,10 +1,13 @@
 {
   "title": "Component Instrumentation MicroSim",
-  "description": "Component Instrumentation MicroSim",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Manipulate a fake interactive textbook component (slider, Run Simulation button, quiz radio-group, Submit Quiz button) and watch xAPI statements stream into a live log on the right, building intuition for which UI events map to which verbs.",
+  "creator": "xAPI for Intelligent Textbooks",
+  "date": "2026-05-01",
   "subject": [
-    "dementia"
+    "xAPI",
+    "instrumentation",
+    "verb vocabulary",
+    "ADL Verb Registry"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +15,18 @@
   "rights": "CC BY 4.0",
   "identifier": "component-instrumentation-microsim",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Apply",
+  "bloomVerb": "Manipulate",
+  "completion_status": "implemented",
   "chapter_number": 4,
   "chapter_title": "Verb Vocabulary Design and the ADL Verb Registry",
-  "chapter_dir": "04-verb-vocabulary-design"
+  "chapter_dir": "04-verb-vocabulary-design",
+  "verbs_emitted": [
+    "interacted",
+    "experienced",
+    "attempted",
+    "scored",
+    "passed",
+    "failed"
+  ]
 }

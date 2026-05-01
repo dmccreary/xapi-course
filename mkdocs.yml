@@ -92,7 +92,7 @@ nav:
     - Component Instrumentation MicroSim: sims/component-instrumentation-microsim/index.md
     - Component Instrumentation Pattern Browser: sims/component-instrumentation-pattern-browser/index.md
     - Conformance Validation Pipeline: sims/conformance-validation-pipeline/index.md
-    - Context Activity Buckets: sims/context-activity-buckets/index.md
+    - Context Activity Buckets — Parent, Grouping, Category, Other: sims/context-activity-buckets/index.md
     - DevTools-Driven xAPI Debugging Flow: sims/devtools-driven-xapi-debugging-flow/index.md
     - Emit-Path Topology: sims/emit-path-topology/index.md
     - Engagement Heatmap MicroSim: sims/engagement-heatmap-microsim/index.md
@@ -128,6 +128,8 @@ nav:
     - Who Sets What — Client vs. LRS Field Ownership: sims/statement-field-ownership/index.md
     - xAPI Statement Anatomy: sims/xapi-statement-anatomy/index.md
     - xAPI Statement Builder MicroSim: sims/xapi-statement-builder/index.md
+
+
 
 
   - Glossary: glossary.md
