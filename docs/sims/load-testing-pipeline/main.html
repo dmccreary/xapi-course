@@ -3,115 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Load Testing Pipeline</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true, theme: 'default', securityLevel: 'loose',
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
+                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        html, body { width: 100%; height: 100%; overflow: hidden;
+            font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        .title { height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold; }
+        .container { display: flex; width: 100%; height: calc(100% - 40px); }
+        .diagram-panel { width: 62%; height: 100%; background: #eef2ff;
+            display: flex; justify-content: center; align-items: center;
+            padding: 12px; overflow: hidden; }
+        .mermaid { width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel { flex: 1; height: 100%; background: #fff;
+            border-left: 1px solid #e2e8f0; padding: 14px; overflow-y: auto; }
+        .info-panel h3 { font-size: 14px; color: #1e293b;
+            margin-bottom: 10px; padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca; }
+        .info-title { font-size: 14px; font-weight: bold;
+            color: #4338ca; margin-bottom: 4px; }
+        .info-content { font-size: 12px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code { background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 11px; color: #be185d;
+            font-family: 'Consolas', monospace; }
+        .info-content pre { background: #0f172a; color: #e2e8f0;
+            padding: 8px; border-radius: 4px; font-size: 11px;
+            overflow-x: auto; margin: 6px 0; font-family: 'Consolas', monospace; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 12px; }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover polygon, .node:hover path {
+            filter: brightness(1.1); }
     </style>
+    <script src="load-testing-pipeline.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Load Testing Pipeline</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Load testing pipeline — click any stage for tools and metrics</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    Spec(["Cohort spec<br/>size, mix, duration"]):::input
+    Gen["Claude Code<br/>generation"]:::action
+    Corpus[("Synthetic statement<br/>corpus (JSON)")]:::data
+    Valid["Conformance validator<br/>drop malformed"]:::guard
+    Runner["Load runner<br/>replay at rate"]:::action
+    LRS[("LRS under test")]:::target
+    Instr["LRS instrumentation<br/>latency / errors / TPS"]:::measure
+    TSDB[("Time-series<br/>metric store")]:::data
+    Dash["Dashboard / report<br/>pass-fail vs SLOs"]:::output
+    DashQ["Periodic dashboard<br/>queries"]:::action
+
+    Spec --> Gen --> Corpus --> Valid --> Runner --> LRS
+    LRS --> Instr --> TSDB --> Dash
+    DashQ --> TSDB
+
+    click Spec call showStep("Spec")
+    click Gen call showStep("Gen")
+    click Corpus call showStep("Corpus")
+    click Valid call showStep("Valid")
+    click Runner call showStep("Runner")
+    click LRS call showStep("LRS")
+    click Instr call showStep("Instr")
+    click TSDB call showStep("TSDB")
+    click Dash call showStep("Dash")
+    click DashQ call showStep("DashQ")
+
+    classDef input fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
+    classDef action fill:#4338ca,stroke:#312e81,color:#fff
+    classDef data fill:#0d9488,stroke:#134e4a,color:#fff
+    classDef guard fill:#ca8a04,stroke:#854d0e,color:#fff
+    classDef target fill:#dc2626,stroke:#7f1d1d,color:#fff
+    classDef measure fill:#7c3aed,stroke:#4c1d95,color:#fff
+    classDef output fill:#16a34a,stroke:#14532d,color:#fff
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> load-testing-pipeline</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Stage Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any stage in the pipeline to see its tooling and an example metric or output.</p>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** load-testing-pipeline<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Trace the flow of a load test from synthetic data generation through LRS ingestion to metric capture and result analysis.
-    
-    **Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node.
-    
-    **Structure:**
-    
-    1. `Cohort spec (size, archetype mix, duration)`
-    2. `Claude Code generation` → `Synthetic statement corpus (JSON)`
-    3. `Conformance validator (drop malformed)`
-    4. `Load runner (replay at configured rate)` → `LRS under test`
-    5. `LRS instrumentation (POST latency, error rate, throughput)` → `Time-series metric store`
-    6. `Dashboard / report (pass/fail vs SLOs)`
-    7. Side branch: `Periodic dashboard queries` → also feeds metric store
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox describing the component, the typical tooling at that step, and an example metric or output.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>

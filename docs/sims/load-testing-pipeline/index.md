@@ -1,28 +1,25 @@
 ---
 title: Load Testing Pipeline
 description: Load Testing Pipeline
-status: scaffold
+status: implemented
 library: Mermaid
-bloom_level: TBD
+bloom_level: Analyze
 ---
 
 # Load Testing Pipeline
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Trace the flow of a load test from synthetic data generation through
+LRS ingestion to metric capture and result analysis.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Analyze
+- **Bloom Verb:** Trace
 - **Library:** Mermaid
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
