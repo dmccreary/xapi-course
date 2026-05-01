@@ -189,6 +189,10 @@ That single learner's chapter generated seven statements with six different verb
 
 #### Diagram: Canonical Verb Explorer
 
+<iframe src="../../sims/canonical-verb-explorer/main.html" width="100%" height="602px" scrolling="no" style="border:1px solid #ccc; overflow:hidden;"></iframe>
+
+[Run MicroSim in Fullscreen](../../sims/canonical-verb-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Canonical Verb Explorer</summary>
 Type: interactive-infographic
@@ -217,6 +221,92 @@ Type: interactive-infographic
 
 Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel pulls content from a `data.json` keyed by verb local name; pre-populating that JSON from the project glossary is recommended.
 </details>
+
+## MicroSim Canonical Verbs
+
+Twelve canonical verbs are great for the registry — a comprehensive vocabulary that almost any learning event can map onto. But twelve is a lot to keep in your head while you're writing instrumentation for a single MicroSim. When you sit down to wire up Start/Pause buttons on a p5.js sim, or click handlers on a Mermaid diagram, or hot-zone overlays on an interactive infographic, you don't want to thumb through a registry — you want a short list of verbs you've already decided are right for the job.
+
+This section presents that short list: **eight verbs, three clusters**, optimized for the kind of interactions MicroSims actually produce.
+
+#### Diagram: MicroSim Verb Explorer
+
+<iframe src="../../sims/microsim-verb-explorer/main.html" width="100%" height="602px" scrolling="no" style="border:1px solid #ccc; overflow:hidden;"></iframe>
+
+[Run MicroSim in Fullscreen](../../sims/microsim-verb-explorer/main.html){ .md-button .md-button--primary }
+
+Click any cluster for its design rationale, or any verb leaf to see its full IRI, when-to-emit rule, the MicroSim types that typically emit it, and a complete example xAPI statement.
+
+### The Eight Verbs
+
+| Cluster | Verbs |
+|---------|-------|
+| **Session** | `launched`, `initialized`, `terminated` |
+| **Engagement** | `experienced`, `interacted` |
+| **Mastery** | `answered`, `completed`, `passed` |
+
+### Design Decisions Behind the Drawing
+
+Every short list is a series of small choices. Here are the ones that shaped this MicroSim, in roughly the order they came up.
+
+#### 1. Three clusters, not four
+
+The canonical-verb explorer above uses **four clusters**: Content Consumption, Assessment, Progress, and Session Lifecycle. The MicroSim explorer collapses to **three**: Session, Engagement, and Mastery. The merge was deliberate.
+
+- **Content Consumption** (`experienced`, `interacted`) became **Engagement** — same two verbs, but the new label reads better when MicroSim authors are scanning for "what verb do I emit when the learner clicked something?" Engagement is what those verbs measure; Content Consumption is what they consume.
+- **Progress** + **Assessment** collapsed into **Mastery**. The canonical separation is useful when you're cataloging the registry, but a MicroSim author asking "did the learner master this?" wants a single bucket. `completed` (was Progress) and `passed` (was Assessment) both answer that question; grouping them by analytics intent rather than registry origin is more useful at instrumentation time.
+
+#### 2. Eight verbs, not twelve
+
+Four verbs from the canonical set were deliberately cut:
+
+- **`attempted`** — overkill for sims that aren't quizzes. `interacted` already captures "the learner started doing something" for exploratory sims, and quiz-style sims can fold attempt-tracking into an `answered` statement.
+- **`failed`** and **`scored`** — `failed` collapses into `passed` with `result.success: false`, which keeps the success/failure analytics on a single verb. `scored` is for per-item grading inside a multi-item quiz, which is rare for MicroSims (quizzes typically live in their own activity).
+- **`progressed`** — most MicroSims are short enough that `completed` suffices. The day you build a multi-stage simulation with meaningful intermediate milestones, bring `progressed` back. Until then, it's noise.
+- **`abandoned`** — emitted server-side when an `initialized` session times out without a `terminated`. It's not something a MicroSim author writes, so putting it in the explorer would mislead more than it would help.
+
+The principle: **verb sprawl is a real cost**. Every additional verb is one more pattern your analytics consumer has to recognize, one more thing your instrumentation code has to decide between, and one more place a future contributor can pick the wrong option. Cut by default; add a verb back only when you can name an analytics question that actually requires the distinction.
+
+#### 3. Start/Pause buttons emit `interacted`, not custom verbs
+
+Many p5.js MicroSims have **"Start Simulation"** and **"Pause Simulation"** buttons. The temptation is to invent custom verbs (`started`, `paused`) so the analytics is "self-documenting." The MicroSim explorer pushes the other direction: emit `interacted`, and put the button identity in `result.extensions`:
+
+```javascript
+result: { extensions: { "https://example.org/x/control": "start" } }
+```
+
+The reason is **vocabulary stability**. Custom verbs have to be hosted somewhere, defined in a profile, and recognized by every consumer. An extension on a canonical verb is local data on a globally-understood verb — it survives changes in your sim's design without requiring any registry coordination. The verb-leaf side panel for `interacted` includes this exact pattern in the example statement.
+
+#### 4. Each verb leaf shows *which MicroSim types* emit it
+
+The canonical-verb explorer's side panel has four fields per leaf: IRI, definition, when-to-emit, and example statement. The MicroSim-verb explorer adds a fifth: **"Typically emitted by"**, listing the MicroSim types (p5.js, Mermaid, Chart.js, vis-network, vis-timeline, Plotly, infographic-overlay) that emit the verb most often.
+
+This addition reflects the goal of the sim. A MicroSim author looking at this diagram is not learning xAPI in the abstract — they're trying to instrument a specific MicroSim type. Knowing that `experienced` is most useful for infographic-overlay (hot zones entering the viewport) or that `interacted` is the workhorse for *every* type makes the verb selection decision concrete.
+
+#### 5. The cheat-sheet table on the index page
+
+The MicroSim's `index.md` includes a **MicroSim Type → Verb** table that runs the mapping the other direction: given a MicroSim type, which verbs does it usually emit? Both directions matter — sometimes you start from the verb (because you know what you want to track), and sometimes you start from the sim (because you're staring at a Chart.js MicroSim and asking "now what?").
+
+#### 6. Bloom Level: Understand (L2), so click-to-reveal — not animation
+
+The learning objective is to **recall and explain** verb choice for MicroSim interactions. That's Bloom Level 2 (Understand), and the right interaction pattern for L2 is **click-to-reveal at the learner's pace** — not continuous animation. A learner needs to dwell on a verb's full IRI and example statement; a sliding animation would actively interfere. The pattern is borrowed directly from the canonical-verb explorer above, which works for the same reason.
+
+#### 7. Color coding aligned to the canonical explorer
+
+The MicroSim explorer reuses the canonical explorer's color palette where the clusters align: indigo for Engagement (the Content Consumption cluster's color), pink for Mastery (Assessment's color in canonical), amber for Session (Session Lifecycle in canonical). When a learner has already worked through the canonical explorer, the colors carry over and reinforce the mapping.
+
+#### 8. Glossary-aligned IRIs and definitions
+
+Every verb's IRI and definition is pulled from the project glossary, not paraphrased. If a future edit revises a glossary definition, the explorer's data should be re-synced from the glossary rather than diverging on its own. This is the same recommendation the canonical-explorer specification makes: pre-populate from the glossary, then keep them aligned.
+
+### When to Reach for a Different Verb Set
+
+The eight-verb set is tuned for **typical** MicroSim instrumentation. If your MicroSim is doing something unusual, return to the full canonical twelve:
+
+- A **multi-stage simulation** with meaningful milestones — bring `progressed` back.
+- A **multi-item quiz** embedded in a sim — use `scored` per item.
+- A sim that the **launching LMS times out and abandons** — your server emits `abandoned`, even though your sim doesn't.
+
+The MicroSim explorer is a recommendation, not a constraint. The principle is: pick the smallest verb set that answers your analytics questions, and grow it deliberately when you find a question it can't answer.
 
 ## When to Design a Custom Verb
 

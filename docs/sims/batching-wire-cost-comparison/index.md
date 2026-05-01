@@ -1,13 +1,13 @@
 ---
 title: Batching Wire-Cost Comparison
 description: Batching Wire-Cost Comparison
-status: implemented
+status: approved
 library: p5.js
 bloom_level: "Analyze"
 ---
 
 # Batching Wire-Cost Comparison
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="450" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

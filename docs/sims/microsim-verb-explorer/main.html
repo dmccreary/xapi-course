@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
-    <title>Canonical Verb Explorer — the twelve ADL verbs</title>
+    <title>MicroSim Verb Explorer — recommended verbs for MicroSim interactions</title>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
@@ -44,7 +44,7 @@
             height: calc(100% - 40px);
         }
         .diagram-panel {
-            width: 62%;
+            width: 58%;
             height: 100%;
             background-color: #eef2ff;
             display: flex;
@@ -133,85 +133,66 @@
             filter: brightness(1.1);
         }
     </style>
-    <script src="canonical-verb-explorer.js"></script>
+    <script src="microsim-verb-explorer.js"></script>
 </head>
 <body>
-    <div class="title">Canonical Verb Explorer — click any verb for IRI, definition, and an example statement</div>
+    <div class="title">MicroSim Verb Explorer — recommended xAPI verbs for MicroSim interactions</div>
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
 flowchart LR
-    Root(["12 Canonical<br/>ADL Verbs"]):::root
+    Root(["8 Verbs for<br/>MicroSims"]):::root
 
-    ContentConsumption["Content<br/>Consumption"]:::clusterCC
-    Assessment["Assessment"]:::clusterAS
-    Progress["Progress"]:::clusterPR
-    SessionLifecycle["Session<br/>Lifecycle"]:::clusterSL
+    Session["Session"]:::clusterSE
+    Engagement["Engagement"]:::clusterEN
+    Mastery["Mastery"]:::clusterMA
 
-    experienced["experienced"]:::leafCC
-    interacted["interacted"]:::leafCC
+    launched["launched"]:::leafSE
+    initialized["initialized"]:::leafSE
+    terminated["terminated"]:::leafSE
 
-    attempted["attempted"]:::leafAS
-    passed["passed"]:::leafAS
-    failed["failed"]:::leafAS
-    scored["scored"]:::leafAS
+    experienced["experienced"]:::leafEN
+    interacted["interacted"]:::leafEN
 
-    progressed["progressed"]:::leafPR
-    completed["completed"]:::leafPR
+    answered["answered"]:::leafMA
+    completed["completed"]:::leafMA
+    passed["passed"]:::leafMA
 
-    launched["launched"]:::leafSL
-    initialized["initialized"]:::leafSL
-    terminated["terminated"]:::leafSL
-    abandoned["abandoned"]:::leafSL
+    Root ==> Session
+    Root ==> Engagement
+    Root ==> Mastery
 
-    Root ==> ContentConsumption
-    Root ==> Assessment
-    Root ==> Progress
-    Root ==> SessionLifecycle
+    Session --> launched
+    Session --> initialized
+    Session --> terminated
 
-    ContentConsumption --> experienced
-    ContentConsumption --> interacted
+    Engagement --> experienced
+    Engagement --> interacted
 
-    Assessment --> attempted
-    Assessment --> passed
-    Assessment --> failed
-    Assessment --> scored
-
-    Progress --> progressed
-    Progress --> completed
-
-    SessionLifecycle --> launched
-    SessionLifecycle --> initialized
-    SessionLifecycle --> terminated
-    SessionLifecycle --> abandoned
+    Mastery --> answered
+    Mastery --> completed
+    Mastery --> passed
 
     click Root call showVerbInfo("Root")
-    click ContentConsumption call showVerbInfo("ContentConsumption")
-    click Assessment call showVerbInfo("Assessment")
-    click Progress call showVerbInfo("Progress")
-    click SessionLifecycle call showVerbInfo("SessionLifecycle")
-    click experienced call showVerbInfo("experienced")
-    click interacted call showVerbInfo("interacted")
-    click attempted call showVerbInfo("attempted")
-    click passed call showVerbInfo("passed")
-    click failed call showVerbInfo("failed")
-    click scored call showVerbInfo("scored")
-    click progressed call showVerbInfo("progressed")
-    click completed call showVerbInfo("completed")
+    click Session call showVerbInfo("Session")
+    click Engagement call showVerbInfo("Engagement")
+    click Mastery call showVerbInfo("Mastery")
     click launched call showVerbInfo("launched")
     click initialized call showVerbInfo("initialized")
     click terminated call showVerbInfo("terminated")
-    click abandoned call showVerbInfo("abandoned")
+    click experienced call showVerbInfo("experienced")
+    click interacted call showVerbInfo("interacted")
+    click answered call showVerbInfo("answered")
+    click completed call showVerbInfo("completed")
+    click passed call showVerbInfo("passed")
 
     classDef root fill:#1e293b,stroke:#0f172a,color:#fff,font-size:15px,font-weight:bold
-    classDef clusterCC fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
-    classDef clusterAS fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
-    classDef clusterPR fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px,font-weight:bold
-    classDef clusterSL fill:#b45309,stroke:#78350f,color:#fff,font-size:14px,font-weight:bold
-    classDef leafCC fill:#e0e7ff,stroke:#4338ca,color:#1e1b4b,font-size:13px
-    classDef leafAS fill:#fce7f3,stroke:#be185d,color:#500724,font-size:13px
-    classDef leafPR fill:#ccfbf1,stroke:#0d9488,color:#042f2e,font-size:13px
-    classDef leafSL fill:#fef3c7,stroke:#b45309,color:#451a03,font-size:13px
+    classDef clusterSE fill:#b45309,stroke:#78350f,color:#fff,font-size:14px,font-weight:bold
+    classDef clusterEN fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
+    classDef clusterMA fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
+    classDef leafSE fill:#fef3c7,stroke:#b45309,color:#451a03,font-size:13px
+    classDef leafEN fill:#e0e7ff,stroke:#4338ca,color:#1e1b4b,font-size:13px
+    classDef leafMA fill:#fce7f3,stroke:#be185d,color:#500724,font-size:13px
 
     linkStyle default stroke:#64748b,stroke-width:1.5px
             </div>
@@ -219,13 +200,12 @@ flowchart LR
         <div class="info-panel">
             <h3>Verb Details</h3>
             <div id="info-display">
-                <p class="info-placeholder">Click any verb in the diagram to see its full IRI, a one-line definition, when to emit it, and a complete example xAPI statement.</p>
+                <p class="info-placeholder">Click any verb in the diagram to see its IRI, when to emit it, the MicroSim types that typically emit it, and an example xAPI statement.</p>
             </div>
             <div class="legend">
-                <div><span class="swatch" style="background:#4338ca"></span>Content Consumption</div>
-                <div><span class="swatch" style="background:#be185d"></span>Assessment</div>
-                <div><span class="swatch" style="background:#0d9488"></span>Progress</div>
-                <div><span class="swatch" style="background:#b45309"></span>Session Lifecycle</div>
+                <div><span class="swatch" style="background:#b45309"></span>Session — bracket the sim session</div>
+                <div><span class="swatch" style="background:#4338ca"></span>Engagement — view and control changes</div>
+                <div><span class="swatch" style="background:#be185d"></span>Mastery — assessment signals</div>
             </div>
         </div>
     </div>
