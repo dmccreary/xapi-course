@@ -1,4 +1,5 @@
 site
+.claude
 .cache
 .DS_Store
 ~$*
