@@ -28,5 +28,25 @@
     "scored",
     "passed",
     "failed"
-  ]
+  ],
+  "educational": {
+    "audience": "Developers and instructional designers learning to instrument interactive textbook components with xAPI",
+    "learningResourceType": "interactive simulation",
+    "interactivityType": "active",
+    "interactivityLevel": "high",
+    "typicalLearningTime": "PT5M",
+    "educationalUse": "demonstration",
+    "educationalLevel": "professional"
+  },
+  "pedagogical": {
+    "learningObjective": "Manipulate a fake interactive textbook component (slider, button, quiz item) and observe the resulting xAPI statements appear in a side panel, building intuition for which verbs map to which UI events.",
+    "bloomLevel": "Apply",
+    "bloomVerb": "Manipulate",
+    "prerequisiteKnowledge": [
+      "Basic familiarity with the xAPI statement triple (actor, verb, object)",
+      "Awareness that xAPI verbs are IRIs from the ADL Verb Registry"
+    ],
+    "instructionalPattern": "Manipulate-and-observe: learners trigger UI events and immediately see the resulting statements, including the deliberately silent case (radio selection) that teaches them when NOT to emit.",
+    "assessmentStrategy": "Self-directed exploration; the live log provides immediate feedback for every interaction."
+  }
 }

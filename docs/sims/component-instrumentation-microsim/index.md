@@ -1,12 +1,15 @@
 ---
 title: Component Instrumentation MicroSim
 description: Manipulate a fake interactive textbook component (slider, button, quiz) and watch xAPI statements stream out in real time, building intuition for which UI events map to which verbs.
-status: implemented
+status: approved
 library: p5.js
 bloom_level: Apply
+image: ./component-instrumentation-microsim.png
 ---
-
 # Component Instrumentation MicroSim
+<iframe src="main.html" width="100%" height="900" scrolling="no"></iframe>
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
 ## Learning Objective
 
@@ -19,11 +22,16 @@ between events worth instrumenting and events that should stay silent.
 - **Bloom Verb:** Manipulate
 - **Library:** p5.js + HTML overlay
 
-## Preview
+TODO: refactor to put the log into a scrolling panel
 
-<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+## Embed This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Copy and paste this iframe into any markdown page:
+
+```html
+<iframe src="main.html" width="100%" height="622" scrolling="no"
+        style="border:1px solid #ddd;border-radius:4px;"></iframe>
+```
 
 ## How to Use This MicroSim
 
@@ -113,7 +121,46 @@ Implementation: p5.js for the parabola plot and the slider/button visuals;
 HTML radio inputs and statement log overlay.
 ```
 
-## Related Resources
+## Lesson Plan
+
+**Suggested time:** 10 minutes (5 min exploration + 5 min discussion)
+
+**Step 1 — Free exploration (3 min).** Have learners open the MicroSim
+and click around with no instructions. Their goal is just to figure out
+what each control does and what the right-side log is showing.
+
+**Step 2 — Guided sequence (3 min).** Walk through the four scripted
+interactions:
+
+1. Drag the slider — observe one debounced `interacted` statement
+2. Click *Run Simulation* — observe one `experienced` statement
+3. Select a radio option — observe **nothing**
+4. Click *Submit Quiz* — observe the three-statement burst
+
+**Step 3 — Inspect a statement (2 min).** Have each learner click any
+log entry and read the full JSON. Point out: actor, verb IRI, object IRI,
+timestamp, and (for the quiz) the `result` block with score and response.
+
+**Step 4 — Discussion (2 min).** Ask:
+
+- Why doesn't selecting a radio emit a statement?
+- Why is the slider debounced? What would happen without debouncing?
+- Why does *Submit Quiz* produce three statements instead of one?
+
+**Discussion answers (for instructor):**
+
+- Radio selection is *internal state* — it isn't a meaningful learning
+  event until the learner *commits* by submitting.
+- Without debouncing, a single drag could emit dozens of statements per
+  second, flooding the LRS with noise that doesn't improve analytics.
+- The three-statement pattern (`attempted`, `scored`, `passed`/`failed`)
+  is the ADL convention for graded interactions: the attempt itself, the
+  numeric score, and the final pass/fail outcome are independently useful
+  signals.
+
+## References
 
 - [Chapter 4: Verb Vocabulary Design and the ADL Verb Registry](../../chapters/04-verb-vocabulary-design/index.md)
 - [ADL Verb Registry](https://registry.tincanapi.com/)
+- [xAPI Specification — Statement Verb](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#verb)
+- [xAPI Specification — Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#result)

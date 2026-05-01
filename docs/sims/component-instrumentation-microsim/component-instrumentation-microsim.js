@@ -37,27 +37,27 @@ let logEntries = [];
 let entryIdCounter = 0;
 
 // ---------- p5 sketch (parabola plot) ----------
+let canvasW = 400;
+let canvasH = 200;
+
+function updateCanvasSize() {
+    const c = document.getElementById('parabola-canvas');
+    if (c) {
+        canvasW = Math.max(280, c.clientWidth - 4);
+        canvasH = c.clientHeight - 4;
+    }
+}
+
 const sketch = (p) => {
-    let canvasW = 400;
-    let canvasH = 200;
-
-    const updateSize = () => {
-        const c = document.getElementById('parabola-canvas');
-        if (c) {
-            canvasW = Math.max(280, c.clientWidth - 4);
-            canvasH = c.clientHeight - 4;
-        }
-    };
-
     p.setup = () => {
-        updateSize();
+        updateCanvasSize();
         const cnv = p.createCanvas(canvasW, canvasH);
         cnv.parent('parabola-canvas');
         p.frameRate(30);
     };
 
     p.windowResized = () => {
-        updateSize();
+        updateCanvasSize();
         p.resizeCanvas(canvasW, canvasH);
     };
 
