@@ -3,114 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Service Worker and Offline Queue Flow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+            background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        .container {
             display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 62%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
             justify-content: center;
             align-items: center;
+            padding: 12px;
+            overflow: hidden;
         }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .mermaid { width: 100%; max-width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #e2e8f0;
+            padding: 14px;
+            overflow-y: auto;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
+        .info-panel h3 {
             font-size: 14px;
-            max-width: 480px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .info-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #4338ca;
+            margin-bottom: 4px;
         }
-        .meta strong { color: #495057; }
+        .info-content { font-size: 12px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #be185d;
+            font-family: 'Consolas', monospace;
+        }
+        .info-content pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            overflow-x: auto;
+            margin: 6px 0;
+            font-family: 'Consolas', monospace;
+        }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 12px; }
+        .edges { color: #475569; font-size: 11px; margin-top: 8px; }
+        .edges b { color: #1e293b; }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover polygon, .node:hover circle, .node:hover path {
+            filter: brightness(1.1);
+        }
     </style>
+    <script src="service-worker-offline-queue-flow.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Service Worker and Offline Queue Flow</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Service Worker Offline Queue — click any node for details</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TD
+    Start(["Component calls<br/>xapiClient.send(stmt)"]):::start
+    Online{"navigator.onLine?"}:::decision
+    Post["Attempt POST to LRS"]:::action
+    Success{"HTTP 200?"}:::decision
+    Done(["Done"]):::done
+    Queue["Write statement to<br/>IndexedDB queue"]:::queue
+    OnlineEvt(["online event fires"]):::event
+    Read["Worker reads queue"]:::action
+    Flush["POST batch to LRS"]:::action
+    Remove["Remove from queue"]:::action
+    Loop{"Queue empty<br/>and online?"}:::decision
+
+    Start --> Online
+    Online -- Yes --> Post
+    Online -- No --> Queue
+    Post --> Success
+    Success -- Yes --> Done
+    Success -- No --> Queue
+    Queue --> OnlineEvt
+    OnlineEvt --> Read
+    Read --> Flush
+    Flush --> Remove
+    Remove --> Loop
+    Loop -- No --> Read
+    Loop -- Yes --> Done
+
+    click Start call showStep("Start")
+    click Online call showStep("Online")
+    click Post call showStep("Post")
+    click Success call showStep("Success")
+    click Queue call showStep("Queue")
+    click OnlineEvt call showStep("OnlineEvt")
+    click Read call showStep("Read")
+    click Flush call showStep("Flush")
+    click Remove call showStep("Remove")
+    click Loop call showStep("Loop")
+    click Done call showStep("Done")
+
+    classDef start fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
+    classDef action fill:#4338ca,stroke:#312e81,color:#fff
+    classDef decision fill:#ca8a04,stroke:#854d0e,color:#fff
+    classDef queue fill:#dc2626,stroke:#7f1d1d,color:#fff
+    classDef event fill:#0d9488,stroke:#134e4a,color:#fff
+    classDef done fill:#16a34a,stroke:#14532d,color:#fff
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> service-worker-offline-queue-flow</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Step Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any node in the flowchart to see the code snippet and edge cases for that step.</p>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** service-worker-offline-queue-flow<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Trace the path of a statement emitted while offline through the IndexedDB queue and back to the LRS when connectivity returns.
-    
-    **Diagram type:** Mermaid flowchart (TD direction). Click handlers on every node.
-    
-    **Structure:**
-    
-    1. Start: `Component calls xapiClient.send(stmt)`
-    2. Decision: `navigator.onLine?` → No → branch to queue
-    3. Yes branch: `Attempt POST to LRS` → Success → `Done` / Failure → branch to queue
-    4. Queue branch: `Write statement to IndexedDB`
-    5. Background: `online event fires` → `Worker reads queue` → `POST batch to LRS` → on success → `Remove from queue`
-    6. Loop: while queue is non-empty and online, continue flushing
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox with the relevant code snippet and the typical edge cases at that step.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>
