@@ -1,28 +1,25 @@
 ---
 title: PII Surface in an xAPI Statement
 description: PII Surface in an xAPI Statement
-status: scaffold
-library: p5.js
-bloom_level: TBD
+status: implemented
+library: HTML/JS
+bloom_level: Analyze
 ---
 
 # PII Surface in an xAPI Statement
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Identify the regions of an xAPI statement most likely to contain
+personally identifiable information, and apply per-region mitigations.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
-- **Library:** p5.js
+- **Bloom Level:** Analyze
+- **Bloom Verb:** Identify
+- **Library:** HTML/JS
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
