@@ -1,10 +1,14 @@
 {
   "title": "LRS Platform Comparison Card Grid",
-  "description": "LRS Platform Comparison Card Grid",
-  "creator": "Dementia Education Project",
+  "description": "Interactive 2x2 card grid comparing TRAX, Learning Locker, Ralph, and Watershed LRS platforms across five dimensions, with scenario-driven recommendations for school, state, and corporate deployments.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "lrs",
+    "learning-record-store",
+    "platform-comparison",
+    "deployment"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,9 +16,9 @@
   "rights": "CC BY 4.0",
   "identifier": "lrs-platform-comparison-card-grid",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Evaluating",
+  "bloomVerb": "Compare",
+  "completion_status": "built",
   "chapter_number": 7,
   "chapter_title": "LRS Platforms, Authentication, and Hosting Models",
   "chapter_dir": "07-lrs-platforms-and-auth"

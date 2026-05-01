@@ -1,20 +1,24 @@
 {
   "title": "Activity Naming and Occurrence Fields",
-  "description": "Activity Naming and Occurrence Fields",
-  "creator": "Dementia Education Project",
+  "description": "Interactive annotated xAPI statement: hover or click any of five colored fields (object.id, object.definition.type, object.definition.revision, context.registration, context.platform) to see which question each answers. Includes a compare-two-attempts toggle that highlights what changes between registrations.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "activity-fields",
+    "registration",
+    "activity-definition",
+    "context"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en-US",
   "rights": "CC BY 4.0",
   "identifier": "activity-naming-and-occurrence-fields",
-  "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "library": "HTML/CSS/JavaScript",
+  "bloomLevel": "Understand",
+  "bloomVerb": "Distinguish",
+  "completion_status": "built",
   "chapter_number": 5,
   "chapter_title": "Activities, Agents, and Learner Identity",
   "chapter_dir": "05-activities-agents-identity"

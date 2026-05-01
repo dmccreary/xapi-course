@@ -1,30 +1,47 @@
 ---
 title: LRS Platform Comparison Card Grid
-description: LRS Platform Comparison Card Grid
-status: scaffold
+description: Compare TRAX, Learning Locker, Ralph, and Watershed across five dimensions and pick the right LRS for a given deployment scenario.
+status: built
 library: p5.js
-bloom_level: TBD
+bloom_level: Evaluating
 ---
 
 # LRS Platform Comparison Card Grid
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Compare the four major LRS platforms across multiple dimensions and select the
+appropriate platform for a given deployment scenario.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Evaluating
+- **Bloom Verb:** Compare / Select
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="622" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+
+## How to Use
+
+- **Hover or click a card** to update the side panel with that platform's
+  when-to-use guidance, when-not-to-use cautions, an example deployment, and
+  the canonical link.
+- **Click a scenario button** ("Single school," "State-wide assessment platform,"
+  "Corporate L&D") to highlight the recommended platform with an orange
+  ribbon and surface deployment-specific reasoning in the side panel.
+- **Click "Clear"** to remove the scenario highlight and explore freely.
+
+Each card shows a 5-axis radar chart so you can see at a glance where each
+platform is strong and where it is weak. The axes are:
+
+1. **Ingestion ceiling** - How many statements/sec the platform can absorb.
+2. **Query speed** - How quickly analytical queries return.
+3. **Operational simplicity** - Lower ops burden = higher score (we invert
+   "operational complexity" so that bigger is always better on the radar).
+4. **Multi-tenant maturity** - How well the platform isolates orgs/tenants.
+5. **Dashboard depth** - Out-of-the-box visualization and reporting power.
 
 ## Specification
 
@@ -33,33 +50,36 @@ The full specification below is extracted from
 
 ```text
 Type: interactive-infographic
-**sim-id:** lrs-platform-comparison-card-grid<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+sim-id: lrs-platform-comparison-card-grid
+Library: p5.js
+Status: Built
 
-**Learning objective (Bloom — Evaluating):** Compare the four major LRS platforms across multiple dimensions and select the appropriate platform for a given deployment scenario.
+Learning objective (Bloom - Evaluating): Compare the four major LRS platforms
+across multiple dimensions and select the appropriate platform for a given
+deployment scenario.
 
-**Layout:** A 2×2 grid of cards on the left (2/3) representing TRAX, Learning Locker, Ralph, Watershed; a side panel on the right (1/3) showing the selected card's detail.
+Layout: A 2x2 grid of cards on the left (2/3) representing TRAX, Learning
+Locker, Ralph, Watershed; a side panel on the right (1/3) showing the selected
+card's detail.
 
-**Each card shows:**
+Each card shows: platform name in a header bar, hosting-model badge
+(Self-hosted / Hosted SaaS), a 5-axis radar chart (ingestion ceiling, query
+speed, operational simplicity, multi-tenant maturity, dashboard depth), and a
+one-line summary.
 
-- Platform name in a header bar
-- Hosting-model badge (Self-hosted / Hosted SaaS)
-- A 5-axis radar chart with axes: ingestion ceiling, query speed, operational complexity, multi-tenant maturity, dashboard depth
-- A one-line summary
+Side panel shows: when-to-use guidance, when-not-to-use cautions, an example
+deployment scenario, and the canonical install or signup link.
 
-**Side panel shows:** When-to-use guidance, when-not-to-use cautions, an example deployment scenario, and the canonical install or signup link.
-
-**Interaction:**
-
-- Hover or click a card to update the side panel
-- Three preset scenario buttons across the top — "Single school," "State-wide assessment platform," "Corporate L&D" — that highlight the recommended platform and update the side panel with deployment-specific reasoning
-
-**Default canvas:** 1000×550px, responsive.
-
-Implementation: p5.js for the cards, the radar charts, and selection state; HTML overlay for the side panel and preset buttons.
+Interaction: Hover or click a card to update the side panel. Three preset
+scenario buttons across the bottom - "Single school," "State-wide assessment
+platform," "Corporate L&D" - highlight the recommended platform and update the
+side panel with deployment-specific reasoning.
 ```
 
 ## Related Resources
 
 - [Chapter 7: LRS Platforms, Authentication, and Hosting Models](../../chapters/07-lrs-platforms-and-auth/index.md)
+- [TRAX LRS](https://github.com/trax-project/trax-lrs)
+- [Learning Locker](https://www.learningpool.com/solutions/learning-record-store-learning-locker)
+- [Ralph LRS](https://openfun.github.io/ralph/)
+- [Watershed LRS](https://www.watershedlrs.com/)

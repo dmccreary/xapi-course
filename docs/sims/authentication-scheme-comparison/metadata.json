@@ -1,10 +1,15 @@
 {
   "title": "Authentication Scheme Comparison",
-  "description": "Authentication Scheme Comparison",
-  "creator": "Dementia Education Project",
+  "description": "Interactive comparison of HTTP Basic, OAuth 1.0a, and token-based authentication for xAPI Learning Record Stores across browser-safety, implementation effort, revocation, and spec-mandated status.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "authentication",
+    "lrs",
+    "security",
+    "oauth",
+    "tokens"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,9 +17,9 @@
   "rights": "CC BY 4.0",
   "identifier": "authentication-scheme-comparison",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Evaluate",
+  "bloomVerb": "Compare",
+  "completion_status": "built",
   "chapter_number": 7,
   "chapter_title": "LRS Platforms, Authentication, and Hosting Models",
   "chapter_dir": "07-lrs-platforms-and-auth"

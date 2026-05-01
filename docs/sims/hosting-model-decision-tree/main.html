@@ -3,113 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Hosting Model Decision Tree</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        .container {
             display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 66.67%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
             justify-content: center;
             align-items: center;
+            padding: 12px;
+            overflow: hidden;
         }
-        .placeholder .badge {
+        .mermaid {
+            width: 100%;
+            max-width: 100%;
+        }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #dee2e6;
+            padding: 14px;
+            overflow-y: auto;
+        }
+        .info-panel h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
+        }
+        .info-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #4338ca;
+            margin-bottom: 4px;
+        }
+        .info-required {
             display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
             margin-bottom: 8px;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .req-decision { background: #b45309; color: #fff; }
+        .req-outcome  { background: #0d9488; color: #fff; }
+        .req-start    { background: #1e293b; color: #fff; }
+        .info-content { font-size: 13px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content ul { margin: 4px 0 8px 18px; }
+        .info-content li { margin-bottom: 3px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #be185d;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .info-placeholder { color: #888; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #475569;
         }
-        .meta strong { color: #495057; }
+        .legend .swatch {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect,
+        .node:hover circle,
+        .node:hover polygon,
+        .node:hover path {
+            filter: brightness(1.1);
+        }
+
+        /* Stack vertically on narrow viewports */
+        @media (max-width: 700px) {
+            .container { flex-direction: column; }
+            .diagram-panel { width: 100%; height: 60%; }
+            .info-panel { width: 100%; height: 40%; border-left: none; border-top: 1px solid #dee2e6; }
+        }
     </style>
+    <script src="hosting-model-decision-tree.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Hosting Model Decision Tree</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Hosting Model Decision Tree — click any node to see why it matters</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TD
+    Start(["New deployment"]):::start
+    Q1{"Is the device<br/>often offline?"}:::decision
+    Q2{"Data sovereignty<br/>forbids 3rd-party hosting?"}:::decision
+    Q3{"Ops capacity to run<br/>a database 24/7?"}:::decision
+    Q4{"Sustained volume<br/>above 5k stmts/sec?"}:::decision
+    Embedded["Embedded LRS<br/>(with sync to central)"]:::outcome
+    SelfHostedSov["Self-hosted<br/>open source"]:::outcome
+    SaaS["Hosted SaaS LRS"]:::outcome
+    SelfHostedScale["Self-hosted open source<br/>(Ralph or scaled Learning Locker)"]:::outcome
+    EitherFits["Hosted SaaS or<br/>self-hosted (either fits)"]:::outcome
+
+    Start --> Q1
+    Q1 -->|Yes| Embedded
+    Q1 -->|No| Q2
+    Q2 -->|Yes| SelfHostedSov
+    Q2 -->|No| Q3
+    Q3 -->|No| SaaS
+    Q3 -->|Yes| Q4
+    Q4 -->|Yes| SelfHostedScale
+    Q4 -->|No| EitherFits
+
+    click Start call showHostingNode("Start")
+    click Q1 call showHostingNode("Q1")
+    click Q2 call showHostingNode("Q2")
+    click Q3 call showHostingNode("Q3")
+    click Q4 call showHostingNode("Q4")
+    click Embedded call showHostingNode("Embedded")
+    click SelfHostedSov call showHostingNode("SelfHostedSov")
+    click SaaS call showHostingNode("SaaS")
+    click SelfHostedScale call showHostingNode("SelfHostedScale")
+    click EitherFits call showHostingNode("EitherFits")
+
+    classDef start fill:#1e293b,stroke:#0f172a,color:#fff,font-size:15px,font-weight:bold
+    classDef decision fill:#b45309,stroke:#78350f,color:#fff,font-size:14px,font-weight:bold
+    classDef outcome fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px
+
+    linkStyle default stroke:#64748b,stroke-width:2px,font-size:13px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> hosting-model-decision-tree</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Step Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any node in the decision tree to see why that question matters and which platforms typically fit each outcome.</p>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#1e293b"></span>Start — new deployment</div>
+                <div><span class="swatch" style="background:#b45309"></span>Decision — a question to answer</div>
+                <div><span class="swatch" style="background:#0d9488"></span>Outcome — a hosting model that fits</div>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** hosting-model-decision-tree<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Evaluating):** Apply a structured decision process to choose between hosted SaaS, self-hosted open source, and embedded LRS for a given deployment scenario.
-    
-    **Diagram type:** Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.
-    
-    **Decision flow:**
-    
-    1. Start: `New deployment`
-    2. Diamond: `Is the device often offline?` → Yes → `Embedded LRS (with sync to central)` / No → next
-    3. Diamond: `Does data sovereignty / regulation forbid third-party hosting?` → Yes → `Self-hosted open source` / No → next
-    4. Diamond: `Do we have ops capacity to run a database 24/7?` → No → `Hosted SaaS LRS` / Yes → next
-    5. Diamond: `Is the projected statement volume above 5k/sec sustained?` → Yes → `Self-hosted open source (Ralph or scaled Learning Locker)` / No → `Hosted SaaS or self-hosted (either fits)`
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox with a brief explanation, plus the typical platforms that match that branch.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>

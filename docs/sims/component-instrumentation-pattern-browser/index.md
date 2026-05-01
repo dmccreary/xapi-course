@@ -1,30 +1,46 @@
 ---
 title: Component Instrumentation Pattern Browser
-description: Component Instrumentation Pattern Browser
-status: scaffold
+description: Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.
+status: built
 library: p5.js
-bloom_level: TBD
+bloom_level: Apply
+bloom_verb: apply
 ---
 
 # Component Instrumentation Pattern Browser
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Browse the canonical instrumentation pattern for each component type (quiz,
+simulation, adaptive branching) and observe the resulting xAPI statement
+sequence in a side panel. Each interaction fires the verb sequence a
+production-grade implementation would emit, with statements grouped by a
+shared `registration` UUID so attempts stay together.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
-- **Library:** p5.js
+- **Bloom Level:** Apply
+- **Bloom Verb:** apply
+- **Library:** p5.js (with HTML/CSS for tabbed UI and statement list)
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="722"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+
+## How to Use
+
+1. Pick a tab on the left: **Quiz**, **Simulation**, or **Adaptive Branching**.
+2. Interact with the component:
+    - Submit the quiz to see the canonical four-statement sequence.
+    - Drag the simulation slider to watch debounced `interacted` statements
+      fire, then click **Run simulation** for an `experienced` statement.
+    - Pick a branching path to fire a `progressed` statement with a
+      branch-decision context extension.
+3. Watch the right panel fill with statements. Click any entry to expand
+   the full JSON.
+4. The shared `registration` UUID at the top groups every statement of the
+   current attempt. Click **Reset attempt** to mint a new registration and
+   start over.
 
 ## Specification
 

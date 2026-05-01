@@ -1,30 +1,33 @@
 ---
 title: The Four Inverse Functional Identifiers
-description: The Four Inverse Functional Identifiers
-status: scaffold
+description: A 2x2 card grid comparing the four xAPI Inverse Functional Identifiers — mbox, mbox_sha1sum, openid, and account — across privacy posture, identification strength, and integration cost, with preset deployment scenarios that recommend the appropriate IFI.
+status: built
 library: p5.js
-bloom_level: TBD
+bloom_level: Evaluating (L5)
+bloom_verb: compare, select
 ---
 
 # The Four Inverse Functional Identifiers
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Compare the four IFI forms across identification strength, privacy posture, and integration cost, and select the appropriate one for a given deployment scenario.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Evaluating (L5)
+- **Bloom Verb:** compare, select
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="602"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+
+## How to Use
+
+- **Click any card** in the 2x2 grid to load that IFI's full description, when-to-use guidance, when-NOT-to-use cautions, and a worked agent JSON example into the side panel.
+- **Pick a scenario** from the top bar — K-12 Elementary, University LMS, or Corporate L&D — and the MicroSim will recommend the appropriate IFI by selecting its card and showing deployment-specific reasoning at the top of the side panel.
+- The **privacy badge** on each card uses a red/yellow/green traffic-light convention: red = direct identifier, yellow = reversible/federated, green = configurable.
 
 ## Specification
 

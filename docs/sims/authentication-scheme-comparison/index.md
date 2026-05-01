@@ -1,30 +1,49 @@
 ---
 title: Authentication Scheme Comparison
-description: Authentication Scheme Comparison
-status: scaffold
+description: Compare HTTP Basic, OAuth 1.0a, and token-based authentication for xAPI across security, browser-safety, implementation cost, and revocation.
+status: built
 library: p5.js
-bloom_level: TBD
+bloom_level: Evaluate (L5)
 ---
 
 # Authentication Scheme Comparison
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Compare HTTP Basic, OAuth 1.0a, and token-based authentication across
+security posture, browser-safety, implementation cost, and revocation
+support, and pick the appropriate scheme for a deployment scenario.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Evaluate (L5)
+- **Bloom Verb:** Compare
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="602" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+
+## How to Use
+
+- **Click any column** (HTTP Basic, OAuth 1.0a, Token-based) to update the
+  detail panel on the right with when-to-use guidance, the canonical HTTP
+  request, and per-platform configuration notes.
+- **Toggle "Show common pitfall"** to overlay the most frequent
+  implementation mistake on the currently selected column.
+- **Reset selection** restores the default (Token-based, the recommended
+  scheme for most modern deployments).
+
+## What Each Bar Means
+
+Each column shows a 4-segment bar across four axes:
+
+- **Browser-safe** — Can credentials be safely used from front-end code?
+- **Easy to implement** — How much engineering effort is required?
+- **Easy to revoke** — How quickly can a leaked credential be invalidated?
+- **Spec mandated** — Is the scheme required by the xAPI 1.0.3 specification?
+
+A 4/4 bar is best on that axis; a 1/4 bar is worst.
 
 ## Specification
 

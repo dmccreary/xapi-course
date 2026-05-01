@@ -1,66 +1,47 @@
 ---
 title: Activity Naming and Occurrence Fields
-description: Activity Naming and Occurrence Fields
-status: scaffold
-library: p5.js
-bloom_level: TBD
+description: Click or hover the five colored fields in a worked xAPI statement to see which question each one answers — and toggle compare mode to see what changes between two attempts of the same activity.
+status: built
+library: HTML/CSS/JavaScript
+bloom_level: Understand
 ---
 
 # Activity Naming and Occurrence Fields
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Distinguish the five fields that name an activity occurrence — `object.id`,
+`object.definition.type`, `object.definition.revision`, `context.registration`,
+and `context.platform` — and identify which question each one answers.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
-- **Library:** p5.js
+- **Bloom Level:** Understand
+- **Bloom Verb:** Distinguish
+- **Library:** HTML/CSS/JavaScript (interactive infographic overlay)
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
-## Specification
+## How to Use
 
-The full specification below is extracted from
-[Chapter 5: Activities, Agents, and Learner Identity](../../chapters/05-activities-agents-identity/index.md).
+1. **Hover or click** any of the five colored fields in the JSON statement on
+   the left. The right-hand panel updates with the field's plain-English
+   question, when to set it, and a one-line example value.
+2. **Toggle "Compare two attempts"** in the top-right to swap the single
+   statement for two side-by-side statements representing two registrations of
+   the same activity. The pulsing orange highlight marks the field that
+   *changes* (`context.registration`); the green inset highlight marks the
+   field that *stays the same* (`object.id`).
 
-```text
-Type: interactive-infographic
-**sim-id:** activity-naming-and-occurrence-fields<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+## Why It Matters
 
-**Learning objective (Bloom — Understanding):** Distinguish the four fields that name an activity occurrence (`object.id`, `object.definition.type`, `context.registration`, `object.definition.revision`, `context.platform`), and identify which question each one answers.
-
-**Layout:** A single annotated JSON statement on the left (2/3) with five colored highlight boxes drawn around the relevant fields; a side panel on the right (1/3) explaining the highlighted field.
-
-**Visual elements:**
-
-- A worked statement rendered as syntax-highlighted JSON
-- Five colored highlights:
-    - Blue around `object.id` — "Which activity?"
-    - Green around `object.definition.type` — "What kind of activity?"
-    - Orange around `context.registration` — "Which attempt?"
-    - Purple around `object.definition.revision` — "Which version of the activity?"
-    - Red around `context.platform` — "Which host environment?"
-- Side panel updates on hover/click of any highlight, showing: the field's plain-English question, when to set it, and a one-line example value
-
-**Interaction:**
-
-- Hover or click a highlight to update the side panel
-- Toggle "Compare two attempts" — swaps the JSON for two side-by-side statements and emphasizes which fields differ between them (registration changes; activity IRI stays the same)
-
-**Default canvas:** 1000×500px, responsive.
-
-Implementation: p5.js for the highlight overlay and hover detection; HTML overlay for the JSON syntax highlighting and the side panel.
-```
+These five fields are the difference between an LRS that can answer "how many
+learners completed Chapter 4?" and one that can answer "how many learners
+completed Chapter 4 *on the mobile app*, *on revision 3*, *on their second
+attempt*?". Get the naming right at write-time and you get analytical superpowers
+at query-time — for free.
 
 ## Related Resources
 

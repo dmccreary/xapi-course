@@ -1,10 +1,13 @@
 {
   "title": "The Four Inverse Functional Identifiers",
-  "description": "The Four Inverse Functional Identifiers",
-  "creator": "Dementia Education Project",
+  "description": "A 2x2 card grid comparing the four xAPI Inverse Functional Identifiers (mbox, mbox_sha1sum, openid, account) across privacy posture, identification strength, and integration cost, with preset deployment scenarios that recommend the appropriate IFI.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "agent-identity",
+    "ifi",
+    "privacy"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,9 +15,9 @@
   "rights": "CC BY 4.0",
   "identifier": "four-inverse-functional-identifiers",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Evaluating",
+  "bloomVerb": "compare, select",
+  "completion_status": "built",
   "chapter_number": 5,
   "chapter_title": "Activities, Agents, and Learner Identity",
   "chapter_dir": "05-activities-agents-identity"
