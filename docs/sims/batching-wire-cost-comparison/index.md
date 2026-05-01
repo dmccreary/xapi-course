@@ -1,28 +1,25 @@
 ---
 title: Batching Wire-Cost Comparison
 description: Batching Wire-Cost Comparison
-status: scaffold
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Analyze
 ---
 
 # Batching Wire-Cost Comparison
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Compare individual-POST and batched-POST traffic patterns visually,
+recognizing how HTTP overhead amortizes as batch size grows.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Analyze
+- **Bloom Verb:** Compare
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
