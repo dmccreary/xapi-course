@@ -1500,8 +1500,8 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 </span></code></pre></div>
 <p>The <code>v1</code> segment is non-negotiable. The day a schema needs to change incompatibly — and that day comes for every long-running project — you'll create <code>v2</code> and run both for a transition period. Without versioning, you have no migration path.</p>
 <h4 id="diagram-vocabulary-profile-architecture">Diagram: Vocabulary Profile Architecture<a class="headerlink" href="#diagram-vocabulary-profile-architecture" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/vocabulary-profile-architecture&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/vocabulary-profile-architecture&lt;br/&gt;/main.html">Run Vocabulary Profile Architecture Fullscreen</a></p>
+<iframe src="../../sims/vocabulary-profile-architecture/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/vocabulary-profile-architecture/main.html">Run Vocabulary Profile Architecture Fullscreen</a></p>
 <details>
 <summary>Vocabulary Profile Architecture</summary>
 <p>Type: clickable-mermaid
@@ -1584,8 +1584,8 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <p>The <strong>analytics layer</strong> is where most production teams add complexity over time. Initially, dashboards query the LRS directly — fast enough at small scale. As volume grows, direct LRS queries get slow (the LRS is optimized for ingestion, not OLAP), so the team adds a stream processor that pre-computes aggregates. Eventually, the analytics layer becomes its own data warehouse with its own engineers.</p>
 <p>The <strong>dashboard layer</strong> consumes the aggregates and turns them into charts. It's the layer most non-technical stakeholders see, which means it's the layer most often blamed for problems that originate elsewhere. Pipeline-level visibility (Chapter 10) helps adjudicate whether a "wrong dashboard" is a dashboard bug, an analytics bug, an LRS issue, or an emit-path issue.</p>
 <h4 id="diagram-full-pipeline-architecture">Diagram: Full Pipeline Architecture<a class="headerlink" href="#diagram-full-pipeline-architecture" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/full-pipeline-architecture&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/full-pipeline-architecture&lt;br/&gt;/main.html">Run Full Pipeline Architecture Fullscreen</a></p>
+<iframe src="../../sims/full-pipeline-architecture/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/full-pipeline-architecture/main.html">Run Full Pipeline Architecture Fullscreen</a></p>
 <details>
 <summary>Full Pipeline Architecture</summary>
 <p>Type: clickable-mermaid
@@ -1636,8 +1636,8 @@ Twelve chapters of preparation. One chapter to put it all into a deployable shap
 <li><strong>Profile validation runs in CI.</strong> Non-conformant emit sites are caught before reaching production.</li>
 </ol>
 <h4 id="diagram-production-readiness-checklist">Diagram: Production Readiness Checklist<a class="headerlink" href="#diagram-production-readiness-checklist" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/production-readiness-checklist&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/production-readiness-checklist&lt;br/&gt;/main.html">Run Production Readiness Checklist Fullscreen</a></p>
+<iframe src="../../sims/production-readiness-checklist/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/production-readiness-checklist/main.html">Run Production Readiness Checklist Fullscreen</a></p>
 <details>
 <summary>Production Readiness Checklist</summary>
 <p>Type: interactive-infographic

@@ -1550,8 +1550,8 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </ul>
 <p>That number is small enough to be invisible on a campus connection and large enough to be noticeable on a school's shared 100 Mbps link during peak hours. Now we'll attack it.</p>
 <h4 id="diagram-bandwidth-budget-calculator-microsim">Diagram: Bandwidth Budget Calculator MicroSim<a class="headerlink" href="#diagram-bandwidth-budget-calculator-microsim" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/bandwidth-budget-calculator-microsim&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/bandwidth-budget-calculator-microsim&lt;br/&gt;/main.html">Run Bandwidth Budget Calculator MicroSim Fullscreen</a></p>
+<iframe src="../../sims/bandwidth-budget-calculator-microsim/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/bandwidth-budget-calculator-microsim/main.html">Run Bandwidth Budget Calculator MicroSim Fullscreen</a></p>
 <details>
 <summary>Bandwidth Budget Calculator MicroSim</summary>
 <p>Type: micro-sim
@@ -1619,8 +1619,8 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 <p>Under HTTP/1.1, each unbatched POST opened a new TCP connection (roughly), serialized requests, and paid the TCP slow-start cost on each. Batching was a major win because every avoided POST avoided a connection setup. Under HTTP/2, a single connection carries many concurrent requests cheaply — so the marginal cost of an extra POST is much lower. Batching is still a win because of header compression and amortized parsing, but the win is smaller (roughly 30–50% bandwidth reduction under HTTP/2 vs. 60–80% under HTTP/1.1).</p>
 <p>The takeaway: <strong>batching is still worth doing under HTTP/2</strong> — the savings are smaller but real, and the offline-queueing logic depends on having a single point of submission. Don't skip batching just because you're on HTTP/2.</p>
 <h4 id="diagram-batching-wire-cost-comparison">Diagram: Batching Wire-Cost Comparison<a class="headerlink" href="#diagram-batching-wire-cost-comparison" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/batching-wire-cost-comparison&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/batching-wire-cost-comparison&lt;br/&gt;/main.html">Run Batching Wire-Cost Comparison Fullscreen</a></p>
+<iframe src="../../sims/batching-wire-cost-comparison/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/batching-wire-cost-comparison/main.html">Run Batching Wire-Cost Comparison Fullscreen</a></p>
 <details>
 <summary>Batching Wire-Cost Comparison</summary>
 <p>Type: interactive-infographic
@@ -1689,8 +1689,8 @@ A textbook with great instrumentation that destroys the school's WiFi is a textb
 </span></code></pre></div>
 <p>This is the simplest workable design. Real implementations also handle: timer-based retries while online but unable to reach the LRS (the network is "up" but the LRS is unreachable), distinguishing recoverable from unrecoverable queue entries, and bounding the queue size to avoid unbounded growth on extended outages.</p>
 <h4 id="diagram-service-worker-and-offline-queue-flow">Diagram: Service Worker and Offline Queue Flow<a class="headerlink" href="#diagram-service-worker-and-offline-queue-flow" title="Permanent link">¶</a></h4>
-<iframe src="../../sims/service-worker-offline-queue-flow&lt;br/&gt;/main.html" width="100%" height="450px" scrolling="no"></iframe>
-<p><a href="../../sims/service-worker-offline-queue-flow&lt;br/&gt;/main.html">Run Service Worker and Offline Queue Flow Fullscreen</a></p>
+<iframe src="../../sims/service-worker-offline-queue-flow/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<p><a href="../../sims/service-worker-offline-queue-flow/main.html">Run Service Worker and Offline Queue Flow Fullscreen</a></p>
 <details>
 <summary>Service Worker and Offline Queue Flow</summary>
 <p>Type: workflow-diagram
