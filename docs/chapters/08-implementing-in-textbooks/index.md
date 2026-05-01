@@ -464,3 +464,5 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
 !!! mascot-celebration "From Diagram to Working Code"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with a finished build">
     The architecture is now code. Every emit site you'll add to your textbook from here will be a small, predictable extension of patterns you just saw. Chapter 9 turns to the question that decides whether your instrumentation survives a thirty-student classroom on a flaky school network: bandwidth.
+
+[See Annotated References](./references.md)

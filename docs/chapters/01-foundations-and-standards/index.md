@@ -319,3 +319,5 @@ The next chapter dives into the **statement model** — the actual JSON shape of
 !!! mascot-celebration "You just leveled up!"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating">
     You now have the **standards literacy** that distinguishes someone who can talk about xAPI from someone who can only talk *around* it. That literacy is the foundation everything else in this book sits on. In the next chapter we'll start writing real statements. Tentacles up!
+
+[See Annotated References](./references.md)

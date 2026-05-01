@@ -294,3 +294,5 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
 !!! mascot-celebration "Fake Cohorts, Real Confidence"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with rows of cardboard students">
     You can now produce believable synthetic cohorts on demand and use them to validate every part of your stack. That's a capability most teams don't develop until year two of a deployment — and it's the capability that prevents the biggest production surprises. Chapter 12 turns to formal conformance: how do you prove your statements are valid, and how does xAPI compare to the other learning standards in the ecosystem?
+
+[See Annotated References](./references.md)

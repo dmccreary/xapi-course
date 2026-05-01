@@ -300,3 +300,5 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
 !!! mascot-celebration "Standards Defended"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with a verified compliance check">
     You can now prove your implementation is conformant and defend the standards choice in any procurement room. Chapter 13 turns from individual implementations to the production pipeline: how do statements flow from textbook to dashboard at scale, and where do the failure points live in that flow?
+
+[See Annotated References](./references.md)

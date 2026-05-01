@@ -360,3 +360,5 @@ That's the full toolkit. From here, every xAPI conversation you walk into — pr
 !!! mascot-celebration "Eight Tentacles, Standing Ovation"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating the end of the textbook with all eight tentacles raised">
     You did it. Every interaction tells a story — and now you have the toolkit to capture, store, query, secure, and act on those stories at scale. The data never lies, your schema doesn't lie, your dashboards don't lie. Go build something. The textbooks of the next decade are waiting for engineers who can do what you just learned to do.
+
+[See Annotated References](./references.md)

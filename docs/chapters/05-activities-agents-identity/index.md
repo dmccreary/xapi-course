@@ -384,3 +384,5 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
 !!! mascot-celebration "The Cast Is Named"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with all eight tentacles raised">
     You've just learned the part of xAPI that protects the people inside your data. Most teams skip this chapter, copy-paste an `mbox` example from a tutorial, and find out two years later that they have to re-identify their entire LRS. You won't. Chapter 6 zooms out from individual statements to the system that stores them — the LRS itself — and starts answering the question "where do these statements actually live?"
+
+[See Annotated References](./references.md)

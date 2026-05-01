@@ -330,3 +330,5 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
 !!! mascot-celebration "Production Shape"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a production-ready ship">
     Your deployment now has the shape of something you can ship and operate. Chapter 14 closes the book on the most consequential dimension we haven't yet given full chapter treatment to: privacy and compliance. Get this right and the deployment ships; get it wrong and the deployment never even leaves the lab.
+
+[See Annotated References](./references.md)
