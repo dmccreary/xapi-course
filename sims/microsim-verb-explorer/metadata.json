@@ -1,0 +1,25 @@
+{
+  "title": "MicroSim Verb Explorer",
+  "description": "Interactive Mermaid diagram of the eight xAPI verbs we recommend for MicroSim interactions, grouped into Session, Engagement, and Mastery. Each verb leaf shows its IRI, when to emit, which MicroSim types typically emit it, and an example statement.",
+  "creator": "xAPI for Intelligent Textbooks",
+  "date": "2026-05-01",
+  "subject": [
+    "xAPI",
+    "MicroSims",
+    "verb vocabulary",
+    "intelligent textbooks",
+    "instrumentation"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "microsim-verb-explorer",
+  "library": "Mermaid",
+  "bloomLevel": "Understand",
+  "bloomVerb": "Recall, Explain, Choose",
+  "completion_status": "implemented",
+  "chapter_number": 4,
+  "chapter_title": "Verb Vocabulary Design and the ADL Verb Registry",
+  "chapter_dir": "04-verb-vocabulary-design"
+}

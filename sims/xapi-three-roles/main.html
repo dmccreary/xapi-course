@@ -23,15 +23,6 @@
         });
 
         await mermaid.run();
-
-        // Add 15px of breathing room above each subgraph title by extending
-        // the cluster rect upward (shift y up by 15 and grow height by 15).
-        document.querySelectorAll('.mermaid .cluster rect').forEach(rect => {
-            const y = parseFloat(rect.getAttribute('y') || 0);
-            const h = parseFloat(rect.getAttribute('height') || 0);
-            rect.setAttribute('y', y - 15);
-            rect.setAttribute('height', h + 15);
-        });
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }

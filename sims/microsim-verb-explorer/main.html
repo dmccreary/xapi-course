@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>MicroSim Verb Explorer — recommended verbs for MicroSim interactions</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+        }
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 58%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            overflow: hidden;
+        }
+        .mermaid {
+            width: 100%;
+            max-width: 100%;
+        }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #dee2e6;
+            padding: 14px;
+            overflow-y: auto;
+        }
+        .info-panel h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
+        }
+        .info-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .info-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .tag-cluster { background: #475569; }
+        .info-content { font-size: 13px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #be185d;
+            word-break: break-all;
+        }
+        .info-content pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            line-height: 1.4;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .info-placeholder { color: #888; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #475569;
+        }
+        .legend .swatch {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect,
+        .node:hover circle,
+        .node:hover polygon,
+        .node:hover path {
+            filter: brightness(1.1);
+        }
+    </style>
+    <script src="microsim-verb-explorer.js"></script>
+</head>
+<body>
+    <div class="title">MicroSim Verb Explorer — recommended xAPI verbs for MicroSim interactions</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    Root(["8 Verbs for<br/>MicroSims"]):::root
+
+    Session["Session"]:::clusterSE
+    Engagement["Engagement"]:::clusterEN
+    Mastery["Mastery"]:::clusterMA
+
+    launched["launched"]:::leafSE
+    initialized["initialized"]:::leafSE
+    terminated["terminated"]:::leafSE
+
+    experienced["experienced"]:::leafEN
+    interacted["interacted"]:::leafEN
+
+    answered["answered"]:::leafMA
+    completed["completed"]:::leafMA
+    passed["passed"]:::leafMA
+
+    Root ==> Session
+    Root ==> Engagement
+    Root ==> Mastery
+
+    Session --> launched
+    Session --> initialized
+    Session --> terminated
+
+    Engagement --> experienced
+    Engagement --> interacted
+
+    Mastery --> answered
+    Mastery --> completed
+    Mastery --> passed
+
+    click Root call showVerbInfo("Root")
+    click Session call showVerbInfo("Session")
+    click Engagement call showVerbInfo("Engagement")
+    click Mastery call showVerbInfo("Mastery")
+    click launched call showVerbInfo("launched")
+    click initialized call showVerbInfo("initialized")
+    click terminated call showVerbInfo("terminated")
+    click experienced call showVerbInfo("experienced")
+    click interacted call showVerbInfo("interacted")
+    click answered call showVerbInfo("answered")
+    click completed call showVerbInfo("completed")
+    click passed call showVerbInfo("passed")
+
+    classDef root fill:#1e293b,stroke:#0f172a,color:#fff,font-size:15px,font-weight:bold
+    classDef clusterSE fill:#b45309,stroke:#78350f,color:#fff,font-size:14px,font-weight:bold
+    classDef clusterEN fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
+    classDef clusterMA fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
+    classDef leafSE fill:#fef3c7,stroke:#b45309,color:#451a03,font-size:13px
+    classDef leafEN fill:#e0e7ff,stroke:#4338ca,color:#1e1b4b,font-size:13px
+    classDef leafMA fill:#fce7f3,stroke:#be185d,color:#500724,font-size:13px
+
+    linkStyle default stroke:#64748b,stroke-width:1.5px
+            </div>
+        </div>
+        <div class="info-panel">
+            <h3>Verb Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any verb in the diagram to see its IRI, when to emit it, the MicroSim types that typically emit it, and an example xAPI statement.</p>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#b45309"></span>Session — bracket the sim session</div>
+                <div><span class="swatch" style="background:#4338ca"></span>Engagement — view and control changes</div>
+                <div><span class="swatch" style="background:#be185d"></span>Mastery — assessment signals</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

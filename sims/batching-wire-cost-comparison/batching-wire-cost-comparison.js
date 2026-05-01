@@ -1,10 +1,10 @@
 // Batching Wire-Cost Comparison
-// CANVAS_HEIGHT: 540
+// CANVAS_HEIGHT: 440
 // Bloom: Analyze (L4) — compare individual vs batched POST traffic patterns
 
 let canvasWidth = 800;
-let drawHeight = 420;
-let controlHeight = 120;
+let drawHeight = 370;
+let controlHeight = 70;
 let canvasHeight = drawHeight + controlHeight;
 
 let containerDiv;
@@ -14,7 +14,6 @@ let stmtLabel, batchLabel;
 // Colors for overhead vs payload
 const C_OVERHEAD = '#dc2626';
 const C_PAYLOAD  = '#4338ca';
-const C_BG       = '#f8fafc';
 const C_AXIS     = '#94a3b8';
 const C_TEXT     = '#1e293b';
 
@@ -30,41 +29,64 @@ function updateCanvasSize() {
 function setup() {
     updateCanvasSize();
     const cnv = createCanvas(canvasWidth, canvasHeight);
-    cnv.parent(document.querySelector('main'));
+    const mainEl = document.querySelector('main');
+    cnv.parent(mainEl);
+    // Make <main> the positioning context so absolutely-placed sliders
+    // sit inside the canvas's control region instead of below the canvas.
+    mainEl.style.position = 'relative';
 
-    // Slider: number of statements
     stmtLabel = createDiv('Statements: 30');
-    stmtLabel.parent(document.querySelector('main'));
+    stmtLabel.parent(mainEl);
     stmtLabel.style('font-size', '12px');
-    stmtLabel.style('color', '#334155');
-    stmtLabel.style('margin', '6px 12px 2px');
+    stmtLabel.style('color', 'black');
 
     stmtSlider = createSlider(5, 100, 30, 1);
-    stmtSlider.parent(document.querySelector('main'));
-    stmtSlider.style('width', '92%');
-    stmtSlider.style('margin', '0 12px 8px');
+    stmtSlider.parent(mainEl);
 
     batchLabel = createDiv('Batch size: 10');
-    batchLabel.parent(document.querySelector('main'));
+    batchLabel.parent(mainEl);
     batchLabel.style('font-size', '12px');
-    batchLabel.style('color', '#334155');
-    batchLabel.style('margin', '0 12px 2px');
+    batchLabel.style('color', 'black');
 
     batchSlider = createSlider(1, 50, 10, 1);
-    batchSlider.parent(document.querySelector('main'));
-    batchSlider.style('width', '92%');
-    batchSlider.style('margin', '0 12px');
+    batchSlider.parent(mainEl);
 
-    textFont('Segoe UI');
+    layoutControls();
+}
+
+function layoutControls() {
+    // Place both sliders side-by-side inside the control region
+    // (the white strip below the drawing region).
+    const labelTop = drawHeight + 6;
+    const sliderTop = drawHeight + 26;
+    const halfW = Math.floor(canvasWidth / 2);
+    const sliderW = halfW - 28;
+
+    stmtLabel.position(14, labelTop);
+    stmtSlider.position(14, sliderTop);
+    stmtSlider.size(sliderW);
+
+    batchLabel.position(halfW + 14, labelTop);
+    batchSlider.position(halfW + 14, sliderTop);
+    batchSlider.size(sliderW);
 }
 
 function windowResized() {
     updateCanvasSize();
     resizeCanvas(canvasWidth, canvasHeight);
+    layoutControls();
 }
 
 function draw() {
-    background(C_BG);
+    // draw background of the drawing region aliceblue and the control region white
+    // with a light gray border around both regions
+    fill('aliceblue');
+    stroke('sliver');
+    rect(0, 0, canvasWidth, canvasHeight);
+    fill('white');
+    rect(0, drawHeight, canvasWidth, controlHeight);
+    noStroke();
+
 
     const stmts = stmtSlider.value();
     const batch = Math.min(batchSlider.value(), stmts);
@@ -74,17 +96,28 @@ function draw() {
     // Layout regions
     const padX = 14;
     const sidePanelW = 200;
-    const tlW = canvasWidth - sidePanelW - padX * 3;
-    const tlX = padX;
-    const tl1Y = 50;
-    const tl2Y = drawHeight / 2 + 30;
-    const tlH = 120;
+
+    // Timeline layout — adjust these to move/resize the two timelines.
+    const tlTopY = 80;   // vertical offset of the FIRST timeline (top edge)
+    const tlH    = 120;  // height of each timeline
+    const tlGap  = 30;   // vertical gap between timeline 1 and timeline 2
+
+    const tlX  = padX;
+    const tlW  = canvasWidth - sidePanelW - padX * 3;
+    const tl1Y = tlTopY;
+    const tl2Y = tl1Y + tlH + tlGap;
 
     // Title
-    fill(C_TEXT); noStroke(); textSize(14); textStyle(BOLD); textAlign(LEFT, TOP);
+    fill('black'); 
+    noStroke(); 
+    textSize(24); 
+    textStyle(BOLD); 
+    textAlign(LEFT, TOP);
     text('Wire cost: individual POSTs vs batched POSTs', padX, 8);
-    textStyle(NORMAL); textSize(11); fill('#64748b');
-    text('Each rectangle is one HTTP request. Red = overhead, blue = payload.', padX, 28);
+    textStyle(NORMAL); 
+    textSize(16); 
+    fill('#64748b');
+    text('Each rectangle is one HTTP request. Red = overhead, blue = payload.', padX, 35);
 
     // Timeline 1: Individual POSTs
     drawTimeline(tlX, tl1Y, tlW, tlH, 'Individual POST (1 statement / request)', stmts, 1);

@@ -1441,6 +1441,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -1671,6 +1675,135 @@
   <a href="#diagram-canonical-verb-explorer" class="md-nav__link">
     <span class="md-ellipsis">
       Diagram: Canonical Verb Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-canonical-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Canonical Verbs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Canonical Verbs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-verb-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroSim Verb Explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-eight-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Eight Verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions-behind-the-drawing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Decisions Behind the Drawing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Decisions Behind the Drawing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-three-clusters-not-four" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Three clusters, not four
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-eight-verbs-not-twelve" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Eight verbs, not twelve
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-startpause-buttons-emit-interacted-not-custom-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Start/Pause buttons emit interacted, not custom verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-each-verb-leaf-shows-which-microsim-types-emit-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Each verb leaf shows which MicroSim types emit it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-the-cheat-sheet-table-on-the-index-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. The cheat-sheet table on the index page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-bloom-level-understand-l2-so-click-to-reveal-not-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Bloom Level: Understand (L2), so click-to-reveal — not animation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-color-coding-aligned-to-the-canonical-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Color coding aligned to the canonical explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-glossary-aligned-iris-and-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Glossary-aligned IRIs and definitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-reach-for-a-different-verb-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Reach for a Different Verb Set
     </span>
   </a>
   
@@ -1997,6 +2130,9 @@ Verbs are the soul of an xAPI statement. The actor and object answer "who" and "
 </span></code></pre></div>
 <p>That single learner's chapter generated seven statements with six different verbs. A second learner who failed the quiz would emit the same first five statements, then <code>failed</code> instead of <code>passed</code>, and possibly never emit <code>completed</code>. The patterns are starting to look obvious — and that's exactly the point. Once you know the canonical verbs, reading these sequences becomes second nature.</p>
 <h4 id="diagram-canonical-verb-explorer">Diagram: Canonical Verb Explorer<a class="headerlink" href="#diagram-canonical-verb-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/canonical-verb-explorer/main.html" width="100%" height="602px" scrolling="no" style="border:1px solid #ccc; overflow:hidden;"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/canonical-verb-explorer/main.html">Run MicroSim in Fullscreen</a></p>
 <details>
 <summary>Canonical Verb Explorer</summary>
 <p>Type: interactive-infographic
@@ -2021,6 +2157,78 @@ Verbs are the soul of an xAPI statement. The actor and object answer "who" and "
 <p><strong>Default canvas:</strong> 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.</p>
 <p>Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel pulls content from a <code>data.json</code> keyed by verb local name; pre-populating that JSON from the project glossary is recommended.</p>
 </details>
+<h2 id="microsim-canonical-verbs">MicroSim Canonical Verbs<a class="headerlink" href="#microsim-canonical-verbs" title="Permanent link">¶</a></h2>
+<p>Twelve canonical verbs are great for the registry — a comprehensive vocabulary that almost any learning event can map onto. But twelve is a lot to keep in your head while you're writing instrumentation for a single MicroSim. When you sit down to wire up Start/Pause buttons on a p5.js sim, or click handlers on a Mermaid diagram, or hot-zone overlays on an interactive infographic, you don't want to thumb through a registry — you want a short list of verbs you've already decided are right for the job.</p>
+<p>This section presents that short list: <strong>eight verbs, three clusters</strong>, optimized for the kind of interactions MicroSims actually produce.</p>
+<h4 id="diagram-microsim-verb-explorer">Diagram: MicroSim Verb Explorer<a class="headerlink" href="#diagram-microsim-verb-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/microsim-verb-explorer/main.html" width="100%" height="602px" scrolling="no" style="border:1px solid #ccc; overflow:hidden;"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsim-verb-explorer/main.html">Run MicroSim in Fullscreen</a></p>
+<p>Click any cluster for its design rationale, or any verb leaf to see its full IRI, when-to-emit rule, the MicroSim types that typically emit it, and a complete example xAPI statement.</p>
+<h3 id="the-eight-verbs">The Eight Verbs<a class="headerlink" href="#the-eight-verbs" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>Verbs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Session</strong></td>
+<td><code>launched</code>, <code>initialized</code>, <code>terminated</code></td>
+</tr>
+<tr>
+<td><strong>Engagement</strong></td>
+<td><code>experienced</code>, <code>interacted</code></td>
+</tr>
+<tr>
+<td><strong>Mastery</strong></td>
+<td><code>answered</code>, <code>completed</code>, <code>passed</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="design-decisions-behind-the-drawing">Design Decisions Behind the Drawing<a class="headerlink" href="#design-decisions-behind-the-drawing" title="Permanent link">¶</a></h3>
+<p>Every short list is a series of small choices. Here are the ones that shaped this MicroSim, in roughly the order they came up.</p>
+<h4 id="1-three-clusters-not-four">1. Three clusters, not four<a class="headerlink" href="#1-three-clusters-not-four" title="Permanent link">¶</a></h4>
+<p>The canonical-verb explorer above uses <strong>four clusters</strong>: Content Consumption, Assessment, Progress, and Session Lifecycle. The MicroSim explorer collapses to <strong>three</strong>: Session, Engagement, and Mastery. The merge was deliberate.</p>
+<ul>
+<li><strong>Content Consumption</strong> (<code>experienced</code>, <code>interacted</code>) became <strong>Engagement</strong> — same two verbs, but the new label reads better when MicroSim authors are scanning for "what verb do I emit when the learner clicked something?" Engagement is what those verbs measure; Content Consumption is what they consume.</li>
+<li><strong>Progress</strong> + <strong>Assessment</strong> collapsed into <strong>Mastery</strong>. The canonical separation is useful when you're cataloging the registry, but a MicroSim author asking "did the learner master this?" wants a single bucket. <code>completed</code> (was Progress) and <code>passed</code> (was Assessment) both answer that question; grouping them by analytics intent rather than registry origin is more useful at instrumentation time.</li>
+</ul>
+<h4 id="2-eight-verbs-not-twelve">2. Eight verbs, not twelve<a class="headerlink" href="#2-eight-verbs-not-twelve" title="Permanent link">¶</a></h4>
+<p>Four verbs from the canonical set were deliberately cut:</p>
+<ul>
+<li><strong><code>attempted</code></strong> — overkill for sims that aren't quizzes. <code>interacted</code> already captures "the learner started doing something" for exploratory sims, and quiz-style sims can fold attempt-tracking into an <code>answered</code> statement.</li>
+<li><strong><code>failed</code></strong> and <strong><code>scored</code></strong> — <code>failed</code> collapses into <code>passed</code> with <code>result.success: false</code>, which keeps the success/failure analytics on a single verb. <code>scored</code> is for per-item grading inside a multi-item quiz, which is rare for MicroSims (quizzes typically live in their own activity).</li>
+<li><strong><code>progressed</code></strong> — most MicroSims are short enough that <code>completed</code> suffices. The day you build a multi-stage simulation with meaningful intermediate milestones, bring <code>progressed</code> back. Until then, it's noise.</li>
+<li><strong><code>abandoned</code></strong> — emitted server-side when an <code>initialized</code> session times out without a <code>terminated</code>. It's not something a MicroSim author writes, so putting it in the explorer would mislead more than it would help.</li>
+</ul>
+<p>The principle: <strong>verb sprawl is a real cost</strong>. Every additional verb is one more pattern your analytics consumer has to recognize, one more thing your instrumentation code has to decide between, and one more place a future contributor can pick the wrong option. Cut by default; add a verb back only when you can name an analytics question that actually requires the distinction.</p>
+<h4 id="3-startpause-buttons-emit-interacted-not-custom-verbs">3. Start/Pause buttons emit <code>interacted</code>, not custom verbs<a class="headerlink" href="#3-startpause-buttons-emit-interacted-not-custom-verbs" title="Permanent link">¶</a></h4>
+<p>Many p5.js MicroSims have <strong>"Start Simulation"</strong> and <strong>"Pause Simulation"</strong> buttons. The temptation is to invent custom verbs (<code>started</code>, <code>paused</code>) so the analytics is "self-documenting." The MicroSim explorer pushes the other direction: emit <code>interacted</code>, and put the button identity in <code>result.extensions</code>:</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"https://example.org/x/control"</span><span class="o">:</span><span class="w"> </span><span class="s2">"start"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>The reason is <strong>vocabulary stability</strong>. Custom verbs have to be hosted somewhere, defined in a profile, and recognized by every consumer. An extension on a canonical verb is local data on a globally-understood verb — it survives changes in your sim's design without requiring any registry coordination. The verb-leaf side panel for <code>interacted</code> includes this exact pattern in the example statement.</p>
+<h4 id="4-each-verb-leaf-shows-which-microsim-types-emit-it">4. Each verb leaf shows <em>which MicroSim types</em> emit it<a class="headerlink" href="#4-each-verb-leaf-shows-which-microsim-types-emit-it" title="Permanent link">¶</a></h4>
+<p>The canonical-verb explorer's side panel has four fields per leaf: IRI, definition, when-to-emit, and example statement. The MicroSim-verb explorer adds a fifth: <strong>"Typically emitted by"</strong>, listing the MicroSim types (p5.js, Mermaid, Chart.js, vis-network, vis-timeline, Plotly, infographic-overlay) that emit the verb most often.</p>
+<p>This addition reflects the goal of the sim. A MicroSim author looking at this diagram is not learning xAPI in the abstract — they're trying to instrument a specific MicroSim type. Knowing that <code>experienced</code> is most useful for infographic-overlay (hot zones entering the viewport) or that <code>interacted</code> is the workhorse for <em>every</em> type makes the verb selection decision concrete.</p>
+<h4 id="5-the-cheat-sheet-table-on-the-index-page">5. The cheat-sheet table on the index page<a class="headerlink" href="#5-the-cheat-sheet-table-on-the-index-page" title="Permanent link">¶</a></h4>
+<p>The MicroSim's <code>index.md</code> includes a <strong>MicroSim Type → Verb</strong> table that runs the mapping the other direction: given a MicroSim type, which verbs does it usually emit? Both directions matter — sometimes you start from the verb (because you know what you want to track), and sometimes you start from the sim (because you're staring at a Chart.js MicroSim and asking "now what?").</p>
+<h4 id="6-bloom-level-understand-l2-so-click-to-reveal-not-animation">6. Bloom Level: Understand (L2), so click-to-reveal — not animation<a class="headerlink" href="#6-bloom-level-understand-l2-so-click-to-reveal-not-animation" title="Permanent link">¶</a></h4>
+<p>The learning objective is to <strong>recall and explain</strong> verb choice for MicroSim interactions. That's Bloom Level 2 (Understand), and the right interaction pattern for L2 is <strong>click-to-reveal at the learner's pace</strong> — not continuous animation. A learner needs to dwell on a verb's full IRI and example statement; a sliding animation would actively interfere. The pattern is borrowed directly from the canonical-verb explorer above, which works for the same reason.</p>
+<h4 id="7-color-coding-aligned-to-the-canonical-explorer">7. Color coding aligned to the canonical explorer<a class="headerlink" href="#7-color-coding-aligned-to-the-canonical-explorer" title="Permanent link">¶</a></h4>
+<p>The MicroSim explorer reuses the canonical explorer's color palette where the clusters align: indigo for Engagement (the Content Consumption cluster's color), pink for Mastery (Assessment's color in canonical), amber for Session (Session Lifecycle in canonical). When a learner has already worked through the canonical explorer, the colors carry over and reinforce the mapping.</p>
+<h4 id="8-glossary-aligned-iris-and-definitions">8. Glossary-aligned IRIs and definitions<a class="headerlink" href="#8-glossary-aligned-iris-and-definitions" title="Permanent link">¶</a></h4>
+<p>Every verb's IRI and definition is pulled from the project glossary, not paraphrased. If a future edit revises a glossary definition, the explorer's data should be re-synced from the glossary rather than diverging on its own. This is the same recommendation the canonical-explorer specification makes: pre-populate from the glossary, then keep them aligned.</p>
+<h3 id="when-to-reach-for-a-different-verb-set">When to Reach for a Different Verb Set<a class="headerlink" href="#when-to-reach-for-a-different-verb-set" title="Permanent link">¶</a></h3>
+<p>The eight-verb set is tuned for <strong>typical</strong> MicroSim instrumentation. If your MicroSim is doing something unusual, return to the full canonical twelve:</p>
+<ul>
+<li>A <strong>multi-stage simulation</strong> with meaningful milestones — bring <code>progressed</code> back.</li>
+<li>A <strong>multi-item quiz</strong> embedded in a sim — use <code>scored</code> per item.</li>
+<li>A sim that the <strong>launching LMS times out and abandons</strong> — your server emits <code>abandoned</code>, even though your sim doesn't.</li>
+</ul>
+<p>The MicroSim explorer is a recommendation, not a constraint. The principle is: pick the smallest verb set that answers your analytics questions, and grow it deliberately when you find a question it can't answer.</p>
 <h2 id="when-to-design-a-custom-verb">When to Design a Custom Verb<a class="headerlink" href="#when-to-design-a-custom-verb" title="Permanent link">¶</a></h2>
 <p>Custom verbs exist for the cases the canonical registry doesn't cover. Some textbooks genuinely need them — a physics simulation might want a <code>calibrated</code> verb that no canonical equivalent really captures. Most textbooks don't.</p>
 <p>Before you design a custom verb, run through this filter:</p>
@@ -2039,21 +2247,21 @@ The single most common verb-vocabulary mistake is letting every developer mint v
 <h2 id="custom-verb-profiles-doing-it-right">Custom Verb Profiles — Doing It Right<a class="headerlink" href="#custom-verb-profiles-doing-it-right" title="Permanent link">¶</a></h2>
 <p>A <strong>custom verb profile</strong> is a documented set of custom verbs (and often custom activity types and extensions) that a project has formally adopted. The profile lives at a stable URL inside a namespace the project owns, contains both human-readable definitions and machine-readable metadata, and is referenced from statements via the <code>category</code> context activity bucket (Chapter 3) so that consumers can detect which profile a statement was authored under.</p>
 <p>A minimal profile is a JSON-LD document at a stable URL. Here's a stripped-down example for a fictional <code>calibrated</code> verb that an interactive physics textbook might define:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/xapi/profiles/context"</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://textbook.example.org/profiles/physics-v1"</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profile"</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">"prefLabel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interactive Physics Textbook Profile v1"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom verbs for instrumented physics simulations."</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">"concepts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://textbook.example.org/xapi/verbs/calibrated"</span><span class="p">,</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verb"</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">"prefLabel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calibrated"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicates the learner adjusted simulation parameters to match a target reading or condition before running the simulation."</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">}]</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/xapi/profiles/context"</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://textbook.example.org/profiles/physics-v1"</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profile"</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">"prefLabel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interactive Physics Textbook Profile v1"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom verbs for instrumented physics simulations."</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">"concepts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://textbook.example.org/xapi/verbs/calibrated"</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verb"</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">"prefLabel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calibrated"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicates the learner adjusted simulation parameters to match a target reading or condition before running the simulation."</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}]</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The fields worth understanding before you write your own:</p>
 <ul>
@@ -2107,25 +2315,25 @@ The single most common verb-vocabulary mistake is letting every developer mint v
 </ol>
 <p>The component itself stays narrow. It knows what just happened in the UI and which verb describes it. Everything else — the activity IRI, the parent context, the actor identity — comes from the surrounding page context and the shared client library. This separation matters because it keeps the verb-vocabulary decisions concentrated in a few well-reviewed files instead of scattered across hundreds of components.</p>
 <p>Here's a minimal JavaScript handler for a MicroSim slider that emits an <code>interacted</code> statement when the learner stops adjusting (debounced) — the kind of code that ends up running in dozens of places once the textbook is mature. Note the imported helpers: <code>getCurrentLearner</code> and <code>xapiClient</code> are project-wide singletons defined elsewhere; <code>buildInteractedStatement</code> is a builder that implements the project's pattern.</p>
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../identity.js"</span><span class="p">;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">xapiClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../xapi/client.js"</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../xapi/patterns.js"</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">let</span><span class="w"> </span><span class="nx">debounce</span><span class="p">;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nx">slider</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"input"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">debounce</span><span class="p">);</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nx">debounce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="p">({</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nx">learner</span><span class="o">:</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="p">(),</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://textbook.example.org/microsims/parabola-grapher"</span><span class="p">,</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nx">extension</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="s2">"https://textbook.example.org/extensions/v1/slider-value"</span><span class="o">:</span><span class="w"> </span><span class="nx">slider</span><span class="p">.</span><span class="nx">value</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">stmt</span><span class="p">);</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">250</span><span class="p">);</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">});</span>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../identity.js"</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">xapiClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../xapi/client.js"</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../xapi/patterns.js"</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kd">let</span><span class="w"> </span><span class="nx">debounce</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nx">slider</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"input"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">debounce</span><span class="p">);</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nx">debounce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buildInteractedStatement</span><span class="p">({</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nx">learner</span><span class="o">:</span><span class="w"> </span><span class="nx">getCurrentLearner</span><span class="p">(),</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="nx">activityIri</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://textbook.example.org/microsims/parabola-grapher"</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nx">extension</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="s2">"https://textbook.example.org/extensions/v1/slider-value"</span><span class="o">:</span><span class="w"> </span><span class="nx">slider</span><span class="p">.</span><span class="nx">value</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="nx">xapiClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">stmt</span><span class="p">);</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">250</span><span class="p">);</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">});</span>
 </span></code></pre></div>
 <p>The component knows three things: which slider, what the new value is, and that an interaction happened. It does not know the learner's identity, the LRS endpoint, the authentication header, or how to retry on failure. Those concerns live elsewhere. That's the point.</p>
 <h4 id="diagram-component-instrumentation-microsim">Diagram: Component Instrumentation MicroSim<a class="headerlink" href="#diagram-component-instrumentation-microsim" title="Permanent link">¶</a></h4>
