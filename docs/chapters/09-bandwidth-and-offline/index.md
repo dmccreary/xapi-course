@@ -83,6 +83,10 @@ That number is small enough to be invisible on a campus connection and large eno
 
 #### Diagram: Bandwidth Budget Calculator MicroSim
 
+
+<iframe src="../../sims/bandwidth-budget-calculator-microsim<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Bandwidth Budget Calculator MicroSim Fullscreen](../../sims/bandwidth-budget-calculator-microsim<br/>/main.html)
+
 <details markdown="1">
 <summary>Bandwidth Budget Calculator MicroSim</summary>
 Type: micro-sim
@@ -167,6 +171,10 @@ Under HTTP/1.1, each unbatched POST opened a new TCP connection (roughly), seria
 The takeaway: **batching is still worth doing under HTTP/2** — the savings are smaller but real, and the offline-queueing logic depends on having a single point of submission. Don't skip batching just because you're on HTTP/2.
 
 #### Diagram: Batching Wire-Cost Comparison
+
+
+<iframe src="../../sims/batching-wire-cost-comparison<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Batching Wire-Cost Comparison Fullscreen](../../sims/batching-wire-cost-comparison<br/>/main.html)
 
 <details markdown="1">
 <summary>Batching Wire-Cost Comparison</summary>
@@ -256,6 +264,10 @@ window.addEventListener("online", () => flushQueue());
 This is the simplest workable design. Real implementations also handle: timer-based retries while online but unable to reach the LRS (the network is "up" but the LRS is unreachable), distinguishing recoverable from unrecoverable queue entries, and bounding the queue size to avoid unbounded growth on extended outages.
 
 #### Diagram: Service Worker and Offline Queue Flow
+
+
+<iframe src="../../sims/service-worker-offline-queue-flow<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Service Worker and Offline Queue Flow Fullscreen](../../sims/service-worker-offline-queue-flow<br/>/main.html)
 
 <details markdown="1">
 <summary>Service Worker and Offline Queue Flow</summary>

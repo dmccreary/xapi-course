@@ -1,28 +1,25 @@
 ---
 title: Bandwidth Budget Calculator MicroSim
 description: Bandwidth Budget Calculator MicroSim
-status: scaffold
-library: p5.js
-bloom_level: TBD
+status: implemented
+library: HTML/JS
+bloom_level: Apply
 ---
 
 # Bandwidth Budget Calculator MicroSim
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Estimate the total bandwidth cost of an xAPI deployment by adjusting
+per-statement size, frequency, batch size, and concurrent learner count.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
-- **Library:** p5.js
+- **Bloom Level:** Apply
+- **Bloom Verb:** Estimate
+- **Library:** HTML/JS
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
