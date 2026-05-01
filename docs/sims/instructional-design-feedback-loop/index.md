@@ -1,28 +1,25 @@
 ---
 title: Instructional Design Feedback Loop
 description: Instructional Design Feedback Loop
-status: scaffold
+status: implemented
 library: Mermaid
-bloom_level: TBD
+bloom_level: Create
 ---
 
 # Instructional Design Feedback Loop
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Trace the full feedback loop from learner interaction through analytics
+to instructional design changes and back to subsequent cohorts.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Create
+- **Bloom Verb:** Trace
 - **Library:** Mermaid
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

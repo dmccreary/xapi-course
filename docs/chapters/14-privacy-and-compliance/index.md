@@ -106,6 +106,10 @@ The interaction matters. A K-12 textbook deployed in the U.S. with EU-citizen st
 
 #### Diagram: PII Surface in an xAPI Statement
 
+
+<iframe src="../../sims/pii-surface-in-an-xapi-statement<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run PII Surface in an xAPI Statement Fullscreen](../../sims/pii-surface-in-an-xapi-statement<br/>/main.html)
+
 <details markdown="1">
 <summary>PII Surface in an xAPI Statement</summary>
 Type: interactive-infographic
@@ -206,6 +210,10 @@ xAPI deployments live in three primary contexts, each with distinct compliance a
 
 #### Diagram: Three-Context Comparison
 
+
+<iframe src="../../sims/three-context-comparison<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Three-Context Comparison Fullscreen](../../sims/three-context-comparison<br/>/main.html)
+
 <details markdown="1">
 <summary>Three-Context Comparison</summary>
 Type: interactive-infographic
@@ -275,6 +283,10 @@ The privacy machinery exists so the data can be used. The data is used to close 
 The **instructional design feedback loop** is the recurring cycle that ties analytics back to content changes. Quarterly (or by semester), the instructional design team reviews completion rates, struggle patterns, and engagement heatmaps. Specific findings drive specific content changes. The next cohort gets better-designed content. Six months later, the loop runs again. This is the value xAPI was built to enable; it's also what makes the privacy work feel worth doing.
 
 #### Diagram: Instructional Design Feedback Loop
+
+
+<iframe src="../../sims/instructional-design-feedback-loop<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Instructional Design Feedback Loop Fullscreen](../../sims/instructional-design-feedback-loop<br/>/main.html)
 
 <details markdown="1">
 <summary>Instructional Design Feedback Loop</summary>
