@@ -107,8 +107,8 @@ For *your* deployment — meaning your textbook's emit path against your chosen 
 #### Diagram: Conformance Validation Pipeline
 
 
-<iframe src="../../sims/conformance-validation-pipeline<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Conformance Validation Pipeline Fullscreen](../../sims/conformance-validation-pipeline<br/>/main.html)
+<iframe src="../../sims/conformance-validation-pipeline/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Conformance Validation Pipeline Fullscreen](../../sims/conformance-validation-pipeline/main.html)
 
 <details markdown="1">
 <summary>Conformance Validation Pipeline</summary>
@@ -159,8 +159,8 @@ cmi5 also constrains the verbs (only the eight cmi5-defined verbs are allowed in
 #### Diagram: CMI5 Session Lifecycle
 
 
-<iframe src="../../sims/cmi5-session-lifecycle<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run CMI5 Session Lifecycle Fullscreen](../../sims/cmi5-session-lifecycle<br/>/main.html)
+<iframe src="../../sims/cmi5-session-lifecycle/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run CMI5 Session Lifecycle Fullscreen](../../sims/cmi5-session-lifecycle/main.html)
 
 <details markdown="1">
 <summary>CMI5 Session Lifecycle</summary>
@@ -234,8 +234,8 @@ The version-negotiation contract for production code:
 #### Diagram: Standards Comparison Card Grid
 
 
-<iframe src="../../sims/standards-comparison-card-grid<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Standards Comparison Card Grid Fullscreen](../../sims/standards-comparison-card-grid<br/>/main.html)
+<iframe src="../../sims/standards-comparison-card-grid/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Standards Comparison Card Grid Fullscreen](../../sims/standards-comparison-card-grid/main.html)
 
 <details markdown="1">
 <summary>Standards Comparison Card Grid</summary>

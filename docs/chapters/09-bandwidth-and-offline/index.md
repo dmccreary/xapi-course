@@ -84,8 +84,8 @@ That number is small enough to be invisible on a campus connection and large eno
 #### Diagram: Bandwidth Budget Calculator MicroSim
 
 
-<iframe src="../../sims/bandwidth-budget-calculator-microsim<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Bandwidth Budget Calculator MicroSim Fullscreen](../../sims/bandwidth-budget-calculator-microsim<br/>/main.html)
+<iframe src="../../sims/bandwidth-budget-calculator-microsim/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Bandwidth Budget Calculator MicroSim Fullscreen](../../sims/bandwidth-budget-calculator-microsim/main.html)
 
 <details markdown="1">
 <summary>Bandwidth Budget Calculator MicroSim</summary>
@@ -173,8 +173,8 @@ The takeaway: **batching is still worth doing under HTTP/2** — the savings are
 #### Diagram: Batching Wire-Cost Comparison
 
 
-<iframe src="../../sims/batching-wire-cost-comparison<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Batching Wire-Cost Comparison Fullscreen](../../sims/batching-wire-cost-comparison<br/>/main.html)
+<iframe src="../../sims/batching-wire-cost-comparison/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Batching Wire-Cost Comparison Fullscreen](../../sims/batching-wire-cost-comparison/main.html)
 
 <details markdown="1">
 <summary>Batching Wire-Cost Comparison</summary>
@@ -266,8 +266,8 @@ This is the simplest workable design. Real implementations also handle: timer-ba
 #### Diagram: Service Worker and Offline Queue Flow
 
 
-<iframe src="../../sims/service-worker-offline-queue-flow<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Service Worker and Offline Queue Flow Fullscreen](../../sims/service-worker-offline-queue-flow<br/>/main.html)
+<iframe src="../../sims/service-worker-offline-queue-flow/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Service Worker and Offline Queue Flow Fullscreen](../../sims/service-worker-offline-queue-flow/main.html)
 
 <details markdown="1">
 <summary>Service Worker and Offline Queue Flow</summary>

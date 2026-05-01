@@ -85,8 +85,8 @@ The `v1` segment is non-negotiable. The day a schema needs to change incompatibl
 #### Diagram: Vocabulary Profile Architecture
 
 
-<iframe src="../../sims/vocabulary-profile-architecture<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Vocabulary Profile Architecture Fullscreen](../../sims/vocabulary-profile-architecture<br/>/main.html)
+<iframe src="../../sims/vocabulary-profile-architecture/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Vocabulary Profile Architecture Fullscreen](../../sims/vocabulary-profile-architecture/main.html)
 
 <details markdown="1">
 <summary>Vocabulary Profile Architecture</summary>
@@ -196,8 +196,8 @@ The **dashboard layer** consumes the aggregates and turns them into charts. It's
 #### Diagram: Full Pipeline Architecture
 
 
-<iframe src="../../sims/full-pipeline-architecture<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Full Pipeline Architecture Fullscreen](../../sims/full-pipeline-architecture<br/>/main.html)
+<iframe src="../../sims/full-pipeline-architecture/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Full Pipeline Architecture Fullscreen](../../sims/full-pipeline-architecture/main.html)
 
 <details markdown="1">
 <summary>Full Pipeline Architecture</summary>
@@ -262,8 +262,8 @@ The five most common pipeline failure points:
 #### Diagram: Production Readiness Checklist
 
 
-<iframe src="../../sims/production-readiness-checklist<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Production Readiness Checklist Fullscreen](../../sims/production-readiness-checklist<br/>/main.html)
+<iframe src="../../sims/production-readiness-checklist/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Production Readiness Checklist Fullscreen](../../sims/production-readiness-checklist/main.html)
 
 <details markdown="1">
 <summary>Production Readiness Checklist</summary>

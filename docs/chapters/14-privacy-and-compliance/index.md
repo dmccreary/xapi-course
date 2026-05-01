@@ -107,8 +107,8 @@ The interaction matters. A K-12 textbook deployed in the U.S. with EU-citizen st
 #### Diagram: PII Surface in an xAPI Statement
 
 
-<iframe src="../../sims/pii-surface-in-an-xapi-statement<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run PII Surface in an xAPI Statement Fullscreen](../../sims/pii-surface-in-an-xapi-statement<br/>/main.html)
+<iframe src="../../sims/pii-surface-in-an-xapi-statement/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run PII Surface in an xAPI Statement Fullscreen](../../sims/pii-surface-in-an-xapi-statement/main.html)
 
 <details markdown="1">
 <summary>PII Surface in an xAPI Statement</summary>
@@ -211,8 +211,8 @@ xAPI deployments live in three primary contexts, each with distinct compliance a
 #### Diagram: Three-Context Comparison
 
 
-<iframe src="../../sims/three-context-comparison<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Three-Context Comparison Fullscreen](../../sims/three-context-comparison<br/>/main.html)
+<iframe src="../../sims/three-context-comparison/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Three-Context Comparison Fullscreen](../../sims/three-context-comparison/main.html)
 
 <details markdown="1">
 <summary>Three-Context Comparison</summary>
@@ -285,8 +285,8 @@ The **instructional design feedback loop** is the recurring cycle that ties anal
 #### Diagram: Instructional Design Feedback Loop
 
 
-<iframe src="../../sims/instructional-design-feedback-loop<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Run Instructional Design Feedback Loop Fullscreen](../../sims/instructional-design-feedback-loop<br/>/main.html)
+<iframe src="../../sims/instructional-design-feedback-loop/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Instructional Design Feedback Loop Fullscreen](../../sims/instructional-design-feedback-loop/main.html)
 
 <details markdown="1">
 <summary>Instructional Design Feedback Loop</summary>
