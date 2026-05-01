@@ -3,119 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Activity Provider, LRS, and Activity Consumer</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%; overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif; background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
+        .container {
+            display: flex; width: 100%; height: calc(100% - 40px);
         }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .diagram-panel {
+            width: 62%; background: #f0fdf4;
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 12px; overflow: hidden;
         }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .mermaid { width: 100%; max-width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1; background: #fff; border-left: 1px solid #dee2e6;
+            padding: 14px; display: flex; flex-direction: column; overflow: hidden;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
+        .info-panel h3 {
+            font-size: 15px; color: #1e293b; margin-bottom: 10px;
+            padding-bottom: 6px; border-bottom: 2px solid #0d9488; flex-shrink: 0;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .info-scroll { flex: 1; overflow-y: auto; }
+        .info-title { font-size: 15px; font-weight: bold; color: #0d9488; margin-bottom: 4px; }
+        .info-badge {
+            display: inline-block; padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: bold; margin-bottom: 8px; color: #fff;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .info-content { font-size: 13px; line-height: 1.55; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content ul { margin: 4px 0 8px 16px; }
+        .info-content li { margin-bottom: 3px; }
+        .info-content code {
+            background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 12px; color: #be185d;
         }
-        .meta strong { color: #495057; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: auto; padding-top: 10px; border-top: 1px dashed #cbd5e1;
+            font-size: 12px; color: #475569; flex-shrink: 0;
+        }
+        .legend .swatch {
+            display: inline-block; width: 12px; height: 12px;
+            border-radius: 3px; vertical-align: middle; margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover circle, .node:hover polygon, .node:hover path {
+            filter: brightness(1.12);
+        }
     </style>
+    <script src="xapi-three-roles.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Activity Provider, LRS, and Activity Consumer</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">xAPI Ecosystem Roles — click any node to see its responsibilities</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    subgraph LRPEnv ["Learning Record Provider — broader category"]
+        AP["Activity Provider<br/><i>creates statements</i>"]:::apNode
+    end
+
+    POST["POST /statements"]:::wireNode
+
+    LRS["LRS<br/><i>Learning Record Store</i>"]:::lrsNode
+
+    GET["GET /statements"]:::wireNode
+
+    subgraph ConsumerEnv ["Activity Consumer — reads statements"]
+        AC["Activity Consumer"]:::acNode
+        Dash["Dashboard"]:::subNode
+        Rec["Recommender"]:::subNode
+        Grade["Grade Export"]:::subNode
+    end
+
+    AP --> POST
+    POST --> LRS
+    LRS --> GET
+    GET --> AC
+    AC --> Dash
+    AC --> Rec
+    AC --> Grade
+
+    click AP call showRoleInfo("ap")
+    click POST call showRoleInfo("post")
+    click LRS call showRoleInfo("lrs")
+    click GET call showRoleInfo("get")
+    click AC call showRoleInfo("consumer")
+    click Dash call showRoleInfo("dashboard")
+    click Rec call showRoleInfo("recommender")
+    click Grade call showRoleInfo("grade")
+
+    classDef apNode   fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
+    classDef lrsNode  fill:#d97706,stroke:#92400e,color:#fff,font-size:15px,font-weight:bold
+    classDef acNode   fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px,font-weight:bold
+    classDef subNode  fill:#ccfbf1,stroke:#0d9488,color:#0f766e,font-size:12px
+    classDef wireNode fill:#0369a1,stroke:#0c4a6e,color:#fff,font-size:12px
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> xapi-three-roles</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> Understand (L2). Bloom verb: describe, classify.</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Role Details</h3>
+            <div class="info-scroll">
+                <div id="info-display">
+                    <p class="info-placeholder">Click any node to see its role definition, HTTP verbs used, and example real-world systems that fill that role.</p>
+                </div>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#4338ca"></span>Activity Provider (creates statements)</div>
+                <div><span class="swatch" style="background:#d97706"></span>LRS (stores and serves statements)</div>
+                <div><span class="swatch" style="background:#0d9488"></span>Activity Consumer (reads statements)</div>
+                <div><span class="swatch" style="background:#0369a1"></span>HTTP endpoints</div>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow
-    **sim-id:** xapi-three-roles<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    Purpose: Cement the three role names — Activity Provider, Learning Record Provider, Activity Consumer — and show how statements flow from creation, through the LRS, to consumption. Disambiguates the AP-vs-LRP distinction visually.
-    
-    Bloom level: Understand (L2). Bloom verb: describe, classify.
-    
-    Layout: Mermaid `flowchart LR` with five nodes laid out left-to-right:
-    1. `Activity Provider` (indigo) — produces statements
-    2. `Learning Record Provider` (lighter indigo, dashed border) — broader category, drawn as a superset around AP
-    3. `LRS` (gold, large) — central node
-    4. `Activity Consumer` (teal) — reads statements
-    5. A subordinate cluster of three example consumers under "Activity Consumer": `Dashboard`, `Recommender`, `Grade Export`.
-    
-    Arrows:
-    - AP → LRS labeled "POST /statements" (clickable)
-    - LRS → Consumer labeled "GET /statements" (clickable)
-    - LRP envelope drawn around AP with a note "All APs are LRPs; not all LRPs are APs"
-    
-    Required interactivity:
-    - Every node MUST have a Mermaid `click` directive opening an infobox with: role definition, HTTP verbs used, example real-world systems (e.g., AP: "your intelligent textbook, a simulation, a quiz tool"; Consumer: "Watershed dashboards, a custom Grafana board, a Canvas grade-passback script"), and a one-paragraph "common confusion" callout.
-    - Both arrows are clickable and reveal an infobox describing the HTTP request/response, headers, and authentication.
-    - Hovering the LRP envelope highlights the relationship and reveals a tooltip "Learning Record Provider — any system that provides records to an LRS, including but not limited to Activity Providers."
-    
-    Sample infobox content (for `Activity Consumer`):
-    "**Activity Consumer** — A system that reads statements from an LRS via HTTP GET. Consumers never write statements. Examples: a real-time engagement dashboard, a personalized recommender that suggests next chapters based on completion patterns, a grade-export script that pushes final scores to an LMS gradebook. Common confusion: a system can be both an AP and a Consumer (it writes some statements and reads others), but the two roles are conceptually distinct and often have different authentication credentials."
-    
-    Implementation: Mermaid `flowchart LR` with classDefs, a Mermaid `subgraph` for the LRP envelope, and `click` directives wired to a JavaScript `showRoleInfo(role)` function. Responsive width.
-    -->
 </body>
 </html>

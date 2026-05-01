@@ -42,7 +42,7 @@ const fieldInfo = {
         body: `
             <p>How did it go? Captures success, completion, score, duration, response, and custom extensions.</p>
             <p>Example: <code>{ "success": true, "completion": true, "score": { "scaled": 0.92 } }</code></p>
-            <p><b>Footgun:</b> if you forget <code>completion</code>, it isn't <code>false</code> — it's absent. Most LRSs treat absent and false differently.</p>`
+            <p><b>Note:</b> if you forget <code>completion</code>, it isn't <code>false</code> — it's absent. Most LRSs treat absent and false differently.</p>`
     },
     Context: {
         title: 'Context',

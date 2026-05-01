@@ -23,8 +23,7 @@ JSON-encoded learning event. Branching off it are the eight fields a statement
 can carry: the three **required** parts (Actor, Verb, Object) shown in indigo,
 and four optional-but-powerful parts (Result, Context, Timestamp, Authority)
 shown in teal. Clicking any field reveals a definition, whether the field is
-required, and a concrete example — including the failure modes ("footguns")
-that bite real implementers.
+required, and a concrete example — including the failure modes that bite real implementers.
 
 The MicroSim also eats its own dog food: every click emits an xAPI
 `interacted` statement to the configured Learning Record Store
@@ -54,7 +53,7 @@ A few reasons this triple deserves its own MicroSim:
    statement is invalid; drop an optional field and the statement is just
    less interesting.
 
-3. **It surfaces the footguns that lose people.** The infoboxes don't just
+3. **It surfaces the pitfalls that lose people.** The infoboxes don't just
    define each field — they call out the silent failure modes: *if you
    forget `result.completion`, it isn't `false`, it's absent, and most LRSs
    treat absent and false differently.* Those gotchas usually live three
@@ -92,7 +91,7 @@ A few reasons this triple deserves its own MicroSim:
 Project the MicroSim on a screen and have the class predict — *before* you
 click — what each field will say. Surface the disagreements before revealing
 the definition. The Actor and Verb fields are usually predicted correctly;
-**Authority** and the absent-vs-false footgun in Result are the ones that
+**Authority** and the absent-vs-false issue in Result are the ones that
 spark productive discussion.
 
 ## Iframe Embed Code
@@ -130,7 +129,7 @@ By the end of this lesson, learners will be able to:
 3. **Translate** a plain-English description of a learning event ("Maya
    completed Chapter 4 yesterday at 2pm") into the corresponding triple of
    Actor, Verb, and Object values.
-4. **Recognize** at least one common footgun in statement construction
+4. **Recognize** at least one common mistake in statement construction
    (e.g., the absent-vs-`false` distinction in `result.completion`).
 
 ### Prerequisites
@@ -162,8 +161,8 @@ By the end of this lesson, learners will be able to:
    Verb = scored/passed; Object = the Recursion quiz; Result = 0.88; Context
    = engineering cohort + practice platform; Timestamp = yesterday 2pm.)
 
-5. **Footgun discussion (3 min).** Re-open the **Result** infobox and read
-   the footgun callout aloud. Discuss: why might an LRS treat
+5. **Pitfall discussion (3 min).** Re-open the **Result** infobox and read
+   the note aloud. Discuss: why might an LRS treat
    `completion: false` differently from `completion` being absent? What
    would a dashboard report show in each case?
 
@@ -176,7 +175,7 @@ Learners should be able to:
 - Explain in one sentence why an Actor is identified by an **Inverse
   Functional Identifier (IFI)** rather than a username.
 - Name at least one optional field and the analytics question it unlocks.
-- Recall, unprompted, the absent-vs-`false` footgun in Result.
+- Recall, unprompted, the absent-vs-`false` distinction in Result.
 
 A short-answer quiz at the end of the chapter ("In the statement below,
 which field is missing and what's the consequence?") closes the loop.

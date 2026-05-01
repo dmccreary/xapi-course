@@ -3,114 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Who Sets What — Client vs. LRS Field Ownership</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%; overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif; background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
+        .container {
+            display: flex; width: 100%; height: calc(100% - 40px);
         }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .diagram-panel {
+            width: 58%; background: #eef2ff;
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 12px; overflow: hidden;
         }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .mermaid { width: 100%; max-width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1; background: #fff; border-left: 1px solid #dee2e6;
+            padding: 14px; display: flex; flex-direction: column; overflow: hidden;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
+        .info-panel h3 {
+            font-size: 15px; color: #1e293b; margin-bottom: 10px;
+            padding-bottom: 6px; border-bottom: 2px solid #4338ca; flex-shrink: 0;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .info-scroll { flex: 1; overflow-y: auto; }
+        .info-title { font-size: 15px; font-weight: bold; color: #4338ca; margin-bottom: 4px; }
+        .info-badge {
+            display: inline-block; padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: bold; margin-bottom: 8px;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .badge-client { background: #4338ca; color: #fff; }
+        .badge-lrs    { background: #16a34a; color: #fff; }
+        .badge-neg    { background: #f59e0b; color: #fff; }
+        .badge-wire   { background: #0369a1; color: #fff; }
+        .info-content { font-size: 13px; line-height: 1.55; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 12px; color: #be185d;
         }
-        .meta strong { color: #495057; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: auto; padding-top: 10px; border-top: 1px dashed #cbd5e1;
+            font-size: 12px; color: #475569; flex-shrink: 0;
+        }
+        .legend .swatch {
+            display: inline-block; width: 12px; height: 12px;
+            border-radius: 3px; vertical-align: middle; margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover circle, .node:hover polygon, .node:hover path {
+            filter: brightness(1.1);
+        }
     </style>
+    <script src="statement-field-ownership.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Who Sets What — Client vs. LRS Field Ownership</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Field Ownership — click any field to see who sets it and why</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    subgraph AP ["Activity Provider — you set these"]
+        actor["actor"]:::client
+        verb["verb"]:::client
+        object["object"]:::client
+        result["result"]:::client
+        context["context"]:::client
+        id["id<br/><i>negotiated</i>"]:::negotiated
+        timestamp["timestamp"]:::client
+    end
+
+    POST["POST /statements<br/><i>click for wire details</i>"]:::wire
+
+    subgraph LRSS ["LRS — it sets these"]
+        stored["stored"]:::lrsset
+        authority["authority"]:::lrsset
+        version["version"]:::lrsset
+    end
+
+    AP --> POST --> LRSS
+
+    click actor call showOwnership("actor")
+    click verb call showOwnership("verb")
+    click object call showOwnership("object")
+    click result call showOwnership("result")
+    click context call showOwnership("context")
+    click id call showOwnership("id")
+    click timestamp call showOwnership("timestamp")
+    click POST call showOwnership("post")
+    click stored call showOwnership("stored")
+    click authority call showOwnership("authority")
+    click version call showOwnership("version")
+
+    classDef client    fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px
+    classDef lrsset    fill:#16a34a,stroke:#14532d,color:#fff,font-size:14px
+    classDef negotiated fill:#f59e0b,stroke:#b45309,color:#1e293b,font-size:14px
+    classDef wire      fill:#0369a1,stroke:#0c4a6e,color:#fff,font-size:13px
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> statement-field-ownership</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> Analyze (L4). Bloom verb: differentiate, attribute.</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Field Ownership</h3>
+            <div class="info-scroll">
+                <div id="info-display">
+                    <p class="info-placeholder">Click any field to see who sets it, when, and what happens if a client tries to set an LRS-owned field.</p>
+                </div>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#4338ca"></span>Activity Provider sets</div>
+                <div><span class="swatch" style="background:#16a34a"></span>LRS sets (client value ignored)</div>
+                <div><span class="swatch" style="background:#f59e0b"></span>Negotiated (client may set; LRS mints if absent)</div>
+                <div><span class="swatch" style="background:#0369a1"></span>The wire protocol</div>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: diagram
-    **sim-id:** statement-field-ownership<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    Purpose: Disambiguate, at a glance, which statement fields are the client's responsibility and which are the LRS's. Eliminates a class of bugs where developers try to set `stored` or `authority` from the client and are surprised when the LRS overwrites them.
-    
-    Bloom level: Analyze (L4). Bloom verb: differentiate, attribute.
-    
-    Layout: Mermaid `flowchart LR` with two large `subgraph` containers side by side. Left subgraph "Activity Provider sets" contains nodes: `actor`, `verb`, `object`, `result`, `context`, `id`, `timestamp`. Right subgraph "LRS sets" contains nodes: `stored`, `authority`, `version`. A central arrow labeled "POST /statements" connects the two subgraphs and is itself clickable to reveal an infobox describing the wire protocol.
-    
-    Required interactivity:
-    - Every node MUST have a Mermaid `click` directive that opens an infobox describing: who sets the field, when, the data type, and what happens if the client tries to set an LRS-owned field anyway (answer: the LRS overwrites it silently — another classic footgun).
-    - Hovering a subgraph header MUST highlight all nodes in that subgraph.
-    - The central "POST /statements" arrow is clickable and reveals an infobox describing the request/response cycle, including the Content-Type, the X-Experience-API-Version header, and the LRS's response with the assigned UUIDs.
-    
-    ClassDef styling:
-    - `client-set` — fill #4338ca (indigo), white text
-    - `lrs-set` — fill #16a34a (green), white text
-    - `negotiated` — fill #f59e0b (amber), dark text — used for `id` (client may set, LRS will mint if absent)
-    
-    Sample infobox content (for `stored`):
-    "**stored** — Set by the LRS, never by the client. ISO 8601 timestamp recording when the LRS received and persisted the statement. Use `stored` for replication, audit, and reconciliation. Do not confuse with `timestamp`, which is when the learner experienced the event. The gap between `timestamp` and `stored` is your offline buffer in action."
-    
-    Implementation: Mermaid `flowchart LR` with classDefs and `click` directives wired to a JavaScript `showFieldOwnership(name)` function. Responsive width.
-    -->
 </body>
 </html>

@@ -261,9 +261,9 @@ The standard `result` fields are:
 - **`response`** (string) — the learner's free-text or selection response, when applicable.
 - **`extensions`** (object) — a map of IRIs to arbitrary JSON values, for any custom result data that doesn't fit the standard fields.
 
-!!! mascot-warning "The footgun in `result.completion`"
+!!! mascot-warning "Watch out: `result.completion` absent ≠ false"
     <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Xavi raising a warning tentacle">
-    `result.completion` is a boolean. If you forget to set it, it isn't `false` — it's *absent*, which is a different thing entirely from `false`. Most LRS query engines treat absent and `false` differently when filtering. This is the textbook **footgun pattern**: silent (no error), easy to trigger (just leave it off), and damaging far from the cause (your "completion rate" report a month later mysteriously undercounts everything). Always set `completion` explicitly when you mean it.
+    `result.completion` is a boolean. If you forget to set it, it isn't `false` — it's *absent*, which is a different thing entirely from `false`. Most LRS query engines treat absent and `false` differently when filtering. The failure is silent (no error), easy to trigger (just leave the field off), and the damage shows up far from the cause — your "completion rate" report a month later mysteriously undercounts everything. Always set `completion` explicitly when you mean it.
 
 ## Context — Under What Circumstances
 
@@ -315,7 +315,7 @@ Bloom level: Analyze (L4). Bloom verb: differentiate, attribute.
 Layout: Mermaid `flowchart LR` with two large `subgraph` containers side by side. Left subgraph "Activity Provider sets" contains nodes: `actor`, `verb`, `object`, `result`, `context`, `id`, `timestamp`. Right subgraph "LRS sets" contains nodes: `stored`, `authority`, `version`. A central arrow labeled "POST /statements" connects the two subgraphs and is itself clickable to reveal an infobox describing the wire protocol.
 
 Required interactivity:
-- Every node MUST have a Mermaid `click` directive that opens an infobox describing: who sets the field, when, the data type, and what happens if the client tries to set an LRS-owned field anyway (answer: the LRS overwrites it silently — another classic footgun).
+- Every node MUST have a Mermaid `click` directive that opens an infobox describing: who sets the field, when, the data type, and what happens if the client tries to set an LRS-owned field anyway (answer: the LRS overwrites it silently — a common trap).
 - Hovering a subgraph header MUST highlight all nodes in that subgraph.
 - The central "POST /statements" arrow is clickable and reveals an infobox describing the request/response cycle, including the Content-Type, the X-Experience-API-Version header, and the LRS's response with the assigned UUIDs.
 

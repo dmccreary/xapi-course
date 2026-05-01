@@ -310,7 +310,7 @@ The 409 Conflict response is a critical data integrity protection: it prevents a
 
 The runtime monitoring of network availability status in a browser-based xAPI Activity Provider, used to switch between live LRS submission and offline queue modes, implemented via the Navigator.onLine API, fetch-based probing, or Service Worker network events.
 
-Navigator.onLine is a known footgun: it returns `true` even when the device has a network interface but no internet connectivity (e.g., connected to WiFi with no upstream). Fetch-based probing to a known endpoint is more reliable for detecting true LRS reachability.
+Note: `Navigator.onLine` returns `true` even when the device has a network interface but no internet connectivity (e.g., connected to WiFi with no upstream). Fetch-based probing to a known endpoint is more reliable for detecting true LRS reachability.
 
 #### Context Activities
 
@@ -448,7 +448,7 @@ The policy of assigning all custom xAPI extension IRIs to a consistent base URL 
 
 Key-value maps that can be added to Activity Definition, Result, and Context objects to carry domain-specific data not expressible in the core statement model, where keys are IRIs and values are any valid JSON.
 
-Extensions are the escape hatch that makes xAPI extensible without breaking the core model, but they are also a footgun: undocumented or inconsistently named extension IRIs produce data that analytics tools cannot interpret. Every extension IRI must resolve to documentation.
+Extensions are the escape hatch that makes xAPI extensible without breaking the core model, but they carry a common pitfall: undocumented or inconsistently named extension IRIs produce data that analytics tools cannot interpret. Every extension IRI must resolve to documentation.
 
 **Example:** `"extensions": {"https://example.com/xapi/ext/difficulty": "hard", "https://example.com/xapi/ext/hint-count": 2}` adds simulation difficulty and hint usage data to a result.
 
@@ -1524,7 +1524,7 @@ The implementation of xAPI statement submission from web applications running in
 
 A structured audit of an xAPI integration by a domain expert, examining statement vocabulary choices, actor IFI consistency, extension documentation, LRS configuration, security posture, and analytics pipeline design against specification requirements and best practices.
 
-**Example:** An implementation review finds that a content developer used `"verb.display"` values for analytics filtering instead of `"verb.id"` IRIs—a critical footgun where display strings vary by locale but IRIs are stable, breaking cross-language analytics.
+**Example:** An implementation review finds that a content developer used `"verb.display"` values for analytics filtering instead of `"verb.id"` IRIs—a common mistake, since display strings vary by locale while IRIs are stable, breaking cross-language analytics.
 
 #### xAPI in Corporate L&D
 

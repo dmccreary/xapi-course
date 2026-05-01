@@ -56,8 +56,8 @@ Use the navigation sidebar on the left to explore:
   how concepts connect
 - **[MicroSims](sims/index.md)** — interactive simulations, each focused
   on a single concept and embeddable as an iframe
-- **Glossary** — precise, non-circular definitions for every key term
-- **About** — audience, prerequisites, and how to read the book
+- **[Glossary](./glossary.md)** — precise, concise, non-circular definitions for every key term
+- **[About](./about.md)** — audience, prerequisites, why and how to read the book
 
 ## Getting Started
 

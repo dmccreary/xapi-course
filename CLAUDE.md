@@ -2,6 +2,12 @@
 
 Project home: `/Users/dan/Documents/ws/xapi-course`
 
+## Session Rules
+
+- **Never use worktrees.** Always read and write files directly in
+  `/Users/dan/Documents/ws/xapi-course`. Do not pass `isolation: "worktree"`
+  to the Agent tool. Worktrees create a hidden directory the user cannot see.
+
 ---
 
 ## Diagrams Must Be Interactive (No Static Images)

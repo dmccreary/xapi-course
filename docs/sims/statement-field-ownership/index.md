@@ -44,7 +44,7 @@ Bloom level: Analyze (L4). Bloom verb: differentiate, attribute.
 Layout: Mermaid `flowchart LR` with two large `subgraph` containers side by side. Left subgraph "Activity Provider sets" contains nodes: `actor`, `verb`, `object`, `result`, `context`, `id`, `timestamp`. Right subgraph "LRS sets" contains nodes: `stored`, `authority`, `version`. A central arrow labeled "POST /statements" connects the two subgraphs and is itself clickable to reveal an infobox describing the wire protocol.
 
 Required interactivity:
-- Every node MUST have a Mermaid `click` directive that opens an infobox describing: who sets the field, when, the data type, and what happens if the client tries to set an LRS-owned field anyway (answer: the LRS overwrites it silently — another classic footgun).
+- Every node MUST have a Mermaid `click` directive that opens an infobox describing: who sets the field, when, the data type, and what happens if the client tries to set an LRS-owned field anyway (answer: the LRS overwrites it silently — a common trap).
 - Hovering a subgraph header MUST highlight all nodes in that subgraph.
 - The central "POST /statements" arrow is clickable and reveals an infobox describing the request/response cycle, including the Content-Type, the X-Experience-API-Version header, and the LRS's response with the assigned UUIDs.
 
