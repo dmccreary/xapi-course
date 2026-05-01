@@ -99,6 +99,7 @@ nav:
     - Activity Provider, LRS, and Activity Consumer: sims/xapi-three-roles/index.md
     - ADL Verb Vocabulary Explorer: sims/adl-verb-vocabulary-explorer/index.md
     - Authentication Scheme Comparison: sims/authentication-scheme-comparison/index.md
+    - Book Levels: sims/book-levels/index.md
     - Bandwidth Budget Calculator MicroSim: sims/bandwidth-budget-calculator-microsim/index.md
     - Batching Wire-Cost Comparison: sims/batching-wire-cost-comparison/index.md
     - Canonical Verb Explorer: sims/canonical-verb-explorer/index.md
