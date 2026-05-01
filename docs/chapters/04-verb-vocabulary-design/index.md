@@ -119,20 +119,20 @@ The twelve ADL verbs you'll meet most often in an intelligent textbook break int
 - **Progress verbs** describe forward motion through structured material when there's no single pass/fail moment — adaptive flows, self-paced reading, scaffolded exercises.
 - **Session-lifecycle verbs** mark the formal beginning and end of a tracked session, and exist primarily for cmi5 compatibility.
 
-| Group                | Verb         | IRI suffix          | When to emit                                                                  |
-|----------------------|--------------|---------------------|-------------------------------------------------------------------------------|
-| Content consumption  | `experienced`| `/verbs/experienced`| Learner observed or interacted with content without a pass/fail outcome       |
-| Content consumption  | `interacted` | `/verbs/interacted` | Learner manipulated an interactive element (slider, button, MicroSim control) |
-| Assessment           | `attempted`  | `/verbs/attempted`  | Learner began an activity with a defined outcome                              |
-| Assessment           | `passed`     | `/verbs/passed`     | Learner met the success criteria for an attempted activity                    |
-| Assessment           | `failed`     | `/verbs/failed`     | Learner did not meet the success criteria                                     |
-| Assessment           | `scored`     | `/verbs/scored`     | A score was recorded against an activity (often paired with passed/failed)    |
-| Progress             | `progressed` | `/verbs/progressed` | Learner moved forward through structured material; partial state             |
-| Progress             | `completed`  | `/verbs/completed`  | Learner reached the end of an activity, regardless of pass/fail              |
-| Session lifecycle    | `launched`   | `/verbs/launched`   | A learning session was opened by an external launcher (cmi5)                  |
-| Session lifecycle    | `initialized`| `/verbs/initialized`| Activity Provider has finished setup and is ready to record statements        |
-| Session lifecycle    | `terminated` | `/verbs/terminated` | Activity Provider closed the session cleanly                                  |
-| Session lifecycle    | `abandoned`  | `/verbs/abandoned`  | Session ended without a clean termination (timeout, tab close)                |
+| Group            | Verb           | IRI suffix          | When to emit                                                                  |
+|------------------|----------------|---------------------|-------------------------------------------------------------------------|
+| Content consumption|`experienced`| `/verbs/experienced`| Learner observed or interacted with content without a pass/fail outcome       |
+| Content consumption|`interacted` | `/verbs/interacted` | Learner manipulated an interactive element (slider, button, MicroSim control) |
+| Assessment         |`attempted`  | `/verbs/attempted`  | Learner began an activity with a defined outcome                              |
+| Assessment         |`passed`     | `/verbs/passed`     | Learner met the success criteria for an attempted activity                    |
+| Assessment         |`failed`     | `/verbs/failed`     | Learner did not meet the success criteria                                     |
+| Assessment         |`scored`     | `/verbs/scored`     | A score was recorded against an activity (often paired with passed/failed)    |
+| Progress           |`progressed` | `/verbs/progressed` | Learner moved forward through structured material; partial state             |
+| Progress           |`completed`  | `/verbs/completed`  | Learner reached the end of an activity, regardless of pass/fail              |
+| Session lifecycle  |`launched`   | `/verbs/launched`   | A learning session was opened by an external launcher (cmi5)                  |
+| Session lifecycle  |`initialized`| `/verbs/initialized`| Activity Provider has finished setup and is ready to record statements        |
+| Session lifecycle  |`terminated` | `/verbs/terminated` | Activity Provider closed the session cleanly                                  |
+| Session lifecycle  |`abandoned`  | `/verbs/abandoned`  | Session ended without a clean termination (timeout, tab close)                |
 
 The pairings to internalize. `passed` and `failed` always travel with `attempted`, in that temporal order. `completed` is independent of both — a learner can complete and pass, complete and fail, or complete with no success/failure judgment at all. `scored` is most useful when you want to record a score *without* committing to a pass/fail interpretation — automatic graders that will be reviewed later, peer-assessed work, formative assessments without a cutoff. And the four session-lifecycle verbs are best thought of as a group: cmi5 sessions canonically follow `launched → initialized → (one or more progress/assessment statements) → completed/passed/failed → terminated`, with `abandoned` substituting for `terminated` when the learner walked away.
 
