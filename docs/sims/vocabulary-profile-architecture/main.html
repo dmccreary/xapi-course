@@ -3,115 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Vocabulary Profile Architecture</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true, theme: 'default', securityLevel: 'loose',
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
+                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        html, body { width: 100%; height: 100%; overflow: hidden;
+            font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        .title { height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold; }
+        .container { display: flex; width: 100%; height: calc(100% - 40px); }
+        .diagram-panel { width: 60%; height: 100%; background: #eef2ff;
+            display: flex; justify-content: center; align-items: center;
+            padding: 12px; overflow: hidden; }
+        .mermaid { width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel { flex: 1; height: 100%; background: #fff;
+            border-left: 1px solid #e2e8f0; padding: 14px; overflow-y: auto; }
+        .info-panel h3 { font-size: 14px; color: #1e293b;
+            margin-bottom: 10px; padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca; }
+        .info-title { font-size: 14px; font-weight: bold;
+            color: #4338ca; margin-bottom: 4px; }
+        .info-content { font-size: 12px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code { background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 11px; color: #be185d;
+            font-family: 'Consolas', monospace; }
+        .info-content pre { background: #0f172a; color: #e2e8f0;
+            padding: 8px; border-radius: 4px; font-size: 11px;
+            overflow-x: auto; margin: 6px 0; font-family: 'Consolas', monospace; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 12px; }
+        .meta-row { display: flex; gap: 8px; margin-bottom: 6px;
+            font-size: 11px; }
+        .meta-row .lbl { color: #64748b; min-width: 70px; }
+        .meta-row .val { color: #1e293b; font-weight: 500; }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover polygon, .node:hover path {
+            filter: brightness(1.1); }
     </style>
+    <script src="vocabulary-profile-architecture.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Vocabulary Profile Architecture</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Vocabulary profile architecture — click any component for details</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TD
+    Profile[("Profile<br/>JSON-LD at stable URL")]:::root
+    Verbs["Verbs<br/>canonical + custom IRIs"]:::comp
+    Types["Activity Types<br/>canonical + custom IRIs"]:::comp
+    Ext["Extensions<br/>namespaced + schema"]:::comp
+    Patterns["Statement Patterns<br/>approved emit shapes"]:::pattern
+    Server[("Profile Server<br/>publishes JSON-LD")]:::server
+
+    Profile --> Verbs
+    Profile --> Types
+    Profile --> Ext
+    Verbs --> Patterns
+    Types --> Patterns
+    Ext --> Patterns
+    Server -.-> Profile
+
+    click Profile call showComp("Profile")
+    click Verbs call showComp("Verbs")
+    click Types call showComp("Types")
+    click Ext call showComp("Ext")
+    click Patterns call showComp("Patterns")
+    click Server call showComp("Server")
+
+    classDef root fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
+    classDef comp fill:#4338ca,stroke:#312e81,color:#fff
+    classDef pattern fill:#16a34a,stroke:#14532d,color:#fff
+    classDef server fill:#0d9488,stroke:#134e4a,color:#fff
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> vocabulary-profile-architecture</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Component Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any component to see what it contains, an example excerpt, and the chapter section that covers it.</p>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: clickable-mermaid
-    **sim-id:** vocabulary-profile-architecture<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Understanding):** Identify the components of a complete xAPI vocabulary profile and how they relate to one another.
-    
-    **Diagram type:** Mermaid flowchart (TD direction). Click handlers on every node.
-    
-    **Structure:**
-    
-    - Top: `Profile (JSON-LD document at stable URL)`
-    - Three branches downstream:
-        - `Verbs` — list of canonical + custom verbs with IRIs
-        - `Activity Types` — list of canonical + custom types with IRIs
-        - `Extensions` — namespaced extensions with schema
-    - Bottom: `Statement Patterns` — combines verbs, types, and extensions into approved emit shapes
-    - Side: `Profile Server (publishes JSON-LD at stable URL)` connected to `Profile`
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox describing the component, an example excerpt, and the chapter section that covers it.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>

@@ -1,28 +1,25 @@
 ---
 title: Vocabulary Profile Architecture
 description: Vocabulary Profile Architecture
-status: scaffold
+status: implemented
 library: Mermaid
-bloom_level: TBD
+bloom_level: Understand
 ---
 
 # Vocabulary Profile Architecture
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Identify the components of a complete xAPI vocabulary profile and how
+they relate to one another.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Understand
+- **Bloom Verb:** Identify
 - **Library:** Mermaid
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
