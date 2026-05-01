@@ -1,28 +1,25 @@
 ---
 title: Learner Archetype Profiles
 description: Learner Archetype Profiles
-status: scaffold
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
 ---
 
 # Learner Archetype Profiles
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Distinguish the five canonical learner archetypes by their behavioral
+signatures, and recognize which archetype dominates a given session pattern.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Understand
+- **Bloom Verb:** Distinguish
 - **Library:** p5.js
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

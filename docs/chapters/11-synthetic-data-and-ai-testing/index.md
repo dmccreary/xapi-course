@@ -102,6 +102,10 @@ A realistic cohort isn't a uniform mix. Production observation suggests a rough 
 
 #### Diagram: Learner Archetype Profiles
 
+
+<iframe src="../../sims/learner-archetype-profiles<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Learner Archetype Profiles Fullscreen](../../sims/learner-archetype-profiles<br/>/main.html)
+
 <details markdown="1">
 <summary>Learner Archetype Profiles</summary>
 Type: interactive-infographic
@@ -168,6 +172,10 @@ A load-testing run that holds steady ingestion at the expected production rate f
 
 #### Diagram: Load Testing Pipeline
 
+
+<iframe src="../../sims/load-testing-pipeline<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Load Testing Pipeline Fullscreen](../../sims/load-testing-pipeline<br/>/main.html)
+
 <details markdown="1">
 <summary>Load Testing Pipeline</summary>
 Type: workflow-diagram
@@ -220,6 +228,10 @@ def representativeness_check(real, synthetic, tolerance=0.10):
 ```
 
 #### Diagram: Statistical Representativeness Comparison
+
+
+<iframe src="../../sims/statistical-representativeness-comparison<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Statistical Representativeness Comparison Fullscreen](../../sims/statistical-representativeness-comparison<br/>/main.html)
 
 <details markdown="1">
 <summary>Statistical Representativeness Comparison</summary>
