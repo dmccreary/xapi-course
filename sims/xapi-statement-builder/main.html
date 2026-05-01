@@ -3,123 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xAPI Statement Builder MicroSim</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>xAPI Statement Builder</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%; overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif; background: #f8fafc;
+            font-size: 13px; color: #334155;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title-bar {
+            height: 38px; line-height: 38px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
+        .workspace {
+            display: flex; width: 100%; height: calc(100% - 38px);
         }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .ctrl-panel {
+            width: 42%; min-width: 260px; background: #fff;
+            border-right: 1px solid #dee2e6; overflow-y: auto; padding: 10px 12px;
         }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .section { margin-bottom: 10px; }
+        .section-hdr {
+            font-size: 11px; font-weight: bold; text-transform: uppercase;
+            letter-spacing: 0.05em; color: #64748b; padding: 4px 0 5px;
+            border-bottom: 1px solid #e2e8f0; margin-bottom: 6px;
+            display: flex; justify-content: space-between; align-items: center;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
+        .field-row { margin-bottom: 6px; }
+        .field-row label {
+            display: block; font-size: 11px; color: #64748b; margin-bottom: 2px;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .field-row label .hint { color: #94a3b8; font-weight: normal; font-size: 10px; }
+        .field-row select, .field-row input[type=text], .field-row input[type=number] {
+            width: 100%; font-size: 12px; border: 1px solid #cbd5e1;
+            border-radius: 4px; padding: 4px 7px; color: #334155; background: #fff;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .field-row input.err { border-color: #ef4444; }
+        .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 12px; }
+        .checkbox-row input[type=checkbox] { width: 14px; height: 14px; }
+        .toggle-btn {
+            background: none; border: none; cursor: pointer;
+            font-size: 11px; color: #4338ca; padding: 0; text-decoration: underline;
         }
-        .meta strong { color: #495057; }
+        .collapsible { display: none; padding-top: 4px; }
+        .collapsible.open { display: block; }
+        .preview-panel {
+            flex: 1; background: #0f172a; display: flex; flex-direction: column; overflow: hidden;
+        }
+        .preview-header {
+            display: flex; align-items: center; gap: 8px; padding: 6px 12px;
+            background: #1e293b; border-bottom: 1px solid #334155; flex-shrink: 0;
+        }
+        .preview-header span { color: #94a3b8; font-size: 12px; }
+        .status-pill {
+            margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: bold;
+        }
+        .pill-idle    { background: #334155; color: #94a3b8; }
+        .pill-valid   { background: #166534; color: #bbf7d0; }
+        .pill-invalid { background: #7f1d1d; color: #fecaca; }
+        .preview-code { flex: 1; overflow-y: auto; padding: 12px 14px; }
+        .preview-code pre {
+            font-family: 'Courier New', monospace; font-size: 12px;
+            line-height: 1.65; color: #e2e8f0; white-space: pre-wrap; word-break: break-word;
+        }
+        .jk  { color: #93c5fd; }
+        .js  { color: #86efac; }
+        .jn  { color: #fbbf24; }
+        .jb  { color: #f472b6; }
+        .jnl { color: #94a3b8; }
+        .bottom-bar {
+            padding: 7px 12px; background: #1e293b; border-top: 1px solid #334155;
+            display: flex; gap: 8px; align-items: center; flex-shrink: 0;
+        }
+        .issues-txt { color: #94a3b8; font-size: 11px; flex: 1; }
+        .btn {
+            font-size: 11px; padding: 5px 11px; border-radius: 4px;
+            cursor: pointer; border: 1px solid;
+        }
+        .btn-p { background: #4338ca; color: #fff; border-color: #4338ca; }
+        .btn-p:hover { background: #3730a3; }
+        .btn-s { background: transparent; color: #94a3b8; border-color: #475569; }
+        .btn-s:hover { color: #fff; border-color: #94a3b8; }
+        .id-row { display: flex; gap: 5px; }
+        .id-row input { flex: 1; font-family: monospace; font-size: 10px; }
+        .id-row button { font-size: 10px; padding: 3px 7px; white-space: nowrap; }
     </style>
 </head>
 <body>
-    <div id="container">
-        <h1>xAPI Statement Builder MicroSim</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+<main>
+<div class="title-bar">xAPI Statement Builder — construct a conformant statement field by field</div>
+<div class="workspace">
+
+    <div class="ctrl-panel">
+
+        <div class="section">
+            <div class="section-hdr">
+                <span>Actor <span style="color:#4338ca;font-weight:normal;text-transform:none">(required)</span></span>
+            </div>
+            <div class="field-row">
+                <label>IFI Type <span class="hint">— how to identify the learner globally</span></label>
+                <select id="ifi-type">
+                    <option value="mbox">mbox (mailto: URI) — most common</option>
+                    <option value="mbox_sha1sum">mbox_sha1sum — pseudonymous</option>
+                    <option value="openid">openid — OpenID URI</option>
+                    <option value="account">account — platform ID + name</option>
+                </select>
+            </div>
+            <div class="field-row" id="row-mbox">
+                <label>Email (mailto:…)</label>
+                <input type="text" id="actor-mbox" value="mailto:learner@example.edu">
+            </div>
+            <div class="field-row" id="row-hash" style="display:none">
+                <label>SHA-1 hash of mailto</label>
+                <input type="text" id="actor-hash" placeholder="ebd31e95054c018b10727ccffd2ef2ec3a016ee9">
+            </div>
+            <div class="field-row" id="row-openid" style="display:none">
+                <label>OpenID URI</label>
+                <input type="text" id="actor-openid" placeholder="https://openid.example.edu/learner">
+            </div>
+            <div class="field-row" id="row-acct-hp" style="display:none">
+                <label>Account homePage</label>
+                <input type="text" id="actor-hp" placeholder="https://lms.example.edu">
+            </div>
+            <div class="field-row" id="row-acct-name" style="display:none">
+                <label>Account name</label>
+                <input type="text" id="actor-acct" placeholder="learner-42">
+            </div>
+            <div class="field-row">
+                <label>Name <span class="hint">(display label, optional)</span></label>
+                <input type="text" id="actor-name" placeholder="Lin Example">
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> xapi-statement-builder</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> Given an English description of a learning event, the reader can construct a conformant xAPI 1.0.3 statement by selecting an actor, verb, and object, and optionally adding result, context, and metadata fields. Reinforces field-level understanding through hands-on assembly. Bloom level: Apply (L3). Bloom verb: construct, implement.</p>
+
+        <div class="section">
+            <div class="section-hdr">
+                <span>Verb <span style="color:#4338ca;font-weight:normal;text-transform:none">(required)</span></span>
+            </div>
+            <div class="field-row">
+                <label>ADL verb preset</label>
+                <select id="verb-select">
+                    <option value="">— enter custom IRI below —</option>
+                    <option value="http://adlnet.gov/expapi/verbs/experienced" selected>experienced</option>
+                    <option value="http://adlnet.gov/expapi/verbs/interacted">interacted</option>
+                    <option value="http://adlnet.gov/expapi/verbs/attempted">attempted</option>
+                    <option value="http://adlnet.gov/expapi/verbs/answered">answered</option>
+                    <option value="http://adlnet.gov/expapi/verbs/passed">passed</option>
+                    <option value="http://adlnet.gov/expapi/verbs/failed">failed</option>
+                    <option value="http://adlnet.gov/expapi/verbs/completed">completed</option>
+                    <option value="http://adlnet.gov/expapi/verbs/progressed">progressed</option>
+                    <option value="http://adlnet.gov/expapi/verbs/mastered">mastered</option>
+                    <option value="http://adlnet.gov/expapi/verbs/voided">voided</option>
+                    <option value="http://adlnet.gov/expapi/verbs/initialized">initialized</option>
+                    <option value="http://adlnet.gov/expapi/verbs/terminated">terminated</option>
+                </select>
+            </div>
+            <div class="field-row" id="row-verb-custom" style="display:none">
+                <label>Custom Verb IRI</label>
+                <input type="text" id="verb-iri-custom" placeholder="https://example.com/verbs/reviewed">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-hdr">
+                <span>Object <span style="color:#4338ca;font-weight:normal;text-transform:none">(required)</span></span>
+            </div>
+            <div class="field-row">
+                <label>objectType</label>
+                <select id="obj-type">
+                    <option value="Activity">Activity (most common)</option>
+                    <option value="Agent">Agent (another person)</option>
+                    <option value="Group">Group (cohort)</option>
+                    <option value="StatementRef">StatementRef (reference a statement)</option>
+                </select>
+            </div>
+            <div class="field-row">
+                <label>IRI / UUID</label>
+                <input type="text" id="obj-id" value="http://textbook.example.org/chapters/02-statement-model">
+            </div>
+            <div class="field-row" id="row-act-name">
+                <label>Activity name <span class="hint">(en-US display label)</span></label>
+                <input type="text" id="obj-name" placeholder="Statement Model Chapter">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-hdr">
+                <span>Result <span style="color:#0d9488;font-weight:normal;text-transform:none">(optional)</span></span>
+                <button class="toggle-btn" onclick="toggleSection('result-body',this)">+ expand</button>
+            </div>
+            <div class="collapsible" id="result-body">
+                <div class="checkbox-row">
+                    <input type="checkbox" id="r-success"> <label for="r-success">success = true</label>
+                    <input type="checkbox" id="r-fail" style="margin-left:10px"> <label for="r-fail">success = false</label>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="r-comp"> <label for="r-comp">completion = true</label>
+                </div>
+                <div class="field-row">
+                    <label>score.scaled <span class="hint">(-1.0 to 1.0, e.g. 0.85)</span></label>
+                    <input type="number" id="r-scaled" min="-1" max="1" step="0.01" placeholder="">
+                </div>
+                <div class="field-row">
+                    <label>duration <span class="hint">(ISO 8601, e.g. PT5M30S)</span></label>
+                    <input type="text" id="r-duration" placeholder="PT5M30S">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-hdr">
+                <span>Context <span style="color:#0d9488;font-weight:normal;text-transform:none">(optional)</span></span>
+                <button class="toggle-btn" onclick="toggleSection('ctx-body',this)">+ expand</button>
+            </div>
+            <div class="collapsible" id="ctx-body">
+                <div class="field-row">
+                    <label>platform</label>
+                    <input type="text" id="ctx-platform" placeholder="Intelligent xAPI Textbook">
+                </div>
+                <div class="field-row">
+                    <label>language <span class="hint">(BCP 47)</span></label>
+                    <input type="text" id="ctx-lang" placeholder="en-US">
+                </div>
+                <div class="field-row">
+                    <label>parent activity IRI</label>
+                    <input type="text" id="ctx-parent" placeholder="http://textbook.example.org/courses/xapi">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-hdr"><span>Metadata</span></div>
+            <div class="field-row">
+                <label>id (UUID v4)</label>
+                <div class="id-row">
+                    <input type="text" id="stmt-id" readonly>
+                    <button class="btn btn-s" id="regen-btn">New</button>
+                </div>
+            </div>
+            <div class="field-row">
+                <label>timestamp <span class="hint">(set to now on load)</span></label>
+                <input type="text" id="stmt-ts" style="font-family:monospace;font-size:10px">
+            </div>
+        </div>
+
+    </div><!-- end ctrl-panel -->
+
+    <div class="preview-panel">
+        <div class="preview-header">
+            <span>Live JSON Preview</span>
+            <span class="status-pill pill-idle" id="status-pill">Not validated</span>
+        </div>
+        <div class="preview-code">
+            <pre id="json-out"></pre>
+        </div>
+        <div class="bottom-bar">
+            <span class="issues-txt" id="issues-txt"></span>
+            <button class="btn btn-p" id="validate-btn">Validate</button>
+            <button class="btn btn-s" id="copy-btn">Copy JSON</button>
+            <button class="btn btn-s" id="reset-btn">Reset</button>
         </div>
     </div>
 
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** xapi-statement-builder<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Learning objective: Given an English description of a learning event, the reader can construct a conformant xAPI 1.0.3 statement by selecting an actor, verb, and object, and optionally adding result, context, and metadata fields. Reinforces field-level understanding through hands-on assembly. Bloom level: Apply (L3). Bloom verb: construct, implement.
-    
-    Instructional Rationale: The Apply level requires the learner to use field knowledge in a new situation. A passive read-through of the spec produces recognition; building a statement and seeing live conformance feedback produces application. Step-by-step assembly with running JSON output lets the learner see, concretely, how each field they add changes the resulting object — without ever leaving the textbook page.
-    
-    Canvas layout (responsive, default 800px wide × 600px tall):
-    - Left column (45%): control panel with grouped sections — Actor (IFI selector + value input), Verb (vocabulary dropdown + free-IRI input), Object (type selector + IRI + name + activity-type), Result (collapsible: success, completion, score), Context (collapsible: platform, language, parent activity), Metadata (id auto-generated with regenerate button, timestamp auto-now with override).
-    - Right column (55%): live JSON preview, monospace font, syntax-highlighted, with red squiggle underlines under any field that fails conformance.
-    - Bottom strip: "Validate against xAPI 1.0.3" button, "Reset" button, "Copy JSON" button. A status bar shows pass/fail with a count of conformance issues.
-    
-    Required interactivity:
-    - Every control updates the JSON preview in real time as the user types or selects.
-    - The "Validate" button runs a conformance check and reports specific spec violations with line-level highlighting.
-    - The "Copy JSON" button copies the current statement to the clipboard.
-    - The "Regenerate UUID" button mints a new Version 4 UUID for the `id` field.
-    - The "Set timestamp to now" button sets `timestamp` to the current ISO 8601 time.
-    - Hovering a field label in the control panel shows a one-line tooltip describing what that field is for.
-    - Clicking the "Copy JSON" button MUST emit an xAPI `interacted` statement to the chapter's LRS.
-    
-    Default state: actor IFI = `mbox`, IFI value = `mailto:learner@example.edu`; verb = `experienced`; object = the current chapter's IRI; result and context collapsed; id auto-generated; timestamp = now.
-    
-    Conformance checks performed:
-    - Actor has exactly one IFI
-    - Verb `id` is a valid IRI
-    - Object `objectType` matches `id` shape (Agent vs. Activity vs. SubStatement)
-    - `result.score.scaled` is between -1.0 and 1.0 (if present)
-    - `id` is a valid UUID (if present)
-    - `timestamp` is a valid ISO 8601 string (if present)
-    
-    Implementation: p5.js with `createSelect`, `createInput`, `createCheckbox`, `createButton` builtin controls. JSON preview rendered into a styled `<pre>` element overlaid on the canvas. UUID generation via `crypto.randomUUID()`. Conformance rules embedded as a small ruleset object. Responsive — `updateCanvasSize()` called first thing in `setup()`.
-    -->
+</div>
+</main>
+<script src="xapi-statement-builder.js"></script>
 </body>
 </html>
