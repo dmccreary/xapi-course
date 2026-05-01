@@ -130,7 +130,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     Client["Client<br/>(Activity Provider)"]:::caller
     API["xAPI HTTP API<br/>auth + version"]:::api
     Statements["/statements"]:::endpoint
@@ -158,26 +158,26 @@ flowchart LR
     GetFlow  -.-> Indexing
     Indexing -.-> Storage
 
-    click Client    call showComponent("Client")
-    click API       call showComponent("API")
+    click Client call showComponent("Client")
+    click API call showComponent("API")
     click Statements call showComponent("Statements")
-    click Agents    call showComponent("Agents")
+    click Agents call showComponent("Agents")
     click Activities call showComponent("Activities")
-    click State     call showComponent("State")
-    click About     call showComponent("About")
-    click Storage   call showComponent("Storage")
-    click Indexing  call showComponent("Indexing")
-    click PostFlow  call showComponent("PostFlow")
-    click GetFlow   call showComponent("GetFlow")
+    click State call showComponent("State")
+    click About call showComponent("About")
+    click Storage call showComponent("Storage")
+    click Indexing call showComponent("Indexing")
+    click PostFlow call showComponent("PostFlow")
+    click GetFlow call showComponent("GetFlow")
 
-    classDef caller   fill:#475569,stroke:#1e293b,color:#fff,font-size:14px,font-weight:bold
-    classDef api      fill:#1e293b,stroke:#0f172a,color:#fff,font-size:14px,font-weight:bold
+    classDef caller fill:#475569,stroke:#1e293b,color:#fff,font-size:14px,font-weight:bold
+    classDef api fill:#1e293b,stroke:#0f172a,color:#fff,font-size:14px,font-weight:bold
     classDef endpoint fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
-    classDef storage  fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
+    classDef storage fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
     classDef indexing fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px,font-weight:bold
-    classDef flow     fill:#d97706,stroke:#92400e,color:#fff,font-size:13px
+    classDef flow fill:#d97706,stroke:#92400e,color:#fff,font-size:13px
 
-    linkStyle default stroke:#64748b,stroke-width:2px,font-size:13px
+    linkStyle default stroke:#64748b,stroke-width:2px
             </div>
         </div>
         <div class="info-panel">

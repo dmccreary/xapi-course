@@ -1,0 +1,2022 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/xapi-course/chapters/12-conformance-and-comparison/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../13-pipeline-and-production/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Quiz - xAPI for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Quiz - xAPI for Intelligent Textbooks">
+      
+        <meta property="og:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/12-conformance-and-comparison/quiz.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/12-conformance-and-comparison/quiz/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Quiz - xAPI for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/12-conformance-and-comparison/quiz.png">
+      
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-conformance-testing-validation-and-competitive-standards-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="xAPI for Intelligent Textbooks" class="md-header__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xAPI for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="xAPI for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    xAPI for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-foundations-and-standards/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    1. Foundations and Standards
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-statement-model/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    2. Statement Model
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-advanced-statement-structure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    3. Advanced Statement Structure
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-verb-vocabulary-design/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    4. Verb Vocabulary Design
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-activities-agents-identity/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    5. Activities, Agents, Identity
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-lrs-architecture/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    6. LRS Architecture
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-lrs-platforms-and-auth/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    7. LRS Platforms and Auth
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-implementing-in-textbooks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    8. Implementing in Textbooks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-bandwidth-and-offline/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    9. Bandwidth and Offline
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-monitoring-and-observability/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    10. Monitoring and Observability
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-synthetic-data-and-ai-testing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    11. Synthetic Data and AI Testing
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    12. Conformance and Comparison
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            12. Conformance and Comparison
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-chapter-describes-xapi-validation-at-three-layers-which-layer-focuses-on-whether-resultscorescaled-is-in-the-range-1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. The chapter describes xAPI validation at three layers. Which layer focuses on whether result.score.scaled is in the range [-1, 1]?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-is-the-adl-conformance-test-suite-not-directly-applicable-to-validating-an-activity-provider-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why is the ADL conformance test suite NOT directly applicable to validating an Activity Provider (AP)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-cmi5-session-lifecycle-requires-statements-in-a-specific-order-which-sequence-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. The cmi5 session lifecycle requires statements in a specific order. Which sequence is correct?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scorm-2004s-cmicompletion_status-value-of-incomplete-should-be-mapped-into-which-xapi-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SCORM 2004's cmi.completion_status value of incomplete should be mapped into which xAPI representation?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-according-to-the-chapter-which-is-the-strongest-argument-for-xapi-vs-proprietary-analytics-sdks-mixpanel-amplitude-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. According to the chapter, which is the strongest argument FOR xAPI vs proprietary analytics SDKs (Mixpanel, Amplitude, etc.)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-a-team-is-evaluating-xapi-vs-ims-caliper-for-an-intelligent-textbook-that-lives-outside-any-lms-which-standard-does-the-chapter-favor-for-that-scenario-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. A team is evaluating xAPI vs IMS Caliper for an intelligent textbook that lives outside any LMS. Which standard does the chapter favor for that scenario, and why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-team-estimates-that-production-grade-xapi-implementation-statement-patterns-retry-offline-queue-dashboards-typically-takes-how-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. A team estimates that production-grade xAPI implementation (statement patterns, retry, offline queue, dashboards) typically takes how long?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-new-ap-starts-up-and-queries-xapiabout-which-returns-version-103-200-according-to-the-chapters-version-negotiation-contract-what-should-the-ap-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. A new AP starts up and queries /xAPI/about, which returns {"version": ["1.0.3", "2.0.0"]}. According to the chapter's version-negotiation contract, what should the AP do?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-team-must-defend-choosing-xapi-over-scorm-2004-to-a-procurement-committee-skeptical-of-new-standards-which-is-the-most-credible-technical-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. A team must defend choosing xAPI over SCORM 2004 to a procurement committee skeptical of new standards. Which is the most credible technical argument?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-two-product-managers-debate-should-we-use-cmi5-or-xapi-the-chapters-framing-rejects-this-as-a-false-comparison-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Two product managers debate "should we use cmi5 or xAPI?" The chapter's framing rejects this as a false comparison. Why?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-pipeline-and-production/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    13. Pipeline and Production
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../14-privacy-and-compliance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    14. Privacy and Compliance
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-chapter-describes-xapi-validation-at-three-layers-which-layer-focuses-on-whether-resultscorescaled-is-in-the-range-1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. The chapter describes xAPI validation at three layers. Which layer focuses on whether result.score.scaled is in the range [-1, 1]?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-is-the-adl-conformance-test-suite-not-directly-applicable-to-validating-an-activity-provider-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why is the ADL conformance test suite NOT directly applicable to validating an Activity Provider (AP)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-cmi5-session-lifecycle-requires-statements-in-a-specific-order-which-sequence-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. The cmi5 session lifecycle requires statements in a specific order. Which sequence is correct?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scorm-2004s-cmicompletion_status-value-of-incomplete-should-be-mapped-into-which-xapi-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SCORM 2004's cmi.completion_status value of incomplete should be mapped into which xAPI representation?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-according-to-the-chapter-which-is-the-strongest-argument-for-xapi-vs-proprietary-analytics-sdks-mixpanel-amplitude-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. According to the chapter, which is the strongest argument FOR xAPI vs proprietary analytics SDKs (Mixpanel, Amplitude, etc.)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-a-team-is-evaluating-xapi-vs-ims-caliper-for-an-intelligent-textbook-that-lives-outside-any-lms-which-standard-does-the-chapter-favor-for-that-scenario-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. A team is evaluating xAPI vs IMS Caliper for an intelligent textbook that lives outside any LMS. Which standard does the chapter favor for that scenario, and why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-team-estimates-that-production-grade-xapi-implementation-statement-patterns-retry-offline-queue-dashboards-typically-takes-how-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. A team estimates that production-grade xAPI implementation (statement patterns, retry, offline queue, dashboards) typically takes how long?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-new-ap-starts-up-and-queries-xapiabout-which-returns-version-103-200-according-to-the-chapters-version-negotiation-contract-what-should-the-ap-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. A new AP starts up and queries /xAPI/about, which returns {"version": ["1.0.3", "2.0.0"]}. According to the chapter's version-negotiation contract, what should the AP do?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-team-must-defend-choosing-xapi-over-scorm-2004-to-a-procurement-committee-skeptical-of-new-standards-which-is-the-most-credible-technical-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. A team must defend choosing xAPI over SCORM 2004 to a procurement committee skeptical of new standards. Which is the most credible technical argument?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-two-product-managers-debate-should-we-use-cmi5-or-xapi-the-chapters-framing-rejects-this-as-a-false-comparison-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Two product managers debate "should we use cmi5 or xAPI?" The chapter's framing rejects this as a false comparison. Why?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/12-conformance-and-comparison/quiz.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-conformance-testing-validation-and-competitive-standards-analysis">Quiz: Conformance Testing, Validation, and Competitive Standards Analysis<a class="headerlink" href="#quiz-conformance-testing-validation-and-competitive-standards-analysis" title="Permanent link">¶</a></h1>
+<p>Test your understanding of xAPI validation, the ADL conformance suite, cmi5 lifecycle, SCORM mappings, and competitive standards analysis with these review questions.</p>
+<hr>
+<h4 id="1-the-chapter-describes-xapi-validation-at-three-layers-which-layer-focuses-on-whether-resultscorescaled-is-in-the-range-1-1">1. The chapter describes xAPI validation at three layers. Which layer focuses on whether <code>result.score.scaled</code> is in the range [-1, 1]?<a class="headerlink" href="#1-the-chapter-describes-xapi-validation-at-three-layers-which-layer-focuses-on-whether-resultscorescaled-is-in-the-range-1-1" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Statement structure validation</li>
+<li>Required field validation</li>
+<li>Data type validation</li>
+<li>Conformance test suite validation</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Data type validation checks that every field has the right type and value range — including the scaled score being between -1 and 1, ISO 8601 timestamps, mailto: prefixes on mbox values, and language map shapes. Statement structure validation checks overall shape (which fields are present). Required field validation checks presence at every nesting level. The conformance test suite tests the LRS, not individual statement type rules.</p>
+<p><strong>Concept Tested:</strong> Data Type Validation</p>
+</details>
+<hr>
+<h4 id="2-why-is-the-adl-conformance-test-suite-not-directly-applicable-to-validating-an-activity-provider-ap">2. Why is the ADL conformance test suite NOT directly applicable to validating an Activity Provider (AP)?<a class="headerlink" href="#2-why-is-the-adl-conformance-test-suite-not-directly-applicable-to-validating-an-activity-provider-ap" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Because the suite is closed-source</li>
+<li>Because the suite tests the LRS, not the AP</li>
+<li>Because the suite requires a paid license</li>
+<li>Because the suite only runs on Windows</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The ADL conformance suite exercises an LRS by submitting carefully-crafted statements and queries and verifying the LRS responds correctly. AP correctness is verified by a local validator plus end-to-end smoke tests that exercise representative emit paths. The suite is open source (option A wrong), free (option C wrong), and cross-platform (option D wrong).</p>
+<p><strong>Concept Tested:</strong> ADL Conformance Test Suite</p>
+</details>
+<hr>
+<h4 id="3-the-cmi5-session-lifecycle-requires-statements-in-a-specific-order-which-sequence-is-correct">3. The cmi5 session lifecycle requires statements in a specific order. Which sequence is correct?<a class="headerlink" href="#3-the-cmi5-session-lifecycle-requires-statements-in-a-specific-order-which-sequence-is-correct" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>launched → initialized → learning statements → terminated (or abandoned)</li>
+<li>initialized → launched → completed → terminated</li>
+<li>attempted → passed → completed → launched</li>
+<li>completed → terminated → abandoned → initialized</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. The cmi5 session lifecycle is: launched (LMS started the session), initialized (AP finished setup), one or more learning statements (progressed/passed/failed/completed/scored), then terminated (clean close) — or abandoned, fired server-side when no terminated arrives within the timeout. The other sequences misorder the lifecycle states.</p>
+<p><strong>Concept Tested:</strong> CMI5 Session Lifecycle</p>
+</details>
+<hr>
+<h4 id="4-scorm-2004s-cmicompletion_status-value-of-incomplete-should-be-mapped-into-which-xapi-representation">4. SCORM 2004's <code>cmi.completion_status</code> value of <code>incomplete</code> should be mapped into which xAPI representation?<a class="headerlink" href="#4-scorm-2004s-cmicompletion_status-value-of-incomplete-should-be-mapped-into-which-xapi-representation" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>A <code>completed</code> statement with <code>result.completion: false</code></li>
+<li>A <code>failed</code> statement with no result</li>
+<li>A <code>progressed</code> statement with <code>result.completion: false</code></li>
+<li>No statement should be emitted</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The chapter's SCORM completion mapping translates <code>incomplete</code> into a <code>progressed</code> statement with <code>result.completion: false</code>. The <code>completed</code> verb is reserved for SCORM's <code>completed</code> value (option A is wrong). SCORM completion status doesn't map to <code>failed</code> (option B). <code>not attempted</code> maps to no statement, but <code>incomplete</code> does emit (option D wrong).</p>
+<p><strong>Concept Tested:</strong> SCORM Completion Mapping</p>
+</details>
+<hr>
+<h4 id="5-according-to-the-chapter-which-is-the-strongest-argument-for-xapi-vs-proprietary-analytics-sdks-mixpanel-amplitude-etc">5. According to the chapter, which is the strongest argument FOR xAPI vs proprietary analytics SDKs (Mixpanel, Amplitude, etc.)?<a class="headerlink" href="#5-according-to-the-chapter-which-is-the-strongest-argument-for-xapi-vs-proprietary-analytics-sdks-mixpanel-amplitude-etc" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>xAPI dashboards look better out of the box</li>
+<li>xAPI is faster to integrate than any SDK</li>
+<li>Vendor lock-in risk: statements emitted via proprietary SDKs belong to the vendor, while xAPI statements belong to your LRS</li>
+<li>Proprietary SDKs do not support TLS</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Vendor lock-in risk is described as the single biggest argument against proprietary SDKs and the single biggest argument for xAPI. Statements emitted to a proprietary SDK belong to that vendor; xAPI statements belong to your LRS, which you control. Proprietary SDKs typically have nicer dashboards out of the box (option A wrong) and are usually faster to integrate (option B wrong). Both support TLS (option D wrong).</p>
+<p><strong>Concept Tested:</strong> Vendor Lock-In Risk / Proprietary Analytics SDKs</p>
+</details>
+<hr>
+<h4 id="6-a-team-is-evaluating-xapi-vs-ims-caliper-for-an-intelligent-textbook-that-lives-outside-any-lms-which-standard-does-the-chapter-favor-for-that-scenario-and-why">6. A team is evaluating xAPI vs IMS Caliper for an intelligent textbook that lives outside any LMS. Which standard does the chapter favor for that scenario, and why?<a class="headerlink" href="#6-a-team-is-evaluating-xapi-vs-ims-caliper-for-an-intelligent-textbook-that-lives-outside-any-lms-which-standard-does-the-chapter-favor-for-that-scenario-and-why" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Caliper, because it has a richer pre-defined ontology</li>
+<li>xAPI, because it has broader non-LMS adoption and a more flexible verb model</li>
+<li>Caliper, because it is required by 1EdTech-conformant LMSs</li>
+<li>xAPI, because Caliper does not support JSON</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The chapter's honest summary: xAPI is more flexible and cross-vertical with broader non-LMS adoption (corporate L&amp;D, simulation, mobile, intelligent textbooks); Caliper has stronger LMS-vendor adoption and a richer pre-defined ontology. For a textbook outside an LMS, xAPI wins decisively. Caliper is not "required" by 1EdTech-conformant LMSs (option C wrong). Both standards use JSON (option D wrong).</p>
+<p><strong>Concept Tested:</strong> xAPI vs IMS Caliper Comparison</p>
+</details>
+<hr>
+<h4 id="7-a-team-estimates-that-production-grade-xapi-implementation-statement-patterns-retry-offline-queue-dashboards-typically-takes-how-long">7. A team estimates that production-grade xAPI implementation (statement patterns, retry, offline queue, dashboards) typically takes how long?<a class="headerlink" href="#7-a-team-estimates-that-production-grade-xapi-implementation-statement-patterns-retry-offline-queue-dashboards-typically-takes-how-long" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>1-2 engineer-days</li>
+<li>6-9 engineer-months</li>
+<li>2-3 engineer-years</li>
+<li>8-12 engineer-weeks</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. The chapter cites 2-4 engineer-weeks for a basic implementation and 8-12 engineer-weeks for a production-grade one with statement patterns, retry logic, offline queues, and dashboards. Days are unrealistic for production-grade work. Months overstate the effort for a focused implementation. Years would be the timeline for a full LRS and analytics platform, not just AP instrumentation.</p>
+<p><strong>Concept Tested:</strong> Implementation Cost Analysis</p>
+</details>
+<hr>
+<h4 id="8-a-new-ap-starts-up-and-queries-xapiabout-which-returns-version-103-200-according-to-the-chapters-version-negotiation-contract-what-should-the-ap-do">8. A new AP starts up and queries <code>/xAPI/about</code>, which returns <code>{"version": ["1.0.3", "2.0.0"]}</code>. According to the chapter's version-negotiation contract, what should the AP do?<a class="headerlink" href="#8-a-new-ap-starts-up-and-queries-xapiabout-which-returns-version-103-200-according-to-the-chapters-version-negotiation-contract-what-should-the-ap-do" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Use 2.0.0 because it is the newer version</li>
+<li>Fail loudly and refuse to start</li>
+<li>Proceed with 1.0.3 and log 2.0.0 for awareness unless explicitly upgraded</li>
+<li>Use whichever version comes first in the array</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The chapter's negotiation contract: if 1.0.3 is in the version array, proceed with 1.0.3 (the book's target). If 2.0.x is reported, log it for awareness but continue with 1.0.3 unless explicitly upgraded. Blindly using the newer version (option A) risks compatibility surprises. Failing to start (option B) is overly conservative when the supported version is present. First-element heuristics (option D) are unreliable.</p>
+<p><strong>Concept Tested:</strong> xAPI Version Negotiation</p>
+</details>
+<hr>
+<h4 id="9-a-team-must-defend-choosing-xapi-over-scorm-2004-to-a-procurement-committee-skeptical-of-new-standards-which-is-the-most-credible-technical-argument">9. A team must defend choosing xAPI over SCORM 2004 to a procurement committee skeptical of new standards. Which is the most credible technical argument?<a class="headerlink" href="#9-a-team-must-defend-choosing-xapi-over-scorm-2004-to-a-procurement-committee-skeptical-of-new-standards-which-is-the-most-credible-technical-argument" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>SCORM 2004 is browser-locked, content-package-bound, and tracks only completion + score + interactions, while xAPI removes those constraints and supports arbitrary verbs and extensions</li>
+<li>SCORM 2004 cannot run on modern browsers</li>
+<li>xAPI is endorsed by every major LMS vendor without exception</li>
+<li>SCORM 2004 was deprecated by ADL in 2023</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. SCORM 2004 is browser-locked, requires a SCORM-aware LMS frame, and has a fixed vocabulary (completion + score + interactions). xAPI lifts all those constraints. The other claims are factually wrong: SCORM 2004 still runs on modern browsers, xAPI is not endorsed by all LMS vendors equally (some lean Caliper), and SCORM 2004 was not deprecated in 2023.</p>
+<p><strong>Concept Tested:</strong> xAPI vs SCORM 2004 Comparison</p>
+</details>
+<hr>
+<h4 id="10-two-product-managers-debate-should-we-use-cmi5-or-xapi-the-chapters-framing-rejects-this-as-a-false-comparison-why">10. Two product managers debate "should we use cmi5 or xAPI?" The chapter's framing rejects this as a false comparison. Why?<a class="headerlink" href="#10-two-product-managers-debate-should-we-use-cmi5-or-xapi-the-chapters-framing-rejects-this-as-a-false-comparison-why" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Because cmi5 was never standardized</li>
+<li>Because cmi5 IS xAPI with profile constraints, so the choice is whether to apply cmi5's constraints</li>
+<li>Because xAPI cannot run inside an LMS</li>
+<li>Because cmi5 only works on mobile devices</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. cmi5 is a profile <em>on top of</em> xAPI — same wire format, different rules of engagement. The real question is whether to apply cmi5's constraints (use cmi5 for LMS launch-and-completion contexts) or use plain xAPI without those constraints (for non-LMS textbook scenarios). Many deployments use both layers. cmi5 is fully standardized (option A wrong); xAPI runs anywhere including in LMSes (option C wrong); cmi5 is platform-agnostic (option D wrong).</p>
+<p><strong>Concept Tested:</strong> xAPI vs CMI5 Comparison / CMI5 Differences</p>
+</details>
+<hr>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../13-pipeline-and-production/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

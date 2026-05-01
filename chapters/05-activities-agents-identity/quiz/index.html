@@ -1,0 +1,2022 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/xapi-course/chapters/05-activities-agents-identity/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../06-lrs-architecture/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Quiz - xAPI for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Quiz - xAPI for Intelligent Textbooks">
+      
+        <meta property="og:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/05-activities-agents-identity/quiz.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/xapi-course/chapters/05-activities-agents-identity/quiz/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Quiz - xAPI for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/chapters/05-activities-agents-identity/quiz.png">
+      
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-activities-agents-and-learner-identity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="xAPI for Intelligent Textbooks" class="md-header__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xAPI for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="xAPI for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="xAPI for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    xAPI for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-foundations-and-standards/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    1. Foundations and Standards
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-statement-model/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    2. Statement Model
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-advanced-statement-structure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    3. Advanced Statement Structure
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-verb-vocabulary-design/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    4. Verb Vocabulary Design
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    5. Activities, Agents, Identity
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Activities, Agents, Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-which-property-must-an-activity-iri-have-regardless-of-who-emits-the-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Which property must an activity IRI have, regardless of who emits the statement?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-xapi-registration-field-is-what-kind-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The xAPI registration field is what kind of value?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-which-ifi-type-is-described-as-looks-pseudonymous-but-is-reversible-if-the-attacker-can-guess-the-email" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Which IFI type is described as "looks pseudonymous but is reversible if the attacker can guess the email"?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-a-textbook-ships-in-three-platforms-web-embedded-lms-frame-kiosk-which-xapi-field-should-the-team-use-to-slice-analytics-by-host-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. A textbook ships in three platforms (web, embedded LMS frame, kiosk). Which xAPI field should the team use to slice analytics by host environment?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-an-identified-group-differs-from-an-anonymous-group-in-what-specific-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. An identified group differs from an anonymous group in what specific way?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-a-textbook-lets-anonymous-public-visitors-read-without-logging-in-but-still-wants-per-reader-analytics-which-ifi-shape-is-most-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. A textbook lets anonymous public visitors read without logging in but still wants per-reader analytics. Which IFI shape is most appropriate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-according-to-the-chapters-pseudonymization-framework-which-property-is-not-one-of-the-four-required-for-pseudonymization-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. According to the chapter's pseudonymization framework, which property is NOT one of the four required for pseudonymization to work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-same-learner-different-devices-lin-uses-the-textbook-on-a-desktop-in-the-morning-and-a-phone-in-the-afternoon-which-property-must-hold-for-analytics-to-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Same learner, different devices: Lin uses the textbook on a desktop in the morning and a phone in the afternoon. Which property must hold for analytics to function?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-the-revision-field-on-an-activity-is-most-useful-for-which-analytics-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. The revision field on an activity is most useful for which analytics question?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-why-should-a-small-group-lab-statement-use-the-agent-ifi-of-one-student-rather-than-the-group-ifi-for-section-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Why should a small-group lab statement use the agent IFI of one student rather than the group IFI for "Section 3"?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-lrs-architecture/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    6. LRS Architecture
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-lrs-platforms-and-auth/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    7. LRS Platforms and Auth
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-implementing-in-textbooks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    8. Implementing in Textbooks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-bandwidth-and-offline/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    9. Bandwidth and Offline
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-monitoring-and-observability/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    10. Monitoring and Observability
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-synthetic-data-and-ai-testing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    11. Synthetic Data and AI Testing
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-conformance-and-comparison/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    12. Conformance and Comparison
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-pipeline-and-production/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    13. Pipeline and Production
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../14-privacy-and-compliance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    14. Privacy and Compliance
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-which-property-must-an-activity-iri-have-regardless-of-who-emits-the-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Which property must an activity IRI have, regardless of who emits the statement?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-xapi-registration-field-is-what-kind-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The xAPI registration field is what kind of value?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-which-ifi-type-is-described-as-looks-pseudonymous-but-is-reversible-if-the-attacker-can-guess-the-email" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Which IFI type is described as "looks pseudonymous but is reversible if the attacker can guess the email"?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-a-textbook-ships-in-three-platforms-web-embedded-lms-frame-kiosk-which-xapi-field-should-the-team-use-to-slice-analytics-by-host-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. A textbook ships in three platforms (web, embedded LMS frame, kiosk). Which xAPI field should the team use to slice analytics by host environment?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-an-identified-group-differs-from-an-anonymous-group-in-what-specific-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. An identified group differs from an anonymous group in what specific way?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-a-textbook-lets-anonymous-public-visitors-read-without-logging-in-but-still-wants-per-reader-analytics-which-ifi-shape-is-most-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. A textbook lets anonymous public visitors read without logging in but still wants per-reader analytics. Which IFI shape is most appropriate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-according-to-the-chapters-pseudonymization-framework-which-property-is-not-one-of-the-four-required-for-pseudonymization-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. According to the chapter's pseudonymization framework, which property is NOT one of the four required for pseudonymization to work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-same-learner-different-devices-lin-uses-the-textbook-on-a-desktop-in-the-morning-and-a-phone-in-the-afternoon-which-property-must-hold-for-analytics-to-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Same learner, different devices: Lin uses the textbook on a desktop in the morning and a phone in the afternoon. Which property must hold for analytics to function?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-the-revision-field-on-an-activity-is-most-useful-for-which-analytics-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. The revision field on an activity is most useful for which analytics question?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-why-should-a-small-group-lab-statement-use-the-agent-ifi-of-one-student-rather-than-the-group-ifi-for-section-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Why should a small-group lab statement use the agent IFI of one student rather than the group IFI for "Section 3"?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/chapters/05-activities-agents-identity/quiz.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-activities-agents-and-learner-identity">Quiz: Activities, Agents, and Learner Identity<a class="headerlink" href="#quiz-activities-agents-and-learner-identity" title="Permanent link">¶</a></h1>
+<p>Test your understanding of activity IRIs, activity types, agent and group objects, the four IFI forms, and pseudonymization with these review questions.</p>
+<hr>
+<h4 id="1-which-property-must-an-activity-iri-have-regardless-of-who-emits-the-statement">1. Which property must an activity IRI have, regardless of who emits the statement?<a class="headerlink" href="#1-which-property-must-an-activity-iri-have-regardless-of-who-emits-the-statement" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>It must include the learner's account name</li>
+<li>It must be a globally unique, durable identifier in a namespace the project owns</li>
+<li>It must be regenerated on every page render</li>
+<li>It must be a UUID</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. An activity IRI is the globally unique, durable identifier for an activity. The same activity has the same IRI today, tomorrow, and in five years. It does not contain the learner's ID, the session ID, the build hash, or a timestamp. Including learner data (option A) or per-render IDs (options C and D) would break the IRI's "is this the same activity?" semantics — every emit would look like a different activity.</p>
+<p><strong>Concept Tested:</strong> Activity IRI</p>
+</details>
+<hr>
+<h4 id="2-the-xapi-registration-field-is-what-kind-of-value">2. The xAPI <code>registration</code> field is what kind of value?<a class="headerlink" href="#2-the-xapi-registration-field-is-what-kind-of-value" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>A string identifying the version of the activity</li>
+<li>The learner's stable account name</li>
+<li>A UUID that ties together statements describing one attempt at an activity</li>
+<li>The platform name that emitted the statement</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The <code>registration</code> field is a context-level UUID minted at the start of an attempt and attached to every statement emitted during that attempt. If a learner takes the same quiz three times, each attempt has its own registration UUID — the activity IRI stays the same, the registration changes. Option A describes <code>revision</code>. Option B is the actor IFI. Option D is the <code>platform</code> field.</p>
+<p><strong>Concept Tested:</strong> xAPI Registration Field</p>
+</details>
+<hr>
+<h4 id="3-which-ifi-type-is-described-as-looks-pseudonymous-but-is-reversible-if-the-attacker-can-guess-the-email">3. Which IFI type is described as "looks pseudonymous but is reversible if the attacker can guess the email"?<a class="headerlink" href="#3-which-ifi-type-is-described-as-looks-pseudonymous-but-is-reversible-if-the-attacker-can-guess-the-email" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>mbox</li>
+<li>mbox_sha1sum</li>
+<li>openid</li>
+<li>account</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. <code>mbox_sha1sum</code> is the SHA-1 hash of an email address. It looks opaque but is reversible because an attacker who can guess plausible emails can hash each guess and compare. Treat it as obscured, not anonymized. <code>mbox</code> is direct identifying (no obscuring). <code>openid</code> identifies via an OpenID URL. <code>account</code> is configurable and the recommended default.</p>
+<p><strong>Concept Tested:</strong> mbox_sha1sum Identifier</p>
+</details>
+<hr>
+<h4 id="4-a-textbook-ships-in-three-platforms-web-embedded-lms-frame-kiosk-which-xapi-field-should-the-team-use-to-slice-analytics-by-host-environment">4. A textbook ships in three platforms (web, embedded LMS frame, kiosk). Which xAPI field should the team use to slice analytics by host environment?<a class="headerlink" href="#4-a-textbook-ships-in-three-platforms-web-embedded-lms-frame-kiosk-which-xapi-field-should-the-team-use-to-slice-analytics-by-host-environment" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li><code>context.platform</code></li>
+<li><code>object.definition.type</code></li>
+<li><code>context.registration</code></li>
+<li><code>actor.account.homePage</code></li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. The <code>platform</code> field in the context object is a string identifying the host environment that emitted the statement. Slicing analytics by <code>context.platform</code> lets the team distinguish web sessions from kiosk sessions. <code>object.definition.type</code> classifies the activity (assessment, course). <code>context.registration</code> correlates statements within one attempt. <code>actor.account.homePage</code> identifies the identity provider, not the host platform.</p>
+<p><strong>Concept Tested:</strong> Platform Field</p>
+</details>
+<hr>
+<h4 id="5-an-identified-group-differs-from-an-anonymous-group-in-what-specific-way">5. An identified group differs from an anonymous group in what specific way?<a class="headerlink" href="#5-an-identified-group-differs-from-an-anonymous-group-in-what-specific-way" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Identified groups have a <code>name</code> field; anonymous groups do not</li>
+<li>Identified groups can have only two members; anonymous groups can have any number</li>
+<li>Identified groups must include a learner email; anonymous groups must not</li>
+<li>Identified groups have their own IFI; anonymous groups are identified only by their membership</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. An identified group has its own IFI (any of the four IFI forms) plus an optional member array — the IFI uniquely identifies the group itself. An anonymous group has no IFI and is identified only by its membership; the same set of members today and tomorrow is the same group. Both can have a <code>name</code> (option A). Group size is not constrained (option B). Email is not required for either form (option C).</p>
+<p><strong>Concept Tested:</strong> Anonymous Group / Identified Group</p>
+</details>
+<hr>
+<h4 id="6-a-textbook-lets-anonymous-public-visitors-read-without-logging-in-but-still-wants-per-reader-analytics-which-ifi-shape-is-most-appropriate">6. A textbook lets anonymous public visitors read without logging in but still wants per-reader analytics. Which IFI shape is most appropriate?<a class="headerlink" href="#6-a-textbook-lets-anonymous-public-visitors-read-without-logging-in-but-still-wants-per-reader-analytics-which-ifi-shape-is-most-appropriate" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>mbox using a generated <code>anon@example.org</code> email</li>
+<li>mbox_sha1sum of the visitor's IP address</li>
+<li>account with the textbook domain as homePage and a per-browser UUID as name</li>
+<li>openid with a placeholder URL</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The chapter explicitly recommends the <code>account</code> IFI for anonymous learner tracking: <code>homePage</code> is the textbook domain, <code>name</code> is a per-browser UUID minted on first visit and stored locally. This gives per-browser stability without ever associating to a real-world identity. Fake mbox addresses violate the IFI semantics. Hashing IPs is reversible and identifying. OpenID with a placeholder URL is not meaningful.</p>
+<p><strong>Concept Tested:</strong> Anonymous Learner Tracking</p>
+</details>
+<hr>
+<h4 id="7-according-to-the-chapters-pseudonymization-framework-which-property-is-not-one-of-the-four-required-for-pseudonymization-to-work">7. According to the chapter's pseudonymization framework, which property is NOT one of the four required for pseudonymization to work?<a class="headerlink" href="#7-according-to-the-chapters-pseudonymization-framework-which-property-is-not-one-of-the-four-required-for-pseudonymization-to-work" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Stable</li>
+<li>Opaque</li>
+<li>Encrypted at rest with AES-256</li>
+<li>Revocable</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The four required properties of pseudonymization are: stable (same learner gets the same code), opaque (the code reveals nothing about the learner), one-way at the analytics tier (LRS and dashboard cannot recover the real identity), and revocable (the source can refuse future lookups). Encryption at rest is a separate hardening concern but is not part of the chapter's pseudonymization framework. Encryption alone doesn't make a value pseudonymous.</p>
+<p><strong>Concept Tested:</strong> Pseudonymization</p>
+</details>
+<hr>
+<h4 id="8-same-learner-different-devices-lin-uses-the-textbook-on-a-desktop-in-the-morning-and-a-phone-in-the-afternoon-which-property-must-hold-for-analytics-to-function">8. Same learner, different devices: Lin uses the textbook on a desktop in the morning and a phone in the afternoon. Which property must hold for analytics to function?<a class="headerlink" href="#8-same-learner-different-devices-lin-uses-the-textbook-on-a-desktop-in-the-morning-and-a-phone-in-the-afternoon-which-property-must-hold-for-analytics-to-function" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Both sessions emit statements with the same actor IFI</li>
+<li>Each device generates a different actor IFI to preserve privacy</li>
+<li>The desktop emits agent statements; the phone emits group statements</li>
+<li>Each device emits its own registration UUID for every statement</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. The non-negotiable property is that the same learner has the same actor IFI in every statement, across every device, across every session. If the IFI varies by device, Lin's record is shattered into pieces no analytics can stitch together. Teams achieve this by using a single source of truth for the learner ID — typically the LMS or identity provider. Registration UUIDs are per-attempt, not per-device.</p>
+<p><strong>Concept Tested:</strong> Learner Identity Management</p>
+</details>
+<hr>
+<h4 id="9-the-revision-field-on-an-activity-is-most-useful-for-which-analytics-question">9. The <code>revision</code> field on an activity is most useful for which analytics question?<a class="headerlink" href="#9-the-revision-field-on-an-activity-is-most-useful-for-which-analytics-question" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>"Which device did the learner use?"</li>
+<li>"How many distinct attempts has this learner made?"</li>
+<li>"Show me everyone who took version 2 of the quiz"</li>
+<li>"Which platform emitted this statement?"</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The <code>revision</code> field is a string identifying the version of an activity, useful when content changes over time and the analytics layer wants to slice by version. Question A is answered by <code>context.platform</code>. Question B is answered by counting distinct <code>context.registration</code> values. Question D is also <code>platform</code>. Conventionally, revision uses semver or a date.</p>
+<p><strong>Concept Tested:</strong> Revision Field</p>
+</details>
+<hr>
+<h4 id="10-why-should-a-small-group-lab-statement-use-the-agent-ifi-of-one-student-rather-than-the-group-ifi-for-section-3">10. Why should a small-group lab statement use the agent IFI of one student rather than the group IFI for "Section 3"?<a class="headerlink" href="#10-why-should-a-small-group-lab-statement-use-the-agent-ifi-of-one-student-rather-than-the-group-ifi-for-section-3" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>xAPI does not allow group actors at all</li>
+<li>The actor is who did the action; Section 3 is a context, not the doer</li>
+<li>Group IFIs are not indexed by the LRS</li>
+<li>Section 3 must be encoded as the verb, not the actor</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The actor is who did the action. If a single student in Section 3 took a quiz, the actor is that student — Section 3 belongs in <code>context.team</code> or as a grouping context activity. A group actor is appropriate only when the action itself was collective (a team submission). The xAPI spec allows group actors (option A is wrong); LRSs do index group IFIs (C); verbs name actions, not cohorts (D).</p>
+<p><strong>Concept Tested:</strong> Group Object / Agent Object</p>
+</details>
+<hr>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../06-lrs-architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
