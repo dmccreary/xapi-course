@@ -3,113 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Component Instrumentation Pattern Browser</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f8f9fa;
             color: #212529;
+            font-size: 14px;
         }
-        #container {
+        main {
+            display: block;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-            background: white;
+            padding: 10px;
         }
         h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 18px;
+            margin: 0 0 8px 0;
             color: #1a3a6c;
         }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        .top-bar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
         }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
+        .top-bar .reg {
             font-size: 12px;
-            font-weight: 600;
+            color: #555;
+        }
+        .top-bar button {
+            padding: 4px 10px;
+            font-size: 12px;
+            border: 1px solid #adb5bd;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .top-bar button:hover { background: #e9ecef; }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 700px) {
+            .layout { grid-template-columns: 1fr; }
+        }
+
+        /* ----- Left: tabbed component preview ----- */
+        .preview {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .tab-bar {
+            display: flex;
+            gap: 4px;
+            border-bottom: 2px solid #dee2e6;
             margin-bottom: 12px;
         }
-        .placeholder h2 {
-            font-size: 18px;
+        .tab {
+            padding: 8px 14px;
+            font-size: 13px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
             color: #495057;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        .tab:hover { background: #f1f3f5; }
+        .tab.active {
+            color: #1a3a6c;
+            border-bottom-color: #1a3a6c;
+            font-weight: 600;
+        }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .tab-panel h2 {
+            font-size: 15px;
+            margin: 0 0 8px 0;
+            color: #1a3a6c;
+        }
+        .tab-panel p.intro {
+            font-size: 13px;
+            color: #555;
+            margin: 0 0 10px 0;
+        }
+
+        /* Quiz */
+        .quiz-q {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .quiz-q p { margin: 0 0 6px 0; font-size: 13px; }
+        .choice {
+            display: block;
+            font-size: 13px;
+            padding: 3px 0;
+            cursor: pointer;
+        }
+        .choice input { margin-right: 6px; }
+        .quiz-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .btn {
+            padding: 6px 14px;
+            font-size: 13px;
+            border: 1px solid #1a3a6c;
+            background: #1a3a6c;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover { background: #2c5697; }
+        .btn.btn-secondary {
+            background: #fff;
+            color: #1a3a6c;
+        }
+        .btn.btn-secondary:hover { background: #e7eef7; }
+        .quiz-feedback {
+            margin-top: 8px;
+            font-size: 13px;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+        .quiz-feedback.pass { background: #d4edda; color: #155724; }
+        .quiz-feedback.fail { background: #f8d7da; color: #721c24; }
+
+        /* Simulation */
+        #sim-canvas-host {
+            width: 100%;
+            height: 180px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .sim-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 8px;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
+        .sim-controls label {
             font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+            min-width: 120px;
         }
-        .meta strong { color: #495057; }
+        .sim-controls input[type=range] { flex: 1; }
+
+        /* Branching */
+        .branch-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .branch-card {
+            padding: 14px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #fff;
+            transition: all 0.15s ease;
+        }
+        .branch-card:hover {
+            border-color: #1a3a6c;
+            background: #f1f5fa;
+        }
+        .branch-card.chosen {
+            border-color: #28a745;
+            background: #e8f6ec;
+        }
+        .branch-card h3 {
+            font-size: 14px;
+            margin: 0 0 6px 0;
+            color: #1a3a6c;
+        }
+        .branch-card p {
+            font-size: 12px;
+            color: #555;
+            margin: 0;
+        }
+
+        /* ----- Right: statement panel ----- */
+        .stmt-panel {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .stmt-panel h2 {
+            font-size: 14px;
+            margin: 0 0 8px 0;
+            color: #1a3a6c;
+        }
+        #statement-list {
+            flex: 1;
+            overflow-y: auto;
+            max-height: 580px;
+            border-top: 1px solid #eee;
+            padding-top: 6px;
+        }
+        #statement-list .empty {
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+            padding: 8px;
+        }
+        .stmt {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 6px 8px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            background: #fff;
+        }
+        .stmt:hover { background: #f8f9fa; }
+        .stmt-head {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .stmt-seq {
+            color: #888;
+            font-family: monospace;
+        }
+        .stmt-verb {
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            text-transform: lowercase;
+        }
+        .verb-attempted { background: #fff3cd; color: #856404; }
+        .verb-scored    { background: #d1ecf1; color: #0c5460; }
+        .verb-passed    { background: #d4edda; color: #155724; }
+        .verb-failed    { background: #f8d7da; color: #721c24; }
+        .verb-completed { background: #cce5ff; color: #004085; }
+        .verb-interacted{ background: #e2e3e5; color: #383d41; }
+        .verb-experienced{ background: #ffe5cc; color: #8a4f00; }
+        .verb-progressed{ background: #e0d4f7; color: #432874; }
+        .stmt-activity {
+            font-style: italic;
+            color: #444;
+        }
+        .stmt-summary {
+            margin-top: 3px;
+            color: #555;
+        }
+        .stmt-reg {
+            margin-top: 2px;
+            color: #888;
+            font-size: 11px;
+        }
+        .stmt-reg code {
+            background: #f1f3f5;
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+        .stmt-json {
+            margin-top: 6px;
+            background: #2b2b2b;
+            color: #e6e6e6;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            overflow-x: auto;
+            white-space: pre;
+            max-height: 220px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
-    <div id="container">
-        <h1>Component Instrumentation Pattern Browser</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+<main>
+    <h1>Component Instrumentation Pattern Browser</h1>
+    <div class="top-bar">
+        <div class="reg">
+            current registration:
+            <code id="reg-display">--------</code>
+            (groups statements into one attempt)
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> component-instrumentation-pattern-browser</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
+        <button id="reset-all">Reset attempt</button>
     </div>
 
-    <!--
-    SPECIFICATION (from chapter index.md):
+    <div class="layout">
+        <!-- Left: tabbed preview -->
+        <div class="preview">
+            <div class="tab-bar">
+                <button class="tab active" data-tab="quiz">Quiz</button>
+                <button class="tab" data-tab="simulation">Simulation</button>
+                <button class="tab" data-tab="branching">Adaptive Branching</button>
+            </div>
 
-    Type: micro-sim
-    **sim-id:** component-instrumentation-pattern-browser<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Applying):** Browse the canonical instrumentation pattern for each component type (quiz, simulation, adaptive branching) and observe the resulting xAPI statement sequence in a side panel.
-    
-    **Layout:** 2/3 (left) tabbed component preview + 1/3 (right) live statement sequence.
-    
-    **Tabs (left panel):**
-    
-    - Quiz tab: a 3-question quiz with submit button. Submitting fires the canonical sequence (`attempted`, `scored`, `passed`/`failed`, `completed`).
-    - Simulation tab: a slider-driven simulation. Adjusting the slider fires debounced `interacted` statements; a "Run" button fires `experienced`.
-    - Adaptive Branching tab: a branch decision UI showing two paths. Clicking a path fires a `progressed` statement with a branch-decision extension.
-    
-    **Right panel:**
-    
-    - Sequential list of statements emitted, each shown with verb, activity, and a one-line summary
-    - Click an entry to expand the full JSON statement
-    - Each entry is annotated with the registration UUID so learners can see attempts grouped
-    
-    **Default canvas:** 1000×600px, responsive.
-    
-    Implementation: p5.js for the simulation tab; HTML for the quiz and branching tabs and the statement list.
-    -->
+            <!-- Quiz panel -->
+            <div class="tab-panel active" data-tab="quiz">
+                <h2>Quiz Component</h2>
+                <p class="intro">
+                    Submitting fires the canonical sequence:
+                    <code>attempted</code> &rarr; <code>scored</code> &rarr;
+                    <code>passed</code>/<code>failed</code> &rarr; <code>completed</code>.
+                </p>
+                <div id="quiz-host"></div>
+                <div class="quiz-buttons">
+                    <button id="quiz-submit" class="btn">Submit</button>
+                    <button id="quiz-reset" class="btn btn-secondary">Clear answers</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback"></div>
+            </div>
+
+            <!-- Simulation panel -->
+            <div class="tab-panel" data-tab="simulation">
+                <h2>Simulation Component</h2>
+                <p class="intro">
+                    Slider input fires <em>debounced</em> <code>interacted</code>
+                    statements (one per ~400ms of activity). The Run button fires
+                    <code>experienced</code>.
+                </p>
+                <div id="sim-canvas-host"></div>
+                <div class="sim-controls">
+                    <label for="sim-slider">Amplitude: <span id="sim-slider-value">50</span></label>
+                    <input type="range" id="sim-slider" min="0" max="100" value="50" step="1">
+                </div>
+                <button id="sim-run" class="btn">Run simulation</button>
+            </div>
+
+            <!-- Branching panel -->
+            <div class="tab-panel" data-tab="branching">
+                <h2>Adaptive Branching Component</h2>
+                <p class="intro">
+                    Picking a path fires a <code>progressed</code> statement
+                    with a <code>branch-decision</code> context extension
+                    naming the chosen path and its alternatives.
+                </p>
+                <div class="branch-row">
+                    <div class="branch-card" data-branch="conceptual">
+                        <h3>Conceptual path</h3>
+                        <p>Read a short explanation with worked examples.</p>
+                    </div>
+                    <div class="branch-card" data-branch="hands-on">
+                        <h3>Hands-on path</h3>
+                        <p>Skip the prose and try an interactive lab first.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: live statement panel -->
+        <div class="stmt-panel">
+            <h2>Live xAPI Statement Sequence</h2>
+            <div style="font-size:11px;color:#888;margin-bottom:4px;">
+                Click any statement to view full JSON.
+            </div>
+            <div id="statement-list"></div>
+        </div>
+    </div>
+</main>
+
+<script src="component-instrumentation-pattern-browser.js"></script>
 </body>
 </html>

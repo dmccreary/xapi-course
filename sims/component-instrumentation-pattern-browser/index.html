@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Component Instrumentation Pattern Browser">
+        <meta name="description" content="Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -64,7 +64,7 @@
       
         <meta property="og:title" content="Component Instrumentation Pattern Browser - xAPI for Intelligent Textbooks">
       
-        <meta property="og:description" content="Component Instrumentation Pattern Browser">
+        <meta property="og:description" content="Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.">
       
         <meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/sims/component-instrumentation-pattern-browser/index.png">
       
@@ -80,7 +80,7 @@
       
         <meta name="twitter:title" content="Component Instrumentation Pattern Browser - xAPI for Intelligent Textbooks">
       
-        <meta name="twitter:description" content="Component Instrumentation Pattern Browser">
+        <meta name="twitter:description" content="Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.">
       
         <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/sims/component-instrumentation-pattern-browser/index.png">
       
@@ -775,7 +775,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -846,7 +846,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1029,7 +1029,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1048,7 +1048,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1084,6 +1084,15 @@
   <a href="#preview" class="md-nav__link">
     <span class="md-ellipsis">
       Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
     </span>
   </a>
   
@@ -1220,7 +1229,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1307,7 +1316,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1365,7 +1374,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1473,7 +1482,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1502,7 +1511,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1531,7 +1540,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1618,7 +1627,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1705,7 +1714,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1821,7 +1830,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -1879,7 +1888,7 @@
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
     </span>
   
 
@@ -2289,6 +2298,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#specification" class="md-nav__link">
     <span class="md-ellipsis">
       Specification
@@ -2330,22 +2348,38 @@
 
 
 <h1 id="component-instrumentation-pattern-browser">Component Instrumentation Pattern Browser<a class="headerlink" href="#component-instrumentation-pattern-browser" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Scaffold</p>
-<p>This MicroSim has been scaffolded from its specification. The interactive
-implementation has not been built yet.</p>
-</div>
 <h2 id="learning-objective">Learning Objective<a class="headerlink" href="#learning-objective" title="Permanent link">¶</a></h2>
-<p>TBD</p>
+<p>Browse the canonical instrumentation pattern for each component type (quiz,
+simulation, adaptive branching) and observe the resulting xAPI statement
+sequence in a side panel. Each interaction fires the verb sequence a
+production-grade implementation would emit, with statements grouped by a
+shared <code>registration</code> UUID so attempts stay together.</p>
 <ul>
-<li><strong>Bloom Level:</strong> TBD</li>
-<li><strong>Bloom Verb:</strong> TBD</li>
-<li><strong>Library:</strong> p5.js</li>
+<li><strong>Bloom Level:</strong> Apply</li>
+<li><strong>Bloom Verb:</strong> apply</li>
+<li><strong>Library:</strong> p5.js (with HTML/CSS for tabbed UI and statement list)</li>
 </ul>
 <h2 id="preview">Preview<a class="headerlink" href="#preview" title="Permanent link">¶</a></h2>
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="722"></iframe>
 
 <p><a class="md-button md-button--primary" href="main.html">Run MicroSim in Fullscreen</a></p>
+<h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">¶</a></h2>
+<ol>
+<li>Pick a tab on the left: <strong>Quiz</strong>, <strong>Simulation</strong>, or <strong>Adaptive Branching</strong>.</li>
+<li>Interact with the component:<ul>
+<li>Submit the quiz to see the canonical four-statement sequence.</li>
+<li>Drag the simulation slider to watch debounced <code>interacted</code> statements
+  fire, then click <strong>Run simulation</strong> for an <code>experienced</code> statement.</li>
+<li>Pick a branching path to fire a <code>progressed</code> statement with a
+  branch-decision context extension.</li>
+</ul>
+</li>
+<li>Watch the right panel fill with statements. Click any entry to expand
+   the full JSON.</li>
+<li>The shared <code>registration</code> UUID at the top groups every statement of the
+   current attempt. Click <strong>Reset attempt</strong> to mint a new registration and
+   start over.</li>
+</ol>
 <h2 id="specification">Specification<a class="headerlink" href="#specification" title="Permanent link">¶</a></h2>
 <p>The full specification below is extracted from
 <a href="../../chapters/08-implementing-in-textbooks/">Chapter 8: Implementing xAPI in Intelligent Textbooks</a>.</p>

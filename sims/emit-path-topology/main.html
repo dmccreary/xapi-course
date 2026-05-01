@@ -3,111 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emit-Path Topology</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Emit-Path Topology — Client / Server / Hybrid</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        .container {
             display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 66.67%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
             justify-content: center;
             align-items: center;
+            padding: 10px;
+            overflow: hidden;
         }
-        .placeholder .badge {
+        .mermaid { width: 100%; max-width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #dee2e6;
+            padding: 12px;
+            overflow-y: auto;
+        }
+        .info-panel h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
+        }
+        .info-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .info-pathtag {
             display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 6px;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
+        .info-pathline {
+            font-size: 12px;
+            color: #475569;
+            font-style: italic;
             margin-bottom: 8px;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .info-content { font-size: 13px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #be185d;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .info-placeholder { color: #888; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #475569;
         }
-        .meta strong { color: #495057; }
+        .legend > div { margin-bottom: 3px; }
+        .legend .swatch {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect,
+        .node:hover circle,
+        .node:hover polygon,
+        .node:hover path {
+            filter: brightness(1.1);
+        }
     </style>
+    <script src="emit-path-topology.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Emit-Path Topology</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Emit-Path Topology — click any node to see what flows through that path</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TB
+    subgraph CLIENT["Client-side"]
+        direction TB
+        CB["Browser"]:::cnode
+        CL[("LRS")]:::cnode
+        CB -->|"POST statement"| CL
+    end
+
+    subgraph SERVER["Server-side"]
+        direction TB
+        SB["Browser"]:::snode
+        SS["Backend"]:::snode
+        SL[("LRS")]:::snode
+        SB -->|"event"| SS -->|"POST statement"| SL
+    end
+
+    subgraph HYBRID["Hybrid (recommended)"]
+        direction TB
+        HB["Browser"]:::hnode
+        HS["Backend"]:::hnode
+        HL[("LRS")]:::hnode
+        HB -->|"analytics"| HL
+        HB -->|"graded event"| HS
+        HS -->|"POST statement"| HL
+    end
+
+    click CB call showNodeInfo("CB")
+    click CL call showNodeInfo("CL")
+    click SB call showNodeInfo("SB")
+    click SS call showNodeInfo("SS")
+    click SL call showNodeInfo("SL")
+    click HB call showNodeInfo("HB")
+    click HS call showNodeInfo("HS")
+    click HL call showNodeInfo("HL")
+
+    classDef cnode fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px,font-weight:bold
+    classDef snode fill:#4338ca,stroke:#312e81,color:#fff,font-size:14px,font-weight:bold
+    classDef hnode fill:#be185d,stroke:#831843,color:#fff,font-size:14px,font-weight:bold
+
+    style CLIENT fill:#ecfdf5,stroke:#0d9488,stroke-width:2px,color:#0f766e
+    style SERVER fill:#eef2ff,stroke:#4338ca,stroke-width:2px,color:#3730a3
+    style HYBRID fill:#fdf2f8,stroke:#be185d,stroke-width:2px,color:#9d174d
+
+    linkStyle default stroke:#64748b,stroke-width:2px,font-size:12px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> emit-path-topology</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Path Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any <b>Browser</b>, <b>Backend</b>, or <b>LRS</b> node in any of the three topologies to see the kinds of statements that flow through it and the security implications.</p>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#0d9488"></span>Client-side — fast, forgeable, analytics</div>
+                <div><span class="swatch" style="background:#4338ca"></span>Server-side — slower, authoritative, grades</div>
+                <div><span class="swatch" style="background:#be185d"></span>Hybrid — production default</div>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** emit-path-topology<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Compare client-side, server-side, and hybrid emission topologies and identify which events belong on which path for a given deployment.
-    
-    **Diagram type:** Mermaid flowchart with three labeled subgraphs side by side: `Client-side`, `Server-side`, `Hybrid (recommended)`. Click handlers on every node.
-    
-    **Subgraph contents:**
-    
-    - Client-side: `Browser` → `LRS`. Annotation: "Low latency. Forgeable. Use for analytics."
-    - Server-side: `Browser` → `Backend` → `LRS`. Annotation: "Higher latency. Authoritative. Use for grades."
-    - Hybrid: `Browser` → `LRS` (analytics path) AND `Browser` → `Backend` → `LRS` (graded path). Annotation: "Mix and match. Production default."
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox with examples of statements that flow through that path and the security implications.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with three subgraphs and click directives.
-    -->
 </body>
 </html>

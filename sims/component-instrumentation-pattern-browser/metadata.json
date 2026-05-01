@@ -1,10 +1,13 @@
 {
   "title": "Component Instrumentation Pattern Browser",
-  "description": "Component Instrumentation Pattern Browser",
-  "creator": "Dementia Education Project",
+  "description": "Browse canonical xAPI instrumentation patterns for quiz, simulation, and adaptive branching components, and watch the resulting statement sequence emit live in a side panel grouped by registration UUID.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "instrumentation",
+    "statement-patterns",
+    "component-design"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,9 +15,9 @@
   "rights": "CC BY 4.0",
   "identifier": "component-instrumentation-pattern-browser",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Apply",
+  "bloomVerb": "apply",
+  "completion_status": "built",
   "chapter_number": 8,
   "chapter_title": "Implementing xAPI in Intelligent Textbooks",
   "chapter_dir": "08-implementing-in-textbooks"

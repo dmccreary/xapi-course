@@ -1,10 +1,13 @@
 {
   "title": "Intelligent Textbook xAPI Architecture",
-  "description": "Intelligent Textbook xAPI Architecture",
-  "creator": "Dementia Education Project",
+  "description": "Clickable Mermaid diagram showing how a learner interaction propagates from a MicroSim, quiz, or adaptive branch through the xAPI client library and out to the LRS.",
+  "creator": "Dan McCreary",
   "date": "2026-04-30",
   "subject": [
-    "dementia"
+    "xapi",
+    "architecture",
+    "intelligent-textbooks",
+    "learning-record-store"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,9 +15,9 @@
   "rights": "CC BY 4.0",
   "identifier": "intelligent-textbook-xapi-architecture",
   "library": "Mermaid",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Understand",
+  "bloomVerb": "Identify",
+  "completion_status": "built",
   "chapter_number": 8,
   "chapter_title": "Implementing xAPI in Intelligent Textbooks",
   "chapter_dir": "08-implementing-in-textbooks"

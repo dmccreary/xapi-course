@@ -3,123 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Retry-With-Backoff State Machine</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                nodeSpacing: 12,
+                rankSpacing: 60,
+                padding: 4
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
+        .title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 14px;
+            background: #1e293b;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
         }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        .container {
             display: flex;
-            flex-direction: column;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
+        .diagram-panel {
+            width: 66.67%;
+            height: 100%;
+            background-color: #eef2ff;
+            display: flex;
             justify-content: center;
             align-items: center;
+            padding: 12px;
+            overflow: hidden;
         }
-        .placeholder .badge {
+        .mermaid {
+            width: 100%;
+            max-width: 100%;
+        }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel {
+            flex: 1;
+            height: 100%;
+            background: #fff;
+            border-left: 1px solid #dee2e6;
+            padding: 14px;
+            overflow-y: auto;
+        }
+        .info-panel h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca;
+        }
+        .info-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #4338ca;
+            margin-bottom: 4px;
+        }
+        .info-required {
             display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
             margin-bottom: 8px;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        .req-transient { background: #4338ca; color: #fff; }
+        .req-good      { background: #15803d; color: #fff; }
+        .req-bad       { background: #b91c1c; color: #fff; }
+        .info-duration {
+            font-size: 12px;
+            color: #475569;
+            margin-bottom: 8px;
+            font-style: italic;
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+        .info-content { font-size: 13px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content ul { margin-bottom: 8px; }
+        .info-content code {
+            background: #f1f5f9;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #be185d;
         }
-        .meta strong { color: #495057; }
+        .info-placeholder { color: #888; font-style: italic; font-size: 13px; }
+        .legend {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 12px;
+            color: #475569;
+        }
+        .legend .swatch {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+        .node { cursor: pointer; }
+        .node:hover rect,
+        .node:hover circle,
+        .node:hover polygon,
+        .node:hover path {
+            filter: brightness(1.1);
+        }
     </style>
+    <script src="retry-with-backoff-state-machine.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Retry-With-Backoff State Machine</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Retry-With-Backoff State Machine — click any state to see what happens there</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TD
+    Buffering["Buffering<br/><i>append to batch</i>"]:::transient
+    Sending["Sending<br/><i>POST in flight</i>"]:::transient
+    Success(["Success (2xx)"]):::terminalGood
+    ClientError(["Client Error (4xx)"]):::terminalBad
+    Backoff["Backoff<br/><i>wait, then retry</i>"]:::transient
+    OfflineQueue(["Offline Queue"]):::terminalBad
+
+    Buffering -->|flush or batch full| Sending
+    Sending -->|2xx| Success
+    Sending -->|4xx| ClientError
+    Sending -->|5xx or network error| Backoff
+    Backoff -->|on timer| Sending
+    Backoff -->|max retries exceeded| OfflineQueue
+
+    click Buffering call showStatePart("Buffering")
+    click Sending call showStatePart("Sending")
+    click Success call showStatePart("Success")
+    click ClientError call showStatePart("ClientError")
+    click Backoff call showStatePart("Backoff")
+    click OfflineQueue call showStatePart("OfflineQueue")
+
+    classDef transient fill:#4338ca,stroke:#312e81,color:#fff,font-size:15px,font-weight:bold
+    classDef terminalGood fill:#15803d,stroke:#14532d,color:#fff,font-size:15px,font-weight:bold
+    classDef terminalBad fill:#b91c1c,stroke:#7f1d1d,color:#fff,font-size:15px,font-weight:bold
+
+    linkStyle default stroke:#64748b,stroke-width:2px,font-size:12px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> retry-with-backoff-state-machine</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>State Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any state in the diagram to see what happens there, how long the state typically lasts, and which response codes drive its transitions.</p>
+            </div>
+            <div class="legend">
+                <div><span class="swatch" style="background:#4338ca"></span>Transient (Buffering, Sending, Backoff)</div>
+                <div><span class="swatch" style="background:#15803d"></span>Terminal — success</div>
+                <div><span class="swatch" style="background:#b91c1c"></span>Terminal — error / handoff</div>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** retry-with-backoff-state-machine<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Trace the state transitions of a statement batch through the retry-with-backoff pipeline and identify which response codes lead to which outcomes.
-    
-    **Diagram type:** Mermaid stateDiagram-v2 (or flowchart equivalent if state diagrams don't support click handlers). Click handlers on every node.
-    
-    **States:**
-    
-    1. `Buffering` — statement appended to in-memory batch
-    2. `Sending` — POST in flight
-    3. `Success (2xx)` — terminal success state
-    4. `Client Error (4xx)` — terminal failure state, surfaces error
-    5. `Backoff` — scheduled retry after exponential delay
-    6. `Offline Queue` — terminal handoff state after max retries
-    
-    **Transitions:**
-    
-    - Buffering → Sending (on flush or batch full)
-    - Sending → Success (2xx)
-    - Sending → Client Error (4xx)
-    - Sending → Backoff (5xx or network error)
-    - Backoff → Sending (on timer)
-    - Backoff → Offline Queue (after max retries)
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each state opens a side-panel infobox describing what happens in that state and the typical duration the state lasts.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with state-like nodes and click directives.
-    -->
 </body>
 </html>
