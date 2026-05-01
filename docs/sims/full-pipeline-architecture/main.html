@@ -3,119 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Full Pipeline Architecture</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true, theme: 'default', securityLevel: 'loose',
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
+                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        html, body { width: 100%; height: 100%; overflow: hidden;
+            font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        .title { height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold; }
+        .container { display: flex; width: 100%; height: calc(100% - 40px); }
+        .diagram-panel { width: 60%; height: 100%; background: #eef2ff;
+            display: flex; justify-content: center; align-items: center;
+            padding: 12px; overflow: hidden; }
+        .mermaid { width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel { flex: 1; height: 100%; background: #fff;
+            border-left: 1px solid #e2e8f0; padding: 14px; overflow-y: auto; }
+        .info-panel h3 { font-size: 14px; color: #1e293b;
+            margin-bottom: 10px; padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca; }
+        .info-title { font-size: 14px; font-weight: bold;
+            color: #4338ca; margin-bottom: 4px; }
+        .info-content { font-size: 12px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code { background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 11px; color: #be185d;
+            font-family: 'Consolas', monospace; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 12px; }
+        .layer-tag { display: inline-block; padding: 2px 8px;
+            border-radius: 10px; font-size: 11px; font-weight: bold;
+            color: #fff; margin-bottom: 8px; }
+        .meta-row { display: flex; gap: 8px; margin-bottom: 6px;
+            font-size: 11px; }
+        .meta-row .lbl { color: #64748b; min-width: 70px; }
+        .meta-row .val { color: #1e293b; font-weight: 500; }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover polygon, .node:hover path {
+            filter: brightness(1.1); }
     </style>
+    <script src="full-pipeline-architecture.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Full Pipeline Architecture</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Full xAPI pipeline — click any layer for tooling and failure modes</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    subgraph L1[Browser]
+      Comp["Component"]:::browser
+      Client["Client Library"]:::browser
+      Queue[("Offline Queue")]:::browser
+    end
+    subgraph L2[LRS]
+      Endpoint["Statement Endpoint"]:::lrs
+      Storage[("Storage")]:::lrs
+      QueryAPI["Query API"]:::lrs
+    end
+    subgraph L3[Analytics]
+      Stream["Stream Processor"]:::analytics
+      OLAP[("OLAP Store")]:::analytics
+    end
+    subgraph L4[Dashboards]
+      Dash["Grafana / Observable"]:::dash
+    end
+
+    Comp --> Client --> Queue --> Endpoint
+    Endpoint --> Storage --> QueryAPI
+    Storage --> Stream --> OLAP --> Dash
+
+    click Comp call showNode("Comp")
+    click Client call showNode("Client")
+    click Queue call showNode("Queue")
+    click Endpoint call showNode("Endpoint")
+    click Storage call showNode("Storage")
+    click QueryAPI call showNode("QueryAPI")
+    click Stream call showNode("Stream")
+    click OLAP call showNode("OLAP")
+    click Dash call showNode("Dash")
+
+    classDef browser fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
+    classDef lrs fill:#dc2626,stroke:#7f1d1d,color:#fff,font-weight:bold
+    classDef analytics fill:#7c3aed,stroke:#4c1d95,color:#fff,font-weight:bold
+    classDef dash fill:#16a34a,stroke:#14532d,color:#fff,font-weight:bold
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> full-pipeline-architecture</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Layer Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any node for its responsibility, tooling, latency budget, and failure mode.</p>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: clickable-mermaid
-    **sim-id:** full-pipeline-architecture<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Trace a learner interaction from emit through every pipeline layer to its appearance on a dashboard, identifying the responsibilities and typical latencies of each layer.
-    
-    **Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node.
-    
-    **Structure:**
-    
-    - Layer 1: `Browser (Component → Client Library → Offline Queue)`
-    - Layer 2: `LRS (Statement Endpoint → Storage → Query API)`
-    - Layer 3: `Stream Processor → OLAP Aggregate Store`
-    - Layer 4: `Dashboard (Grafana / Observable)`
-    
-    **Annotations on edges:**
-    
-    - Browser → LRS: typical latency 100–500ms; failure mode: network drop
-    - LRS → Stream: typical latency seconds; failure mode: consumer lag
-    - Stream → OLAP: typical latency seconds-to-minutes; failure mode: aggregation bug
-    - OLAP → Dashboard: typical latency milliseconds; failure mode: query timeout
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox describing the component's responsibility, the chapter that covers it, the typical implementation tooling, and the most common failure mode.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>
