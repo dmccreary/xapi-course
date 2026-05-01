@@ -1,28 +1,25 @@
 ---
 title: DevTools-Driven xAPI Debugging Flow
 description: DevTools-Driven xAPI Debugging Flow
-status: scaffold
+status: implemented
 library: Mermaid
-bloom_level: TBD
+bloom_level: Apply
 ---
 
 # DevTools-Driven xAPI Debugging Flow
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
-
 ## Learning Objective
 
-TBD
+Apply a structured debugging workflow that uses DevTools to localize an
+xAPI emit-path bug to the right layer (component, builder, transport, LRS).
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Apply
+- **Bloom Verb:** Localize
 - **Library:** Mermaid
 
 ## Preview
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

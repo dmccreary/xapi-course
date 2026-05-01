@@ -80,6 +80,10 @@ The two filters worth saving as DevTools defaults for xAPI work:
 
 #### Diagram: DevTools-Driven xAPI Debugging Flow
 
+
+<iframe src="../../sims/devtools-driven-xapi-debugging-flow<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run DevTools-Driven xAPI Debugging Flow Fullscreen](../../sims/devtools-driven-xapi-debugging-flow<br/>/main.html)
+
 <details markdown="1">
 <summary>DevTools-Driven xAPI Debugging Flow</summary>
 Type: workflow-diagram
@@ -166,6 +170,10 @@ The pragmatic answer for many deployments is *both*. Grafana for operations, Obs
 
 #### Diagram: Real-Time Dashboard Stack
 
+
+<iframe src="../../sims/real-time-dashboard-stack<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Real-Time Dashboard Stack Fullscreen](../../sims/real-time-dashboard-stack<br/>/main.html)
+
 <details markdown="1">
 <summary>Real-Time Dashboard Stack</summary>
 Type: clickable-mermaid
@@ -217,6 +225,10 @@ The shape of the input data, after aggregation:
 Section 3 has 8 unique learners out of 30 — 73% of the cohort never engaged with it. That's a content signal the educator should investigate immediately.
 
 #### Diagram: Engagement Heatmap MicroSim
+
+
+<iframe src="../../sims/engagement-heatmap-microsim<br/>/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Run Engagement Heatmap MicroSim Fullscreen](../../sims/engagement-heatmap-microsim<br/>/main.html)
 
 <details markdown="1">
 <summary>Engagement Heatmap MicroSim</summary>
