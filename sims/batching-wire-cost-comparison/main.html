@@ -3,115 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Batching Wire-Cost Comparison</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        html, body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
+            background: #f8fafc;
             color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
             font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+            overflow: hidden;
         }
-        .meta strong { color: #495057; }
+        main { display: block; width: 100%; }
     </style>
+    <script src="batching-wire-cost-comparison.js" defer></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Batching Wire-Cost Comparison</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> batching-wire-cost-comparison</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: interactive-infographic
-    **sim-id:** batching-wire-cost-comparison<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Compare individual-POST and batched-POST traffic patterns visually, recognizing how HTTP overhead amortizes as batch size grows.
-    
-    **Layout:** Two side-by-side timelines (top: "Individual POST", bottom: "Batched POST"); a side panel on the right shows numerical comparison.
-    
-    **Visual elements:**
-    
-    - Each timeline shows a sequence of HTTP request/response pairs over a 10-second window
-    - Individual POST: 30 request/response pairs, each with overhead bands shown distinctly from payload bands (different colors)
-    - Batched POST: 3 request/response pairs (10 statements each), each clearly larger but with the same overhead band
-    - Stacked bar at the right of each timeline showing total bytes broken into "overhead" and "payload"
-    
-    **Interaction:**
-    
-    - Slider: number of statements (5 – 100)
-    - Slider: batch size (1 – 50)
-    - Both timelines re-render to reflect the new values
-    - Side panel shows: individual total, batched total, percentage saved
-    
-    **Default canvas:** 1000×550px, responsive.
-    
-    Implementation: p5.js for the timeline rendering and animated re-layout on slider change.
-    -->
+    <main></main>
 </body>
 </html>

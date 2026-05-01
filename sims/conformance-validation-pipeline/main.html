@@ -3,115 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Conformance Validation Pipeline</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true, theme: 'default', securityLevel: 'loose',
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
+                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        html, body { width: 100%; height: 100%; overflow: hidden;
+            font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        .title { height: 40px; line-height: 40px; padding: 0 14px;
+            background: #1e293b; color: #fff; font-size: 14px; font-weight: bold; }
+        .container { display: flex; width: 100%; height: calc(100% - 40px); }
+        .diagram-panel { width: 62%; height: 100%; background: #eef2ff;
+            display: flex; justify-content: center; align-items: center;
+            padding: 12px; overflow: hidden; }
+        .mermaid { width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        .info-panel { flex: 1; height: 100%; background: #fff;
+            border-left: 1px solid #e2e8f0; padding: 14px; overflow-y: auto; }
+        .info-panel h3 { font-size: 14px; color: #1e293b;
+            margin-bottom: 10px; padding-bottom: 6px;
+            border-bottom: 2px solid #4338ca; }
+        .info-title { font-size: 14px; font-weight: bold;
+            color: #4338ca; margin-bottom: 4px; }
+        .info-content { font-size: 12px; line-height: 1.5; color: #334155; }
+        .info-content p { margin-bottom: 8px; }
+        .info-content code { background: #f1f5f9; padding: 1px 4px;
+            border-radius: 3px; font-size: 11px; color: #be185d;
+            font-family: 'Consolas', monospace; }
+        .info-content pre { background: #0f172a; color: #e2e8f0;
+            padding: 8px; border-radius: 4px; font-size: 11px;
+            overflow-x: auto; margin: 6px 0; font-family: 'Consolas', monospace; }
+        .info-placeholder { color: #94a3b8; font-style: italic; font-size: 12px; }
+        .layer-tag { display: inline-block; padding: 2px 8px;
+            border-radius: 10px; font-size: 11px; font-weight: bold;
+            color: #fff; margin-bottom: 8px; }
+        .node { cursor: pointer; }
+        .node:hover rect, .node:hover polygon, .node:hover path {
+            filter: brightness(1.1); }
     </style>
+    <script src="conformance-validation-pipeline.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Conformance Validation Pipeline</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <div class="title">Conformance validation layers — click any layer to see what it catches</div>
+    <div class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart LR
+    Comp[("Component<br/>emits statement")]:::source
+    LocalV["Local validator<br/>structure / required / types"]:::guard
+    Trans["Statement transmitted<br/>to LRS"]:::action
+    LRSV["LRS validates<br/>and persists"]:::guard
+    ADL["Periodic ADL<br/>conformance run"]:::audit
+    E2E["End-to-end smoke test<br/>emit → LRS → query → assert"]:::audit
+    CI["CI pipeline<br/>gates merges on suite pass"]:::ci
+
+    Comp --> LocalV --> Trans --> LRSV
+    LRSV --> ADL
+    LRSV --> E2E
+    ADL --> CI
+    E2E --> CI
+
+    click Comp call showLayer("Comp")
+    click LocalV call showLayer("LocalV")
+    click Trans call showLayer("Trans")
+    click LRSV call showLayer("LRSV")
+    click ADL call showLayer("ADL")
+    click E2E call showLayer("E2E")
+    click CI call showLayer("CI")
+
+    classDef source fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
+    classDef guard fill:#ca8a04,stroke:#854d0e,color:#fff
+    classDef action fill:#0d9488,stroke:#134e4a,color:#fff
+    classDef audit fill:#7c3aed,stroke:#4c1d95,color:#fff
+    classDef ci fill:#16a34a,stroke:#14532d,color:#fff
+
+    linkStyle default stroke:#64748b,stroke-width:2px
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> conformance-validation-pipeline</p>
-            <p><strong>Library:</strong> Mermaid</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
+        <div class="info-panel">
+            <h3>Layer Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Click any layer to see what it tests, what it doesn't catch, and example failures.</p>
+            </div>
         </div>
     </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: workflow-diagram
-    **sim-id:** conformance-validation-pipeline<br/>
-    **Library:** Mermaid<br/>
-    **Status:** Specified
-    
-    **Learning objective (Bloom — Analyzing):** Trace the layers of conformance validation from a single statement up through the ADL conformance suite, identifying which layer catches which class of bug.
-    
-    **Diagram type:** Mermaid flowchart (LR direction). Click handlers on every node.
-    
-    **Structure:**
-    
-    1. `Component emits statement`
-    2. `Local validator (structure + required + data type)` → on failure, surface error before transmit
-    3. `Statement transmitted to LRS`
-    4. `LRS validates and persists`
-    5. Side: `Periodic ADL conformance run against LRS`
-    6. `End-to-end smoke test (synthetic emit → LRS → query → assert)`
-    7. `CI pipeline (gates merges on suite pass)`
-    
-    **Mermaid config:** project standard with `securityLevel: 'loose'`.
-    
-    **Click behavior:** Each node opens a side-panel infobox describing what's tested, what's not tested, and example failures.
-    
-    **Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-    
-    Implementation: Mermaid flowchart with click directives.
-    -->
 </body>
 </html>
