@@ -63,7 +63,7 @@ flowchart: {
     htmlLabels: true,
     curve: 'basis',
     nodeSpacing: 12,    // tight vertical spacing between sibling nodes
-    rankSpacing: 60,    // horizontal spacing between ranks (LR flowcharts)
+    rankSpacing: 30,    // horizontal spacing between ranks (TD flowcharts)
     padding: 4,         // padding inside each node, around the label text
     subGraphTitleMargin: { top: 10, bottom: 14 }  // include ONLY when the diagram has titled subgraphs
 }

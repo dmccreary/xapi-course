@@ -35,7 +35,7 @@ This chapter assumes only the prerequisites listed in the [course description](.
 
 !!! mascot-welcome "Hi! I'm Xavi."
     <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Xavi the octopus waving hello">
-    Welcome to *xAPI for Intelligent Textbooks*! I'm **Xavi**, a curious octopus with eight tentacles, a small pair of round glasses, and an unshakable belief that **every interaction tells a story**. I'll be popping into the margins all the way through this book, but I do not show up randomly. I have exactly **six jobs**, and you'll learn to recognize me by which one I'm doing:
+    Welcome to *xAPI for Intelligent Textbooks*! I'm **Xavi**, (pronounced "ZAH-vee" <button type="button" onclick="document.getElementById('xavi-pronunciation-audio').play()" aria-label="Play pronunciation of Xavi" title="Play pronunciation" style="border:1px solid #888;background:#f4f4f4;border-radius:4px;padding:0 6px;cursor:pointer;font-size:0.9em;line-height:1.4;vertical-align:middle;">&#9658; Pronounce</button><audio id="xavi-pronunciation-audio" preload="auto" src="../../audio/xavi-pronunciation.mp3"></audio>) a curious octopus with eight tentacles, a small pair of round glasses, and an unshakable belief that **every interaction tells a story**. I'll be popping into the margins all the way through this book, but I do not show up randomly. I have exactly **six jobs**, and you'll learn to recognize me by which one I'm doing:
 
     1. **Welcome you** at the start of every chapter — that's what I'm doing right now.
     2. **Help you think things through** when an idea is the kind that rewards a moment of pause.

@@ -9,7 +9,7 @@ description: "About xAPI for Intelligent Textbooks — its purpose, audience, de
 
 ![Xavi the Octopus waving welcome](./img/mascot/welcome.png){ width="140" align="left"}
 
-Hi, I'm Xavi — your eight-tentacled guide through the wonderfully tangled
+Hi, I'm Xavi (pronounced "ZAH-vee" <button type="button" onclick="document.getElementById('xavi-pronunciation-audio').play()" aria-label="Play pronunciation of Xavi" title="Play pronunciation" style="border:1px solid #888;background:#f4f4f4;border-radius:4px;padding:0 6px;cursor:pointer;font-size:0.9em;line-height:1.4;vertical-align:middle;">&#9658; Pronounce</button><audio id="xavi-pronunciation-audio" preload="auto" src="../audio/xavi-pronunciation.mp3"></audio>)— your eight-tentacled guide through the wonderfully tangled
 world of the Experience API. I love this standard because every interaction
 tells a story, and xAPI is how we capture those stories without losing the
 plot. Whether you're instrumenting your first quiz or architecting a
