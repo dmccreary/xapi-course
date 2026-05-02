@@ -1,13 +1,13 @@
 ---
 title: Instructional Design Feedback Loop
 description: Instructional Design Feedback Loop
-status: implemented
+status: approved
 library: Mermaid
 bloom_level: "Create"
 ---
 # Instructional Design Feedback Loop
 
-<iframe src="main.html" width="100%" height="742" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="702" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

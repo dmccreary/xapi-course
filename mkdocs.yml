@@ -111,6 +111,7 @@ nav:
     - Emit-Path Topology: sims/emit-path-topology/index.md
     - Engagement Heatmap MicroSim: sims/engagement-heatmap-microsim/index.md
     - Five Levels of Intelligent Textbooks: sims/book-levels/index.md
+    - Graph Viewer: sims/graph-viewer/index.md
     - Full Pipeline Architecture: sims/full-pipeline-architecture/index.md
     - Hosting Model Decision Tree: sims/hosting-model-decision-tree/index.md
     - Instructional Design Feedback Loop: sims/instructional-design-feedback-loop/index.md

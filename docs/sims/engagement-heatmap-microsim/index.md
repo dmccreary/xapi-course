@@ -1,13 +1,13 @@
 ---
 title: Engagement Heatmap MicroSim
 description: Engagement Heatmap MicroSim
-status: implemented
+status: approved
 library: p5.js
 bloom_level: "Analyze"
 ---
 
 # Engagement Heatmap MicroSim
-<iframe src="main.html" width="100%" height="602" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="502" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

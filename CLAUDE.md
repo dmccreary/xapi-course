@@ -96,6 +96,66 @@ a future diagram needs different values, document the reason inline in
 
 ---
 
+## Subgraph Title Collisions in TD Layouts
+
+**Problem.** In a top-down (`flowchart TD`) Mermaid diagram with multiple
+stacked subgraphs, an arrow from a node in one subgraph to a node in the
+subgraph below enters the lower subgraph at the **top-center** of its
+bounding rectangle — the exact spot where the subgraph title sits. The arrow
+either runs through the title text or its arrowhead lands on top of it.
+
+**What does NOT work.** CSS rules like
+`.mermaid g.cluster[id^="L2"] .cluster-label { transform: translateX(60px); }`
+appear to do nothing. Mermaid sets an inline `transform="translate(x, y)"`
+**attribute** on each `.cluster-label` group at render time. A CSS `transform`
+property either fails to override the SVG attribute reliably, or replaces the
+full transform — losing mermaid's computed y-position and dumping the label
+in the wrong place. Either way, the visible result is "no effect."
+
+**What works.** Run a small post-render script that finds the cluster labels
+by their **text content**, parses their existing `translate(x, y)` attribute,
+and adds a horizontal offset while preserving y. Example (shifts the labels
+"LRS" and "Dashboards" 50px to the right, clear of the centerline):
+
+```js
+function shiftClusterLabels() {
+    const targets = ['LRS', 'Dashboards'];
+    const labels = document.querySelectorAll('.mermaid g.cluster-label');
+    labels.forEach(label => {
+        const text = (label.textContent || '').trim();
+        if (!targets.includes(text)) return;
+        const current = label.getAttribute('transform') || '';
+        const m = current.match(/translate\(([-\d.]+)[,\s]+([-\d.]+)\)/);
+        if (m) {
+            const x = parseFloat(m[1]) + 50;
+            const y = parseFloat(m[2]);
+            label.setAttribute('transform', `translate(${x}, ${y})`);
+        } else {
+            label.setAttribute('transform', `translate(50, 0)`);
+        }
+    });
+}
+window.addEventListener('load', () => setTimeout(shiftClusterLabels, 100));
+```
+
+**Why text-content matching.** Mermaid's cluster `id` attributes are not
+stable across versions and may be prefixed (e.g. `flowchart-L2-12`). Matching
+on the visible label text is robust and easy to read at the call site.
+
+**When to apply.** Any TD Mermaid diagram where an inter-subgraph edge enters
+a subgraph from directly above. Shift only the subgraph titles whose top
+edge is crossed by an incoming arrow — leave centered titles alone where
+there is no collision. Working reference:
+`docs/sims/full-pipeline-architecture/main.html`.
+
+**Footgun.** Mermaid sets the title's `translate()` as an SVG **attribute**,
+not a CSS property. A CSS `transform` rule that *looks* correct will silently
+either no-op or strip mermaid's computed y-position — leaving the label
+visually in the wrong row with no error in the console. Reach for the
+post-render script, not CSS, for this fix.
+
+---
+
 ## Learning Mascot: Xavi the Octopus
 
 ### Character Overview

@@ -10,7 +10,7 @@
         mermaid.initialize({
             startOnLoad: true, theme: 'default', securityLevel: 'loose',
             flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
-                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+                nodeSpacing: 12, rankSpacing: 30, padding: 4 }
         });
     </script>
     <style>
@@ -20,7 +20,7 @@
         .title { height: 40px; line-height: 40px; padding: 0 14px;
             background: #1e293b; color: #fff; font-size: 14px; font-weight: bold; }
         .container { display: flex; width: 100%; height: calc(100% - 40px); }
-        .diagram-panel { width: 62%; height: 100%; background: #eef2ff;
+        .diagram-panel { width: 50%; height: 100%; background: #eef2ff;
             display: flex; justify-content: center; align-items: center;
             padding: 12px; overflow: hidden; }
         .mermaid { width: 100%; }
@@ -48,11 +48,11 @@
     <script src="load-testing-pipeline.js"></script>
 </head>
 <body>
-    <div class="title">Load testing pipeline — click any stage for tools and metrics</div>
+    <div class="title">Load Testing Pipeline — click any stage for tools and metrics</div>
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     Spec(["Cohort spec<br/>size, mix, duration"]):::input
     Gen["Claude Code<br/>generation"]:::action
     Corpus[("Synthetic statement<br/>corpus (JSON)")]:::data

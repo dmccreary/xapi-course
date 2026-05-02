@@ -1,13 +1,13 @@
 ---
 title: Conformance Validation Pipeline
 description: Conformance Validation Pipeline
-status: implemented
+status: approved
 library: Mermaid
 bloom_level: "Analyze"
 ---
 
 # Conformance Validation Pipeline
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="662" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

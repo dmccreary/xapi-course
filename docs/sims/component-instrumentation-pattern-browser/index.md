@@ -1,7 +1,7 @@
 ---
 title: Component Instrumentation Pattern Browser
 description: Browse the canonical xAPI instrumentation pattern for each component type (quiz, simulation, adaptive branching) and watch the resulting xAPI statement sequence appear live in a side panel.
-status: built
+status: approved
 library: p5.js
 bloom_level: "Apply"
 bloom_verb: apply

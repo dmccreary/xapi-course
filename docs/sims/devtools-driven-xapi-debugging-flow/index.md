@@ -1,13 +1,13 @@
 ---
 title: DevTools-Driven xAPI Debugging Flow
 description: DevTools-Driven xAPI Debugging Flow
-status: implemented
+status: approved
 library: Mermaid
 bloom_level: "Apply"
 ---
 
 # DevTools-Driven xAPI Debugging Flow
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="852" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

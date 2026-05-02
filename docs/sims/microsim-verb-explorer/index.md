@@ -8,7 +8,7 @@ bloom_level: Understand
 
 # MicroSim Verb Explorer
 
-<iframe src="main.html" width="100%" height="602px" scrolling="no" style="border:1px solid #ccc; overflow:hidden;"></iframe>
+<iframe src="main.html" width="100%" height="762px" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

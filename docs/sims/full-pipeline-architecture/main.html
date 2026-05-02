@@ -10,8 +10,28 @@
         mermaid.initialize({
             startOnLoad: true, theme: 'default', securityLevel: 'loose',
             flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
-                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+                nodeSpacing: 12, rankSpacing: 30, padding: 4,
+                subGraphTitleMargin: { top: 4, bottom: 8 } }
         });
+
+        function shiftClusterLabels() {
+            const targets = ['LRS', 'Dashboards'];
+            const labels = document.querySelectorAll('.mermaid g.cluster-label');
+            labels.forEach(label => {
+                const text = (label.textContent || '').trim();
+                if (!targets.includes(text)) return;
+                const current = label.getAttribute('transform') || '';
+                const m = current.match(/translate\(([-\d.]+)[,\s]+([-\d.]+)\)/);
+                if (m) {
+                    const x = parseFloat(m[1]) + 50;
+                    const y = parseFloat(m[2]);
+                    label.setAttribute('transform', `translate(${x}, ${y})`);
+                } else {
+                    label.setAttribute('transform', `translate(50, 0)`);
+                }
+            });
+        }
+        window.addEventListener('load', () => setTimeout(shiftClusterLabels, 100));
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,7 +76,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     subgraph L1[Browser]
       Comp["Component"]:::browser
       Client["Client Library"]:::browser

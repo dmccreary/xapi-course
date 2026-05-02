@@ -1,3 +1,11 @@
+---
+title: Learning Graph Viewer
+description: View the learning graph for the xAPI for intelligent textbooks as a directed graph.
+status: approved
+library: vis-network
+bloom_level: "Analyze"
+image: /sims/graph-viewer/graph-viewer.png
+---
 # Learning Graph Viewer
 
 This interactive viewer allows you to explore the learning graph for this course.
