@@ -353,4 +353,9 @@ That is the superpower this chapter has been quietly preparing you to hand to th
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating">
     You now have the **standards literacy** that distinguishes someone who can talk about xAPI from someone who can only talk *around* it. That literacy is the foundation everything else in this book sits on. In the next chapter we'll start writing real statements. Tentacles up!
 
+<<<<<<< HEAD
+=======
+## References
+
+>>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

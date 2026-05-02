@@ -7,7 +7,7 @@ bloom_level: "Apply"
 image: ./component-instrumentation-microsim.png
 ---
 # Component Instrumentation MicroSim
-<iframe src="main.html" width="100%" height="900" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="622" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

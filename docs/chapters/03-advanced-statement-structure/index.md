@@ -468,4 +468,9 @@ That's a lot of vocabulary in one chapter. The good news: you'll spend the rest 
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with all eight tentacles">
     You just took the longest, densest section of the xAPI spec and turned it into working knowledge. From here, every chapter builds *outward* — verbs, identities, LRS architecture, instrumentation, networks. The hard schema work is behind you. The data never lies — but the schema might, and now you know how to make yours tell the truth.
 
+<<<<<<< HEAD
+=======
+## References
+
+>>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

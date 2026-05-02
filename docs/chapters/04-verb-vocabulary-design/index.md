@@ -495,4 +495,9 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating the right word choice">
     Verbs are how learning shows up in your data. The team that picks them carefully gets dashboards that mean something. The team that doesn't ends up rebuilding their analytics layer in year two. You are now in the first camp. Chapter 5 turns to the *other* part of the statement subject — the actor — and the deceptively deep question of how you identify a learner across devices, sessions, and years without leaking who they are.
 
+<<<<<<< HEAD
+=======
+## References
+
+>>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)
