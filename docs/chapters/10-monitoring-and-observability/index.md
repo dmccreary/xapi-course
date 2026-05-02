@@ -309,9 +309,4 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating crystal-clear visibility">
     No more black boxes. From the browser to the LRS to the dashboard, you can now see what's happening at every layer. Chapter 11 turns to a question you'll have soon: where do you get realistic test data when production data is privacy-protected and dev data is too sparse to stress anything? The answer involves Claude Code generating synthetic learner cohorts.
 
-<<<<<<< HEAD
-=======
-## References
-
->>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

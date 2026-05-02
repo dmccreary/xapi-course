@@ -334,9 +334,6 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an open black box">
     The LRS is no longer mysterious. You can now look at any conformant deployment, sketch its architecture, predict how it will behave under load, and write portable code against its endpoints. Chapter 7 picks up where this one stops: which actual LRS platforms exist on the market today, how they differ, and how authentication works on each.
 
-<<<<<<< HEAD
-=======
 ## References
 
->>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

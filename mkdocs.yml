@@ -146,12 +146,9 @@ nav:
     - xAPI Statement Anatomy: sims/xapi-statement-anatomy/index.md
     - xAPI Statement Builder MicroSim: sims/xapi-statement-builder/index.md
 
-
-
-
-
-
+# Supplementary Material
   - Glossary: glossary.md
+  - FAQ: faq.md
   - References: references.md
   - Instructor's Guide: instructors-guide/index.md
   - License: license.md

@@ -285,9 +285,4 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating a chosen platform">
     You can now pick a hosting model, a platform, and an auth scheme — and explain the trade-offs to a procurement committee. That's the foundation for everything in the next part of the book. Chapter 8 turns from infrastructure to instrumentation: how to wire xAPI emit calls into a real intelligent textbook without scattering boilerplate across every component.
 
-<<<<<<< HEAD
-=======
-## References
-
->>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

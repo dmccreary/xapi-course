@@ -464,9 +464,4 @@ The next chapter goes deeper into the structural patterns you'll need for real-w
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating with tentacles in the air">
     Eleven fields. Three required, two optional-but-powerful, five metadata. Three ecosystem roles. Four IFI shapes. One conformance suite. **You just earned your statement-reading license.** From here on, when someone shows you a raw xAPI payload in a debugger, you'll see structure where most engineers see noise. Every interaction tells a story — and now you can read every word.
 
-<<<<<<< HEAD
-=======
-## References
-
->>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)

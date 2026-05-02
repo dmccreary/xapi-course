@@ -390,9 +390,6 @@ Walk through this checklist. Reread anything that doesn't feel solid before movi
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Xavi celebrating an empty network meter">
     Your textbook now plays nice with school WiFi, cellular tethers, and laptops that go to sleep on the train. That's the bar most production deployments fail to clear. Chapter 10 turns from "how to send statements without breaking the network" to "how to watch the statements flow once they're in motion" — the observability layer that turns raw traffic into operational signal.
 
-<<<<<<< HEAD
-=======
 ## References
 
->>>>>>> d2ecc9b (iframe updates)
 [See Annotated References](./references.md)
