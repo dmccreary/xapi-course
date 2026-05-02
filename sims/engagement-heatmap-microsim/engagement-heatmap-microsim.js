@@ -75,7 +75,6 @@ function setup() {
     windowSlider.input(redraw);
 
     synthesizeData();
-    textFont('Segoe UI');
     noLoop();
     redraw();
 }
@@ -111,7 +110,7 @@ function colorForRatio(r) {
 }
 
 function draw() {
-    background(248, 250, 252);
+    background('aliceblue');
     cohortLbl.html('Cohort size: ' + cohortSlider.value());
     windowLbl.html('Time window: ' + windowSlider.value() + ' day' + (windowSlider.value() === 1 ? '' : 's'));
 
@@ -123,16 +122,24 @@ function draw() {
     const rowH = heatH / SECTIONS.length;
 
     // Title
-    fill(30, 41, 59); noStroke(); textSize(13); textStyle(BOLD); textAlign(LEFT, TOP);
-    text('Engagement heatmap — interactions per chapter section', heatX, 0);
-    textStyle(NORMAL); textSize(10); fill(100, 116, 139);
-    text('Click any row for the breakdown.', heatX, 18);
+    fill('black'); 
+    noStroke(); 
+    textSize(24); 
+    textStyle(BOLD); 
+    textAlign(LEFT, TOP);
+    text('Engagement Heatmap — interactions per chapter section', heatX, 10);
+    textStyle(NORMAL); 
+    textSize(16); 
+    fill(100, 116, 139);
+    text('Click any row for the breakdown.', heatX, 40);
 
     // Rows
     const cs = getCounts();
+    // Y-axis offset to leave room for title and some breathing space at bottom
+    const yOffset = 60;
     const maxC = Math.max(...cs, 1);
     for (let i = 0; i < SECTIONS.length; i++) {
-        const y = heatY + 22 + i * rowH;
+        const y = heatY + yOffset + i * rowH;
         const ratio = cs[i] / maxC;
         fill(colorForRatio(ratio));
         stroke(selectedSection === i ? '#1e293b' : '#e2e8f0');
@@ -163,7 +170,7 @@ function draw() {
     text('More engaged', heatX + legW, legY + 18);
 
     // Side panel
-    drawSidePanel(canvasWidth - sidePanelW - heatX, heatY, sidePanelW, drawHeight - heatY - 10, cs);
+    drawSidePanel(canvasWidth - sidePanelW - heatX, heatY+50, sidePanelW, drawHeight - heatY - 10, cs);
 }
 
 function drawSidePanel(x, y, w, h, cs) {

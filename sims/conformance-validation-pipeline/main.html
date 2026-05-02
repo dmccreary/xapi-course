@@ -10,7 +10,7 @@
         mermaid.initialize({
             startOnLoad: true, theme: 'default', securityLevel: 'loose',
             flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis',
-                nodeSpacing: 12, rankSpacing: 60, padding: 4 }
+                nodeSpacing: 12, rankSpacing: 30, padding: 4 }
         });
     </script>
     <style>
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     Comp[("Component<br/>emits statement")]:::source
     LocalV["Local validator<br/>structure / required / types"]:::guard
     Trans["Statement transmitted<br/>to LRS"]:::action

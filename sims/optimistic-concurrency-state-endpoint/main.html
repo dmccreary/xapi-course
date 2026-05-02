@@ -16,7 +16,7 @@
                 htmlLabels: true,
                 curve: 'basis',
                 nodeSpacing: 12,
-                rankSpacing: 60,
+                rankSpacing: 30,
                 padding: 4,
                 subGraphTitleMargin: { top: 10, bottom: 14 }
             }
@@ -181,18 +181,18 @@ flowchart TD
 
     A_OK -.->|"document now at v2"| B_GET2
 
-    click A_GET   call showStep("A_GET")
-    click A_MOD   call showStep("A_MOD")
-    click A_PUT   call showStep("A_PUT")
-    click A_OK    call showStep("A_OK")
-    click B_GET   call showStep("B_GET")
-    click B_MOD   call showStep("B_MOD")
-    click B_PUT1  call showStep("B_PUT1")
-    click B_412   call showStep("B_412")
-    click B_GET2  call showStep("B_GET2")
+    click A_GET call showStep("A_GET")
+    click A_MOD call showStep("A_MOD")
+    click A_PUT call showStep("A_PUT")
+    click A_OK call showStep("A_OK")
+    click B_GET call showStep("B_GET")
+    click B_MOD call showStep("B_MOD")
+    click B_PUT1 call showStep("B_PUT1")
+    click B_412 call showStep("B_412")
+    click B_GET2 call showStep("B_GET2")
     click B_MERGE call showStep("B_MERGE")
-    click B_PUT2  call showStep("B_PUT2")
-    click B_OK    call showStep("B_OK")
+    click B_PUT2 call showStep("B_PUT2")
+    click B_OK call showStep("B_OK")
 
     classDef clientReq   fill:#4338ca,stroke:#312e81,color:#fff,font-size:13px
     classDef clientLocal fill:#64748b,stroke:#334155,color:#fff,font-size:13px

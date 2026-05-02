@@ -18,9 +18,9 @@ let margin = 16;
 const AXES = [
   'Ingestion ceiling',
   'Query speed',
-  'Operational simplicity',
-  'Multi-tenant maturity',
-  'Dashboard depth'
+  'Ops simplicity',
+  'Multi-tenant',
+  'Dashboard'
 ];
 
 const PLATFORMS = [
@@ -43,7 +43,7 @@ const PLATFORMS = [
       'Strict multi-tenant isolation requirements'
     ],
     scenario: 'A district stands up TRAX on a $20/mo VM to capture xAPI from a new reading-fluency tool across 12 schools.',
-    link: 'https://github.com/trax-project/trax-lrs'
+    link: 'https://traxlrs.com/'
   },
   {
     id: 'learning-locker',
@@ -131,6 +131,7 @@ let activeScenario = null;    // 'school' | 'state' | 'corporate' | null
 let recommendedId = null;     // platform highlighted by the active scenario
 let cardRects = [];           // computed each frame for hit-testing
 let scenarioButtons = {};     // p5 button refs
+let linkEl = null;            // overlay <a> for the platform link in the side panel
 
 function setup() {
   updateCanvasSize();
@@ -157,6 +158,19 @@ function setup() {
   positionButtons();
   styleButtons();
 
+  // Real <a> overlay for the side-panel link (gives proper cursor, right-click,
+  // screen-reader semantics that canvas-drawn text cannot).
+  linkEl = createA('', '', '_blank');
+  linkEl.parent(document.querySelector('main'));
+  linkEl.elt.setAttribute('rel', 'noopener noreferrer');
+  linkEl.elt.setAttribute(
+    'style',
+    'position: absolute; font-size: 11px; color: #1d4ed8; ' +
+    'text-decoration: underline; cursor: pointer; ' +
+    'font-family: sans-serif; white-space: nowrap; ' +
+    'overflow: hidden; text-overflow: ellipsis;'
+  );
+
   describe(
     'Interactive comparison of four xAPI Learning Record Store platforms - TRAX, ' +
     'Learning Locker, Ralph, and Watershed - across five dimensions shown as ' +
@@ -171,29 +185,29 @@ function draw() {
   updateCanvasSize();
 
   // Background
-  noStroke();
+
+  // Drawing area
   fill('aliceblue');
+  stroke('silver');
   rect(0, 0, canvasWidth, drawHeight);
+  // Control area
   fill('white');
   rect(0, drawHeight, canvasWidth, controlHeight);
-  stroke('silver');
-  noFill();
-  rect(0, 0, canvasWidth - 1, canvasHeight - 1);
 
   // Title
   noStroke();
   fill('black');
-  textAlign(LEFT, TOP);
-  textSize(18);
+  textAlign(CENTER, CENTER);
+  textSize(24);
   textStyle(BOLD);
-  text('LRS Platforms Compared', margin, 10);
+  text('LRS Platforms Comparison Method', canvasWidth/2, 20);
   textStyle(NORMAL);
-  textSize(13);
+  textSize(16);
   fill('#555');
-  text('Hover a card for detail. Use the scenario buttons below to see which platform fits a deployment.', margin, 32);
+  text('Click a card for detail. Use the scenario buttons below to see which platform fits a deployment.', canvasWidth/2, 50);
 
   // Layout: left 2/3 grid of 4 cards, right 1/3 side panel
-  const headerY = 60;
+  const headerY = 80;
   const gridLeft = margin;
   const gridRight = Math.floor(canvasWidth * 0.66);
   const panelLeft = gridRight + margin;
@@ -448,14 +462,25 @@ function drawSidePanel(x, y, w, h) {
   text(platform.scenario, x + padX, yy, innerW, 80);
   yy += 60;
 
-  // Link
+  // Link label (canvas text); the URL itself is rendered as a real <a> overlay
+  // so it is clickable.
   fill('#1f2937');
   textSize(11);
   textStyle(BOLD);
   text('Link:', x + padX, yy);
   textStyle(NORMAL);
-  fill('#1d4ed8');
-  text(platform.link, x + padX + 36, yy, innerW - 36, 30);
+
+  if (linkEl) {
+    if (linkEl.attribute('href') !== platform.link) {
+      linkEl.attribute('href', platform.link);
+      linkEl.html(platform.link);
+    }
+    const linkX = x + padX + 36;
+    const linkY = yy;
+    const linkW = innerW - 36;
+    linkEl.position(linkX, linkY);
+    linkEl.size(linkW, 16);
+  }
 }
 
 // Draws a titled bullet list. Returns the y-coordinate after the section.

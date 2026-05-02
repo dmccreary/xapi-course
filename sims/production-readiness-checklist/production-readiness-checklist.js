@@ -1,10 +1,10 @@
 // Production Readiness Checklist
-// CANVAS_HEIGHT: 620
+// CANVAS_HEIGHT: 390
 // Bloom: Evaluate (L5) — assess deployment readiness across 4 categories
 
 let canvasWidth = 800;
-let drawHeight = 540;
-let controlHeight = 80;
+let drawHeight = 350;
+let controlHeight = 40;
 let canvasHeight = drawHeight + controlHeight;
 
 const CATEGORIES = [
@@ -92,33 +92,40 @@ function setup() {
         allItems.push(it);
     }
 
-    const btnRow = createDiv('');
-    btnRow.parent(document.querySelector('main'));
-    btnRow.style('margin', '6px 12px');
-
     const presets = [
         ['reset', 'Reset all'],
         ['alpha', 'Realistic alpha'],
         ['beta',  'Realistic beta'],
         ['ga',    'Realistic GA']
     ];
+    const mainEl = document.querySelector('main');
     for (const [k, lbl] of presets) {
         const b = createButton(lbl);
-        b.parent(btnRow);
-        b.style('margin', '0 4px 0 0');
+        b.parent(mainEl);
         b.style('padding', '3px 8px');
         b.style('font-size', '11px');
         b.mousePressed(() => { applyPreset(k); });
+        presetBtns.push(b);
     }
+    layoutPresetButtons();
 
-    textFont('Segoe UI');
     noLoop();
     redraw();
+}
+
+function layoutPresetButtons() {
+    let bx = 12;
+    const by = drawHeight + (controlHeight - 22) / 2;
+    for (const b of presetBtns) {
+        b.position(bx, by);
+        bx += b.elt.offsetWidth + 6;
+    }
 }
 
 function windowResized() {
     updateCanvasSize();
     resizeCanvas(canvasWidth, canvasHeight);
+    layoutPresetButtons();
     redraw();
 }
 
@@ -136,6 +143,14 @@ let itemRects = [];
 
 function draw() {
     background(248, 250, 252);
+
+    // Control region (white strip at bottom holds the preset buttons)
+    fill(255); noStroke();
+    rect(0, drawHeight, canvasWidth, controlHeight);
+    stroke('#e2e8f0'); strokeWeight(1);
+    line(0, drawHeight, canvasWidth, drawHeight);
+    noStroke();
+
     const padX = 8;
     const headerH = 38;
 
@@ -165,7 +180,7 @@ function draw() {
 
     // 4 columns
     const colsTopY = headerH + 6;
-    const colsH = drawHeight - colsTopY - 130;
+    const colsH = drawHeight - colsTopY - 120;
     const colW = (canvasWidth - 2 * padX - 18) / 4;
     itemRects = [];
     for (let i = 0; i < CATEGORIES.length; i++) {
