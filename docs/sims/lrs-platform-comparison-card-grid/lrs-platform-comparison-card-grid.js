@@ -185,29 +185,29 @@ function draw() {
   updateCanvasSize();
 
   // Background
-  noStroke();
+
+  // Drawing area
   fill('aliceblue');
+  stroke('silver');
   rect(0, 0, canvasWidth, drawHeight);
+  // Control area
   fill('white');
   rect(0, drawHeight, canvasWidth, controlHeight);
-  stroke('silver');
-  noFill();
-  rect(0, 0, canvasWidth - 1, canvasHeight - 1);
 
   // Title
   noStroke();
   fill('black');
-  textAlign(LEFT, TOP);
-  textSize(18);
+  textAlign(CENTER, CENTER);
+  textSize(24);
   textStyle(BOLD);
-  text('LRS Platforms Compared', margin, 10);
+  text('LRS Platforms Comparison Method', canvasWidth/2, 20);
   textStyle(NORMAL);
-  textSize(13);
+  textSize(16);
   fill('#555');
-  text('Hover a card for detail. Use the scenario buttons below to see which platform fits a deployment.', margin, 32);
+  text('Click a card for detail. Use the scenario buttons below to see which platform fits a deployment.', canvasWidth/2, 50);
 
   // Layout: left 2/3 grid of 4 cards, right 1/3 side panel
-  const headerY = 60;
+  const headerY = 80;
   const gridLeft = margin;
   const gridRight = Math.floor(canvasWidth * 0.66);
   const panelLeft = gridRight + margin;

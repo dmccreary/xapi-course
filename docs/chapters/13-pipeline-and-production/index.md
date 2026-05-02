@@ -262,7 +262,7 @@ The five most common pipeline failure points:
 #### Diagram: Production Readiness Checklist
 
 
-<iframe src="../../sims/production-readiness-checklist/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="../../sims/production-readiness-checklist/main.html" width="100%" height="390px" scrolling="no"></iframe>
 [Run Production Readiness Checklist Fullscreen](../../sims/production-readiness-checklist/main.html)
 
 <details markdown="1">

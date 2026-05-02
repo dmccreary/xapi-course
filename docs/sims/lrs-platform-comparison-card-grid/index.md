@@ -1,7 +1,7 @@
 ---
 title: LRS Platform Comparison Card Grid
 description: Compare TRAX, Learning Locker, Ralph, and Watershed across five dimensions and pick the right LRS for a given deployment scenario.
-status: built
+status: approved
 library: p5.js
 bloom_level: "Evaluating"
 ---

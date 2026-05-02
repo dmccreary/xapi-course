@@ -64,7 +64,8 @@ flowchart: {
     curve: 'basis',
     nodeSpacing: 12,    // tight vertical spacing between sibling nodes
     rankSpacing: 60,    // horizontal spacing between ranks (LR flowcharts)
-    padding: 4          // padding inside each node, around the label text
+    padding: 4,         // padding inside each node, around the label text
+    subGraphTitleMargin: { top: 10, bottom: 14 }  // include ONLY when the diagram has titled subgraphs
 }
 ```
 
@@ -76,6 +77,14 @@ flowchart: {
   doesn't sprawl horizontally.
 - `padding: 4` — Default (~15) creates puffy nodes with too much whitespace
   around 1–2 lines of label text. 4 hugs the text.
+- `subGraphTitleMargin: { top: 10, bottom: 14 }` — Mermaid's default crowds
+  the subgraph title against the cluster border and overlaps the first child
+  node. These values give the title breathing room above and a visible gap
+  below before the first child. Add this key whenever the diagram contains a
+  `subgraph X ["..."]` with a title; omit it for diagrams without subgraphs.
+  Do NOT solve title-clipping with post-render JS that shifts `.cluster rect`
+  attributes — that hack predates the config option and should be removed if
+  you find it.
 
 **Canvas height:** Set `CANVAS_HEIGHT` to the smallest value that displays the
 entire flowchart without clipping the lowest node. For a Mermaid flowchart at

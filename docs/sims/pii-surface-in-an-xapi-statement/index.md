@@ -1,13 +1,13 @@
 ---
 title: PII Surface in an xAPI Statement
 description: PII Surface in an xAPI Statement
-status: implemented
+status: approved
 library: HTML/JS
 bloom_level: "Analyze"
 ---
 
 # PII Surface in an xAPI Statement
-<iframe src="main.html" width="100%" height="542" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="742" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

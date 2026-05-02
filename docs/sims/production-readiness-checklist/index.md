@@ -1,13 +1,13 @@
 ---
 title: Production Readiness Checklist
 description: Production Readiness Checklist
-status: implemented
+status: approved
 library: p5.js
 bloom_level: "Evaluate"
 ---
 
 # Production Readiness Checklist
-<iframe src="main.html" width="100%" height="622" scrolling="no" style="border:1px solid #ddd;border-radius:4px;"></iframe>
+<iframe src="main.html" width="100%" height="390" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

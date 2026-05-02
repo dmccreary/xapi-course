@@ -16,7 +16,7 @@
                 htmlLabels: true,
                 curve: 'basis',
                 nodeSpacing: 12,
-                rankSpacing: 60,
+                rankSpacing: 30,
                 padding: 4
             }
         });
@@ -44,7 +44,7 @@
             height: calc(100% - 40px);
         }
         .diagram-panel {
-            width: 66.67%;
+            width: 50%;
             height: 100%;
             background-color: #eef2ff;
             display: flex;
@@ -130,7 +130,7 @@
     <div class="container">
         <div class="diagram-panel">
             <div class="mermaid">
-flowchart LR
+flowchart TD
     LMS["LMS user record<br/><i>name, email, role</i>"]:::identifying
     Launch["LMS launch<br/><i>pseudonym only</i>"]:::pseudonymous
     Emit["Textbook emit site<br/><i>builds xAPI statement</i>"]:::pseudonymous

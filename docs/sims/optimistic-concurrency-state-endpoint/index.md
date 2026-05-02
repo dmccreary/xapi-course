@@ -1,7 +1,7 @@
 ---
 title: Optimistic Concurrency on the State Endpoint
 description: Interactive Mermaid MicroSim that traces two concurrent clients writing to the same xAPI state document, illustrating ETag-based optimistic concurrency, the 412 Precondition Failed response, and the recovery path the losing client must take.
-status: built
+status: approved
 library: Mermaid
 bloom_level: "Analyze"
 bloom_verb: Trace
@@ -9,7 +9,7 @@ bloom_verb: Trace
 
 # Optimistic Concurrency on the State Endpoint
 
-<iframe src="main.html" height="622" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="652" width="100%" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
