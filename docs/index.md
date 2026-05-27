@@ -1,9 +1,7 @@
 ---
 title: 'xAPI for Intelligent Textbooks'
 description: 'An interactive intelligent textbook for software professionals implementing the xAPI standard in Level 3 intelligent textbooks, covering LRS architecture, bandwidth optimization, traffic monitoring, and the broader educational standards ecosystem.'
-image: /img/cover.png
-og:image: /img/cover.png
-twitter:image: /img/cover.png
+image: img/cover.png
 hide:
   - toc
 ---

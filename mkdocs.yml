@@ -198,6 +198,13 @@ plugins:
       zoomable: true
       draggable: true
 
+# Hooks -- loaded as raw Python modules, not plugins (avoids name collisions).
+# `plugins/social_override.py` overrides og:image and twitter:image with the
+# page's `image:` frontmatter value when present. Pages without `image:` are
+# untouched -- mkdocs-material's default meta tags pass through unchanged.
+hooks:
+  - plugins/social_override.py
+
 # Markdown extensions
 markdown_extensions:
   - md_in_html
