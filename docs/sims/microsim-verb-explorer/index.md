@@ -1,6 +1,6 @@
 ---
 title: MicroSim Verb Explorer
-description: An interactive Mermaid diagram of the eight xAPI verbs we recommend for MicroSim interactions, grouped by Session, Engagement, and Mastery.
+description: "An interactive Mermaid diagram of the eight xAPI verbs we recommend for MicroSim interactions, grouped by Session, Engagement, and Mastery."
 status: approved
 library: Mermaid
 bloom_level: Understand

@@ -1,6 +1,6 @@
 ---
 title: Context Activity Buckets — Parent, Grouping, Category, Other
-description: Interactive Mermaid MicroSim showing how a single xAPI statement's main object can be related to multiple activities through the four context activity buckets.
+description: "Interactive Mermaid MicroSim showing how a single xAPI statement's main object can be related to multiple activities through the four context activity buckets."
 image: /sims/context-activity-buckets/context-activity-buckets.png
 og:image: /sims/context-activity-buckets/context-activity-buckets.png
 twitter:image: /sims/context-activity-buckets/context-activity-buckets.png

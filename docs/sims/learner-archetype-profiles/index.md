@@ -1,6 +1,6 @@
 ---
 title: Learner Archetype Profiles
-description: Learner Archetype Profiles
+description: "Learner Archetype Profiles"
 status: approved
 library: p5.js
 bloom_level: "Understand"

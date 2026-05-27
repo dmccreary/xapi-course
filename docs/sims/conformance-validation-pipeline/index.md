@@ -1,6 +1,6 @@
 ---
 title: Conformance Validation Pipeline
-description: Conformance Validation Pipeline
+description: "Conformance Validation Pipeline"
 status: approved
 library: Mermaid
 bloom_level: "Analyze"

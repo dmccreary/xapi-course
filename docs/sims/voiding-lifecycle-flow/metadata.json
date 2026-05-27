@@ -1,21 +1,49 @@
 {
   "title": "Voiding Lifecycle Flow",
-  "description": "Voiding Lifecycle Flow",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Interactive Mermaid pipeline tracing the eight-step lifecycle of a voided xAPI statement, from emit through error discovery, voiding statement, LRS flagging, default-query filtering, and audit-path inspection.",
+  "creator": "xAPI Course Project",
+  "date": "2026-05-02",
   "subject": [
-    "dementia"
+    "xAPI",
+    "Voiding",
+    "Statement Lifecycle",
+    "LRS"
   ],
-  "type": "Interactive Simulation",
+  "type": "Interactive Diagram",
   "format": "text/html",
   "language": "en-US",
   "rights": "CC BY 4.0",
   "identifier": "voiding-lifecycle-flow",
   "library": "Mermaid",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Analyze",
+  "bloomVerb": "Trace",
+  "completion_status": "implemented",
   "chapter_number": 3,
-  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
-  "chapter_dir": "03-advanced-statement-structure"
+  "chapter_title": "Advanced Statement Structure - Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "learningObjectives": [
+    "Trace the temporal sequence of events when an xAPI statement is voided.",
+    "Distinguish between the original statement, the voiding statement, and the LRS flag.",
+    "Explain why default queries filter voided records but audit queries do not."
+  ],
+  "educational": {
+    "gradeLevel": "Undergraduate / Professional",
+    "subjectArea": "Educational Technology",
+    "topic": "xAPI Statement Voiding",
+    "duration": "8-12 minutes",
+    "prerequisites": [
+      "Basic xAPI statement structure",
+      "Familiarity with statement IDs / UUIDs"
+    ]
+  },
+  "pedagogical": {
+    "bloomLevel": "Analyze",
+    "instructionalPattern": "Click-to-reveal step detail on a temporal pipeline",
+    "learningObjective": "Trace the lifecycle of a statement that gets voided, identifying which records persist in the LRS and which are filtered from default queries.",
+    "assessmentOpportunities": [
+      "Predict the result of a default query at each step",
+      "Identify which steps are AP-driven, LRS-driven, or out-of-band",
+      "Justify why xAPI never deletes voided records"
+    ]
+  }
 }

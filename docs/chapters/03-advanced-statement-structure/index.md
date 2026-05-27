@@ -93,6 +93,10 @@ A few worked details to internalize. The `scaled` value equals `raw / max` only 
 
 #### Diagram: Result Field Composition Explorer
 
+<iframe src="../../sims/result-field-composition-explorer/main.html" height="577px" width="100%" scrolling="no"></iframe>
+
+[Run the Result Field Composition Explorer Fullscreen](../../sims/result-field-composition-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Result Field Composition Explorer</summary>
 Type: micro-sim

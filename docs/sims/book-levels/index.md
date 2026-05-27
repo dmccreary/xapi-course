@@ -1,6 +1,6 @@
 ---
 title: Five Levels of Intelligent Textbooks
-description: An interactive diagram showing the five level classification system for intelligent textbooks.  The MicroSim allows the user to hover over one of five horizontal rows in a stair step diagram to see the details of each level.  A red dashed line surrounds the top three levels to indicate these levels hold student data and are highly regulated.
+description: "An interactive diagram showing the five level classification system for intelligent textbooks.  The MicroSim allows the user to hover over one of five horizontal rows in a stair step diagram to see the details of each level.  A red dashed line surrounds the top three levels to indicate these levels hold student data and are highly regulated."
 status: approved
 hide:
   - toc

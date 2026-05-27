@@ -1,6 +1,6 @@
 ---
 title: Activity Naming and Occurrence Fields
-description: Click or hover the five colored fields in a worked xAPI statement to see which question each one answers — and toggle compare mode to see what changes between two attempts of the same activity.
+description: "Click or hover the five colored fields in a worked xAPI statement to see which question each one answers — and toggle compare mode to see what changes between two attempts of the same activity."
 status: approved
 library: HTML/CSS/JavaScript
 bloom_level: "Understand"

@@ -1,7 +1,7 @@
 ---
 title: Three-Context Comparison
-description: Three-Context Comparison
-status: implemented
+description: "Three-Context Comparison"
+status: approved
 library: p5.js
 bloom_level: "Evaluate"
 ---

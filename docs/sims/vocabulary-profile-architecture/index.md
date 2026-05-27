@@ -1,7 +1,7 @@
 ---
 title: Vocabulary Profile Architecture
-description: Vocabulary Profile Architecture
-status: implemented
+description: "Vocabulary Profile Architecture"
+status: approved
 library: Mermaid
 bloom_level: "Understand"
 ---

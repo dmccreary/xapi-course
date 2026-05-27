@@ -1,6 +1,6 @@
 ---
 title: Learning Graph Viewer
-description: View the learning graph for the xAPI for intelligent textbooks as a directed graph.
+description: "View the learning graph for the xAPI for intelligent textbooks as a directed graph."
 status: approved
 library: vis-network
 bloom_level: "Analyze"

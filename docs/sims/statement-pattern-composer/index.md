@@ -1,62 +1,102 @@
 ---
 title: Statement Pattern Composer
-description: Statement Pattern Composer
-status: scaffold
+description: "Interactive p5.js composer for xAPI statement patterns. Pick a pattern (Page-Read, Quiz-Submission, MicroSim-Interaction, Adaptive-Branching, Voiding) and watch the slot-rule map update — required slots in green, allowed in yellow, forbidden in red — alongside a live JSON preview that reflects every control change."
+status: approved
 library: p5.js
-bloom_level: "TBD"
+bloom_level: Create
+image: /sims/statement-pattern-composer/statement-pattern-composer.png
+og:image: /sims/statement-pattern-composer/statement-pattern-composer.png
+twitter:image: /sims/statement-pattern-composer/statement-pattern-composer.png
+social:
+  cards: false
 ---
 
 # Statement Pattern Composer
-<iframe src="main.html" width="100%" height="600"></iframe>
+
+<iframe src="main.html" height="582" width="100%" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
+You can include this MicroSim on your website using the following `iframe`:
+
+```html
+<iframe src="https://dmccreary.github.io/xapi-course/sims/statement-pattern-composer/main.html"
+        height="582px" width="100%" scrolling="no"></iframe>
+```
 
 ## Learning Objective
 
-TBD
+Compose a complete xAPI statement by selecting a pattern, filling in
+pattern-specific slots, and observing the rendered statement to learn how
+patterns enforce consistency across emit sites.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Create
+- **Bloom Verb:** Compose / Construct
 - **Library:** p5.js
 
-## Specification
+## Description
 
-The full specification below is extracted from
-[Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments](../../chapters/03-advanced-statement-structure/index.md).
+A *statement pattern* is a templated shape — a constraint over which slots a
+statement is required to fill, allowed to fill, and forbidden from filling.
+Without patterns, every team that emits xAPI invents its own
+statement-shape conventions, and downstream analytics break the moment two
+teams shape the same event differently.
 
-```text
-Type: micro-sim
-**sim-id:** statement-pattern-composer<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+This sim shows five common patterns side by side:
 
-**Learning objective (Bloom — Creating):** Compose a complete xAPI statement by selecting a pattern, filling in pattern-specific slots, and observing the rendered statement to learn how patterns enforce consistency across emit sites.
+- **Page-Read** — `experienced` a chapter; no result, optional context
+- **Quiz-Submission** — `completed` a quiz; required result with score
+- **MicroSim-Interaction** — `interacted`; required context, optional result
+- **Adaptive-Branching** — `progressed`; required context for the branch
+- **Voiding** — `voided` a prior statement; no result, no context
 
-**Layout:** 2/3 (left) form + 1/3 (right) live JSON preview, responsive, re-flowing on resize.
+Pick a pattern from the dropdown. The **slot map** updates to show which
+slots that pattern requires (green badges), allows (yellow), or forbids
+(red). The **live JSON** panel re-renders to match — fields the pattern
+forbids vanish from the JSON entirely.
 
-**Controls:**
+Fill in the actor, parent activity, score, duration, and completion/success
+toggles. The validation badge turns green when the statement satisfies the
+pattern's required-slot rules.
 
-- Dropdown: pattern type (Page-Read, Quiz-Submission, MicroSim-Interaction, Adaptive-Branching, Voiding)
-- Dynamic form fields that change based on the selected pattern (e.g., Quiz-Submission shows score sliders, success toggle, duration; Page-Read shows only chapter selector)
-- Static fields visible for all patterns: actor (text), parent activity (dropdown of fake textbook chapters)
+## Lesson Plan
 
-**Visual elements:**
+**Suggested length:** 10–15 minutes.
 
-- Live JSON preview of the resulting statement, syntax-highlighted
-- A "Pattern Slot Map" that highlights which fields the pattern enforces, which are optional, and which are forbidden — color-coded green / yellow / red
-- Validation badge ("Pattern Valid" / "Missing Required Slot") that updates live
+1. **Compare patterns side by side (3 min).** Cycle through all five
+   patterns watching the slot map. Note that `actor`, `verb`, and
+   `object` are required for *every* pattern — those are xAPI's own
+   requirements. The patterns differ in what they say about `result`
+   and `context`.
+2. **Fill a Quiz-Submission (3 min).** Drag the score slider; toggle
+   completion. Watch the JSON update. Set both completion and success to
+   "unset" — note that the validation badge flips to "Missing Required
+   Slot" because the pattern requires a result.
+3. **Fill a Voiding statement (2 min).** Switch to the Voiding pattern.
+   Note that `result` and `context` are forbidden — and they vanish from
+   the JSON. Voiding intentionally has the simplest possible shape.
+4. **Discussion (3 min).** Why have patterns at all? What goes wrong if
+   one team emits a quiz-completion event with a result and another team
+   emits the same event without one?
+5. **Design exercise (3 min).** Sketch a sixth pattern for "video
+   playback events" with required `context` (the chapter), optional
+   `result` (timestamp reached), and forbidden... what? Discuss.
 
-**Interaction:** Selecting a different pattern re-renders the form and the slot map. Filling in slots re-renders the JSON. Invalid combinations are flagged but not blocked — this is a learning tool, not a validator.
+## Try This
 
-**Default canvas:** 1000×550px, responsive.
-
-Implementation: p5.js for the canvas drawing of the slot map; HTML form controls overlaid for accessible inputs. JSON preview rendered into a styled `<pre>` element.
-```
+- Switch to "Page-Read" and try to put a score in. The pattern says
+  result is forbidden — note that the score slider is still functional
+  but the result section disappears from the JSON.
+- Set the actor field to empty. The validation badge should flip — actor
+  is xAPI-required for every pattern.
+- Compare a MicroSim-Interaction statement to an Adaptive-Branching one.
+  Both require `context` — what would distinguish them in practice?
 
 ## Related Resources
 
 - [Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments](../../chapters/03-advanced-statement-structure/index.md)
+
+## References
+
+- xAPI 2.0 Specification, §4.1 *Statement Properties*
+- xAPI Profile Server documentation on statement-template patterns

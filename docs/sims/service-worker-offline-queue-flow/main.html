@@ -15,10 +15,9 @@
                 useMaxWidth: true,
                 htmlLabels: true,
                 curve: 'basis',
-                nodeSpacing: 12,
-                rankSpacing: 60,
-                padding: 4,
-                subGraphTitleMargin: { top: 10, bottom: 14 }
+                nodeSpacing: 8,
+                rankSpacing: 30,
+                padding: 4
             }
         });
     </script>
@@ -50,8 +49,8 @@
             background-color: #eef2ff;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 12px;
+            align-items: flex-start;
+            padding: 8px;
             overflow: hidden;
         }
         .mermaid { width: 100%; max-width: 100%; }
@@ -151,12 +150,12 @@ flowchart TD
     click Loop call showStep("Loop")
     click Done call showStep("Done")
 
-    classDef start fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold
-    classDef action fill:#4338ca,stroke:#312e81,color:#fff
-    classDef decision fill:#ca8a04,stroke:#854d0e,color:#fff
-    classDef queue fill:#dc2626,stroke:#7f1d1d,color:#fff
-    classDef event fill:#0d9488,stroke:#134e4a,color:#fff
-    classDef done fill:#16a34a,stroke:#14532d,color:#fff
+    classDef start fill:#1e293b,stroke:#0f172a,color:#fff,font-weight:bold,font-size:11px
+    classDef action fill:#4338ca,stroke:#312e81,color:#fff,font-size:11px
+    classDef decision fill:#ca8a04,stroke:#854d0e,color:#fff,font-size:11px
+    classDef queue fill:#dc2626,stroke:#7f1d1d,color:#fff,font-size:11px
+    classDef event fill:#0d9488,stroke:#134e4a,color:#fff,font-size:11px
+    classDef done fill:#16a34a,stroke:#14532d,color:#fff,font-size:11px
 
     linkStyle default stroke:#64748b,stroke-width:2px
             </div>

@@ -1,7 +1,7 @@
 ---
 title: Statement Query and Pagination Flow
-description: Interactive Mermaid flowchart of the client-side loop for paginated xAPI statement queries.
-status: built
+description: "Interactive Mermaid flowchart of the client-side loop for paginated xAPI statement queries."
+status: approved
 library: Mermaid
 bloom_level: "Apply"
 bloom_verb: Trace

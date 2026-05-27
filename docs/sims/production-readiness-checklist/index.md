@@ -1,6 +1,6 @@
 ---
 title: Production Readiness Checklist
-description: Production Readiness Checklist
+description: "Production Readiness Checklist"
 status: approved
 library: p5.js
 bloom_level: "Evaluate"

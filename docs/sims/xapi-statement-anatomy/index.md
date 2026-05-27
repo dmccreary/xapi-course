@@ -1,7 +1,7 @@
 ---
 title: xAPI Statement Anatomy
-description: xAPI Statement Anatomy
-status: built
+description: "xAPI Statement Anatomy"
+status: approved
 library: Mermaid
 bloom_level: "Understand (L2). Bloom verb: identify, explain."
 ---

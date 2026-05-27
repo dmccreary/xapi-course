@@ -1,10 +1,13 @@
 {
   "title": "Statement Pattern Composer",
-  "description": "Statement Pattern Composer",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Interactive p5.js composer for xAPI statement patterns with a pattern selector, slot-rule map (required / allowed / forbidden color-coded), live JSON preview, and validation badge.",
+  "creator": "xAPI Course Project",
+  "date": "2026-05-02",
   "subject": [
-    "dementia"
+    "xAPI",
+    "Statement Patterns",
+    "Profile Design",
+    "Vocabulary"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +15,35 @@
   "rights": "CC BY 4.0",
   "identifier": "statement-pattern-composer",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Create",
+  "bloomVerb": "Compose",
+  "completion_status": "implemented",
   "chapter_number": 3,
-  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
-  "chapter_dir": "03-advanced-statement-structure"
+  "chapter_title": "Advanced Statement Structure - Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "learningObjectives": [
+    "Compose a valid xAPI statement that conforms to a chosen pattern.",
+    "Distinguish required, allowed, and forbidden slots across patterns.",
+    "Articulate why patterns enforce cross-team consistency."
+  ],
+  "educational": {
+    "gradeLevel": "Undergraduate / Professional",
+    "subjectArea": "Educational Technology",
+    "topic": "xAPI Statement Patterns",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Familiarity with xAPI statement actor / verb / object structure",
+      "Awareness of the result and context sub-objects"
+    ]
+  },
+  "pedagogical": {
+    "bloomLevel": "Create",
+    "instructionalPattern": "Pattern selector + dynamic slot-rule map + live JSON preview",
+    "learningObjective": "Compose a complete xAPI statement by selecting a pattern, filling in pattern-specific slots, and observing the rendered statement to learn how patterns enforce consistency across emit sites.",
+    "assessmentOpportunities": [
+      "Build a valid statement of each pattern type from scratch",
+      "Identify what's missing when the validation badge flips to Missing Required Slot",
+      "Design a sixth pattern for a new event type and justify the slot rules"
+    ]
+  }
 }

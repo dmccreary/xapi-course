@@ -1,5 +1,10 @@
 {
   "worktrees": {
     "enabled": false
+  },
+  "permissions": {
+    "allow": [
+      "mcp__45a92988-1016-41ba-b84d-d98f8d902e11__validate_and_render_mermaid_diagram"
+    ]
   }
 }

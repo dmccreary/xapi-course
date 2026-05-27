@@ -1,6 +1,6 @@
 ---
 title: Batching Wire-Cost Comparison
-description: Batching Wire-Cost Comparison
+description: "Batching Wire-Cost Comparison"
 status: approved
 library: p5.js
 bloom_level: "Analyze"

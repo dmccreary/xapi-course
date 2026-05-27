@@ -1,6 +1,6 @@
 ---
 title: DevTools-Driven xAPI Debugging Flow
-description: DevTools-Driven xAPI Debugging Flow
+description: "DevTools-Driven xAPI Debugging Flow"
 status: approved
 library: Mermaid
 bloom_level: "Apply"

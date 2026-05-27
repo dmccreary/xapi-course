@@ -1,6 +1,6 @@
 ---
 title: CMI5 Session Lifecycle
-description: CMI5 Session Lifecycle
+description: "CMI5 Session Lifecycle"
 status: approved
 library: Mermaid
 bloom_level: "Understand"

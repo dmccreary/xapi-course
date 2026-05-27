@@ -1,6 +1,6 @@
 ---
 title: Canonical Verb Explorer
-description: An interactive Mermaid diagram of the twelve canonical ADL verbs, grouped by lifecycle role, with click-to-reveal IRIs, definitions, and example statements.
+description: "An interactive Mermaid diagram of the twelve canonical ADL verbs, grouped by lifecycle role, with click-to-reveal IRIs, definitions, and example statements."
 status: approved
 library: Mermaid
 bloom_level: Understand

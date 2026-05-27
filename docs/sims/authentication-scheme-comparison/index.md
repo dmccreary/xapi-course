@@ -1,6 +1,6 @@
 ---
 title: Authentication Scheme Comparison
-description: Compare HTTP Basic, OAuth 1.0a, and token-based authentication for xAPI across security, browser-safety, implementation cost, and revocation.
+description: "Compare HTTP Basic, OAuth 1.0a, and token-based authentication for xAPI across security, browser-safety, implementation cost, and revocation."
 status: approved
 library: p5.js
 bloom_level: "Evaluate (L5)"

@@ -1,6 +1,6 @@
 ---
 title: PII Surface in an xAPI Statement
-description: PII Surface in an xAPI Statement
+description: "PII Surface in an xAPI Statement"
 status: approved
 library: HTML/JS
 bloom_level: "Analyze"

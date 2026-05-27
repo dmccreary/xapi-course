@@ -1,6 +1,6 @@
 ---
 title: Bandwidth Budget Calculator MicroSim
-description: Bandwidth Budget Calculator MicroSim
+description: "Bandwidth Budget Calculator MicroSim"
 status: approved
 library: HTML/JS
 bloom_level: "Apply"

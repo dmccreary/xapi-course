@@ -1,6 +1,6 @@
 ---
 title: Full Pipeline Architecture
-description: Full Pipeline Architecture
+description: "Full Pipeline Architecture"
 status: approved
 library: Mermaid
 bloom_level: "Analyze"

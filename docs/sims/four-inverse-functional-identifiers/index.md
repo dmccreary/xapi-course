@@ -1,7 +1,7 @@
 ---
 title: The Four Inverse Functional Identifiers
-description: A 2x2 card grid comparing the four xAPI Inverse Functional Identifiers — mbox, mbox_sha1sum, openid, and account — across privacy posture, identification strength, and integration cost, with preset deployment scenarios that recommend the appropriate IFI.
-status: built
+description: "A 2x2 card grid comparing the four xAPI Inverse Functional Identifiers — mbox, mbox_sha1sum, openid, and account — across privacy posture, identification strength, and integration cost, with preset deployment scenarios that recommend the appropriate IFI."
+status: approved
 library: p5.js
 bloom_level: "Evaluating (L5)"
 bloom_verb: compare, select

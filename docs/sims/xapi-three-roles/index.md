@@ -1,6 +1,6 @@
 ---
 title: Activity Provider, LRS, and Activity Consumer
-description: Activity Provider, LRS, and Activity Consumer
+description: "Activity Provider, LRS, and Activity Consumer"
 status: approved
 library: Mermaid
 bloom_level: "Understand (L2). Bloom verb- describe, classify."

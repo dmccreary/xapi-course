@@ -1,7 +1,7 @@
 ---
 title: Statistical Representativeness Comparison
-description: Statistical Representativeness Comparison
-status: implemented
+description: "Statistical Representativeness Comparison"
+status: approved
 library: p5.js
 bloom_level: "Evaluate"
 ---

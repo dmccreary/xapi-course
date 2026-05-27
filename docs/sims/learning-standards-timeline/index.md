@@ -1,6 +1,6 @@
 ---
 title: A Timeline of Learning Interoperability Standards
-description: An interactive vis-timeline of major learning-data standards from AICC (1988) through I2IDL (2026), with click-to-reveal infoboxes and family filtering.
+description: "An interactive vis-timeline of major learning-data standards from AICC (1988) through I2IDL (2026), with click-to-reveal infoboxes and family filtering."
 image: /sims/learning-standards-timeline/learning-standards-timeline.png
 og:image: /sims/learning-standards-timeline/learning-standards-timeline.png
 status: approved

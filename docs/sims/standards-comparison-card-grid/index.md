@@ -1,7 +1,7 @@
 ---
 title: Standards Comparison Card Grid
-description: Standards Comparison Card Grid
-status: implemented
+description: "Standards Comparison Card Grid"
+status: approved
 library: p5.js
 bloom_level: "Evaluate"
 ---

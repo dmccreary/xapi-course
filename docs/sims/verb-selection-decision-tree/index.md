@@ -1,60 +1,96 @@
 ---
 title: Verb Selection Decision Tree
-description: Verb Selection Decision Tree
-status: scaffold
+description: "Interactive Mermaid decision tree that walks the four questions for choosing between an ADL verb, an ADL verb plus extension, or a custom verb for any new emit site."
+status: approved
 library: Mermaid
-bloom_level: "TBD"
+bloom_level: Evaluate
+image: /sims/verb-selection-decision-tree/verb-selection-decision-tree.png
+og:image: /sims/verb-selection-decision-tree/verb-selection-decision-tree.png
+twitter:image: /sims/verb-selection-decision-tree/verb-selection-decision-tree.png
+social:
+  cards: false
 ---
 
 # Verb Selection Decision Tree
-<iframe src="main.html" width="100%" height="600"></iframe>
+
+<iframe src="main.html" width="100%" height="1080" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
+You can include this MicroSim on your website using the following `iframe`:
+
+```html
+<iframe src="https://dmccreary.github.io/xapi-course/sims/verb-selection-decision-tree/main.html"
+        height="1000px" width="100%" scrolling="no"></iframe>
+```
 
 ## Learning Objective
 
-TBD
+Apply a structured decision process to choose between an ADL verb, a
+canonical verb plus extension, or a custom verb for any new emit site.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Evaluate
+- **Bloom Verb:** Apply / Evaluate
 - **Library:** Mermaid
 
-## Specification
+## Description
 
-The full specification below is extracted from
-[Chapter 4: Verb Vocabulary Design and the ADL Verb Registry](../../chapters/04-verb-vocabulary-design/index.md).
+The hardest design decision in xAPI is rarely "what verb?" — it's "how
+hard should I look before I invent one?". Custom verbs are easy to add and
+expensive to live with: every one creates documentation debt, governance
+load, and a new term every analyst has to learn.
 
-```text
-Type: workflow-diagram
-**sim-id:** verb-selection-decision-tree<br/>
-**Library:** Mermaid<br/>
-**Status:** Specified
+This decision tree compresses that judgment into four questions, asked in
+order from cheapest outcome to most expensive:
 
-**Learning objective (Bloom — Evaluating):** Apply a structured decision process to choose between an ADL verb, a canonical verb plus extension, or a custom verb for any new emit site.
+1. **Is there an ADL verb that fits?** — search the registry first.
+2. **ADL verb + extension covers it?** — capture the variation in a
+   structured extension instead of inventing a verb.
+3. **Custom verb cost < cost of forcing ADL fit?** — be honest about the
+   real ongoing cost of a new term.
+4. **Already in project profile?** — someone may already have made this
+   call.
 
-**Diagram type:** Mermaid flowchart (TD direction) with diamond decision nodes and rectangular outcome nodes. Click handlers on every node.
+Click any node to read when to take that branch and a real-world example
+for both directions.
 
-**Decision flow:**
+## Lesson Plan
 
-1. Start: "New event to emit"
-2. Diamond: "Is there an ADL verb that fits?" → Yes → "Use ADL verb (done)" / No → next
-3. Diamond: "Is there an ADL verb that fits with an extension?" → Yes → "Use ADL verb + extension (preferred)" / No → next
-4. Diamond: "Will the cost of a custom verb (governance, profile, training) be lower than the cost of forcing an ADL fit?" → No → "Force the ADL fit, document the strain" / Yes → next
-5. Diamond: "Is the verb already in the project profile?" → Yes → "Use existing custom verb" / No → "Open a profile-update PR (custom verb requires steward review)"
+**Suggested length:** 8–12 minutes.
 
-**Mermaid config:** project standard with `securityLevel: 'loose'` for click handlers.
+1. **Warm-up (1 min).** Click the start node. Note that the tree's first
+   instinct is to *not* invent a verb. Why?
+2. **Walk a known case (3 min).** A learner clicks "Submit" on a quiz.
+   Trace the tree; you should land at *Use ADL verb (done)* via D1 → yes.
+   Discuss why the registry is the right first stop.
+3. **Walk an extension case (3 min).** A learner re-runs a MicroSim with
+   new slider values. Trace; you should land at *Use ADL verb +
+   extension* via D1 → no, D2 → yes. Discuss what the extension carries
+   that the verb does not.
+4. **Walk a custom-verb case (3 min).** A learner deliberately voids
+   their last attempt and starts over. Walk to D3 and ask: is a custom
+   verb cheaper than forcing `voided` here? (No — `voided` is itself an
+   ADL verb. This is a trap to teach the question.)
+5. **Discuss the steward role (2 min).** Why does node 5 (*Open
+   profile-update PR*) require steward review? What goes wrong without
+   one?
 
-**Click behavior:** Each node opens a side-panel infobox with a brief explanation and one or two real-world examples for that decision branch.
+## Try This
 
-**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-
-Implementation: Mermaid flowchart with click directives bound to a side panel.
-```
+- Trace a *bad* event you've seen instrumented in another product and
+  decide which branch the original team should have taken.
+- Pick any custom verb in your project profile. Could it have been an
+  ADL verb plus extension instead? If yes, was the cost-comparison
+  honest at the time?
+- The tree has no "use someone else's profile's custom verb" branch.
+  Should it?
 
 ## Related Resources
 
 - [Chapter 4: Verb Vocabulary Design and the ADL Verb Registry](../../chapters/04-verb-vocabulary-design/index.md)
+- [ADL Verb Registry](https://registry.tincanapi.com/)
+
+## References
+
+- xAPI 2.0 Specification, §4.1.4.1 *Verb*
+- ADL Verb Registry community profile

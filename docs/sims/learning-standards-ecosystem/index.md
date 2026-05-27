@@ -1,13 +1,13 @@
 ---
 title: The Learning Standards Ecosystem
-description: The Learning Standards Ecosystem
-status: built
+description: "The Learning Standards Ecosystem"
+status: approved
 library: vis-network
 bloom_level: "TBD"
 ---
 
 # The Learning Standards Ecosystem
-<iframe src="main.html" width="100%" height="452"></iframe>
+<iframe src="main.html" width="100%" height="580"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

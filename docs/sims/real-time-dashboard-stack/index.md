@@ -1,6 +1,6 @@
 ---
 title: Real-Time Dashboard Stack
-description: Real-Time Dashboard Stack
+description: "Real-Time Dashboard Stack"
 status: approved
 library: Mermaid
 bloom_level: "Understand"

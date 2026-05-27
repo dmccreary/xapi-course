@@ -1,7 +1,7 @@
 ---
 title: Who Sets What — Client vs. LRS Field Ownership
-description: Who Sets What — Client vs. LRS Field Ownership
-status: built
+description: "Who Sets What — Client vs. LRS Field Ownership"
+status: approved
 library: Mermaid
 bloom_level: "Analyze (L4). Bloom verb: differentiate, attribute."
 ---

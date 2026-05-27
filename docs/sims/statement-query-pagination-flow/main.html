@@ -15,10 +15,9 @@
                 useMaxWidth: true,
                 htmlLabels: true,
                 curve: 'basis',
-                nodeSpacing: 12,
-                rankSpacing: 60,
-                padding: 4,
-                subGraphTitleMargin: { top: 10, bottom: 14 }
+                nodeSpacing: 10,
+                rankSpacing: 30,
+                padding: 4
             }
         });
     </script>
@@ -50,8 +49,8 @@
             background-color: #eef2ff;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 12px;
+            align-items: flex-start;
+            padding: 8px;
             overflow: hidden;
         }
         .mermaid {
@@ -172,10 +171,10 @@ flowchart TD
     click Done call showStep("Done")
     click Handoff call showStep("Handoff")
 
-    classDef action     fill:#4338ca,stroke:#312e81,color:#fff,font-size:15px,font-weight:bold
-    classDef decision   fill:#b45309,stroke:#7c2d12,color:#fff,font-size:15px,font-weight:bold
-    classDef terminal   fill:#047857,stroke:#064e3b,color:#fff,font-size:15px,font-weight:bold
-    classDef sidebranch fill:#0d9488,stroke:#134e4a,color:#fff,font-size:14px
+    classDef action     fill:#4338ca,stroke:#312e81,color:#fff,font-size:11px,font-weight:bold
+    classDef decision   fill:#b45309,stroke:#7c2d12,color:#fff,font-size:11px,font-weight:bold
+    classDef terminal   fill:#047857,stroke:#064e3b,color:#fff,font-size:11px,font-weight:bold
+    classDef sidebranch fill:#0d9488,stroke:#134e4a,color:#fff,font-size:11px
 
     linkStyle default stroke:#64748b,stroke-width:2px,font-size:13px
             </div>

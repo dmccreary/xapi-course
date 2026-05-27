@@ -1,6 +1,6 @@
 ---
 title: The xAPI Statement Triple — Actor / Verb / Object
-description: Interactive Mermaid MicroSim for the xapi statement triple — actor / verb / object.
+description: "Interactive Mermaid MicroSim for the xapi statement triple — actor / verb / object."
 image: /sims/xapi-statement-triple/xapi-statement-triple.png
 og:image: /sims/xapi-statement-triple/xapi-statement-triple.png
 twitter:image: /sims/xapi-statement-triple/xapi-statement-triple.png

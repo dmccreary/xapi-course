@@ -74,7 +74,7 @@ const STANDARDS = [
         recommend: 'Best when you want xAPI granularity but the deployment lives inside an LMS.'
     },
     {
-        id: 'proprietary', name: 'Proprietary SDK', year: 'vendor-specific', color: '#ca8a04',
+        id: 'proprietary', name: 'Proprietary SDK', year: 'closed', color: '#ca8a04',
         tagline: 'Lock-in for convenience.',
         scores: [4, 1, 1, 5, 4, 2],
         rationale: [

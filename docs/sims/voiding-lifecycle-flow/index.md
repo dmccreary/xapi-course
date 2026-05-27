@@ -1,65 +1,97 @@
 ---
 title: Voiding Lifecycle Flow
-description: Voiding Lifecycle Flow
-status: scaffold
+description: "Interactive Mermaid pipeline tracing the lifecycle of a voided xAPI statement — from emit, through error discovery, voiding statement, LRS flagging, to default-query filtering and audit-path inspection."
+status: approved
 library: Mermaid
-bloom_level: "TBD"
+bloom_level: Analyze
+image: /sims/voiding-lifecycle-flow/voiding-lifecycle-flow.png
+og:image: /sims/voiding-lifecycle-flow/voiding-lifecycle-flow.png
+twitter:image: /sims/voiding-lifecycle-flow/voiding-lifecycle-flow.png
+social:
+  cards: false
 ---
 
 # Voiding Lifecycle Flow
-<iframe src="main.html" width="100%" height="600"></iframe>
+
+<iframe src="main.html" width="100%" height="640" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
-!!! warning "Scaffold"
-    This MicroSim has been scaffolded from its specification. The interactive
-    implementation has not been built yet.
+You can include this MicroSim on your website using the following `iframe`:
+
+```html
+<iframe src="https://dmccreary.github.io/xapi-course/sims/voiding-lifecycle-flow/main.html"
+        height="940px" width="100%" scrolling="no"></iframe>
+```
 
 ## Learning Objective
 
-TBD
+Trace the lifecycle of a statement that gets voided, identifying which
+records persist in the LRS and which are filtered from default queries.
 
-- **Bloom Level:** TBD
-- **Bloom Verb:** TBD
+- **Bloom Level:** Analyze
+- **Bloom Verb:** Trace / Identify
 - **Library:** Mermaid
 
-## Specification
+## Description
 
-The full specification below is extracted from
-[Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments](../../chapters/03-advanced-statement-structure/index.md).
+Voiding is one of xAPI's most misunderstood features. New authors often
+expect "void" to mean "delete" — but xAPI never deletes. A voiding
+statement is a *second* statement that references the first by UUID and
+asks the LRS to flag it. Both records persist; the flag changes which
+queries see the original.
 
-```text
-Type: workflow-diagram
-**sim-id:** voiding-lifecycle-flow<br/>
-**Library:** Mermaid<br/>
-**Status:** Specified
+This sim walks the eight-step lifecycle as a left-to-right pipeline:
 
-**Learning objective (Bloom — Analyzing):** Trace the lifecycle of a statement that gets voided, identifying which records persist in the LRS and which are filtered from default queries.
+1. AP emits the original statement with `uuid=fd41…`
+2. LRS stores it
+3. Default queries see it
+4. AP discovers the error (out-of-band)
+5. AP emits a *voiding* statement (`verb=voided`, `StatementRef=fd41…`)
+6. LRS flags `fd41…` (without rewriting its bytes)
+7. Default queries now filter out `fd41…`
+8. Audit queries (`voided=true`) still see both
 
-**Diagram type:** Mermaid flowchart (LR direction) representing the temporal sequence as a left-to-right pipeline. Click handlers open an infobox for every node.
+The dashed arrow from step 7 back to step 8 indicates that operators can
+inspect voided records on demand — voiding is auditable, not destructive.
 
-**Nodes (left to right):**
+Click any node to read the operational and pedagogical details for that
+step.
 
-1. `AP emits original statement` (uuid=fd41…)
-2. `LRS stores original`
-3. `Default /statements query — original visible`
-4. `AP discovers error`
-5. `AP emits voiding statement` (StatementRef → fd41…, verb=voided)
-6. `LRS stores voiding statement and flags fd41…`
-7. `Default /statements query — original filtered out, voiding statement visible`
-8. `voided=true query — both visible`
+## Lesson Plan
 
-**Edges:** Solid arrows for the main flow; a dashed arrow loops from node 7 back to node 8 to indicate that operators can still inspect voided records on demand.
+**Suggested length:** 8–12 minutes.
 
-**Mermaid config:** project standard (`nodeSpacing: 12`, `rankSpacing: 60`, `padding: 4`, `useMaxWidth: true`, `securityLevel: 'loose'`).
+1. **Set the trap (1 min).** Before clicking anything, ask: "if a
+   statement is voided, is it deleted from the LRS?" Most learners say
+   yes. Click step 6 — the LRS flags but doesn't rewrite. Click step 8 —
+   audit queries still see the original.
+2. **Walk steps 1–4 (3 min).** Discuss what "discovers error" means
+   operationally. Why isn't the discovery part of xAPI itself?
+3. **Walk steps 5–6 carefully (3 min).** The voiding statement *is*
+   itself a permanent record. The original statement's bytes are not
+   rewritten. Both observations matter; both are easy to forget.
+4. **Compare default vs. audit query (2 min).** Step 7 vs step 8 — why
+   does xAPI default to filtering voided records? Why is the audit path
+   essential?
+5. **Discussion (2 min).** What goes wrong if an LRS *did* delete on
+   void? What goes wrong if it kept voided records visible to default
+   queries by default?
 
-**Click behavior:** Each node opens a side-panel infobox keyed off `data.json`. Glossary terms (`StatementRef`, `voided`, `authority`, `audit trail`) link to their full glossary definitions.
+## Try This
 
-**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-
-Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel is a vanilla JS component that swaps content based on the clicked node id.
-```
+- Find the trap in step 5 (who is authorized to void what?). Discuss
+  the security implications of unrestricted voiding rights.
+- A learner argues "we should just have used PATCH." Refute or support.
+- Map this lifecycle to a non-xAPI system you've worked with — how do
+  GitHub revert commits, database tombstones, or accounting reversal
+  entries embody the same pattern?
 
 ## Related Resources
 
 - [Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments](../../chapters/03-advanced-statement-structure/index.md)
+
+## References
+
+- xAPI 2.0 Specification, §4.3 *Voiding Statements*
+- xAPI 2.0 Specification, §4.1.4.6 *StatementRef*

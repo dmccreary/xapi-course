@@ -1,6 +1,6 @@
 ---
 title: Engagement Heatmap MicroSim
-description: Engagement Heatmap MicroSim
+description: "Engagement Heatmap MicroSim"
 status: approved
 library: p5.js
 bloom_level: "Analyze"

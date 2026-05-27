@@ -1,6 +1,6 @@
 ---
 title: LRS Architecture Overview
-description: Interactive Mermaid MicroSim showing the components of a conformant Learning Record Store and how a request flows through them.
+description: "Interactive Mermaid MicroSim showing the components of a conformant Learning Record Store and how a request flows through them."
 status: approved
 library: Mermaid
 bloom_level: "Understand"

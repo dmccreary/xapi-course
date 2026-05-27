@@ -1,6 +1,6 @@
 ---
 title: ADL Verb Vocabulary Explorer
-description: ADL Verb Vocabulary Explorer
+description: "ADL Verb Vocabulary Explorer"
 status: approved
 library: p5.js
 bloom_level: "Understand (L2). Bloom verb: classify, exemplify."

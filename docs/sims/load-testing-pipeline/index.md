@@ -1,6 +1,6 @@
 ---
 title: Load Testing Pipeline
-description: Load Testing Pipeline
+description: "Load Testing Pipeline"
 status: approved
 library: Mermaid
 bloom_level: "Analyze"

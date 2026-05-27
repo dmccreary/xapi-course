@@ -1,10 +1,13 @@
 {
   "title": "Verb IRI Anatomy",
-  "description": "Verb IRI Anatomy",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Interactive p5.js explorer that decomposes a verb IRI into scheme, namespace, and local name with hover/click info, alternative IRI examples, and a toggle for invalid IRIs.",
+  "creator": "xAPI Course Project",
+  "date": "2026-05-02",
   "subject": [
-    "dementia"
+    "xAPI",
+    "Verb Vocabulary",
+    "IRI",
+    "ADL Registry"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +15,34 @@
   "rights": "CC BY 4.0",
   "identifier": "verb-iri-anatomy",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Understand",
+  "bloomVerb": "Decompose",
+  "completion_status": "implemented",
   "chapter_number": 4,
   "chapter_title": "Verb Vocabulary Design and the ADL Verb Registry",
-  "chapter_dir": "04-verb-vocabulary-design"
+  "chapter_dir": "04-verb-vocabulary-design",
+  "learningObjectives": [
+    "Identify the three parts of a verb IRI: scheme, namespace, and local name.",
+    "Recognize valid versus invalid IRIs and explain the rejection reason.",
+    "Compare ADL, TinCan, and custom verb IRIs to see the shared structure."
+  ],
+  "educational": {
+    "gradeLevel": "Undergraduate / Professional",
+    "subjectArea": "Educational Technology",
+    "topic": "Verb IRI Structure",
+    "duration": "5-8 minutes",
+    "prerequisites": [
+      "Familiarity with the xAPI verb concept"
+    ]
+  },
+  "pedagogical": {
+    "bloomLevel": "Understand",
+    "instructionalPattern": "Hover/click reveal with toggle to invalid examples",
+    "learningObjective": "Decompose a verb IRI into its three parts and recognize valid versus invalid verb IRIs at a glance.",
+    "assessmentOpportunities": [
+      "Predict whether two given IRIs are the same verb",
+      "Identify which part differs between two superficially similar IRIs",
+      "Spot why an IRI is malformed before reading the explanation"
+    ]
+  }
 }

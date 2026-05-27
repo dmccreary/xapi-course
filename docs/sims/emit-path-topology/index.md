@@ -1,6 +1,6 @@
 ---
 title: Emit-Path Topology
-description: Interactive Mermaid MicroSim comparing client-side, server-side, and hybrid xAPI emission topologies, with click-to-reveal infoboxes describing the statements and security trade-offs of each path.
+description: "Interactive Mermaid MicroSim comparing client-side, server-side, and hybrid xAPI emission topologies, with click-to-reveal infoboxes describing the statements and security trade-offs of each path."
 status: approved
 library: Mermaid
 bloom_level: "Analyze"
