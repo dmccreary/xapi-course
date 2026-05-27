@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Voiding Lifecycle Flow">
+        <meta name="description" content="Interactive Mermaid pipeline tracing the lifecycle of a voided xAPI statement — from emit, through error discovery, voiding statement, LRS flagging, to default-query filtering and audit-path inspection.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -64,9 +64,9 @@
       
         <meta property="og:title" content="Voiding Lifecycle Flow - xAPI for Intelligent Textbooks">
       
-        <meta property="og:description" content="Voiding Lifecycle Flow">
+        <meta property="og:description" content="Interactive Mermaid pipeline tracing the lifecycle of a voided xAPI statement — from emit, through error discovery, voiding statement, LRS flagging, to default-query filtering and audit-path inspection.">
       
-        <meta property="og:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/sims/voiding-lifecycle-flow/index.png">
+        <meta property="og:image" content="https://dmccreary.github.io/xapi-course/sims/voiding-lifecycle-flow/voiding-lifecycle-flow.png">
       
         <meta property="og:image:type" content="image/png">
       
@@ -80,9 +80,9 @@
       
         <meta name="twitter:title" content="Voiding Lifecycle Flow - xAPI for Intelligent Textbooks">
       
-        <meta name="twitter:description" content="Voiding Lifecycle Flow">
+        <meta name="twitter:description" content="Interactive Mermaid pipeline tracing the lifecycle of a voided xAPI statement — from emit, through error discovery, voiding statement, LRS flagging, to default-query filtering and audit-path inspection.">
       
-        <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/assets/images/social/sims/voiding-lifecycle-flow/index.png">
+        <meta name="twitter:image" content="https://dmccreary.github.io/xapi-course/sims/voiding-lifecycle-flow/voiding-lifecycle-flow.png">
       
     
     
@@ -160,13 +160,11 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -205,14 +203,13 @@
     </div>
   </div>
 </div>
-      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -257,7 +254,7 @@
       <a href="https://github.com/dmccreary/xapi-course" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -277,10 +274,8 @@
       <a href="../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Home
-    
   </span>
   
 
@@ -299,10 +294,8 @@
       <a href="../../about/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     About
-    
   </span>
   
 
@@ -321,10 +314,8 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Course Description
-    
   </span>
   
 
@@ -377,7 +368,6 @@
     
     
     
-    
       
         
         
@@ -386,16 +376,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../chapters/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapters
-    
   </span>
   
 
@@ -437,7 +424,6 @@
       
         
       
-    
     
     
     
@@ -451,14 +437,11 @@
         
   
   
-  
     <a href="../../learning-graph/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Learning Graph
-    
   </span>
   
 
@@ -489,108 +472,205 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
+          
+        
       
-    
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -603,14 +683,13 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
+          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
-  
   <span class="md-ellipsis">
     MicroSims
-    
   </span>
   
 
@@ -642,10 +721,8 @@
       <a href="../learning-standards-timeline/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     A Timeline of Learning Interoperability Standards
-    
   </span>
   
     
@@ -673,10 +750,8 @@
       <a href="../activity-naming-and-occurrence-fields/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Activity Naming and Occurrence Fields
-    
   </span>
   
     
@@ -704,10 +779,8 @@
       <a href="../xapi-three-roles/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Activity Provider, LRS, and Activity Consumer
-    
   </span>
   
     
@@ -735,10 +808,8 @@
       <a href="../adl-verb-vocabulary-explorer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     ADL Verb Vocabulary Explorer
-    
   </span>
   
     
@@ -766,10 +837,8 @@
       <a href="../authentication-scheme-comparison/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Authentication Scheme Comparison
-    
   </span>
   
     
@@ -797,10 +866,8 @@
       <a href="../bandwidth-budget-calculator-microsim/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Bandwidth Budget Calculator MicroSim
-    
   </span>
   
     
@@ -828,10 +895,8 @@
       <a href="../batching-wire-cost-comparison/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Batching Wire-Cost Comparison
-    
   </span>
   
     
@@ -859,10 +924,8 @@
       <a href="../canonical-verb-explorer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Canonical Verb Explorer
-    
   </span>
   
     
@@ -890,10 +953,8 @@
       <a href="../cmi5-session-lifecycle/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     CMI5 Session Lifecycle
-    
   </span>
   
     
@@ -921,10 +982,8 @@
       <a href="../component-instrumentation-microsim/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Component Instrumentation MicroSim
-    
   </span>
   
     
@@ -952,10 +1011,8 @@
       <a href="../component-instrumentation-pattern-browser/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Component Instrumentation Pattern Browser
-    
   </span>
   
     
@@ -983,10 +1040,8 @@
       <a href="../conformance-validation-pipeline/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Conformance Validation Pipeline
-    
   </span>
   
     
@@ -1014,10 +1069,8 @@
       <a href="../context-activity-buckets/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Context Activity Buckets — Parent, Grouping, Category, Other
-    
   </span>
   
     
@@ -1045,10 +1098,8 @@
       <a href="../devtools-driven-xapi-debugging-flow/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     DevTools-Driven xAPI Debugging Flow
-    
   </span>
   
     
@@ -1076,10 +1127,8 @@
       <a href="../emit-path-topology/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Emit-Path Topology
-    
   </span>
   
     
@@ -1107,10 +1156,8 @@
       <a href="../engagement-heatmap-microsim/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Engagement Heatmap MicroSim
-    
   </span>
   
     
@@ -1138,41 +1185,8 @@
       <a href="../book-levels/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Five Levels of Intelligent Textbooks
-    
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--approved" title="Approved — tested and approved">
-    </span>
-  
-
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-viewer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Viewer
-    
   </span>
   
     
@@ -1200,10 +1214,8 @@
       <a href="../full-pipeline-architecture/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Full Pipeline Architecture
-    
   </span>
   
     
@@ -1231,10 +1243,8 @@
       <a href="../hosting-model-decision-tree/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Hosting Model Decision Tree
-    
   </span>
   
     
@@ -1262,10 +1272,8 @@
       <a href="../instructional-design-feedback-loop/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Instructional Design Feedback Loop
-    
   </span>
   
     
@@ -1293,10 +1301,8 @@
       <a href="../intelligent-textbook-xapi-architecture/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Intelligent Textbook xAPI Architecture
-    
   </span>
   
     
@@ -1324,10 +1330,8 @@
       <a href="../learner-archetype-profiles/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Learner Archetype Profiles
-    
   </span>
   
     
@@ -1355,10 +1359,8 @@
       <a href="../graph-viewer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    Graph Viewer
-    
+    Learning Graph Viewer
   </span>
   
     
@@ -1386,10 +1388,8 @@
       <a href="../load-testing-pipeline/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Load Testing Pipeline
-    
   </span>
   
     
@@ -1417,10 +1417,8 @@
       <a href="../lrs-architecture-overview/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     LRS Architecture Overview
-    
   </span>
   
     
@@ -1448,10 +1446,8 @@
       <a href="../lrs-platform-comparison-card-grid/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     LRS Platform Comparison Card Grid
-    
   </span>
   
     
@@ -1479,10 +1475,8 @@
       <a href="../microsim-verb-explorer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     MicroSim Verb Explorer
-    
   </span>
   
     
@@ -1510,10 +1504,8 @@
       <a href="../optimistic-concurrency-state-endpoint/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Optimistic Concurrency on the State Endpoint
-    
   </span>
   
     
@@ -1541,10 +1533,8 @@
       <a href="../pii-surface-in-an-xapi-statement/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     PII Surface in an xAPI Statement
-    
   </span>
   
     
@@ -1572,10 +1562,8 @@
       <a href="../production-readiness-checklist/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Production Readiness Checklist
-    
   </span>
   
     
@@ -1603,10 +1591,8 @@
       <a href="../pseudonymization-pipeline/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Pseudonymization Pipeline
-    
   </span>
   
     
@@ -1634,10 +1620,8 @@
       <a href="../real-time-dashboard-stack/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Real-Time Dashboard Stack
-    
   </span>
   
     
@@ -1665,16 +1649,14 @@
       <a href="../result-field-composition-explorer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Result Field Composition Explorer
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1696,16 +1678,14 @@
       <a href="../retry-with-backoff-state-machine/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Retry-With-Backoff State Machine
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1727,16 +1707,15 @@
       <a href="../service-worker-offline-queue-flow/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Service Worker and Offline Queue Flow
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--implemented"></span>
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
   
 
   
@@ -1757,16 +1736,15 @@
       <a href="../standards-comparison-card-grid/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Standards Comparison Card Grid
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--implemented"></span>
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
   
 
   
@@ -1787,16 +1765,14 @@
       <a href="../statement-pattern-composer/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Statement Pattern Composer
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1818,16 +1794,14 @@
       <a href="../statement-query-pagination-flow/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Statement Query and Pagination Flow
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1849,16 +1823,15 @@
       <a href="../statistical-representativeness-comparison/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Statistical Representativeness Comparison
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--implemented"></span>
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
   
 
   
@@ -1879,16 +1852,14 @@
       <a href="../four-inverse-functional-identifiers/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     The Four Inverse Functional Identifiers
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1910,16 +1881,14 @@
       <a href="../learning-standards-ecosystem/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     The Learning Standards Ecosystem
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -1941,10 +1910,8 @@
       <a href="../xapi-statement-triple/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     The xAPI Statement Triple — Actor / Verb / Object
-    
   </span>
   
     
@@ -1972,16 +1939,15 @@
       <a href="../three-context-comparison/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Three-Context Comparison
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--implemented"></span>
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
   
 
   
@@ -2002,16 +1968,14 @@
       <a href="../verb-iri-anatomy/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Verb IRI Anatomy
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2033,16 +1997,14 @@
       <a href="../verb-selection-decision-tree/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Verb Selection Decision Tree
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2064,16 +2026,15 @@
       <a href="../vocabulary-profile-architecture/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Vocabulary Profile Architecture
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--implemented"></span>
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
   
 
   
@@ -2103,16 +2064,14 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
-  
   <span class="md-ellipsis">
     Voiding Lifecycle Flow
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2124,16 +2083,14 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
-  
   <span class="md-ellipsis">
     Voiding Lifecycle Flow
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--scaffold" title="Scaffold — placeholder, not yet implemented">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2166,9 +2123,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#specification" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      Specification
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try This
     </span>
   </a>
   
@@ -2178,6 +2153,15 @@
   <a href="#related-resources" class="md-nav__link">
     <span class="md-ellipsis">
       Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -2202,16 +2186,14 @@
       <a href="../statement-field-ownership/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Who Sets What — Client vs. LRS Field Ownership
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2233,16 +2215,14 @@
       <a href="../xapi-statement-anatomy/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     xAPI Statement Anatomy
-    
   </span>
   
     
   
   
-    <span class="md-status md-status--built" title="Built — implementation complete, awaiting review">
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
     </span>
   
 
@@ -2264,11 +2244,17 @@
       <a href="../xapi-statement-builder/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     xAPI Statement Builder MicroSim
-    
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--approved" title="Approved — tested and approved">
+    </span>
+  
+
   
 
       </a>
@@ -2294,10 +2280,28 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
   </span>
   
 
@@ -2316,10 +2320,8 @@
       <a href="../../references/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     References
-    
   </span>
   
 
@@ -2338,10 +2340,8 @@
       <a href="../../instructors-guide/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Instructor's Guide
-    
   </span>
   
 
@@ -2360,10 +2360,8 @@
       <a href="../../license/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     License
-    
   </span>
   
 
@@ -2382,10 +2380,8 @@
       <a href="../../contact/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Contact
-    
   </span>
   
 
@@ -2430,9 +2426,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#specification" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      Specification
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try This
     </span>
   </a>
   
@@ -2442,6 +2456,15 @@
   <a href="#related-resources" class="md-nav__link">
     <span class="md-ellipsis">
       Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -2461,7 +2484,6 @@
                 
                   
 
-
   
     <a href="https://github.com/dmccreary/xapi-course/blob/main/docs/sims/voiding-lifecycle-flow/index.md" title="Edit this page" class="md-content__button md-icon">
       
@@ -2472,57 +2494,78 @@
 
 
 <h1 id="voiding-lifecycle-flow">Voiding Lifecycle Flow<a class="headerlink" href="#voiding-lifecycle-flow" title="Permanent link">¶</a></h1>
-<iframe src="main.html" width="100%" height="600"></iframe>
+<iframe src="main.html" width="100%" height="640" scrolling="no"></iframe>
 
 <p><a class="md-button md-button--primary" href="main.html">Run MicroSim in Fullscreen</a></p>
-<div class="admonition warning">
-<p class="admonition-title">Scaffold</p>
-<p>This MicroSim has been scaffolded from its specification. The interactive
-implementation has not been built yet.</p>
-</div>
+<p>You can include this MicroSim on your website using the following <code>iframe</code>:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/xapi-course/sims/voiding-lifecycle-flow/main.html"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        <span class="na">height</span><span class="o">=</span><span class="s">"940px"</span> <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</span></code></pre></div>
 <h2 id="learning-objective">Learning Objective<a class="headerlink" href="#learning-objective" title="Permanent link">¶</a></h2>
-<p>TBD</p>
+<p>Trace the lifecycle of a statement that gets voided, identifying which
+records persist in the LRS and which are filtered from default queries.</p>
 <ul>
-<li><strong>Bloom Level:</strong> TBD</li>
-<li><strong>Bloom Verb:</strong> TBD</li>
+<li><strong>Bloom Level:</strong> Analyze</li>
+<li><strong>Bloom Verb:</strong> Trace / Identify</li>
 <li><strong>Library:</strong> Mermaid</li>
 </ul>
-<h2 id="specification">Specification<a class="headerlink" href="#specification" title="Permanent link">¶</a></h2>
-<p>The full specification below is extracted from
-<a href="../../chapters/03-advanced-statement-structure/">Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments</a>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Type: workflow-diagram
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>**sim-id:** voiding-lifecycle-flow&lt;br/&gt;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>**Library:** Mermaid&lt;br/&gt;
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>**Status:** Specified
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>**Learning objective (Bloom — Analyzing):** Trace the lifecycle of a statement that gets voided, identifying which records persist in the LRS and which are filtered from default queries.
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>**Diagram type:** Mermaid flowchart (LR direction) representing the temporal sequence as a left-to-right pipeline. Click handlers open an infobox for every node.
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>**Nodes (left to right):**
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>1. `AP emits original statement` (uuid=fd41…)
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>2. `LRS stores original`
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>3. `Default /statements query — original visible`
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>4. `AP discovers error`
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>5. `AP emits voiding statement` (StatementRef → fd41…, verb=voided)
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>6. `LRS stores voiding statement and flags fd41…`
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>7. `Default /statements query — original filtered out, voiding statement visible`
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>8. `voided=true query — both visible`
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>**Edges:** Solid arrows for the main flow; a dashed arrow loops from node 7 back to node 8 to indicate that operators can still inspect voided records on demand.
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>**Mermaid config:** project standard (`nodeSpacing: 12`, `rankSpacing: 60`, `padding: 4`, `useMaxWidth: true`, `securityLevel: 'loose'`).
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>**Click behavior:** Each node opens a side-panel infobox keyed off `data.json`. Glossary terms (`StatementRef`, `voided`, `authority`, `audit trail`) link to their full glossary definitions.
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>**Default canvas:** 2/3 width diagram + 1/3 side panel. Stacks vertically below 700px.
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>Implementation: Mermaid flowchart with click directives bound to a side panel. The side panel is a vanilla JS component that swaps content based on the clicked node id.
-</span></code></pre></div>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¶</a></h2>
+<p>Voiding is one of xAPI's most misunderstood features. New authors often
+expect "void" to mean "delete" — but xAPI never deletes. A voiding
+statement is a <em>second</em> statement that references the first by UUID and
+asks the LRS to flag it. Both records persist; the flag changes which
+queries see the original.</p>
+<p>This sim walks the eight-step lifecycle as a left-to-right pipeline:</p>
+<ol>
+<li>AP emits the original statement with <code>uuid=fd41…</code></li>
+<li>LRS stores it</li>
+<li>Default queries see it</li>
+<li>AP discovers the error (out-of-band)</li>
+<li>AP emits a <em>voiding</em> statement (<code>verb=voided</code>, <code>StatementRef=fd41…</code>)</li>
+<li>LRS flags <code>fd41…</code> (without rewriting its bytes)</li>
+<li>Default queries now filter out <code>fd41…</code></li>
+<li>Audit queries (<code>voided=true</code>) still see both</li>
+</ol>
+<p>The dashed arrow from step 7 back to step 8 indicates that operators can
+inspect voided records on demand — voiding is auditable, not destructive.</p>
+<p>Click any node to read the operational and pedagogical details for that
+step.</p>
+<h2 id="lesson-plan">Lesson Plan<a class="headerlink" href="#lesson-plan" title="Permanent link">¶</a></h2>
+<p><strong>Suggested length:</strong> 8–12 minutes.</p>
+<ol>
+<li><strong>Set the trap (1 min).</strong> Before clicking anything, ask: "if a
+   statement is voided, is it deleted from the LRS?" Most learners say
+   yes. Click step 6 — the LRS flags but doesn't rewrite. Click step 8 —
+   audit queries still see the original.</li>
+<li><strong>Walk steps 1–4 (3 min).</strong> Discuss what "discovers error" means
+   operationally. Why isn't the discovery part of xAPI itself?</li>
+<li><strong>Walk steps 5–6 carefully (3 min).</strong> The voiding statement <em>is</em>
+   itself a permanent record. The original statement's bytes are not
+   rewritten. Both observations matter; both are easy to forget.</li>
+<li><strong>Compare default vs. audit query (2 min).</strong> Step 7 vs step 8 — why
+   does xAPI default to filtering voided records? Why is the audit path
+   essential?</li>
+<li><strong>Discussion (2 min).</strong> What goes wrong if an LRS <em>did</em> delete on
+   void? What goes wrong if it kept voided records visible to default
+   queries by default?</li>
+</ol>
+<h2 id="try-this">Try This<a class="headerlink" href="#try-this" title="Permanent link">¶</a></h2>
+<ul>
+<li>Find the trap in step 5 (who is authorized to void what?). Discuss
+  the security implications of unrestricted voiding rights.</li>
+<li>A learner argues "we should just have used PATCH." Refute or support.</li>
+<li>Map this lifecycle to a non-xAPI system you've worked with — how do
+  GitHub revert commits, database tombstones, or accounting reversal
+  entries embody the same pattern?</li>
+</ul>
 <h2 id="related-resources">Related Resources<a class="headerlink" href="#related-resources" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../chapters/03-advanced-statement-structure/">Chapter 3: Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments</a></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<ul>
+<li>xAPI 2.0 Specification, §4.3 <em>Voiding Statements</em></li>
+<li>xAPI 2.0 Specification, §4.1.4.6 <em>StatementRef</em></li>
 </ul>
 
 
@@ -2618,12 +2661,10 @@ implementation has not been built yet.</p>
     </div>
     
     
-    
-      
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       

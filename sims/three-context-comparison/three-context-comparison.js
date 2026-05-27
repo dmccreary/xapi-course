@@ -76,7 +76,6 @@ function setup() {
         redraw();
     });
 
-    textFont('Segoe UI');
     noLoop();
     redraw();
 }
@@ -169,12 +168,22 @@ function drawRadar(cx, cy, r, ctx) {
         drawPoly(cx, cy, r, ctx.scoresEU, '#0d9488', true);
     }
 
-    // axis labels (short)
+    // axis labels (short) — drawn with a translucent white pill so they
+    // stay legible on top of the panel header band and the regulations title
     const labels = ['Reg', 'Time', 'Analy', 'Vend'];
-    fill('#475569'); textSize(8); textAlign(CENTER, CENTER);
+    textSize(8); textAlign(CENTER, CENTER);
     for (let i = 0; i < AXES.length; i++) {
         const ang = -PI / 2 + (i / AXES.length) * TWO_PI;
-        text(labels[i], cx + cos(ang) * (r + 10), cy + sin(ang) * (r + 10));
+        const lx = cx + cos(ang) * (r + 10);
+        const ly = cy + sin(ang) * (r + 10);
+        const tw = textWidth(labels[i]);
+        noStroke();
+        fill(255, 255, 255, 220);
+        rectMode(CENTER);
+        rect(lx, ly, tw + 6, 11, 3);
+        rectMode(CORNER);
+        fill('#475569');
+        text(labels[i], lx, ly);
     }
 }
 

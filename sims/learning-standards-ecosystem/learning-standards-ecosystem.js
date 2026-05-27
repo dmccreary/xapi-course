@@ -137,9 +137,9 @@
                 enabled: true,
                 stabilization: { iterations: 300, fit: true },
                 barnesHut: {
-                    gravitationalConstant: -4000,
-                    springLength: 130,
-                    springConstant: 0.04,
+                    gravitationalConstant: -1800,
+                    springLength: 75,
+                    springConstant: 0.06,
                     damping: 0.5
                 }
             },
@@ -156,6 +156,11 @@
 
         network.on('stabilizationIterationsDone', () => {
             network.setOptions({ physics: { enabled: false } });
+            setTimeout(() => {
+                network.fit({ animation: false });
+                const currentScale = network.getScale();
+                network.moveTo({ scale: currentScale * 0.88, animation: false });
+            }, 30);
         });
 
         network.on('click', params => {

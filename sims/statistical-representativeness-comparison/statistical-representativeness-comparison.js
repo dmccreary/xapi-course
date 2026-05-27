@@ -146,7 +146,9 @@ function drawVerbChart(x, y, w, h, tol) {
     const realC = '#0d9488', synC = '#dc2626';
 
     let maxV = 0;
-    for (const v of VERBS) maxV = Math.max(maxV, REAL_VERBS[v], synthVerbs[v]);
+    for (const v of VERBS) {
+        maxV = Math.max(maxV, REAL_VERBS[v] * (1 + tol), synthVerbs[v]);
+    }
 
     for (let i = 0; i < VERBS.length; i++) {
         const v = VERBS[i];
@@ -190,7 +192,9 @@ function drawDurChart(x, y, w, h, tol) {
     const barWPair = chartW / REAL_DUR.length;
 
     let maxV = 0;
-    for (let i = 0; i < REAL_DUR.length; i++) maxV = Math.max(maxV, REAL_DUR[i], synthDur[i]);
+    for (let i = 0; i < REAL_DUR.length; i++) {
+        maxV = Math.max(maxV, REAL_DUR[i] * (1 + tol), synthDur[i]);
+    }
 
     for (let i = 0; i < REAL_DUR.length; i++) {
         const baseX = chartX + i * barWPair + 4;

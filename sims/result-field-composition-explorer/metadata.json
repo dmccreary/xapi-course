@@ -1,10 +1,13 @@
 {
   "title": "Result Field Composition Explorer",
-  "description": "Result Field Composition Explorer",
-  "creator": "Dementia Education Project",
-  "date": "2026-04-30",
+  "description": "Interactive p5.js MicroSim for composing an xAPI result object field-by-field with live JSON output and a 2x2 completion-by-success state grid.",
+  "creator": "xAPI Course Project",
+  "date": "2026-05-02",
   "subject": [
-    "dementia"
+    "xAPI",
+    "Learning Record Store",
+    "Statement Structure",
+    "Result Object"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
@@ -12,10 +15,46 @@
   "rights": "CC BY 4.0",
   "identifier": "result-field-composition-explorer",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "bloomLevel": "Apply",
+  "bloomVerb": "Apply",
+  "completion_status": "implemented",
   "chapter_number": 3,
-  "chapter_title": "Advanced Statement Structure — Voiding, Sub-Statements, Extensions, and Attachments",
-  "chapter_dir": "03-advanced-statement-structure"
+  "chapter_title": "Advanced Statement Structure - Voiding, Sub-Statements, Extensions, and Attachments",
+  "chapter_dir": "03-advanced-statement-structure",
+  "learningObjectives": [
+    "Compose a valid xAPI result object by selecting values for each sub-field.",
+    "Distinguish completion from success and articulate why the two fields are independent.",
+    "Compute a scaled score from raw, min, and max values.",
+    "Read and write ISO 8601 duration strings."
+  ],
+  "controls": [
+    { "type": "slider", "name": "rawScore", "range": "0 to 10", "default": 7 },
+    { "type": "slider", "name": "minScore", "range": "-5 to 0", "default": 0 },
+    { "type": "slider", "name": "maxScore", "range": "5 to 20", "default": 10 },
+    { "type": "slider", "name": "duration", "range": "0 to 600 seconds", "default": 47 },
+    { "type": "button", "name": "successToggle", "states": ["true", "false", "unset"] },
+    { "type": "button", "name": "completionToggle", "states": ["true", "false", "unset"] },
+    { "type": "input", "name": "response", "default": "x = -3, x = 5" },
+    { "type": "button", "name": "presets", "values": ["Passed Cleanly", "Failed but Finished", "Bailed Early", "Mastery Exit"] }
+  ],
+  "educational": {
+    "gradeLevel": "Undergraduate / Professional",
+    "subjectArea": "Educational Technology",
+    "topic": "xAPI Result Object Composition",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Familiarity with the actor / verb / object structure of an xAPI statement",
+      "Basic JSON literacy"
+    ]
+  },
+  "pedagogical": {
+    "bloomLevel": "Apply",
+    "instructionalPattern": "Parameter exploration with live JSON feedback",
+    "learningObjective": "Given a learner scenario, the student selects appropriate values for each result sub-field and sees the rendered JSON update in real time, reinforcing the orthogonality of completion and success.",
+    "assessmentOpportunities": [
+      "Predict the rendered JSON before adjusting a slider",
+      "Identify which preset matches a written learner scenario",
+      "Justify why completion and success are independent"
+    ]
+  }
 }
