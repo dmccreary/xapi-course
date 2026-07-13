@@ -1,0 +1,473 @@
+{
+  "project": {
+    "title": "xAPI for Intelligent Textbooks",
+    "subtitle": "Auto-scanned intelligent textbook",
+    "author": "Dan McCreary",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "scaffold": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 4000,
+      "tokensDone": 2745
+    },
+    "learning-graph": {
+      "status": "published",
+      "tokensTarget": 20000,
+      "tokensDone": 20000
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 15000
+    },
+    "chapter-content": {
+      "countLabel": "14 chapters",
+      "children": [
+        {
+          "n": 1,
+          "title": "Foundations of xAPI and the Learning Standards Landscape",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 2,
+          "title": "The xAPI Statement Model: Actor, Verb, Object, Result, and Context",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 3,
+          "title": "Advanced Statement Structure: Voiding, Sub-Statements, Extensions, and Attachments",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 4,
+          "title": "Verb Vocabulary Design and the ADL Verb Registry",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 5,
+          "title": "Activities, Agents, and Learner Identity",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 6,
+          "title": "Learning Record Store Architecture and Query Endpoints",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 7,
+          "title": "LRS Platforms, Authentication, and Hosting Models",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 8,
+          "title": "Implementing xAPI in Intelligent Textbooks",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 9,
+          "title": "Bandwidth Optimization, Offline Queues, and Service Workers",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 10,
+          "title": "Monitoring, Observability, and xAPI Traffic Analysis",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 11,
+          "title": "Synthetic Data Generation and AI-Assisted LRS Testing",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 12,
+          "title": "Conformance Testing, Validation, and Competitive Standards Analysis",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 13,
+          "title": "xAPI Pipeline Architecture, Vocabulary Profiles, and Production Readiness",
+          "status": "published",
+          "tokens": 10000
+        },
+        {
+          "n": 14,
+          "title": "Privacy, Compliance, and Organizational Context",
+          "status": "published",
+          "tokens": 10000
+        }
+      ]
+    },
+    "chapter-images": {
+      "status": "published",
+      "tokensTarget": 8000,
+      "tokensDone": 8000
+    },
+    "microsims": {
+      "countLabel": "50 simulations",
+      "children": [
+        {
+          "n": 1,
+          "title": "Activity Naming and Occurrence Fields",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 2,
+          "title": "ADL Verb Vocabulary Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 3,
+          "title": "Authentication Scheme Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 4,
+          "title": "Bandwidth Budget Calculator MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 5,
+          "title": "Batching Wire-Cost Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 6,
+          "title": "Book Levels MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 7,
+          "title": "Canonical Verb Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 8,
+          "title": "CMI5 Session Lifecycle",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 9,
+          "title": "Component Instrumentation MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 10,
+          "title": "Component Instrumentation Pattern Browser",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 11,
+          "title": "Conformance Validation Pipeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 12,
+          "title": "Context Activity Buckets \u2014 Parent, Grouping, Category, Other",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 13,
+          "title": "DevTools-Driven xAPI Debugging Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 14,
+          "title": "Emit-Path Topology",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 15,
+          "title": "Engagement Heatmap MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 16,
+          "title": "The Four Inverse Functional Identifiers",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 17,
+          "title": "Full Pipeline Architecture",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 18,
+          "title": "Graph Viewer",
+          "status": "drafted",
+          "tokens": 5000
+        },
+        {
+          "n": 19,
+          "title": "Hosting Model Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 20,
+          "title": "Instructional Design Feedback Loop",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 21,
+          "title": "Intelligent Textbook xAPI Architecture",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 22,
+          "title": "Learner Archetype Profiles",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 23,
+          "title": "The Learning Standards Ecosystem",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 24,
+          "title": "A Timeline of Learning Interoperability Standards",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 25,
+          "title": "Load Testing Pipeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 26,
+          "title": "LRS Architecture Overview",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 27,
+          "title": "LRS Platform Comparison Card Grid",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 28,
+          "title": "MicroSim Verb Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 29,
+          "title": "Optimistic Concurrency on the State Endpoint",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 30,
+          "title": "PII Surface in an xAPI Statement",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 31,
+          "title": "Production Readiness Checklist",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 32,
+          "title": "Pseudonymization Pipeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 33,
+          "title": "Real-Time Dashboard Stack",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 34,
+          "title": "Result Field Composition Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 35,
+          "title": "Retry-With-Backoff State Machine",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 36,
+          "title": "Service Worker and Offline Queue Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 37,
+          "title": "Standards Comparison Card Grid",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 38,
+          "title": "Who Sets What \u2014 Client vs. LRS Field Ownership",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 39,
+          "title": "Statement Pattern Composer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 40,
+          "title": "Statement Query and Pagination Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 41,
+          "title": "Statistical Representativeness Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 42,
+          "title": "Three-Context Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 43,
+          "title": "Verb IRI Anatomy",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 44,
+          "title": "Verb Selection Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 45,
+          "title": "Vocabulary Profile Architecture",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 46,
+          "title": "Voiding Lifecycle Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 47,
+          "title": "xAPI Statement Anatomy",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 48,
+          "title": "xAPI Statement Builder MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 49,
+          "title": "The xAPI Statement Triple \u2014 Actor / Verb / Object",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 50,
+          "title": "Activity Provider, LRS, and Activity Consumer",
+          "status": "published",
+          "tokens": 5000
+        }
+      ]
+    },
+    "glossary": {
+      "status": "published",
+      "tokensTarget": 25464,
+      "tokensDone": 25464
+    },
+    "faq": {
+      "status": "published",
+      "tokensTarget": 12000,
+      "tokensDone": 9825
+    },
+    "quiz": {
+      "status": "published",
+      "tokensTarget": 30000,
+      "tokensDone": 24737
+    },
+    "reference": {
+      "status": "published",
+      "tokensTarget": 20000,
+      "tokensDone": 6179
+    },
+    "teachers-guide": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 7046
+    },
+    "book-metrics": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "publish": {
+      "status": "published",
+      "tokensTarget": 10000,
+      "tokensDone": 10000
+    },
+    "stories": {
+      "status": "not-started",
+      "tokensTarget": 30000,
+      "tokensDone": 0
+    }
+  }
+}
